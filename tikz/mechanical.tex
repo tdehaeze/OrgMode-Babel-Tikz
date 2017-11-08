@@ -1,0 +1,39 @@
+\documentclass[12pt,tikz]{standalone}
+
+\ifstandalone%
+    \usepackage{import}%
+    \import{../configuration/}{comon_packages.tex}%
+    \import{../configuration/}{variables.tex}%
+    \import{../configuration/}{conftikz.tex}%
+    \import{../configuration/}{custom_config.tex}%
+\fi
+
+\begin{document}
+    \begin{tikzpicture}
+        \draw (-2, 0) -- (2, 0);
+        \node [ground, anchor=north, minimum width=4cm] at (0, 0){};
+        \draw (-2, 2) rectangle (2, 3) node[pos=0.5]{$m_{\micro}$};
+        \draw (-2, 5) rectangle (2, 6) node[pos=0.5]{$m_{\nu}$};
+        \draw (-1, 8) rectangle (1, 9) node[pos=0.5]{$m_s$};
+
+        \draw[spring] (-1, 0) -- (-1, 2) node[midway, left=0.3]{$k_{\micro}$};
+        \draw[damper] ( 1, 0) -- ( 1, 2) node[midway, right=0.3]{$c_{\micro}$};
+        \draw[spring] (-1, 3) -- (-1, 5) node[midway, left=0.3]{$k_{\nu}$};
+        \draw[damper] ( 1, 3) -- ( 1, 5) node[midway, right=0.3]{$c_{\nu}$};
+        \draw[spring] (0, 6)  -- (0, 8)  node[midway, left=0.3]{$k_s$};
+        
+        \draw[dashed] (2, 0) -- ++(1, 0);
+        \draw[->] (2.8, 0) -- ++(0, 0.3) node[right]{$z_g$};
+        \draw[dashed] (2, 2) -- ++(1, 0);
+        \draw[->] (2.8, 2) -- ++(0, 0.3) node[right]{$z_{\micro}$};
+        \draw[dashed] (2, 5) -- ++(1, 0);
+        \draw[->] (2.8, 5) -- ++(0, 0.3) node[right]{$z_{\nu}$};
+        \draw[dashed] (1, 8) -- ++(2, 0);
+        \draw[->] (2.8, 8) -- ++(0, 0.3) node[right]{$z_s$};
+
+        \draw [decorate, decoration={brace, amplitude=10pt}, xshift=-4pt] (-2, 0.1) -- (-2, 3) node[midway,xshift=-0.6cm,anchor=east]{$\micro$-positioning};
+        \draw [decorate, decoration={brace, amplitude=10pt}, xshift=-4pt] (-2, 3.1) -- (-2, 6) node[midway,xshift=-0.6cm,anchor=east]{$\nu$-positioning};
+        \draw [decorate, decoration={brace, amplitude=10pt}, xshift=-4pt] (-2, 6.1) -- (-2, 9) node[midway,xshift=-0.6cm,anchor=east]{Sample};
+    \end{tikzpicture}
+\end{document}
+
