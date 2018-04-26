@@ -1,13 +1,14 @@
 # Tikz Pictures Maker
 
-<!-- vim-markdown-toc GFM -->
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
+**Table of Contents**
 
-* [Using the Makefile](#using-the-makefile)
-    * [Create a Tikz File](#create-a-tikz-file)
-    * [Tikz](#tikz)
+- [Tikz Pictures Maker](#tikz-pictures-maker)
+    - [Using the Makefile](#using-the-makefile)
+        - [Create a Tikz File](#create-a-tikz-file)
+        - [Tikz](#tikz)
 
-<!-- vim-markdown-toc -->
-
+<!-- markdown-toc end -->
 
 ## Using the Makefile
 

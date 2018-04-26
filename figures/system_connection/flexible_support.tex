@@ -1,0 +1,29 @@
+\documentclass[12pt,tikz]{standalone}
+
+\ifstandalone%
+    \usepackage{import}%
+    \import{../configuration/}{comon_packages.tex}%
+    \import{../configuration/}{variables.tex}%
+    \import{../configuration/}{conftikz.tex}%
+    \import{../configuration/}{custom_config.tex}%
+\fi
+
+\begin{document}
+    \begin{tikzpicture}
+        \draw[] (0,0) circle [x radius=2.8, y radius=1.6] node[pos=0.5]{Flexible Support};
+
+        \draw[dashed] (1.2, 1.6) -- ++(1, 0);
+        \draw[->] (2, 1.6) -- ++(0, 0.3) node[above]{$x_{s}$};
+
+        \draw[->] (0, 1.6) node[]{\(\bullet\)} -- ++(0, 1) node[above]{\(F_s\)};
+
+        \draw[] (-1.2, 1.6) -- (1.2, 1.6);
+        \draw[spring] (-1, 1.6) -- ++(0, 2) node[midway, right=0.1]{$k_{i}$};
+        \draw[damper] ( 1, 1.6) -- ++(0, 2) node[midway, right=0.3]{$c_{i}$};
+        \draw[] (-1.2, 3.6) rectangle (1.2, 4.6) node[pos=0.5]{$m_{i}$};
+
+        \draw[dashed] (1.2, 3.6) -- ++(1, 0);
+        \draw[->] (2, 3.6) -- ++(0, 0.3) node[above]{$x_{i}$};
+
+    \end{tikzpicture}
+\end{document}

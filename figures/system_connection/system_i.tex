@@ -1,0 +1,29 @@
+\documentclass[12pt,tikz]{standalone}
+
+\ifstandalone%
+    \usepackage{import}%
+    \import{../configuration/}{comon_packages.tex}%
+    \import{../configuration/}{variables.tex}%
+    \import{../configuration/}{conftikz.tex}%
+    \import{../configuration/}{custom_config.tex}%
+\fi
+
+\begin{document}
+    \begin{tikzpicture}
+        \draw (-2, 0) -- (2, 0);
+        \draw (-2, 2) rectangle (2, 4) node[pos=0.5]{$m_{i}$};
+
+        \draw[spring] (-1, 0) -- (-1, 2) node[midway, right=0.1]{$k_{i}$};
+        \draw[damper] ( 1, 0) -- ( 1, 2) node[midway, right=0.3]{$c_{i}$};
+        
+        \draw[dashed] (2, 0) -- ++(1, 0);
+        \draw[->] (2.8, 0) -- ++(0, 0.3) node[right]{$x_{i-1}$};
+        \draw[dashed] (2, 2) -- ++(1, 0);
+        \draw[->] (2.8, 2) -- ++(0, 0.3) node[above]{$x_{i}$};
+
+        \draw[->] (0, 0) node[]{$\bullet$} -- ++(0, 1) node[right]{$f_{i}$};
+        \draw[->] (0, 4) node[]{$\bullet$} -- ++(0, 1) node[right]{$f_{i+1}$};
+
+        \draw[<-] (-1.8, 2) node[below right]{$g_{i}$} -- ++(0, -1);
+    \end{tikzpicture}
+\end{document}

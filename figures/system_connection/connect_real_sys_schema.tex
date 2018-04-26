@@ -1,0 +1,86 @@
+\documentclass[12pt,tikz]{standalone}
+
+\ifstandalone%
+    \usepackage{import}%
+    \import{../configuration/}{comon_packages.tex}%
+    \import{../configuration/}{variables.tex}%
+    \import{../configuration/}{conftikz.tex}%
+    \import{../configuration/}{custom_config.tex}%
+\fi
+
+\begin{document}
+    \begin{tikzpicture}
+        \tikzstyle{spring}=[thick,decorate,decoration={zigzag,pre length=0.3cm,post length=0.3cm,segment length=6}]
+        \tikzstyle{damper}[black]=[thick,decoration={markings,  
+            mark connection node=dmp,
+            mark=at position 0.5 with 
+            {
+                \node[] (dmp) [thick,inner sep=0pt,transform shape,rotate=-90,minimum width=15pt,minimum height=3pt,draw=none] {};
+                \draw[thick, #1] ($(dmp.north east)+(2pt,0)$) -- (dmp.south east) -- (dmp.south west) -- ($(dmp.north west)+(2pt,0)$);
+                \draw[thick, #1] ($(dmp.north)+(0,-5pt)$) -- ($(dmp.north)+(0,5pt)$);
+            }
+        }, decorate]
+        \tikzstyle{ground}=[fill,pattern=north east lines,draw=none,minimum width=0.75cm,minimum height=0.3cm]
+
+        %% Ground
+        \draw (-2, 0) -- (2, 0);
+        \node[ground, anchor=north, minimum width=4cm] at (0, 0){};
+
+        %% Marble
+        \begin{scope}[shift={(0, 0)}]
+          \draw[] (-2, 2) rectangle (2, 3) node[pos=0.5]{$m_{m}$};
+
+          \draw[spring] (-1, 0) -- (-1, 2) node[midway, right=0.1]{$k_{m}$};
+          \draw[damper] ( 1, 0) -- ( 1, 2) node[midway, right=0.3]{$c_{m}$};
+
+          \draw[dashed] (2, 0) -- ++(1, 0);
+          \draw[->] (2.8, 0) -- ++(0, 0.8) node[below right]{$x_{g}$};
+          \draw[dashed] (2, 2) -- ++(1, 0);
+          \draw[->] (2.8, 2) -- ++(0, 0.8) node[below right]{$x_{m}$};
+
+          \draw[decorate, decoration={brace, amplitude=10pt}, xshift=-4pt] (-2, 0.1) -- (-2, 3) node[midway,xshift=-0.6cm,anchor=east]{marble};
+        \end{scope}
+
+        %% Identified System
+        \begin{scope}[shift={(0, 3)}]
+          \draw[dashed] (-2, 2) rectangle (2, 3);
+          \draw[dashed, spring] (-1, 0) -- (-1, 2);
+          \draw[dashed, damper={dashed}] ( 1, 0) -- ( 1, 2);
+          \draw[decorate, decoration={brace, amplitude=10pt}, xshift=-4pt] (-2, 0.1) -- (-2, 6) node[midway,xshift=-0.6cm,anchor=east]{Identified};
+        \end{scope}
+        \begin{scope}[shift={(0, 6)}]
+          \draw[dashed] (-2, 2) rectangle (2, 3);
+          \draw[dashed, spring] (-1, 0) -- (-1, 2);
+          \draw[dashed, damper={dashed}] ( 1, 0) -- ( 1, 2);
+          \draw[dashed] (2, 2) -- ++(1, 0);
+          \draw[->] (2.8, 2) -- ++(0, 0.8) node[below right]{$x_{\mu}$};
+        \end{scope}
+
+        %% Nano Positioning
+        \begin{scope}[shift={(0, 9)}]
+          \draw[] (-2, 2) rectangle (2, 3) node[pos=0.5]{$m_{\nu}$};
+
+          \draw[spring] (-1, 0) -- (-1, 2) node[midway, right=0.1]{$k_{\nu}$};
+          \draw[damper] ( 1, 0) -- ( 1, 2) node[midway, right=0.3]{$c_{\nu}$};
+
+          \draw[dashed] (2, 2) -- ++(1, 0);
+          \draw[->] (2.8, 2) -- ++(0, 0.8) node[below right]{$x_{\nu}$};
+
+          \draw[decorate, decoration={brace, amplitude=10pt}, xshift=-4pt] (-2, 0.1) -- (-2, 3) node[midway,xshift=-0.6cm,anchor=east]{$\nu$-pos.};
+        \end{scope}
+
+        %% Sample
+        \begin{scope}[shift={(0, 12)}]
+          \draw[] (-2, 2) rectangle (2, 3) node[pos=0.5]{$m_{s}$};
+
+          \draw[spring] (-1, 0) -- (-1, 2) node[midway, right=0.1]{$k_{s}$};
+          \draw[damper] ( 1, 0) -- ( 1, 2) node[midway, right=0.3]{$c_{s}$};
+
+          \draw[dashed] (2, 2) -- ++(1, 0);
+          \draw[->] (2.8, 2) -- ++(0, 0.8) node[below right]{$x_{s}$};
+
+          \draw[decorate, decoration={brace, amplitude=10pt}, xshift=-4pt] (-2, 0.1) -- (-2, 3) node[midway,xshift=-0.6cm,anchor=east]{sample};
+        \end{scope}
+    \end{tikzpicture}
+\end{document}
+

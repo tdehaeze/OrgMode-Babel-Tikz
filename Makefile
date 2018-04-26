@@ -39,7 +39,7 @@ all: pdf
 .PHONY: pdf
 ifeq ($(f),)
 pdf:
-	cd tikz/ && \
+	cd figures/ && \
 	for file in *.tex; do \
 		latexmk -r $(MAINDIRECTORY)/.latexmkrc_subfiles $${file} && \
 		latexmk -r $(MAINDIRECTORY)/.latexmkrc_subfiles -c $${file} && \
@@ -47,7 +47,7 @@ pdf:
 	done
 else
 pdf:
-	cd tikz/ && \
+	cd figures/ && \
 	latexmk -r $(MAINDIRECTORY)/.latexmkrc_subfiles $(f) && \
 	latexmk -r $(MAINDIRECTORY)/.latexmkrc_subfiles -c $(f) && \
 	pdfcrop "$${f}.pdf" "$${f}.pdf" && \
@@ -58,13 +58,13 @@ endif
 .PHONY: clean
 ifeq ($(f),)
 clean:
-	cd tikz/ && \
+	cd figures/ && \
 	for file in *.tex; do \
 		latexmk -r $(MAINDIRECTORY)/.latexmkrc_subfiles -c $${file}
 	done
 else
 clean:
-	cd tikz/ && \
+	cd figures/ && \
 		latexmk -r $(MAINDIRECTORY)/.latexmkrc_subfiles -c $(f)
 endif
 
@@ -73,7 +73,7 @@ endif
 ifeq ($(f),)
 else
 open:
-	(${PDFVIEWER} tikz/$(f).pdf &> /dev/null &)
+	(${PDFVIEWER} figures/$(f).pdf &> /dev/null &)
 endif
 
 # WATCH
@@ -81,7 +81,7 @@ endif
 ifeq ($(f),)
 else
 watch:
-	cd tikz/ && \
+	cd figures/ && \
 	latexmk -r $(MAINDIRECTORY)/.latexmkrc_subfiles -pvc $(f) && \
 	latexmk -r $(MAINDIRECTORY)/.latexmkrc_subfiles -c $(f) && \
 	pdfcrop "$${f}.pdf" "$${f}.pdf"

@@ -10,6 +10,19 @@
 
 \begin{document}
     \begin{tikzpicture}
+        \tikzstyle{spring}=[thick,decorate,decoration={zigzag,pre length=0.3cm,post length=0.3cm,segment length=6}]
+        \tikzstyle{damper}=[thick,decoration={markings,  
+            mark connection node=dmp,
+            mark=at position 0.5 with 
+            {
+                \node (dmp) [thick,inner sep=0pt,transform shape,rotate=-90,minimum width=15pt,minimum height=3pt,draw=none] {};
+                \draw [thick] ($(dmp.north east)+(2pt,0)$) -- (dmp.south east) -- (dmp.south west) -- ($(dmp.north west)+(2pt,0)$);
+                \draw [thick] ($(dmp.north)+(0,-5pt)$) -- ($(dmp.north)+(0,5pt)$);
+
+            }
+        }, decorate]
+        \tikzstyle{ground}=[fill,pattern=north east lines,draw=none,minimum width=0.75cm,minimum height=0.3cm]
+
         \draw (-2, 0) -- (2, 0);
         \node [ground, anchor=north, minimum width=4cm] at (0, 0){};
         \draw (-2, 2) rectangle (2, 3) node[pos=0.5]{$m_{\micro}$};

@@ -1,0 +1,102 @@
+\documentclass[12pt,tikz]{standalone}
+
+\ifstandalone%
+    \usepackage{import}%
+    \import{../configuration/}{comon_packages.tex}%
+    \import{../configuration/}{variables.tex}%
+    \import{../configuration/}{conftikz.tex}%
+    \import{../configuration/}{custom_config.tex}%
+\fi
+
+\begin{document}
+    \begin{tikzpicture}
+        \tikzstyle{spring}=[thick,decorate,decoration={zigzag,pre length=0.3cm,post length=0.3cm,segment length=6}]
+        \tikzstyle{damper}[black]=[thick,decoration={markings,  
+            mark connection node=dmp,
+            mark=at position 0.5 with 
+            {
+                \node[] (dmp) [thick,inner sep=0pt,transform shape,rotate=-90,minimum width=15pt,minimum height=3pt,draw=none] {};
+                \draw[thick, #1] ($(dmp.north east)+(2pt,0)$) -- (dmp.south east) -- (dmp.south west) -- ($(dmp.north west)+(2pt,0)$);
+                \draw[thick, #1] ($(dmp.north)+(0,-5pt)$) -- ($(dmp.north)+(0,5pt)$);
+            }
+        }, decorate]
+        \tikzstyle{ground}=[fill,pattern=north east lines,draw=none,minimum width=0.75cm,minimum height=0.3cm]
+
+        %% Ground
+        \draw (-2, 0) -- (2, 0);
+        \node[ground, anchor=north, minimum width=4cm] at (0, 0){};
+
+        %% Marble
+        \begin{scope}[shift={(0, 0)}]
+          \draw[] (-2, 2) rectangle (2, 3);
+
+          \draw[dashed] (2, 3) -- ++(1.5, 0);
+          \draw[<->] (3.5, 3) -- node[right]{$d^\prime$} (3.5, 15);
+
+          \draw[spring] (-0.6, 0) -- (-0.6, 2);
+          \draw[damper] ( 0.6, 0) -- ( 0.6, 2);
+
+          \draw[decorate, decoration={brace, amplitude=10pt}, xshift=-4pt] (-2, 0.1) -- (-2, 3) node[midway,xshift=-0.6cm,anchor=east]{Marble};
+        \end{scope}
+
+        %% Translation Stage
+        \begin{scope}[shift={(0, 3)}]
+          \draw[] (-2, 2) rectangle (2, 3);
+
+          \draw[spring] (-0.6, 0) -- (-0.6, 2);
+          \draw[damper] ( 0.6, 0) -- ( 0.6, 2);
+
+          \draw[decorate, decoration={brace, amplitude=10pt}, xshift=-4pt] (-2, 0.1) -- (-2, 3) node[midway,xshift=-0.6cm,anchor=east]{T-Stage};
+        \end{scope}
+
+        %% Rotation Stage and Spindle
+        \begin{scope}[shift={(0, 6)}]
+          \draw[] (-2, 2) rectangle (2, 3);
+
+          \draw[spring] (-0.6, 0) -- (-0.6, 2);
+          \draw[damper] ( 0.6, 0) -- ( 0.6, 2);
+
+          \draw[decorate, decoration={brace, amplitude=10pt}, xshift=-4pt] (-2, 0.1) -- (-2, 3) node[midway,xshift=-0.6cm,anchor=east]{$\theta$-Stage};
+        \end{scope}
+
+        %% Micro Positioning
+        \begin{scope}[shift={(0, 9)}]
+          \draw[] (-2, 2) rectangle (2, 3);
+
+          \draw[spring] (-0.6, 0) -- (-0.6, 2);
+          \draw[damper] ( 0.6, 0) -- ( 0.6, 2);
+
+          \draw[decorate, decoration={brace, amplitude=10pt}, xshift=-4pt] (-2, 0.1) -- (-2, 3) node[midway,xshift=-0.6cm,anchor=east]{$\mu$-Stage};
+        \end{scope}
+
+        %% Nano Positioning
+        \begin{scope}[shift={(0, 12)}]
+          \draw[] (-2, 2) rectangle (2, 3);
+          \draw[] (-2, 0) -- (2, 0);
+
+          \draw[dashed] (2, 0) -- ++(0.5, 0);
+          \draw[dashed] (2, 3) -- ++(1.5, 0);
+          \draw[<->] (2.5, 0) -- node[right]{$d$} (2.5, 3);
+
+          \draw[spring] (-0.6, 0) -- (-0.6, 2);
+          \draw[damper] ( 0.6, 0) -- ( 0.6, 2);
+
+          \draw[] (1.7, 0.5) rectangle node[right]{$f$} (1.9, 1.5);
+          \draw[<-] (1.8, 0) --   (1.8, 0.5);
+          \draw[->] (1.8, 1.5) -- (1.8, 2);
+
+          \draw[decorate, decoration={brace, amplitude=10pt}, xshift=-4pt] (-2, 0.1) -- (-2, 3) node[midway,xshift=-0.6cm,anchor=east]{$\nu$-Stage};
+        \end{scope}
+
+        %% Sample
+        \begin{scope}[shift={(0, 15)}]
+          \draw[] (-2, 2) rectangle (2, 3);
+
+          \draw[spring] (-0.6, 0) -- (-0.6, 2);
+          \draw[damper] ( 0.6, 0) -- ( 0.6, 2);
+
+          \draw[decorate, decoration={brace, amplitude=10pt}, xshift=-4pt] (-2, 0.1) -- (-2, 3) node[midway,xshift=-0.6cm,anchor=east]{Sample};
+        \end{scope}
+    \end{tikzpicture}
+\end{document}
+

@@ -1,0 +1,47 @@
+\documentclass[12pt,tikz]{standalone}
+
+\ifstandalone%
+    \usepackage{import}%
+    \import{../configuration/}{comon_packages.tex}%
+    \import{../configuration/}{variables.tex}%
+    \import{../configuration/}{conftikz.tex}%
+    \import{../configuration/}{custom_config.tex}%
+\fi
+
+\begin{document}
+    \begin{tikzpicture}
+        \draw (-3, -2) rectangle (3, 2) node[pos=0.5]{Flexible Support};
+
+        \draw[dashed, ->] (3, -1.5) -- ++(0.5, 0);
+        \draw[dashed, ->] (3, -0.5) -- ++(0.5, 0);
+        \draw[dashed, ->] (3, 1.5) -- ++(0.5, 0);
+
+        \draw[dashed, <-] (-3, -1.5) -- ++(-0.5, 0);
+        \draw[dashed, <-] (-3, -0.5) -- ++(-0.5, 0);
+        \draw[dashed, <-] (-3, 1.5) -- ++(-0.5, 0);
+
+        \coordinate(xs) at ( 4, 0.5);
+        \draw[->] ( 3, 0.5) -- ++( 1.5, 0) node[above left ]{\(x_s\)};
+
+        \node[draw, add, minimum size=0.7cm] (addforce) at (-4, 0.5) {};
+
+        \draw[<-] (-3, 0.5) node[above left]{\(F_s\)} -- (addforce);
+        \node[] at ($(addforce.south east) + (0, -0.3)$) {\(-\)};
+
+        \draw[<-] (addforce.west) -- ++(-0.3, 0);
+
+
+
+        \node[draw, add, minimum size=0.7cm] (addsub) at (4, -3.2) {};
+        \node[] at ($(addsub.south west) + (-0.5, 0)$) {\(-\)};
+
+        \node[draw, minimum height=1.5cm, minimum width=2.5cm] (ms2) at (0, -3.2) {\(\displaystyle\frac{1}{m_is^2}\)};
+        \node[draw, minimum height=1.5cm, minimum width=2.5cm] (csk) at (0, -5.1) {\(\displaystyle c_is+k_i\)};
+
+        \draw[->] (xs -| addsub) -- (addsub.north);
+        \draw[->] (addsub.south) |- (csk.east) node[above right]{\(x_s-x_i\)};
+        \draw[->] (csk.west) -| (addforce);
+        \draw[->] (addforce |- ms2) -- (ms2.west) node[above left]{};
+        \draw[->] (ms2.east) -- (addsub.west) node[above left]{\(x_i\)};
+    \end{tikzpicture}
+\end{document}

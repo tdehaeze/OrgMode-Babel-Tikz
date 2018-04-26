@@ -1,0 +1,41 @@
+\documentclass[12pt,tikz]{standalone}
+
+\ifstandalone%
+    \usepackage{import}%
+    \import{../configuration/}{comon_packages.tex}%
+    \import{../configuration/}{variables.tex}%
+    \import{../configuration/}{conftikz.tex}%
+    \import{../configuration/}{custom_config.tex}%
+\fi
+
+\begin{document}
+    \begin{tikzpicture}
+        \begin{scope}[shift={(0, 0)}]
+            \draw[] (-1.5, -1.5) rectangle (1.5, 1.5);
+            \node[] at (0, 0) {$S_{1}$};
+            
+            \draw[<-, dashed] (-1.5, 1) coordinate (si-fi+1) -- ++(-1, 0) node[left]{$f_{2}$};
+            \draw[<-] (-1.5, 0) coordinate (si-gi) -- ++(-1, 0) node[left]{$g_{1}$};
+            \draw[<-] (-1.5,-1) coordinate (si-xi-1) -- ++(-1, 0) node[left]{$x_{0}$};
+            
+            \draw[->] (1.5, 1) coordinate (si-xi) -- ++(1, 0) node[right]{$x_{1}$};
+            \draw[->] (1.5,-1) coordinate (si-fi) -- ++(1, 0) node[right]{$f_{1}$};
+        \end{scope}
+        
+        \begin{scope}[shift={(0, -4)}]
+            \draw[] (-1.5, -1.5) rectangle (1.5, 1.5);
+            \node[] at (0, 0) {$S_{0}$};
+            
+            \draw[<-] (-1.5, 1) coordinate (si-1-fi+1) -- ++(-1, 0) node[left]{$f_{1}$};
+            \draw[<-] (-1.5, 0) coordinate (si-1-gi) -- ++(-1, 0) node[left]{$g_{0}$};
+            \draw[<-] (-1.5,-1) coordinate (si-1-xi-1) -- ++(-1, 0) node[left]{$x_{-1}$};
+            
+            \draw[->] (1.5, 1) coordinate (si-1-xi) -- ++(1, 0) node[right]{$x_{0}$};
+            \draw[->, dashed] (1.5,-1) coordinate (si-1-fi) -- ++(1, 0) node[right]{$f_{0}$};
+        \end{scope}
+        
+        \draw[dashed, ->] ($(si-fi)+(0.7, 0)$)   |- ($0.4*(si-1-fi+1) + 0.6*(si-fi)$) -| ($(si-1-fi+1) + (-0.7, 0)$);
+        
+        \draw[dashed, ->] ($(si-1-xi)+(0.5, 0)$) |- ($0.6*(si-1-xi) + 0.4*(si-xi-1)$) -| ($(si-xi-1) + (-0.5, 0)$);
+    \end{tikzpicture}
+\end{document}
