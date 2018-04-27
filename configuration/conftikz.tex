@@ -1,5 +1,5 @@
 % =============================================================
-% TIKZ
+% Packages
 % =============================================================
 \usepackage{tikz}             % Tikz
 \usepackage{tikzscale}        % Used to scale Tikz graphics
@@ -7,7 +7,12 @@
 \usepackage{circuitikz}       % Draw electronic circuits
 \usepackage{pgfpages}         % Needed to use notes
 \usepackage{pgfplots}         % Used to plot functions
+% =============================================================
 
+
+% =============================================================
+% Tikz Libraries
+% =============================================================
 \usetikzlibrary{calc}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{shapes}
@@ -22,14 +27,22 @@
 \usetikzlibrary{intersections}
 \usetikzlibrary{3d}
 \usetikzlibrary{patterns}
+% =============================================================
 
+
+% =============================================================
+% PGF Plot libraries and config
+% =============================================================
 \usepgfplotslibrary{patchplots}
 
 \pgfplotsset{compat=newest}
 \pgfplotsset{plot coordinates/math parser=false}
+% =============================================================
 
-\tikzset{>=latex}
 
+% =============================================================
+% Setup size of figures
+% =============================================================
 \newlength{\fheight}%
 \newlength{\fwidth}%
 
@@ -37,6 +50,17 @@
 \setlength{\fheight}{112mm}
 % =============================================================
 
+
+% =============================================================
+% Setup Arrows style
+% =============================================================
+\tikzset{>=latex}
+% =============================================================
+
+
+% =============================================================
+% Tikz Style for mechanical figures
+% =============================================================
 \tikzstyle{spring}=[thick,decorate,decoration={zigzag,pre length=0.3cm,post length=0.3cm,segment length=6}]
 \tikzstyle{damper}=[thick,decoration={markings, mark connection node=dmp, mark=at position 0.5 with {
         \node (dmp) [thick,inner sep=0pt,transform shape,rotate=-90,minimum width=15pt,minimum height=3pt,draw=none] {};
@@ -45,5 +69,6 @@
     }
 }, decorate]
 \tikzstyle{ground}=[fill,pattern=north east lines,draw=none,minimum width=0.75cm,minimum height=0.3cm]
+% =============================================================
 
 
