@@ -23,7 +23,7 @@ PDFVIEWER = evince
 endif
 
 ifeq ($(UNAME), Darwin)
-PDFVIEWER = open
+PDFVIEWER = mupdf-gl
 endif
 
 MAINDIRECTORY := $(shell pwd)
@@ -39,60 +39,75 @@ all: pdf
 .PHONY: pdf
 ifeq ($(f),)
 pdf:
-	cd figures/ && \
+	cd figures/$(d) && \
 	for file in *.tex; do \
-		latexmk -r $(MAINDIRECTORY)/.latexmkrc_subfiles $${file} && \
-		latexmk -r $(MAINDIRECTORY)/.latexmkrc_subfiles -c $${file} && \
+		latexmk -r "$(MAINDIRECTORY)/.latexmkrc_subfiles" $${file} && \
+		latexmk -r "$(MAINDIRECTORY)/.latexmkrc_subfiles" -c $${file} && \
 		pdfcrop "$${file%.tex}.pdf" "$${file%.tex}.pdf" ; \
 	done
 else
 pdf:
-	cd figures/ && \
-	latexmk -r $(MAINDIRECTORY)/.latexmkrc_subfiles $(f) && \
-	latexmk -r $(MAINDIRECTORY)/.latexmkrc_subfiles -c $(f) && \
+	cd figures/$(d) && \
+	latexmk -r "$(MAINDIRECTORY)/.latexmkrc_subfiles" $(f) && \
+	latexmk -r "$(MAINDIRECTORY)/.latexmkrc_subfiles" -c $(f) && \
 	pdfcrop "$${f}.pdf" "$${f}.pdf" && \
 	(${PDFVIEWER} $${f}.pdf &> /dev/null &)
 endif
 
-# Clean
+# CLEAN
 .PHONY: clean
-ifeq ($(f),)
 clean:
-	cd figures/ && \
-	for file in *.tex; do \
-		latexmk -r $(MAINDIRECTORY)/.latexmkrc_subfiles -c $${file}
-	done
-else
-clean:
-	cd figures/ && \
-		latexmk -r $(MAINDIRECTORY)/.latexmkrc_subfiles -c $(f)
-endif
+	cd figures/$(d) && \
+	latexmk -r "$(MAINDIRECTORY)/.latexmkrc_subfiles" -c $(f)
 
 # OPEN
 .PHONY: open
 ifeq ($(f),)
+open:
+	(${PDFVIEWER} main/build/main.pdf &> /dev/null &)
+else
+ifeq ($(t), tikz)
+open:
+	(${PDFVIEWER} ressources/tikz/$(f).pdf &> /dev/null &)
 else
 open:
-	(${PDFVIEWER} figures/$(f).pdf &> /dev/null &)
+	(${PDFVIEWER} $(f)/$(f).pdf &> /dev/null &)
+endif
 endif
 
 # WATCH
 .PHONY: watch
 ifeq ($(f),)
-else
 watch:
-	cd figures/ && \
+	mkdir -p main/build && cd main && \
+	latexmk -r $(MAINDIRECTORY)/.latexmkrc_main $(PREVIEW_CONTINUOUSLY) -pvc main.tex
+else
+ifeq ($(t), tikz)
+watch:
+	cd ressources/tikz/ && \
 	latexmk -r $(MAINDIRECTORY)/.latexmkrc_subfiles -pvc $(f) && \
 	latexmk -r $(MAINDIRECTORY)/.latexmkrc_subfiles -c $(f) && \
 	pdfcrop "$${f}.pdf" "$${f}.pdf"
+else
+watch:
+	cd $(f) && \
+	latexmk -r $(MAINDIRECTORY)/.latexmkrc_subfiles -bibtex -pvc $(f)/$(f) && \
+	latexmk -r $(MAINDIRECTORY)/.latexmkrc_subfiles -c $(f)
+endif
 endif
 
-# TIKZ
+.PHONY: subfile
+ifeq ($(f),)
+else
+subfile:
+	mkdir $(f) && cp $(MAINDIRECTORY)/snippets/subfile.tex $(MAINDIRECTORY)/$(f)/$(f).tex
+endif
+
 .PHONY: tikz
 ifeq ($(f),)
 else
 tikz:
-	cp $(MAINDIRECTORY)/snippets/tikzpicture.tex $(MAINDIRECTORY)/tikz/$(f).tex
+	cp $(MAINDIRECTORY)/snippets/tikzpicture.tex $(MAINDIRECTORY)/ressources/tikz/$(f).tex
 endif
 
 
