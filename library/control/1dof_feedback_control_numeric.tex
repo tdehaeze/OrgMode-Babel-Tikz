@@ -18,16 +18,15 @@
 
   % Blocs
   \coordinate[] (start) at (0, 0);
-  \node[draw, minimum height=\blockh, minimum width=\blockw, right=0.8*\spacing of start] (K) {$K$};
+  \node[draw, block, right=0.8*\spacing of start] (K) {$K$};
   \node[draw, DAC, right=\spacing of K] (DAC) {DAC};
-  \node[draw, minimum height=\blockh, minimum width=\blockw, right=\spacing of DAC] (G) {$G$};
+  \node[draw, block, right=\spacing of DAC] (G) {$G$};
   \node[draw, add, minimum size=\addsize, right=\spacing of G] (addy) {};
-  \node[draw, minimum height=\blockh, minimum width=\blockw, above=0.5*\spacing of addy] (Gd) {$G_d$};
+  \node[draw, block, above=0.5*\spacing of addy] (Gd) {$G_d$};
   \node[draw, add, minimum size=\addsize, below right=\spacing of addy] (addn) {};
   \node[draw, ADC, left=\spacing of addn] (ADC) {ADC};
 
-
-  % Arrows and legend
+  % Connections and labels
   \draw[->] (K.east) -- node[sloped]{$/$}(DAC.west);
   \draw[->] (DAC.east) -- (G.west) node[above left]{$u$};
   \draw[->] (G.east) -- (addy.west);

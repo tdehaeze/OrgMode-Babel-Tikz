@@ -17,8 +17,7 @@
 
   % Blocs
   \node[draw, minimum height=2.0*\blockh, minimum width=2.0*\blockw] (P) {$P$};
-
-  \node[draw, minimum height=\blockh, minimum width=\blockw, below=\spacing of P] (K) {$K$};
+  \node[draw, block, below=\spacing of P] (K) {$K$};
 
   % Input and outputs coordinates
   \coordinate[] (inputw)  at ($(P.south west)!0.75!(P.north west)$);
@@ -26,6 +25,7 @@
   \coordinate[] (outputz) at ($(P.south east)!0.75!(P.north east)$);
   \coordinate[] (outputv) at ($(P.south east)!0.25!(P.north east)$);
 
+  % Connections and labels
   \draw[<-] (inputw) -- ++(-0.8*\spacing, 0) node[above right]{$w$};
   \draw[<-] (inputu) -- ++(-0.8*\spacing, 0) node[above right]{$u$} |- (K.west);
 

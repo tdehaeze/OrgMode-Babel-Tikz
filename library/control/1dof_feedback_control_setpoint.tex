@@ -18,13 +18,13 @@
 
   % Blocs
   \node[draw, addsub, minimum size=\addsize] (addr) {};
-  \node[draw, minimum height=\blockh, minimum width=\blockw, right=\spacing of addr] (K) {$K$};
-  \node[draw, minimum height=\blockh, minimum width=\blockw, right=\spacing of K] (G) {$G$};
+  \node[draw, block, right=\spacing of addr] (K) {$K$};
+  \node[draw, block, right=\spacing of K] (G) {$G$};
   \node[draw, add, minimum size=\addsize, right=\spacing of G] (addy) {};
-  \node[draw, minimum height=\blockh, minimum width=\blockw, above=0.5*\spacing of addy] (Gd) {$G_d$};
+  \node[draw, block, above=0.5*\spacing of addy] (Gd) {$G_d$};
   \node[draw, add, minimum size=\addsize, below right=\spacing of addy] (addn) {};
 
-  % Arrows and legend
+  % Connections and labels
   \draw[<-] (addr.west) -- ++(-0.8*\spacing, 0) node[above right]{$r$};
   \draw[->] (addr.east) -- (K.west) node[above left]{$y_m$};
   \draw[->] (K.east) -- (G.west) node[above left]{$u$};

@@ -16,17 +16,19 @@
   \def\blockh{1.0cm}
   \def\addsize{0.7cm}
 
-  \node[draw, minimum height=\blockh, minimum width=\blockw] (KP) {$K_P$};
-  \node[draw, minimum height=\blockh, minimum width=\blockw, above=\spacing of KP] (KD) {$K_D$};
-  \node[draw, minimum height=\blockh, minimum width=\blockw, below=\spacing of KP] (KI) {$K_I$};
+  % Blocs
+  \node[draw, block] (KP) {$K_P$};
+  \node[draw, block, above=\spacing of KP] (KD) {$K_D$};
+  \node[draw, block, below=\spacing of KP] (KI) {$K_I$};
 
-  \node[draw, minimum height=\blockh, minimum width=\blockw, right=\spacing of KD] (deriv) {$\frac{d\hphantom{t}}{dt}$};
-  \node[draw, minimum height=\blockh, minimum width=\blockw, right=\spacing of KI] (int)   {$\int$};
+  \node[draw, block, right=\spacing of KD] (deriv) {$\frac{d\hphantom{t}}{dt}$};
+  \node[draw, block, right=\spacing of KI] (int)   {$\int$};
 
   \node[draw, add, minimum size=\addsize, right=2.5*\spacing of KP] (add) {};
 
   \node[dot, left=\spacing of KP] (connect) {};
 
+  % Connections and labels
   \draw[->] (KD.east) -- (deriv);
   \draw[->] (KI.east) -- (int);
   

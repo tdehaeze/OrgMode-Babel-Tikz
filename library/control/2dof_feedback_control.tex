@@ -18,17 +18,17 @@
 
   % Blocs
   \node[draw, minimum height=1.5*\blockh, minimum width=\blockw] (K) {$K$};
-  \node[draw, minimum height=\blockh, minimum width=\blockw, right=\spacing of K] (G) {$G$};
+  \node[draw, block, right=\spacing of K] (G) {$G$};
   \node[draw, add, minimum size=\addsize, right=\spacing of G] (addy) {};
-  \node[draw, minimum height=\blockh, minimum width=\blockw, above=0.5*\spacing of addy] (Gd) {$G_d$};
+  \node[draw, block, above=0.5*\spacing of addy] (Gd) {$G_d$};
   \node[draw, add, minimum size=\addsize, below right=\spacing of addy] (addn) {};
 
+  % Inputs of the controllers
   \coordinate[] (inputr) at ($(K.south west)!0.75!(K.north west)$);
   \coordinate[] (inputy) at ($(K.south west)!0.25!(K.north west)$);
 
-  % Arrows and legend
+  % Connections and labels
   \draw[<-] (inputr) -- ++(-0.8*\spacing, 0) node[above right]{$r$};
-  % \draw[->] (addn.west) -| ($(inputy) - (0.8*\spacing, 0)$) -- (inputy) node[above left]{$y_m$};
   \draw[->] (K.east) -- (G.west) node[above left]{$u$};
   \draw[->] (G.east) -- (addy.west);
   \draw[->] (addy.east) -| (addn.north) node[above right]{$y$};
