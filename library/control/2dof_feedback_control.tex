@@ -31,6 +31,7 @@
   \draw[<-] (inputr) -- ++(-0.8*\spacing, 0) node[above right]{$r$};
   \draw[->] (K.east) -- (G.west) node[above left]{$u$};
   \draw[->] (G.east) -- (addy.west);
+  \draw[->] (addn.west) -| ($(inputy) - (0.8*\spacing, 0)$) -- (inputy) node[above left]{$y_m$};
   \draw[->] (addy.east) -| (addn.north) node[above right]{$y$};
   \draw[->] (Gd.south) -- (addy.north);
   \draw[<-] (Gd.north) -- ++(0, 0.8*\spacing) node[below right]{$d$};
