@@ -13,20 +13,21 @@
 % =============================================================
 % Tikz Libraries
 % =============================================================
-\usetikzlibrary{calc}
-\usetikzlibrary{arrows.meta}
-\usetikzlibrary{shapes}
-\usetikzlibrary{patterns}
-\usetikzlibrary{shapes.geometric}
-\usetikzlibrary{positioning}
-\usetikzlibrary{decorations.text}
-\usetikzlibrary{decorations.pathmorphing}
-\usetikzlibrary{decorations.markings}
-\usetikzlibrary{babel}
-\usetikzlibrary{plotmarks}
-\usetikzlibrary{intersections}
-\usetikzlibrary{3d}
-\usetikzlibrary{patterns}
+\usetikzlibrary{arrows}                   % Arrow tip library
+\usetikzlibrary{calc}                     % The library allows advanced Coordinate Calculations
+\usetikzlibrary{intersections}            % calculate intersections of paths
+\usetikzlibrary{matrix}                   %
+\usetikzlibrary{patterns}                 %
+\usetikzlibrary{shapes}                   % Defines circle and rectangle
+\usetikzlibrary{shapes.geometric}         % Use for the shape diamond and isosceles triangle
+\usetikzlibrary{snakes}                   % snake=coil and snake=zigzag using segment amplitude=10pt
+\usetikzlibrary{positioning}              % Additional options for placing nodes
+\usetikzlibrary{3d}                       % Plot 3D shapes
+\usetikzlibrary{spy}                      % Creating a magnified area
+\usetikzlibrary{decorations.text}         % Used to make text follows a curve
+\usetikzlibrary{decorations.pathmorphing} % Deformation of a path
+\usetikzlibrary{babel}                    % A tiny library that make the interaction with the babel package easier
+\usetikzlibrary{plotmarks}                % This library defines a number of plot marks
 % =============================================================
 
 
@@ -54,9 +55,16 @@
 % =============================================================
 % Setup Arrows style
 % =============================================================
-\tikzset{>=latex}
+% \tikzset{>=latex}
+\tikzset{every path/.style={line width=1pt}}
+\tikzset{>=stealth}
 % =============================================================
 
+% =============================================================
+% Tikz for diagram control
+% =============================================================
+\tikzstyle{dot} = [draw, circle, fill, minimum size=2pt, inner sep=0pt, outer sep=0pt]
+% =============================================================
 
 % =============================================================
 % Tikz Style for mechanical figures

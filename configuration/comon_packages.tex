@@ -9,10 +9,7 @@
 \usepackage{lmodern} % Latin Modern Font
 \usepackage{gensymb} % Generic symbols for both text and math mode
 
-\usepackage{subfiles}   % TODO
-\usepackage{standalone} % TODO
-
-\usepackage{wrapfig} % Wrap text around figure
+\usepackage{standalone} % Used to generate standalone Tikz
 
 \usepackage{amsmath}   % Main math Package
 \usepackage{mathtools} % Extension package to amsmath
@@ -31,24 +28,16 @@
 \usepackage{setspace}  % for line spacing, e.g. \onehalfspacing
 \usepackage{tabularx}  % table features
 \usepackage{enumitem}  % for simple list modifications
-\usepackage{blindtext} % package for blind text
 \usepackage{booktabs}  % better table support
 
-\usepackage{stackengine}
+\usepackage{stackengine} %
 
 \usepackage[babel, french=guillemets]{csquotes}  % Used for french quotes
-% \MakeOuterQuote{"}
 \frenchspacing%
-
-\usepackage[
-    title,
-    titletoc
-]{appendix}
-\renewcommand\appendixtocname{Annexes}
 
 \usepackage[load-configurations=abbreviations]{siunitx} % SI units
 \sisetup{
-    locale = FR,
+    locale = US,
     detect-all,
     range-phrase=--,
     range-units=single
