@@ -18,6 +18,8 @@
   % Blocs
   \node[draw, minimum height=2.0*\blockh, minimum width=2.0*\blockw] (P) {$P$};
 
+  \node[draw, minimum height=\blockh, minimum width=\blockw, below=\spacing of P] (K) {$K$};
+
   % Input and outputs coordinates
   \coordinate[] (inputw)  at ($(P.south west)!0.75!(P.north west)$);
   \coordinate[] (inputu)  at ($(P.south west)!0.25!(P.north west)$);
@@ -25,9 +27,9 @@
   \coordinate[] (outputv) at ($(P.south east)!0.25!(P.north east)$);
 
   \draw[<-] (inputw) -- ++(-0.8*\spacing, 0) node[above right]{$w$};
-  \draw[<-] (inputu) -- ++(-0.8*\spacing, 0) node[above right]{$u$};
+  \draw[<-] (inputu) -- ++(-0.8*\spacing, 0) node[above right]{$u$} |- (K.west);
 
   \draw[->] (outputz) -- ++(0.8*\spacing, 0) node[above left]{$z$};
-  \draw[->] (outputv) -- ++(0.8*\spacing, 0) node[above left]{$v$};
+  \draw[->] (outputv) -- ++(0.8*\spacing, 0) node[above left]{$v$} |- (K.east);
 \end{tikzpicture}
 \end{document}

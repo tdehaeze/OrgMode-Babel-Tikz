@@ -1,0 +1,45 @@
+\documentclass[12pt,tikz]{standalone}
+
+\ifstandalone%
+\usepackage{import}
+\import{../../configuration/}{comon_packages.tex}%
+\import{../../configuration/}{variables.tex}%
+\import{../../configuration/}{conftikz.tex}%
+\import{../../configuration/}{custom_config.tex}%
+\fi
+
+\begin{document}
+\begin{tikzpicture}
+  % Parameters
+  \def\spacing{1}
+  \def\blockw{1.2cm}
+  \def\blockh{1.0cm}
+  \def\addsize{0.7cm}
+
+  \node[draw, minimum height=\blockh, minimum width=\blockw] (KP) {$K_P$};
+  \node[draw, minimum height=\blockh, minimum width=\blockw, above=\spacing of KP] (KD) {$K_D$};
+  \node[draw, minimum height=\blockh, minimum width=\blockw, below=\spacing of KP] (KI) {$K_I$};
+
+  \node[draw, minimum height=\blockh, minimum width=\blockw, right=\spacing of KD] (deriv) {$\frac{d\hphantom{t}}{dt}$};
+  \node[draw, minimum height=\blockh, minimum width=\blockw, right=\spacing of KI] (int)   {$\int$};
+
+  \node[draw, add, minimum size=\addsize, right=2.5*\spacing of KP] (add) {};
+
+  \node[dot, left=\spacing of KP] (connect) {};
+
+  \draw[->] (KD.east) -- (deriv);
+  \draw[->] (KI.east) -- (int);
+  
+  \draw[->] (deriv) -| (add);
+  \draw[->] (KP)    -- (add);
+  \draw[->] (int)   -| (add);
+  
+  \draw[->] (connect) |- (KD);
+  \draw[->] (connect) -- (KP);
+  \draw[->] (connect) |- (KI);
+
+  \draw[->] (add.east) -- ++(0.8*\spacing, 0) node[above left]{$u$};
+  \draw[] (connect.west) -- ++(-0.8*\spacing, 0) node[above right]{$\epsilon$};
+\end{tikzpicture}
+\end{document}
+
