@@ -14,22 +14,56 @@
   \def\spacing{1}
   \def\blockw{1.2cm}
   \def\blockh{1.0cm}
+  \def\addsize{0.7cm}
 
   % Blocs
-  \node[draw, minimum height=2.0*\blockh, minimum width=2.0*\blockw] (P) {$P$};
+  \node[draw, block] (G) {$G$};
+
+  \node[draw, add, minimum size=\addsize, right=\spacing of G] (addy) {};
+  \node[draw, block, above=0.5*\spacing of addy] (Gd) {$G_d$};
+
+  \node[draw, add, minimum size=\addsize, right=\spacing of addy] (addn) {};
+
+  % Inputs
+  \coordinate[above left=2.2*\spacing and 1.2*\spacing of G] (d);
+  \coordinate[above=\spacing of d] (n);
+  % Outputs
+  \coordinate[above right=2.2*\spacing and 1.2*\spacing of addn] (y);
+  \coordinate[above=\spacing of y] (F);
+
+  \coordinate (u) at (n|-G);
+  \coordinate (v) at (F|-G);
+
+  \node[fit={($(n) + (0.5*\spacing, 0.2*\spacing)$) ($(v|-G.south) - (0.5*\spacing, 0.2*\spacing)$)}, inner sep=0pt, draw, dashed, color=gray, label={Generalized Plant}] (P) {};
+
   \node[draw, block, below=\spacing of P] (K) {$K$};
 
-  % Input and outputs coordinates
-  \coordinate[] (inputw)  at ($(P.south west)!0.75!(P.north west)$);
-  \coordinate[] (inputu)  at ($(P.south west)!0.25!(P.north west)$);
-  \coordinate[] (outputz) at ($(P.south east)!0.75!(P.north east)$);
-  \coordinate[] (outputv) at ($(P.south east)!0.25!(P.north east)$);
 
-  % Connections and labels
-  \draw[<-] (inputw) -- ++(-0.8*\spacing, 0) node[above right]{$w$};
-  \draw[<-] (inputu) -- ++(-0.8*\spacing, 0) node[above right]{$u$} |- (K.west);
+  % Connections
+  \draw[->] (G.east) -- (addy.west);
+  \draw[->] (addy.east) -- (addn.west);
+  \draw[->] (Gd.south) -- (addy.north);
+  \draw[<-] (addn.north) -- ++(0, 0.5*\spacing);
 
-  \draw[->] (outputz) -- ++(0.8*\spacing, 0) node[above left]{$z$};
-  \draw[->] (outputv) -- ++(0.8*\spacing, 0) node[above left]{$v$} |- (K.east);
+  \draw[->] (d) -| (Gd.north);
+  \draw[->] (n) -| (addn.north);
+
+  \draw[->] ($(addn.west) + (-0.4*\spacing, 0)$) |- (y);
+  \draw[->] ($(G.west)    + (-0.4*\spacing, 0)$) |- (F);
+
+  \draw[->] (addn.east) -- (v) |- (K.east);
+
+  \draw[->] (K.west) -| (u) -- (G.west);
+
+  % Labels
+  \node[above right] (un) at (u) {$u$};
+  \node[above left] (vn) at (v) {$v$};
+  \node[above right] (dn) at (d) {$d$};
+  \node[above right] (nn) at (n) {$n$};
+  \node[above left] (yn) at (y) {$y$};
+  \node[above left] (Fn) at (F) {$u$};
+
+  \draw [decoration={brace, raise=7pt}, decorate] (dn.south west) -- node[left=8pt]{$w$} (nn.north west);
+  \draw [decoration={brace, mirror, raise=5pt}, decorate] (yn.south east) -- node[right=6pt]{$z$} (Fn.north east);
 \end{tikzpicture}
 \end{document}
