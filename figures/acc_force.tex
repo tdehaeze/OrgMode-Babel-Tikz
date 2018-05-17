@@ -1,33 +1,33 @@
-\documentclass[12pt,tikz]{standalone}
+\documentclass[10pt,tikz]{standalone}
 
 \ifstandalone%
-    \usepackage{import}%
-    \import{../configuration/}{comon_packages.tex}%
-    \import{../configuration/}{variables.tex}%
-    \import{../configuration/}{conftikz.tex}%
-    \import{../configuration/}{custom_config.tex}%
+\usepackage{import}%
+\import{../configuration/}{comon_packages.tex}%
+\import{../configuration/}{variables.tex}%
+\import{../configuration/}{conftikz.tex}%
+\import{../configuration/}{custom_config.tex}%
 \fi
 
 \begin{document}
-    \begin{tikzpicture}
-      \begin{scope}
-        \draw[->] (0, 0) -- node[midway, below]{$Frequency$} (7, 0);
-        \draw[->] (0, 0) -- node[midway, above, rotate=90]{$Acceleration/Force$} (0, 4);
+\begin{tikzpicture}
+  \begin{scope}
+    \draw[->] (0, 0) -- node[midway, below]{$Frequency$} (7, 0);
+    \draw[->] (0, 0) -- node[midway, above, rotate=90]{$Acceleration/Force$} (0, 4);
 
-        \draw[dashed] (-0.2, -0.5) -- node[midway, above, rotate=45]{$+2$} ++(45:4);
+    \draw[dashed] (-0.2, -0.5) -- node[midway, above, rotate=45]{$+2$} ++(45:4);
 
-        \draw[dashed] (4.5, 2) -- node[midway, above]{$0$} ++(0:2);
-      \end{scope}
+    \draw[dashed] (4.5, 2) -- node[midway, above]{$0$} ++(0:2);
+  \end{scope}
 
-      \draw[->, double] (7.2, 1.5) -- node[midway, above]{$\displaystyle \int \int$} ++(2, 0);
+  \draw[->, double] (7.2, 1.5) -- node[midway, above]{$\displaystyle \int \int$} ++(2, 0);
 
-      \begin{scope}[shift={(10, 0)}]
-        \draw[->] (0, 0) -- node[midway, below]{$Frequency$} (7, 0);
-        \draw[->] (0, 0) -- node[midway, above, rotate=90]{$Displacement/Force$} (0, 4);
+  \begin{scope}[shift={(10, 0)}]
+    \draw[->] (0, 0) -- node[midway, below]{$Frequency$} (7, 0);
+    \draw[->] (0, 0) -- node[midway, above, rotate=90]{$Displacement/Force$} (0, 4);
 
-        \draw[dashed] (0.2, 2.5) -- node[midway, above]{$0$} ++(0:3);
+    \draw[dashed] (0.2, 2.5) -- node[midway, above]{$0$} ++(0:3);
 
-        \draw[dashed] (5, 1.5) -- node[midway, above, rotate=-45]{$-2$} ++(-45:3);
-      \end{scope}
-    \end{tikzpicture}
+    \draw[dashed] (5, 1.5) -- node[midway, above, rotate=-45]{$-2$} ++(-45:3);
+  \end{scope}
+\end{tikzpicture}
 \end{document}

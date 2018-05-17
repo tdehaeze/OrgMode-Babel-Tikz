@@ -26,7 +26,7 @@
 You should create one ~.tex~ file for each Tikz picture with the standalone class as below.
 
 #+BEGIN_SRC latex
-\documentclass[12pt,tikz]{standalone}
+\documentclass[10pt,tikz]{standalone}
 
 \ifstandalone%
     \usepackage{import}

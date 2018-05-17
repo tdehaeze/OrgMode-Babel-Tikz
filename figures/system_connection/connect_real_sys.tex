@@ -1,87 +1,87 @@
-\documentclass[12pt,tikz]{standalone}
+\documentclass[10pt,tikz]{standalone}
 
 \ifstandalone%
-    \usepackage{import}%
-    \import{../../configuration/}{comon_packages.tex}%
-    \import{../../configuration/}{variables.tex}%
-    \import{../../configuration/}{conftikz.tex}%
-    \import{../../configuration/}{custom_config.tex}%
+\usepackage{import}%
+\import{../../configuration/}{comon_packages.tex}%
+\import{../../configuration/}{variables.tex}%
+\import{../../configuration/}{conftikz.tex}%
+\import{../../configuration/}{custom_config.tex}%
 \fi
 
 \begin{document}
-    \begin{tikzpicture}
+\begin{tikzpicture}
 
-        %% Blocs
-        \node[draw, minimum height=2.5cm, minimum width=3.5cm] (H) at (0, 0) {$\displaystyle\begin{pmatrix}T_{x_m/F_m} & T_{x_m/F_\mu} \\ T_{x_\mu/F_m} & T_{x_\mu/F_\mu} \end{pmatrix}$};
-        \node[draw, minimum height=1.5cm, minimum width=2.5cm, below=1 of H] (nanoH1) {$\displaystyle\frac{1}{m_\nu s^2}$};
-        \node[draw, minimum height=1.5cm, minimum width=2.5cm, below=1 of nanoH1] (nanoH2) {$c_\nu s + k_\nu$};
-        \node[draw, minimum height=1.5cm, minimum width=2.5cm, above=2 of H] (graniteH) {$c_m s + k_m$};
+  %% Blocs
+  \node[draw, minimum height=2.5cm, minimum width=3.5cm] (H) at (0, 0) {$\displaystyle\begin{pmatrix}T_{x_m/F_m} & T_{x_m/F_\mu} \\ T_{x_\mu/F_m} & T_{x_\mu/F_\mu} \end{pmatrix}$};
+  \node[draw, minimum height=1.5cm, minimum width=2.5cm, below=1 of H] (nanoH1) {$\displaystyle\frac{1}{m_\nu s^2}$};
+  \node[draw, minimum height=1.5cm, minimum width=2.5cm, below=1 of nanoH1] (nanoH2) {$c_\nu s + k_\nu$};
+  \node[draw, minimum height=1.5cm, minimum width=2.5cm, above=2 of H] (graniteH) {$c_m s + k_m$};
 
-        %% Inputs\Outputs of the main bloc
-        \coordinate[] (Fu) at ($0.33*(H.north west) + 0.66*(H.south west)$);
-        \coordinate[] (Ft) at ($0.66*(H.north west) + 0.33*(H.south west)$);
+  %% Inputs\Outputs of the main bloc
+  \coordinate[] (Fu) at ($0.33*(H.north west) + 0.66*(H.south west)$);
+  \coordinate[] (Ft) at ($0.66*(H.north west) + 0.33*(H.south west)$);
 
-        \coordinate[] (Xu) at ($0.33*(H.north east) + 0.66*(H.south east)$);
-        \coordinate[] (Xt) at ($0.66*(H.north east) + 0.33*(H.south east)$);
+  \coordinate[] (Xu) at ($0.33*(H.north east) + 0.66*(H.south east)$);
+  \coordinate[] (Xt) at ($0.66*(H.north east) + 0.33*(H.south east)$);
 
-        %% Define the offset in x to place the sums
-        \coordinate[] (input_x) at ($(H.west) + (-1, 0)$);
-        \coordinate[] (output_x) at ($(H.east) + (1, 0)$);
-        \coordinate[] (mid_point) at ($0.5*(H.north)+0.5*(graniteH.south)$);
+  %% Define the offset in x to place the sums
+  \coordinate[] (input_x) at ($(H.west) + (-1, 0)$);
+  \coordinate[] (output_x) at ($(H.east) + (1, 0)$);
+  \coordinate[] (mid_point) at ($0.5*(H.north)+0.5*(graniteH.south)$);
 
-        %% Draw the sums
-        \node[draw, add, minimum size=0.7cm] (addFu) at (input_x |- Fu) {};
-        \node[] at ($(addFu) + (-0.2, -0.5)$) {\scriptsize$-$};
-        \node[draw, add, minimum size=0.7cm] (subx) at (output_x |- nanoH1) {};
-        \node[] at ($(subx) + (-0.5, -0.2)$) {\scriptsize$-$};
-        \node[draw, add, minimum size=0.7cm] (addFact) at (input_x |- nanoH1) {};
-        \node[draw opacity=0, add, minimum size=0.7cm] (addxg) at (output_x |- mid_point) {};
-        % \node[] at ($(addxg) + (-0.2, -0.5)$) {\scriptsize$-$};
+  %% Draw the sums
+  \node[draw, add, minimum size=0.7cm] (addFu) at (input_x |- Fu) {};
+  \node[] at ($(addFu) + (-0.2, -0.5)$) {\scriptsize$-$};
+  \node[draw, add, minimum size=0.7cm] (subx) at (output_x |- nanoH1) {};
+  \node[] at ($(subx) + (-0.5, -0.2)$) {\scriptsize$-$};
+  \node[draw, add, minimum size=0.7cm] (addFact) at (input_x |- nanoH1) {};
+  \node[draw opacity=0, add, minimum size=0.7cm] (addxg) at (output_x |- mid_point) {};
+  % \node[] at ($(addxg) + (-0.2, -0.5)$) {\scriptsize$-$};
 
-        %% Define the x-offset for the inputs\outputs
-        \coordinate[] (input_sin_x)  at (-5, 0);
-        \coordinate[] (output_sin_x) at ( 5, 0);
+  %% Define the x-offset for the inputs\outputs
+  \coordinate[] (input_sin_x)  at (-5, 0);
+  \coordinate[] (output_sin_x) at ( 5, 0);
 
-        %% Draw all arrows
-        \draw[->] (input_sin_x |- addFu)     node[above right]{$F_{\text{wob}}$} -- (addFu.west);
-        \draw[->] (input_sin_x |- addFact)   node[above right]{$F_{\text{act}}$} -- (addFact.west);
-        \draw[] (input_sin_x |- mid_point) node[above right]{$x_g$} -- (output_x |- mid_point);
+  %% Draw all arrows
+  \draw[->] (input_sin_x |- addFu)     node[above right]{$F_{\text{wob}}$} -- (addFu.west);
+  \draw[->] (input_sin_x |- addFact)   node[above right]{$F_{\text{act}}$} -- (addFact.west);
+  \draw[] (input_sin_x |- mid_point) node[above right]{$x_g$} -- (output_x |- mid_point);
 
-        \draw[->] (addFu.east)    -- (Fu) node[above left]{$F_\micro$};
-        \draw[->] (addFact.north) -- (addFu.south);
-        \draw[->] (addFact.east)  -- (nanoH1.west);
+  \draw[->] (addFu.east)    -- (Fu) node[above left]{$F_\micro$};
+  \draw[->] (addFact.north) -- (addFu.south);
+  \draw[->] (addFact.east)  -- (nanoH1.west);
 
-        \draw[->] (nanoH1.east) node[above right]{$x_\nu$} -- (subx.west);
-        \draw[->] (subx.north |- Xu) node[]{$\bullet$} -- (subx.north);
-        \draw[->] (subx.south)       |- (nanoH2.east) node[above right]{$x_\mu-x_\nu$};
-        \draw[->] (nanoH2.west)      -| (addFact.south);
+  \draw[->] (nanoH1.east) node[above right]{$x_\nu$} -- (subx.west);
+  \draw[->] (subx.north |- Xu) node[]{$\bullet$} -- (subx.north);
+  \draw[->] (subx.south)       |- (nanoH2.east) node[above right]{$x_\mu-x_\nu$};
+  \draw[->] (nanoH2.west)      -| (addFact.south);
 
-        \draw[->] (Xu) node[above right]{$x_\mu$} -- (Xu -| output_sin_x) node[above left]{$x_\mu$};
-        \draw[->] (Xt) node[above right]{$x_m$}   -- (Xt -| output_sin_x) node[above left]{$x_m$};
+  \draw[->] (Xu) node[above right]{$x_\mu$} -- (Xu -| output_sin_x) node[above left]{$x_\mu$};
+  \draw[->] (Xt) node[above right]{$x_m$}   -- (Xt -| output_sin_x) node[above left]{$x_m$};
 
-        % \draw[->] (addxg |- Xt)   node[]{$\bullet$} -- (addxg.south);
-        \draw[->] (output_x |- mid_point)   |- (graniteH.east) node[above right]{$x_g$};
-        \draw[] (graniteH.west)   -| (input_x |- Ft);
-        \draw[->] (input_x |- Ft) -- (Ft) node[above left]{$F_m$};
+  % \draw[->] (addxg |- Xt)   node[]{$\bullet$} -- (addxg.south);
+  \draw[->] (output_x |- mid_point)   |- (graniteH.east) node[above right]{$x_g$};
+  \draw[] (graniteH.west)   -| (input_x |- Ft);
+  \draw[->] (input_x |- Ft) -- (Ft) node[above left]{$F_m$};
 
-        %% Draw the rectangles to define subsystems
-        \coordinate[] (sys_sw) at ($(addFu.west |- nanoH2.south) + (-0.6,-1.0)$);
-        \coordinate[] (sys_ne) at ($(addxg.east |- graniteH.north) + (0.6,0.6)$);
+  %% Draw the rectangles to define subsystems
+  \coordinate[] (sys_sw) at ($(addFu.west |- nanoH2.south) + (-0.6,-1.0)$);
+  \coordinate[] (sys_ne) at ($(addxg.east |- graniteH.north) + (0.6,0.6)$);
 
-        \coordinate[] (nanopos_sw) at ($(addFu.west |- nanoH2.south) + (-0.3,-0.3)$);
-        \coordinate[] (nanopos_ne) at ($(subx.east |- nanoH1.north) + (0.3,0.3)$);
+  \coordinate[] (nanopos_sw) at ($(addFu.west |- nanoH2.south) + (-0.3,-0.3)$);
+  \coordinate[] (nanopos_ne) at ($(subx.east |- nanoH1.north) + (0.3,0.3)$);
 
-        \coordinate[] (granite_sw) at ($(addFu.west |- addxg.south) + (-0.3,-0.3)$);
-        \coordinate[] (granite_ne) at ($(addxg.east |- graniteH.north) + (0.3,0.3)$);
+  \coordinate[] (granite_sw) at ($(addFu.west |- addxg.south) + (-0.3,-0.3)$);
+  \coordinate[] (granite_ne) at ($(addxg.east |- graniteH.north) + (0.3,0.3)$);
 
-        \draw[dashed, very thick, blue!40] (sys_ne) rectangle (sys_sw);
-        \draw[dashed, very thick, red!40] (nanopos_ne) rectangle (nanopos_sw);
-        \draw[dashed, very thick, green!40] (granite_ne) rectangle (granite_sw);
+  \draw[dashed, very thick, blue!40] (sys_ne) rectangle (sys_sw);
+  \draw[dashed, very thick, red!40] (nanopos_ne) rectangle (nanopos_sw);
+  \draw[dashed, very thick, green!40] (granite_ne) rectangle (granite_sw);
 
-        \draw[] (granite_sw |- granite_ne) node[below right, green!40!black]{Granite};
-        \draw[] (nanopos_sw)               node[above right, red!40!black]{Nano-pos.};
-        \draw[] (sys_sw)                   node[above right, blue!40!black]{Complete System};
+  \draw[] (granite_sw |- granite_ne) node[below right, green!40!black]{Granite};
+  \draw[] (nanopos_sw)               node[above right, red!40!black]{Nano-pos.};
+  \draw[] (sys_sw)                   node[above right, blue!40!black]{Complete System};
 
-    \end{tikzpicture}
+\end{tikzpicture}
 \end{document}
 

@@ -1,127 +1,127 @@
-\documentclass[12pt,tikz]{standalone}
+\documentclass[10pt,tikz]{standalone}
 
 \ifstandalone%
-    \usepackage{import}%
-    \import{../../configuration/}{comon_packages.tex}%
-    \import{../../configuration/}{variables.tex}%
-    \import{../../configuration/}{conftikz.tex}%
-    \import{../../configuration/}{custom_config.tex}%
+\usepackage{import}%
+\import{../../configuration/}{comon_packages.tex}%
+\import{../../configuration/}{variables.tex}%
+\import{../../configuration/}{conftikz.tex}%
+\import{../../configuration/}{custom_config.tex}%
 \fi
 
 \begin{document}
-    \begin{tikzpicture}
-        \tikzstyle{spring}=[thick,decorate,decoration={zigzag,pre length=0.3cm,post length=0.3cm,segment length=6}]
-        \tikzstyle{damper}[black]=[thick,decoration={markings,  
-            mark connection node=dmp,
-            mark=at position 0.5 with 
-            {
-                \node[] (dmp) [thick,inner sep=0pt,transform shape,rotate=-90,minimum width=15pt,minimum height=3pt,draw=none] {};
-                \draw[thick, #1] ($(dmp.north east)+(2pt,0)$) -- (dmp.south east) -- (dmp.south west) -- ($(dmp.north west)+(2pt,0)$);
-                \draw[thick, #1] ($(dmp.north)+(0,-5pt)$) -- ($(dmp.north)+(0,5pt)$);
-            }
-        }, decorate]
-        \tikzstyle{ground}=[fill,pattern=north east lines,draw=none,minimum width=0.75cm,minimum height=0.3cm]
+\begin{tikzpicture}
+  \tikzstyle{spring}=[thick,decorate,decoration={zigzag,pre length=0.3cm,post length=0.3cm,segment length=6}]
+  \tikzstyle{damper}[black]=[thick,decoration={markings,  
+    mark connection node=dmp,
+    mark=at position 0.5 with 
+    {
+      \node[] (dmp) [thick,inner sep=0pt,transform shape,rotate=-90,minimum width=15pt,minimum height=3pt,draw=none] {};
+      \draw[thick, #1] ($(dmp.north east)+(2pt,0)$) -- (dmp.south east) -- (dmp.south west) -- ($(dmp.north west)+(2pt,0)$);
+      \draw[thick, #1] ($(dmp.north)+(0,-5pt)$) -- ($(dmp.north)+(0,5pt)$);
+    }
+  }, decorate]
+  \tikzstyle{ground}=[fill,pattern=north east lines,draw=none,minimum width=0.75cm,minimum height=0.3cm]
 
-        %% Ground
-        \draw (-2, 0) -- (2, 0);
-        \node[ground, anchor=north, minimum width=4cm] at (0, 0){};
+  %% Ground
+  \draw (-2, 0) -- (2, 0);
+  \node[ground, anchor=north, minimum width=4cm] at (0, 0){};
 
-        %% Marble
-        \begin{scope}[shift={(0, 0)}]
-          \draw[] (-2, 2) rectangle (2, 3);
+  %% Marble
+  \begin{scope}[shift={(0, 0)}]
+    \draw[] (-2, 2) rectangle (2, 3);
 
-          \draw[spring] (-1, 0) -- (-1, 2);
-          \draw[damper] ( 1, 0) -- ( 1, 2);
+    \draw[spring] (-1, 0) -- (-1, 2);
+    \draw[damper] ( 1, 0) -- ( 1, 2);
 
-          % Excitation Force
-          \node[blue!80!black, draw, circle, inner sep=0.7pt] at (-1.8, 2.2) {\scriptsize$\bullet$};
-          \node[blue!80!black, above right] at (-1.8, 2.2) {$F_{m_x}$};
-          \draw[blue!80!black, <-] (-2, 2.2) -- ++(-0.6, 0) node[above]{$F_{m_y}$};
-          \draw[blue!80!black, <-] (-1.8, 2) -- ++(0, -0.6) node[below]{$F_{m_z}$};
+    % Excitation Force
+    \node[blue!80!black, draw, circle, inner sep=0.7pt] at (-1.8, 2.2) {\scriptsize$\bullet$};
+    \node[blue!80!black, above right] at (-1.8, 2.2) {$F_{m_x}$};
+    \draw[blue!80!black, <-] (-2, 2.2) -- ++(-0.6, 0) node[above]{$F_{m_y}$};
+    \draw[blue!80!black, <-] (-1.8, 2) -- ++(0, -0.6) node[below]{$F_{m_z}$};
 
-          % Accelerometer
-          \node[red!80!black, draw, circle, inner sep=0.7pt] at (1.8, 2.2) {\scriptsize$\bullet$};
-          \node[red!80!black, left] at (1.8, 2.2) {$x_m$};
-          \draw[red!80!black, ->] (1.8, 2.2) -- ++(0.6, 0) node[above]{$y_m$};
-          \draw[red!80!black, ->] (1.8, 2.2) -- ++(0, 0.6) node[left]{$z_m$};
+    % Accelerometer
+    \node[red!80!black, draw, circle, inner sep=0.7pt] at (1.8, 2.2) {\scriptsize$\bullet$};
+    \node[red!80!black, left] at (1.8, 2.2) {$x_m$};
+    \draw[red!80!black, ->] (1.8, 2.2) -- ++(0.6, 0) node[above]{$y_m$};
+    \draw[red!80!black, ->] (1.8, 2.2) -- ++(0, 0.6) node[left]{$z_m$};
 
-          \draw[decorate, decoration={brace, amplitude=10pt}, xshift=-4pt] (-2, 0.1) -- (-2, 3) node[midway,xshift=-0.6cm,anchor=east]{Marble};
-        \end{scope}
+    \draw[decorate, decoration={brace, amplitude=10pt}, xshift=-4pt] (-2, 0.1) -- (-2, 3) node[midway,xshift=-0.6cm,anchor=east]{Marble};
+  \end{scope}
 
-        %% Translation Stage
-        \begin{scope}[shift={(0, 3)}]
-          \draw[] (-2, 2) rectangle (2, 3);
+  %% Translation Stage
+  \begin{scope}[shift={(0, 3)}]
+    \draw[] (-2, 2) rectangle (2, 3);
 
-          \draw[spring] (-1, 0) -- (-1, 2);
-          \draw[damper] ( 1, 0) -- ( 1, 2);
+    \draw[spring] (-1, 0) -- (-1, 2);
+    \draw[damper] ( 1, 0) -- ( 1, 2);
 
-          % Accelerometer
-          \node[red!80!black, draw, circle, inner sep=0.7pt] at (1.8, 2.2) {\scriptsize$\bullet$};
-          \node[red!80!black, left] at (1.8, 2.2) {$x_T$};
-          \draw[red!80!black, ->] (1.8, 2.2) -- ++(0.6, 0) node[above]{$y_T$};
-          \draw[red!80!black, ->] (1.8, 2.2) -- ++(0, 0.6) node[left]{$z_T$};
+    % Accelerometer
+    \node[red!80!black, draw, circle, inner sep=0.7pt] at (1.8, 2.2) {\scriptsize$\bullet$};
+    \node[red!80!black, left] at (1.8, 2.2) {$x_T$};
+    \draw[red!80!black, ->] (1.8, 2.2) -- ++(0.6, 0) node[above]{$y_T$};
+    \draw[red!80!black, ->] (1.8, 2.2) -- ++(0, 0.6) node[left]{$z_T$};
 
-          \draw[decorate, decoration={brace, amplitude=10pt}, xshift=-4pt] (-2, 0.1) -- (-2, 3) node[midway,xshift=-0.6cm,anchor=east]{T-Stage};
-        \end{scope}
+    \draw[decorate, decoration={brace, amplitude=10pt}, xshift=-4pt] (-2, 0.1) -- (-2, 3) node[midway,xshift=-0.6cm,anchor=east]{T-Stage};
+  \end{scope}
 
-        %% Rotation Stage and Spindle
-        \begin{scope}[shift={(0, 6)}]
-          \draw[] (-2, 2) rectangle (2, 3);
+  %% Rotation Stage and Spindle
+  \begin{scope}[shift={(0, 6)}]
+    \draw[] (-2, 2) rectangle (2, 3);
 
-          \draw[spring] (-1, 0) -- (-1, 2);
-          \draw[damper] ( 1, 0) -- ( 1, 2);
+    \draw[spring] (-1, 0) -- (-1, 2);
+    \draw[damper] ( 1, 0) -- ( 1, 2);
 
-          % Accelerometer
-          \node[red!80!black, draw, circle, inner sep=0.7pt] at (1.8, 2.2) {\scriptsize$\bullet$};
-          \node[red!80!black, left] at (1.8, 2.2) {$x_\theta$};
-          \draw[red!80!black, ->] (1.8, 2.2) -- ++(0.6, 0) node[above]{$y_\theta$};
-          \draw[red!80!black, ->] (1.8, 2.2) -- ++(0, 0.6) node[left]{$z_\theta$};
+    % Accelerometer
+    \node[red!80!black, draw, circle, inner sep=0.7pt] at (1.8, 2.2) {\scriptsize$\bullet$};
+    \node[red!80!black, left] at (1.8, 2.2) {$x_\theta$};
+    \draw[red!80!black, ->] (1.8, 2.2) -- ++(0.6, 0) node[above]{$y_\theta$};
+    \draw[red!80!black, ->] (1.8, 2.2) -- ++(0, 0.6) node[left]{$z_\theta$};
 
-          \draw[decorate, decoration={brace, amplitude=10pt}, xshift=-4pt] (-2, 0.1) -- (-2, 3) node[midway,xshift=-0.6cm,anchor=east]{$\theta$-Stage};
-        \end{scope}
+    \draw[decorate, decoration={brace, amplitude=10pt}, xshift=-4pt] (-2, 0.1) -- (-2, 3) node[midway,xshift=-0.6cm,anchor=east]{$\theta$-Stage};
+  \end{scope}
 
-        %% Micro Positioning
-        \begin{scope}[shift={(0, 9)}]
-          \draw[] (-2, 2) rectangle (2, 3);
+  %% Micro Positioning
+  \begin{scope}[shift={(0, 9)}]
+    \draw[] (-2, 2) rectangle (2, 3);
 
-          \draw[spring] (-1, 0) -- (-1, 2);
-          \draw[damper] ( 1, 0) -- ( 1, 2);
+    \draw[spring] (-1, 0) -- (-1, 2);
+    \draw[damper] ( 1, 0) -- ( 1, 2);
 
-          % Excitation Force
-          \node[blue!80!black, draw, circle, inner sep=0.7pt] at (-1.8, 2.2) {\scriptsize$\bullet$};
-          \node[blue!80!black, above right] at (-1.8, 2.2) {$F_{\mu_x}$};
-          \draw[blue!80!black, <-] (-2, 2.2) -- ++(-0.6, 0) node[above]{$F_{\mu_y}$};
-          \draw[blue!80!black, <-] (-1.8, 2) -- ++(0, -0.6) node[below]{$F_{\mu_z}$};
+    % Excitation Force
+    \node[blue!80!black, draw, circle, inner sep=0.7pt] at (-1.8, 2.2) {\scriptsize$\bullet$};
+    \node[blue!80!black, above right] at (-1.8, 2.2) {$F_{\mu_x}$};
+    \draw[blue!80!black, <-] (-2, 2.2) -- ++(-0.6, 0) node[above]{$F_{\mu_y}$};
+    \draw[blue!80!black, <-] (-1.8, 2) -- ++(0, -0.6) node[below]{$F_{\mu_z}$};
 
-          % Accelerometer
-          \node[red!80!black, draw, circle, inner sep=0.7pt] at (1.8, 2.2) {\scriptsize$\bullet$};
-          \node[red!80!black, left] at (1.8, 2.2) {$x_\mu$};
-          \draw[red!80!black, ->] (1.8, 2.2) -- ++(0.6, 0) node[above]{$y_\mu$};
-          \draw[red!80!black, ->] (1.8, 2.2) -- ++(0, 0.6) node[left]{$z_\mu$};
+    % Accelerometer
+    \node[red!80!black, draw, circle, inner sep=0.7pt] at (1.8, 2.2) {\scriptsize$\bullet$};
+    \node[red!80!black, left] at (1.8, 2.2) {$x_\mu$};
+    \draw[red!80!black, ->] (1.8, 2.2) -- ++(0.6, 0) node[above]{$y_\mu$};
+    \draw[red!80!black, ->] (1.8, 2.2) -- ++(0, 0.6) node[left]{$z_\mu$};
 
-          \draw[decorate, decoration={brace, amplitude=10pt}, xshift=-4pt] (-2, 0.1) -- (-2, 3) node[midway,xshift=-0.6cm,anchor=east]{$\mu$-Stage};
-        \end{scope}
+    \draw[decorate, decoration={brace, amplitude=10pt}, xshift=-4pt] (-2, 0.1) -- (-2, 3) node[midway,xshift=-0.6cm,anchor=east]{$\mu$-Stage};
+  \end{scope}
 
 
-        %% Nano Positioning
-        \begin{scope}[shift={(0, 12)}]
-          \draw[] (-2, 2) rectangle (2, 3);
+  %% Nano Positioning
+  \begin{scope}[shift={(0, 12)}]
+    \draw[] (-2, 2) rectangle (2, 3);
 
-          \draw[spring] (-1, 0) -- (-1, 2);
-          \draw[damper] ( 1, 0) -- ( 1, 2);
+    \draw[spring] (-1, 0) -- (-1, 2);
+    \draw[damper] ( 1, 0) -- ( 1, 2);
 
-          \draw[decorate, decoration={brace, amplitude=10pt}, xshift=-4pt] (-2, 0.1) -- (-2, 3) node[midway,xshift=-0.6cm,anchor=east]{$\nu$-Stage};
-        \end{scope}
+    \draw[decorate, decoration={brace, amplitude=10pt}, xshift=-4pt] (-2, 0.1) -- (-2, 3) node[midway,xshift=-0.6cm,anchor=east]{$\nu$-Stage};
+  \end{scope}
 
-        % %% Sample
-        % \begin{scope}[shift={(0, 15)}]
-        %   \draw[] (-2, 2) rectangle (2, 3);
+  % %% Sample
+  % \begin{scope}[shift={(0, 15)}]
+  %   \draw[] (-2, 2) rectangle (2, 3);
 
-        %   \draw[spring] (-1, 0) -- (-1, 2);
-        %   \draw[damper] ( 1, 0) -- ( 1, 2);
+  %   \draw[spring] (-1, 0) -- (-1, 2);
+  %   \draw[damper] ( 1, 0) -- ( 1, 2);
 
-        %   \draw[decorate, decoration={brace, amplitude=10pt}, xshift=-4pt] (-2, 0.1) -- (-2, 3) node[midway,xshift=-0.6cm,anchor=east]{Sample};
-        % \end{scope}
-    \end{tikzpicture}
+  %   \draw[decorate, decoration={brace, amplitude=10pt}, xshift=-4pt] (-2, 0.1) -- (-2, 3) node[midway,xshift=-0.6cm,anchor=east]{Sample};
+  % \end{scope}
+\end{tikzpicture}
 \end{document}
 
