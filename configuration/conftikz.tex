@@ -25,7 +25,8 @@
 \usetikzlibrary{3d}                       % Plot 3D shapes
 \usetikzlibrary{spy}                      % Creating a magnified area
 \usetikzlibrary{decorations.text}         % Used to make text follows a curve
-\usetikzlibrary{decorations.pathmorphing} % Deformation of a path
+\usetikzlibrary{decorations.pathmorphing} % deformation of a path
+\usetikzlibrary{decorations.markings}     % Used for spring and damper
 \usetikzlibrary{babel}                    % A tiny library that make the interaction with the babel package easier
 \usetikzlibrary{plotmarks}                % This library defines a number of plot marks
 \usetikzlibrary{fit}                      % Used to make rectangle as nodes by specifying two points
@@ -74,12 +75,25 @@
 % Tikz Style for mechanical figures
 % =============================================================
 \tikzstyle{spring}=[thick,decorate,decoration={zigzag,pre length=0.3cm,post length=0.3cm,segment length=6}]
+\tikzstyle{coil}=[thick,decorate,decoration={coil,pre length=0.3cm,post length=0.3cm,segment length=4}]
 \tikzstyle{damper}=[thick,decoration={markings, mark connection node=dmp, mark=at position 0.5 with {
-        \node (dmp) [thick,inner sep=0pt,transform shape,rotate=-90,minimum width=15pt,minimum height=3pt,draw=none] {};
-        \draw [thick] ($(dmp.north east)+(2pt,0)$) -- (dmp.south east) -- (dmp.south west) -- ($(dmp.north west)+(2pt,0)$);
-        \draw [thick] ($(dmp.north)+(0,-5pt)$) -- ($(dmp.north)+(0,5pt)$);
-    }
+  \node (dmp) [thick,inner sep=0pt,transform shape,rotate=-90,minimum width=15pt,minimum height=3pt,draw=none] {};
+  \draw [thick] ($(dmp.north east)+(2pt,0)$) -- (dmp.south east) -- (dmp.south west) -- ($(dmp.north west)+(2pt,0)$);
+  \draw [thick] ($(dmp.north)+(0,-5pt)$) -- ($(dmp.north)+(0,5pt)$);
+  }
 }, decorate]
+\tikzstyle{actuator}=[thick, draw=none, decoration={markings,
+  mark connection node=my node,
+  mark=at position .5 with {
+  \node [draw, minimum width=5pt, minimum height=20pt] (my node) {};
+  },
+  mark=at position .0 with {
+  \draw[<-] (0, 0) -- (my node.south);
+  },
+  mark=at position 1.0 with {
+  \draw[<-] (0, 0) -- (my node.north);
+  }
+},decorate]
 \tikzstyle{ground}=[fill,pattern=north east lines,draw=none,minimum width=0.75cm,minimum height=0.3cm]
 % =============================================================
 

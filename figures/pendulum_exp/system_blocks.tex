@@ -23,7 +23,7 @@
   \node[draw, block, right=\spacing of vc] (G) {$G$};
   \node[draw, add, right=\spacing of G] (addy) {};
   \node[draw, block, above=\spacing of addy] (Gd) {$G_D$};
-  \node[draw, block, right=\spacing of addy, label={[align=center]below:Interferometer}] (int) {};
+  \node[draw, block, right=\spacing of addy, label={[align=center]below:Interferometer}] (int) {$H_I$};
   \node[draw, ADC, right=\spacing of int] (adc) {ADC};
   \coordinate[] (adc_output) at ($(adc.east) + (0.8*\spacing, 0)$);
   \coordinate[] (dac_input) at ($(dac.west) + (-0.8*\spacing, 0)$);
@@ -32,16 +32,16 @@
   % Connections and labels
   \draw[->] (adc.east) -- (adc_output) |- (K.east);
   \draw[->] (K.west) -| (dac_input) -- (dac.west);
-  \draw[->] (dac.east) -- node[midway, above]{$V$} (ci.west);
-  \draw[->] (ci.east) -- node[midway, above]{$I$} (vc.west);
-  \draw[->] (vc.east) -- node[midway, above]{$F$} (G.west);
+  \draw[->] (dac.east) -- node[midway, above]{$u[V]$} (ci.west);
+  \draw[->] (ci.east) -- node[midway, above]{$I[A]$} (vc.west);
+  \draw[->] (vc.east) -- node[midway, above]{$F[N]$} (G.west);
   \draw[->] (G.east) -- node[midway, above]{} (addy.west);
   \draw[->] (addy.east) -- node[midway, above]{$y[m]$} (int.west);
-  \draw[->] (int.east) -- node[midway, above]{$y_m$} (adc.west);
+  \draw[->] (int.east) -- node[midway, above]{$y_m[m]$} (adc.west);
   \draw[->] (Gd.south) -- node[midway, right]{} (addy.north);
-  \draw[<-] (Gd.north) -- ++(0, 0.8*\spacing) node[right]{$d$};
-  \draw[<-] (ci.north) -- ++(0, 0.8*\spacing) node[right]{$n_{\text{CI}}$};
-  \draw[<-] (int.north) -- ++(0, 0.8*\spacing) node[right]{$n$};
+  \draw[<-] (Gd.north) -- ++(0, 0.8*\spacing) node[right]{$d[m]$};
+  % \draw[<-] (ci.north) -- ++(0, 0.8*\spacing) node[right]{$n_{\text{CI}}$};
+  \draw[<-] (int.north) -- ++(0, 0.8*\spacing) node[right]{$n[m]$};
 \end{tikzpicture}
 \end{document}
 
