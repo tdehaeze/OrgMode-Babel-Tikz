@@ -1,0 +1,45 @@
+\documentclass[10pt,tikz]{standalone}
+
+\ifstandalone%
+\usepackage{import}%
+\import{../../configuration/}{comon_packages.tex}%
+\import{../../configuration/}{variables.tex}%
+\import{../../configuration/}{conftikz.tex}%
+\import{../../configuration/}{custom_config.tex}%
+\fi
+
+\begin{document}
+\begin{tikzpicture}
+  % Parameters
+  \def\spacing{1}
+  \def\blockw{1.2cm}
+  \def\blockh{1.0cm}
+
+  % Blocs
+  \node[draw, minimum height=2.0*\blockh, minimum width=2.0*\blockw] (P) {$\tilde{P}$};
+  \node[draw, minimum height=1.0*\blockh, minimum width=1.0*\blockw, below=\spacing of P] (K) {$K$};
+
+  % Input and outputs coordinates
+  \coordinate[] (inputw)  at ($(P.south west)!0.75!(P.north west)$);
+  \coordinate[] (inputu)  at ($(P.south west)!0.25!(P.north west)$);
+  \coordinate[] (outputz) at ($(P.south east)!0.75!(P.north east)$);
+  \coordinate[] (outputv) at ($(P.south east)!0.25!(P.north east)$);
+
+  % Weights
+  \node[draw, block, right=0.5*\spacing of outputz] (Wz) {$W_z$};
+  \node[draw, block, left=0.5*\spacing of inputw] (Ww) {$W_w$};
+
+  % Connections and labels
+  \draw[<-] (Ww.west) -- ++(-0.8*\spacing, 0) node[above right](w){$w$};
+  \draw[->] (Ww.east) -- (inputw) node[above left]{$\tilde{w}$};
+  \draw[<-] (inputu) -- (w|-inputu) node[above]{$u$} |- (K.west);
+
+  \draw[->] (outputz) -- (Wz.west) node[above left]{$\tilde{z}$};
+  \draw[->] (Wz.east) -- ++(0.8*\spacing, 0) node[above left](z){$z$};
+  \draw[->] (outputv) -- (z|-outputv) node[above](v){$v$} |- (K.east);
+
+  % Weighted plant
+  \node[fit={($(Ww.north west) + (-0.3*\spacing, 0.2*\spacing)$) ($(Wz.east|-P.south) + (0.3*\spacing, -0.2*\spacing)$)}, inner sep=0pt, draw, dashed, color=gray, label={Generalized Weighted Plant $P$}] (P) {};
+
+\end{tikzpicture}
+\end{document}
