@@ -1,0 +1,60 @@
+\documentclass[10pt,tikz]{standalone}
+
+\ifstandalone%
+\usepackage{import}%
+\import{../../configuration/}{comon_packages.tex}%
+\import{../../configuration/}{variables.tex}%
+\import{../../configuration/}{conftikz.tex}%
+\import{../../configuration/}{custom_config.tex}%
+\fi
+
+\begin{document}
+\begin{tikzpicture}
+  % Parameters
+  \def\spacing{0.8}
+  \def\blockw{1.2cm}
+  \def\blockh{1.0cm}
+  \def\addsize{0.7cm}
+
+  % Blocs
+  \node[draw, add, minimum size=\addsize] (addr) at (0, 0) {};
+  \node[draw, block, left=\spacing of addr] (WeR) {${W_\epsilon}^{-1}$};
+  \node[draw, block, left=0.5*\spacing of WeR] (Wr) {$W_r$};
+  \node[draw, block, right=\spacing of addr] (K) {$K$};
+  \node[draw, block, right=\spacing of K] (Wu) {$W_u$};
+  \node[draw, block, right=0.5*\spacing of Wu] (Ghat) {$\hat{G}$};
+  \node[draw, block, right=0.5*\spacing of Ghat] (WeG) {${W_\epsilon}^{-1}$};
+  \node[draw, add, minimum size=\addsize, right=\spacing of WeG] (addy) {};
+  \node[draw, block, above=0.5*\spacing of addy] (WeGd) {${W_\epsilon}^{-1}$};
+  \node[draw, block, above=0.5*\spacing of WeGd] (Gdhat) {$\hat{G_d}$};
+  \node[draw, block, above=0.5*\spacing of Gdhat] (Wd) {$W_d$};
+  \node[draw, add, minimum size=\addsize, below=\spacing of addy] (addn) {};
+  \node[draw, block, right=\spacing of addn] (WeN) {${W_\epsilon}^{-1}$};
+  \node[draw, block, right=0.5*\spacing of WeN] (Wn) {$W_n$};
+
+  % Connections and labels
+  \draw[->] (K.east)     --   (Wu.west);
+  \draw[->] (Wu.east)    --   (Ghat.west) node[above left]{$\hat{F}$};
+  \draw[->] (Ghat.east)  --   (WeG.west);
+  \draw[->] (WeG.east)   --   (addy.west);
+  \draw[<-] (addy.north) --   (WeGd.south);
+  \draw[<-] (WeGd.north) --   (Gdhat.south);
+  \draw[->] (Wd.south)   --   (Gdhat.north) node[above right]{$\hat{d}$};
+  \draw[->] (addy.south) --   (addn.north);
+  \draw[->] (WeN.west)   --   (addn.east);
+  \draw[->] (Wn.west)    --   (WeN.east) node[above right]{$\hat{n}$};
+  \draw[->] (addn.west)  -|   (addr.south);
+  \draw[->] (Wr.east)    --   (WeR.west) node[above left]{$\hat{r}$};
+  \draw[->] (WeR.east)   --   (addr.west);
+  \draw[->] (addr.east)  --   (K.west) node[above left]{$\epsilon$};
+  \draw[<-] (Wr.west)    -- ++(-0.8*\spacing, 0) node[above right]{$r$};
+  \draw[<-] (Wd.north)   -- ++(0, 0.8*\spacing) node[right]{$d$};
+  \draw[<-] (Wn.east)    -- ++(0.8*\spacing, 0) node[above left]{$n$};
+
+  % Groups
+  \node[fit={($(Wd.north east) + (0.25*\spacing, 0.25*\spacing)$) ($(WeGd.south west) + (-0.25*\spacing, -0.25*\spacing)$)}, inner sep=0pt, draw, dashed, color=gray, label=right:{$G_d$}] (Gd) {};
+  \node[fit={($(WeG.north east) + (0.25*\spacing, 0.25*\spacing)$) ($(Wu.south west) + (-0.25*\spacing, -0.25*\spacing)$)}, inner sep=0pt, draw, dashed, color=gray, label={$G$}] (G) {};
+  \node[fit={($(Wn.north east) + (0.25*\spacing, 0.25*\spacing)$) ($(WeN.south west) + (-0.25*\spacing, -0.25*\spacing)$)}, inner sep=0pt, draw, dashed, color=gray] (N) {};
+  \node[fit={($(WeR.north east) + (0.25*\spacing, 0.25*\spacing)$) ($(Wr.south west) + (-0.25*\spacing, -0.25*\spacing)$)}, inner sep=0pt, draw, dashed, color=gray] (R) {};
+\end{tikzpicture}
+\end{document}

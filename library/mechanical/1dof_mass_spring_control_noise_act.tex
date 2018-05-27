@@ -31,7 +31,7 @@
   
   % Displacements
   \draw[dashed] (0.5*\massw, 0) -- ++(0.2*\massw, 0);
-  \draw[->] (0.6*\massw, 0) -- ++(0, 0.2*\spaceh) node[right]{$x_g$};
+  \draw[->] (0.6*\massw, 0) -- ++(0, 0.2*\spaceh) node[right]{$w$};
   \draw[dashed] (0.5*\massw, \spaceh) -- ++(0.2*\massw, 0);
   \draw[->] (0.6*\massw, \spaceh) -- ++(0, 0.2*\spaceh) node[right]{$x$};
 
@@ -40,12 +40,19 @@
   \draw[dashed] (-0.5*\massw, \spaceh) -- ++(-0.2*\massw, 0);
   \draw[dashed, <->] (-0.6*\massw, 0) -- ++(0, \spaceh) node[midway](meas){};
 
+  % Noise
+  \node[draw, add, minimum size=\addsize, left=\spacing of meas] (addn) {};
+  \draw[->] (meas.center) node[above left]{$d$} -- (addn.east);
+  \draw[<-] (addn.west) -- ++(-0.8*\spacing, 0) node[above right]{$n$};
 
   % Controller
   \node[draw, block, above=\spacing of m] (K) {$K$};
-  \draw[->] (meas.center) node[above left]{$d$} -- ++(-0.2*\massw, 0) |- (K.west);
+  \draw[->] (addn.north) |- (K.west) node[above left]{$d_m$};
 
-  % Force injected
-  \draw[->] (K.east) -| ($(F) + (0.5*\massw, 0)$) -- (F.east) node[above right]{$F$};
+  % Force injected and input noise
+  \node[draw, add, minimum size=\addsize, right=\spacing of F] (addF) {};
+  \draw[->] (K.east) -| (addF.north);
+  \draw[->] (addF.west) -- (F.east) node[above right]{$F$};
+  \draw[<-] (addF.east) -- ++(0.8*\spacing, 0) node[above left]{$i$};
 \end{tikzpicture}
 \end{document}

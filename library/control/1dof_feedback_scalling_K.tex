@@ -1,0 +1,45 @@
+\documentclass[10pt,tikz]{standalone}
+
+\ifstandalone%
+\usepackage{import}%
+\import{../../configuration/}{comon_packages.tex}%
+\import{../../configuration/}{variables.tex}%
+\import{../../configuration/}{conftikz.tex}%
+\import{../../configuration/}{custom_config.tex}%
+\fi
+
+\begin{document}
+\begin{tikzpicture}
+  % Parameters
+  \def\spacing{1}
+  \def\blockw{1.2cm}
+  \def\blockh{1.0cm}
+  \def\addsize{0.7cm}
+
+  % Blocs
+  \node[draw, add, minimum size=\addsize] (addr) at (0, 0) {};
+  \node[draw, block, right=\spacing of addr] (We) {${W_\epsilon}^{-1}$};
+  \node[draw, block, right=0.5*\spacing of We] (K) {$K$};
+  \node[draw, block, right=0.5*\spacing of K] (Wu) {$W_u$};
+  \node[draw, block, right=\spacing of Wu] (Ghat) {$\hat{G}$};
+  \node[draw, add, minimum size=\addsize, right=\spacing of Ghat] (addy) {};
+  \node[draw, block, above=0.5*\spacing of addy] (Gdhat) {$\hat{G_d}$};
+  \node[draw, add, minimum size=\addsize, below right=\spacing of addy] (addn) {};
+
+  % Connections and labels
+  \draw[->] (We.east) -- (K.west);
+  \draw[->] (K.east) -- (Wu.west);
+  \draw[->] (Wu.east) -- (Ghat.west) node[above left]{$\hat{F}$};
+  \draw[->] (Ghat.east) -- (addy.west);
+  \draw[<-] (addy.north) -- (Gdhat.south);
+  \draw[->] (addy.east) -| (addn.north);
+  \draw[->] (addn.west) -| (addr.south);
+  \draw[->] (addr.east) -- (We.west);
+  \draw[<-] (addr.west) -- ++(-0.8*\spacing, 0) node[above right]{$\hat{r}$};
+  \draw[<-] (Gdhat.north) -- ++(0, 0.8*\spacing) node[right]{$\hat{d}$};
+  \draw[<-] (addn.east) -- ++(0.8*\spacing, 0) node[above left]{$\hat{n}$};
+
+  % % Groups
+  \node[fit={($(Wu.north east) + (0.2*\spacing, 0.2*\spacing)$) ($(We.south west) + (-0.2*\spacing, -0.2*\spacing)$)}, inner sep=0pt, draw, dashed, color=gray, label={$\hat{K}$}] (Khat) {};
+\end{tikzpicture}
+\end{document}
