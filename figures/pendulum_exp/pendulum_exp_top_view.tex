@@ -1,0 +1,163 @@
+\documentclass[10pt,tikz]{standalone}
+
+\ifstandalone%
+\usepackage{import}%
+\import{../../configuration/}{comon_packages.tex}%
+\import{../../configuration/}{variables.tex}%
+\import{../../configuration/}{conftikz.tex}%
+\import{../../configuration/}{custom_config.tex}%
+\fi
+
+\begin{document}
+\begin{tikzpicture}
+  \newcommand{\AxisRotator}[1][rotate=0]{%
+    \tikz [x=0.12cm,y=0.30cm,line width=.1ex,-stealth,#1] \draw (0,0) arc (-150:150:1 and 1);%
+  }
+
+  % Parameters definitions
+  \def\splitw{2} % Width of the split mirrors
+  \def\splith{2} % Height of the split mirrors
+
+  \def\photow{1} % Width of the photodiodes
+  \def\photoh{3} % Height of the photodiodes
+
+  \def\mirrorw{1} % Width of the mirrors
+  \def\mirrorh{1.5} % Height of the mirrors
+
+  \def\pendulumw{3} % Width of the pendulum
+  \def\pendulumh{1} % Height of the pendulum
+
+  \def\pendmirrw{1} % Width of the mirror on the pendulum
+  \def\pendmirrh{1} % Height of the mirror on the pendulum
+
+  \def\firstinter{3} % First intersection of the beam
+  \def\secinter{6}   % Second intersection of the beam
+  \def\finalinter{9} % Intersection with the pendulum
+
+  \def\magnetw{1.5} % Width of the magnet
+  \def\magneth{1.0} % Height of the magnet
+
+  \def\magnetwb{0.2} % Width of the borders of the magnet
+  \def\magnethl{0.2} % Height of the low part of the magnet
+
+  \def\magnetmw{0.3} % Width of the middle part of the magnet
+  \def\magnetmh{0.2} % Height of the middle part of the magnet
+
+  \def\magnethg{0.3} % Height of the gap of the magnet
+  \def\magnetwg{0.7} % Width of the gap of the magnet
+
+  % Colors
+  \definecolor{split}{RGB}{162,255,255} % light blue
+  \definecolor{photodiode}{RGB}{254,197,66} % light orange
+  \definecolor{mirror}{RGB}{178,178,178} % light grey
+  \begin{scope}[rotate=-90]
+    % Label positions
+    \pgfmathsetmacro{\labelright}{0.5*\splitw+\photow+0.5}%
+    \pgfmathsetmacro{\labelleft}{-0.5*\splitw-\photow-0.5}%
+
+    % Laser Source
+    \begin{scope}[shift={(0, 0)}]
+      \draw[] (-0.5, 0) rectangle node[pos=0.5]{Laser} (0.5, -1.5);
+      \draw[] (-0.2, -1.5) to[out=-90,in=45] ++(-1, -1);
+      \draw[] ( 0.2, -1.5) to[out=-90,in=45] ++(-1, -1);
+    \end{scope}
+
+    % Split Mirror 1
+    \begin{scope}[shift={(0, \firstinter)}]
+      \draw[fill=split] (-0.5*\splitw, -0.5*\splith) rectangle (0.5*\splitw, 0.5*\splith);
+      \draw[dashed] (0.5*\splitw, -0.5*\splith) -- (-0.5*\splitw, 0.5*\splith);
+    \end{scope}
+    % Photodiode 1
+    \begin{scope}[shift={(-0.5*\splitw, \firstinter)}]
+      \draw[fill=photodiode] (-\photow, -0.5*\photoh) rectangle node[pos=0.5]{Photodiode} (0, 0.5*\photoh);
+      \draw[] (-0.5*\photow, -0.5*\photoh+0.5*\photow) node[]{$\bullet$} to[out=-90,in=0] ++(-\photow, -\photow);
+    \end{scope}
+    % Mirror 1
+    \begin{scope}[shift={(0.5*\splitw, \firstinter)}]
+      \draw[fill=mirror] (0, -0.5*\mirrorh) rectangle node[pos=0.5]{Mirror} (\mirrorw, 0.5*\mirrorh);
+      \draw[ultra thick] (0, -0.4*\mirrorh) -- (0, 0.4*\mirrorh);
+    \end{scope}
+
+    % Split Mirror 2
+    \begin{scope}[shift={(0, \secinter)}]
+      \draw[fill=split] (-0.5*\splitw, -0.5*\splith) rectangle (0.5*\splitw, 0.5*\splith);
+      \draw[dashed] (-0.5*\splitw, -0.5*\splith) -- (0.5*\splitw, 0.5*\splith);
+    \end{scope}
+    % Photodiode 2
+    \begin{scope}[shift={(0.5*\splitw, \secinter)}]
+      \draw[fill=photodiode] (0, -0.5*\photoh) rectangle node[pos=0.5]{Photodiode} (\photow, 0.5*\photoh);
+      \draw[] (0.5*\photow, -0.5*\photoh+0.5*\photow) node[]{$\bullet$} to[out=-90,in=-180] ++(\photow, -\photow);
+    \end{scope}
+    % Mirror 2
+    \begin{scope}[shift={(-0.5*\splitw, \secinter)}]
+      \draw[fill=mirror] (-\mirrorw, -0.5*\mirrorh) rectangle node[pos=0.5]{Mirror} (0, 0.5*\mirrorh);
+      \draw[ultra thick] (0, -0.4*\mirrorh) -- (0, 0.4*\mirrorh);
+    \end{scope}
+
+    % Pendulum
+    \begin{scope}[shift={(0, \finalinter)}]
+      % Overall delimitation of the pendulum system
+      \coordinate[] (delimmec) at (-0.5*\pendulumw-0.5*\magnetmw-0.5, -1.2);
+      \coordinate[] (delimmecbis) at (0.5*\pendulumw+0.5*\magnetmw+0.5, \pendulumh+2.8);
+      \draw[dashed] (delimmec) rectangle (delimmecbis);
+      \path[] (-0.5*\pendulumw-0.5*\magnetmw-0.5, -1.2) -- (-0.5*\pendulumw-0.5*\magnetmw-0.5, \pendulumh+2.8) node[midway,above]{Mechanical System};
+
+      \draw[] (-0.5*\pendulumw, 0) rectangle (0.5*\pendulumw, \pendulumh);
+      \draw[] (-0.5*\pendulumw-0.5, 0.5*\pendulumh) node[]{$\bullet$} -- (0.5*\pendulumw+0.5, 0.5*\pendulumh) node[]{$\bullet$};
+      \node[] at (-0.5*\pendulumw-0.3, 0.5*\pendulumh) {\AxisRotator[rotate=-90]};
+      \draw[dashed] (0.5*\pendulumw, 0) -- ++(0.5, 0);
+      \draw[->, >=latex] (0.5*\pendulumw+0.3, 0) -- ++(0, -0.6) node[below]{$x$};
+      \draw[fill=mirror] (-0.5*\pendmirrw, -\pendmirrh) rectangle (0.5*\pendmirrw, 0);
+      \draw[ultra thick] (-0.4*\pendmirrw, -\pendmirrh) -- (0.4*\pendmirrw, -\pendmirrh);
+    \end{scope}
+
+    % Magnet
+    \begin{scope}[shift={(0, \finalinter+\pendulumh)}]
+      \draw[] (0, 0) -| ++(0.5*\magnetw, \magneth) -| ++(-0.5*\magnetw+0.5*\magnetwg, -\magnethg) -| (0.5*\magnetw-\magnetwb, \magnethl) -| (-0.5*\magnetw+\magnetwb, \magneth-\magnethg) -| (-0.5*\magnetwg, \magneth) -| (-0.5*\magnetw, 0) -- (cycle);
+      % Magnet
+      \begin{scope}[shift={(0, \magnethl)}]
+        \draw[fill=red]  (-0.5*\magnetmw, 0) rectangle (0.5*\magnetmw, 0.5*\magnetmh);
+        \draw[fill=blue] (-0.5*\magnetmw, 0.5*\magnetmh) rectangle (0.5*\magnetmw, \magnetmh);
+        % Top conductive Magnet
+        \draw[fill=white] (-0.5*\magnetmw, \magnetmh) -| (0.5*\magnetmw, -\magnethl+\magneth-\magnethg) -| ++(0.1, \magnethg) -| ++(-0.2-\magnetmw, -\magnethg) -| (-0.5*\magnetmw, \magnetmh);
+        % Force
+        \draw[->, >=latex] (0, -0.8*\magnethl+0.8*\magneth)node[]{$\bullet$} -- ++(0, -1.2) node[below]{$F$};
+      \end{scope}
+
+      % Coil
+      \pgfmathsetmacro{\coilwidth}{0.5*0.5*\magnetmw+0.5*0.1+0.25*\magnetwg}%
+      \draw[] ( \coilwidth, \magneth-1.5*\magnethg) -- ++(0, 0.8);
+      \draw[] (-\coilwidth, \magneth-1.5*\magnethg) -- ++(0, 0.8);
+      % Point on the coil
+      \foreach \x in {0,0.1,...,0.8}
+      {\node[circle,inner sep=0.6pt,fill] at ( \coilwidth, \x+\magneth-1.5*\magnethg);
+        \node[circle,inner sep=0.6pt,fill] at (-\coilwidth, \x+\magneth-1.5*\magnethg);}
+      % Actuator Attachement
+      \draw[] (-0.5*\pendulumw, \magneth-1.5*\magnethg+0.8) rectangle ++(\pendulumw, \pendulumh);
+      % Ground
+      \node (ground) [anchor=south, ground, minimum width={\pendulumw cm}, rotate=-90] at (0, \magneth-1.5*\magnethg+0.8+\pendulumh) {};
+
+      % Coil Wires
+      \draw[] ( \coilwidth, \magneth-1.5*\magnethg+0.8) node[]{$\bullet$} to[out=90,in=-180] ++(0.6*\pendulumh, 0.6*\pendulumh);
+      \draw[] (-\coilwidth, \magneth-1.5*\magnethg+0.8) node[]{$\bullet$} to[out=90,in=-180] ++(0.6*\pendulumh, 0.6*\pendulumh);
+    \end{scope}
+
+    % LASER
+    \draw[red, ->-=.5] (0, 0) -- (0, \firstinter);
+    \draw[red, ->-=.6, -<-=.4] (0, \firstinter) -- (-, \secinter);
+    \draw[red, ->-=.7, -<-=.3] (0, \secinter) -- (0, \finalinter-\pendmirrh);
+
+    \draw[red, ->-=.7, -<-=.3] (0, \firstinter) -- ++( 0.5*\splitw, 0);
+    \draw[red, ->-=.5] (0, \firstinter) -- ++(-0.5*\splitw, 0);
+    \draw[red, ->-=.5] (0, \secinter)   -- ++( 0.5*\splitw, 0);
+    \draw[red, ->-=.7, -<-=.3] (0, \secinter)   -- ++(-0.5*\splitw, 0);
+
+    % Delimitation of the Interferometer system
+    \coordinate[] (deliminter) at ($(delimmec)-(0, 0.1)$);
+    \coordinate[] (deliminterbis) at ($(delimmecbis)-(0, 15.4)$);
+    \draw[dashed] (deliminter) rectangle (deliminterbis);
+    \path[] (deliminter) -- (deliminterbis -| deliminter) node[midway, above]{Interferometer};
+  \end{scope}
+
+\end{tikzpicture}
+\end{document}

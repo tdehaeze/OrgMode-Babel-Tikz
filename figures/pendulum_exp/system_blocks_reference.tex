@@ -28,12 +28,14 @@
   \node[draw, block, right=\spacing of addy, label={[align=center]below:Interferometer}] (int) {};
   \node[draw, add] (addn) at (int) {};
   \node[draw, ADC, right=1.2*\spacing of int] (adc) {ADC};
+  \node[draw, add, right=0.8*\spacing of adc] (addr) {};
   \coordinate[] (adc_output) at ($(adc.east) + (0.8*\spacing, 0)$);
   \coordinate[] (dac_input) at ($(dac.west) + (-0.8*\spacing, 0)$);
   \node[draw, block, below=\spacing of G, label={[align=center]below:Controller}] (K) {$\hat{K}$};
 
   % Connections and labels
-  \draw[->] (adc.east) -- (adc_output) |- (K.east);
+  \draw[->] (adc.east) -- (addr.west);
+  \draw[->] (addr.south) |- (K.east);
   \draw[->] (K.west) -| (dac_input) -- (dac.west);
   \draw[->] (dac.east) -- (ci_gain.west);
   \draw[->] (ci_gain.east) -- (addi.west);
@@ -44,6 +46,7 @@
   \draw[->] (addy.east) -- (addn.west);
   \node[above left] at (int.west) {$\hat{d}[m]$};
   \draw[->] (addn.east) -- (adc.west) node[above left]{$\hat{d}_m[m]$};
+  \draw[<-] (addr.north) -- ++(0, 0.8*\spacing) node[right]{$\hat{r}[m]$};
   \draw[->] (Gd.south) -- (addy.north);
   \draw[<-] (Gd.north) -- ++(0, 0.8*\spacing) node[right]{$\hat{x}_g[m]$};
   \draw[<-] (addi.north) -- ++(0, 0.8*\spacing) node[right]{$\hat{n}_i[A]$};
