@@ -1,0 +1,163 @@
+\documentclass[10pt,tikz]{standalone}
+
+\ifstandalone%
+\usepackage{import}%
+\import{../../configuration/}{comon_packages.tex}%
+\import{../../configuration/}{variables.tex}%
+\import{../../configuration/}{conftikz.tex}%
+\import{../../configuration/}{custom_config.tex}%
+\fi
+
+\begin{document}
+\begin{tikzpicture}
+  % Parameters
+  \def\blockw{4.5cm}
+  \def\blockh{1.0cm}
+
+  % Translation Stage
+  \begin{scope}
+    % Translation Stage - fixed part
+    \draw[fill=black!40] (-0.5*\blockw, 0) rectangle (0.5*\blockw, 0.15*\blockh);
+
+    % Tilt
+    \path[] ([shift=(-120:4*\blockh)]0, 4.9*\blockh) coordinate(beginarc) arc (-120:-110:4*\blockh) %
+    -- ([shift=(-70:4*\blockh)]0, 4.9*\blockh) arc (-70:-60:4*\blockh)%
+    |- ++(-0.15*\blockw, 0.6) coordinate (spindlene)%
+    |- ($(beginarc) + (0.15*\blockw, 0.2)$) coordinate (spindlesw) -- ++(0, 0.4) -| cycle;
+
+    % Spindle
+    \coordinate[] (spindlese) at (spindlesw-|spindlene);
+    \draw[fill=black!30] ($(spindlese)+(-0.07,0.07)+(-0.07*\blockw, 0)$) -| ($(spindlene)+(-0.07, 0)$) -| coordinate[pos=0.25](spindletop) ($(spindlesw)+(0.07,0.07)$) -| ++(0.07*\blockw, -\blockh) -| coordinate[pos=0.25](spindlebot) cycle;
+
+    \draw[dashed, color=black!60] ($(spindletop)+(0, 0.2)$) -- ($(spindlebot)+(0,-0.2)$);
+
+
+    % Tilt
+    \draw[fill=black!60] ([shift=(-120:4*\blockh)]0, 4.9*\blockh) coordinate(beginarc) arc (-120:-110:4*\blockh) %
+    -- ([shift=(-70:4*\blockh)]0, 4.9*\blockh) arc (-70:-60:4*\blockh)%
+    |- ++(-0.15*\blockw, 0.6) coordinate (spindlene)%
+    |- ($(beginarc) + (0.15*\blockw, 0.2)$) coordinate (spindlesw) -- ++(0, 0.4) -| cycle;
+
+    % Translation Stage - mobile part
+    \draw[fill=black!10, fill opacity=0.5] (-0.5*\blockw, 0.2*\blockh) -- (-0.5*\blockw, 1.5*\blockh) -- (0.5*\blockw, 1.5*\blockh) -- (0.5*\blockw, 0.2*\blockh) -- (0.35*\blockw, 0.2*\blockh) -- (0.35*\blockw, 0.8*\blockh) -- (-0.35*\blockw, 0.8*\blockh) -- (-0.35*\blockw, 0.2*\blockh) -- cycle;
+
+    % Translation Guidance
+    \draw[dashed, color=black!60] ($(-0.5*\blockw, 0)+( 0.075*\blockw,0.5*\blockh)$) circle (0.2*\blockh);
+    \draw[dashed, color=black!60] ($( 0.5*\blockw, 0)+(-0.075*\blockw,0.5*\blockh)$) circle (0.2*\blockh);
+
+    % Tilt Guidance
+    \draw[dashed, color=black!60] ([shift=(-110:4*\blockh)]0, 4.8*\blockh) arc (-110:-120:4*\blockh);
+    \draw[dashed, color=black!60] ([shift=( -70:4*\blockh)]0, 4.8*\blockh) arc (-70:-60:4*\blockh);
+  \end{scope}
+
+  % Tilt Stage
+  % \begin{scope}[shift={(0, 1*\blockh)}]
+  %   % \draw[] (-0.5*\blockw, 0) rectangle (0.5*\blockw, \blockh);
+  %   % \draw[dashed, color=black!60] ([shift=(-120:4*\blockh)]0, 4.2*\blockh) arc (-120:-60:4*\blockh);
+  % \end{scope}
+
+  % % Spindle
+  % \begin{scope}[shift={(0, 2*\blockh)}]
+  %   \draw[] (-0.45*\blockw, 0) rectangle (0.45*\blockw, \blockh);
+  %   \draw[dashed, color=black!60] (-0.3*\blockw, 0) -- ++(0, \blockh);
+  %   \draw[dashed, color=black!60] ( 0.3*\blockw, 0) -- ++(0, \blockh);
+  % \end{scope}
+
+  % Micro-Hexapod
+  \begin{scope}[shift={(spindletop)}]
+    % Parameters definitions
+    \def\baseh{0.2*\blockh} % Height of the base
+    \def\naceh{0.2*\blockh} % Height of the nacelle
+    \def\baser{0.25*\blockw} % Radius of the base
+    \def\nacer{0.2*\blockw} % Radius of the nacelle
+
+    \def\armr{0.2*\blockh} % Radius of the arms
+    \def\basearmborder{0.2}
+    \def\nacearmborder{0.2}
+
+    \def\xnace{0} \def\ynace{\blockh-\naceh} \def\anace{0}
+    \def\xbase{0} \def\ybase{0} \def\abase{0}
+
+    % Hexapod1
+    \begin{scope}[shift={(\xbase, \ybase)}, rotate=\abase]
+      % Base
+      \draw[] (-\baser, 0) rectangle (\baser, \baseh);
+
+      \coordinate[] (armbasel) at (-\baser+\basearmborder+\armr, \baseh);
+      \coordinate[] (armbasec) at (0, \baseh);
+      \coordinate[] (armbaser) at (\baser-\basearmborder-\armr, \baseh);
+
+      % Nacelle1
+      \begin{scope}[shift={(\xnace, \ynace)}, rotate=\anace]
+        \draw[] (-\nacer, 0) rectangle (\nacer, \naceh);
+        \coordinate[] (uhexatop) at (0, \naceh);
+        \coordinate[] (armnacel) at (-\nacer+\nacearmborder+\armr, 0);
+        \coordinate[] (armnacec) at (0, 0);
+        \coordinate[] (armnacer) at (\nacer-\nacearmborder-\armr, 0);
+      \end{scope}
+      % Nacelle1 END
+
+      \draw[] (armbasec) -- (armnacer);
+      \draw[] (armbasec) -- (armnacel);
+      \draw[] (armbasel) -- (armnacel);
+      \draw[] (armbasel) -- (armnacec);
+      \draw[] (armbaser) -- (armnacec);
+      \draw[] (armbaser) -- (armnacer);
+    \end{scope}
+  \end{scope}
+
+  % NASS
+  \begin{scope}[shift={(uhexatop)}]
+    % Parameters definitions
+    \def\baseh{0.1*\blockh} % Height of the base
+    \def\naceh{0.1*\blockh} % Height of the nacelle
+    \def\baser{0.18*\blockw} % Radius of the base
+    \def\nacer{0.15*\blockw} % Radius of the nacelle
+
+    \def\armr{0.1*\blockh} % Radius of the arms
+    \def\basearmborder{0.2}
+    \def\nacearmborder{0.2}
+
+    \def\xnace{0} \def\ynace{0.6*\blockh-\naceh} \def\anace{0}
+    \def\xbase{0} \def\ybase{0} \def\abase{0}
+
+    % Hexapod1
+    \begin{scope}[shift={(\xbase, \ybase)}, rotate=\abase]
+      % Base
+      \draw[] (-\baser, 0) rectangle (\baser, \baseh);
+
+      \coordinate[] (armbasel) at (-\baser+\basearmborder+\armr, \baseh);
+      \coordinate[] (armbasec) at (0, \baseh);
+      \coordinate[] (armbaser) at (\baser-\basearmborder-\armr, \baseh);
+
+      % Nacelle1
+      \begin{scope}[shift={(\xnace, \ynace)}, rotate=\anace]
+        \draw[] (-\nacer, 0) rectangle (\nacer, \naceh);
+        \coordinate[] (nhexatop) at (0, \naceh);
+        \coordinate[] (armnacel) at (-\nacer+\nacearmborder+\armr, 0);
+        \coordinate[] (armnacec) at (0, 0);
+        \coordinate[] (armnacer) at (\nacer-\nacearmborder-\armr, 0);
+      \end{scope}
+      % Nacelle1 END
+
+      \draw[] (armbasec) -- (armnacer);
+      \draw[] (armbasec) -- (armnacel);
+      \draw[] (armbasel) -- (armnacel);
+      \draw[] (armbasel) -- (armnacec);
+      \draw[] (armbaser) -- (armnacec);
+      \draw[] (armbaser) -- (armnacer);
+    \end{scope}
+  \end{scope}
+
+  % Sample
+  \begin{scope}[shift={(nhexatop)}]
+    \draw[] (-0.1*\blockw, 0) rectangle coordinate[pos=0.5](samplecenter) (0.1*\blockw, \blockh);
+  \end{scope}
+
+  % Laser
+  \begin{scope}[shift={(samplecenter)}]
+    \draw[color=red]  (samplecenter) node[circle, fill=red, inner sep=0pt, minimum size=3pt]{} -- ($(samplecenter)+(2,0)$);
+  \end{scope}
+\end{tikzpicture}
+\end{document}
+

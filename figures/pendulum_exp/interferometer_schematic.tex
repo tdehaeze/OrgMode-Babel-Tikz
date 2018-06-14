@@ -49,7 +49,7 @@
   \node[quart_wave_plate,     right=0.5*\spacing of PBS1]  (WP1) {};
   \node[beamsplitter,         right=0.5*\spacing of WP1]   (BS) {};
   \node[polarizer,            below=0.5*\spacing of BS]    (P) {};
-  \node[photodiode,           below=1.0*\spacing of P]     (PD2) {};
+  \node[photodiode,           below=0.5*\spacing of P]     (PD2) {};
   \node[quart_wave_plate,     right=0.5*\spacing of BS]    (WP2) {};
   \node[polar_beamsplitter,   right=0.5*\spacing of WP2]   (PBS2) {};
   \node[mirror,               right=2.0*\spacing of PBS2]  (M2) {};
@@ -71,17 +71,17 @@
 
   % Nomenclature
   \path[] (laser.north) node[above]{Laser Source};
-  \path[] (PBS1.south) node[below, align=center]{Polarizing\\ Beamsplitter};
-  \path[] (PBS2.south) node[below, align=center]{Polarizing\\ Beamsplitter};
-  \path[] (BS.north) node[above]{Beamsplitter};
-  \path[] (PD1.north) node[above]{Photodiode};
-  \path[] (PD2.south) node[below]{Photodiode};
-  \path[] (M1.north) node[above]{Fixed mirror};
-  \path[] (M2.north) node[above]{Moving mirror};
-  \draw[<-] (P.south east) -- ++(0.5*\spacing, -0.5*\spacing) -- ++(0.5*\spacing, 0) node[right]{Polarizer};
+  \path[] (PBS1.south)  node[below, align=center]{Polarizing\\ Beamsplitter};
+  \path[] (PBS2.south)  node[below, align=center]{Polarizing\\ Beamsplitter};
+  \path[] (BS.north)    node[above]{Beamsplitter};
+  \path[] (PD1.north)   node[above]{Photodiode};
+  \path[] (PD2.south)   node[below]{Photodiode};
+  \path[] (M1.north)    node[above]{Fixed mirror};
+  \path[] (M2.north)    node[above]{Moving mirror};
+  \draw[<-] (P.south east) -- ++(0.8*\spacing, -0.5*\spacing) -- ++(0.3*\spacing, 0) node[right]{Polarizer};
   \node[above=\spacing of BS, align=center] (quarter_BS_label) {Quarter-Wave\\ Plate};
-  \draw[<-] (WP2.north) --(quarter_BS_label.east);
-  \draw[<-] (WP1.north) --(quarter_BS_label.west);
+  \draw[<-] (WP2.north) -- (quarter_BS_label.east);
+  \draw[<-] (WP1.north) -- (quarter_BS_label.west);
 
   % Xg
   \draw[dashed] (M2.south west) --++(0, -0.5*\spacing);
