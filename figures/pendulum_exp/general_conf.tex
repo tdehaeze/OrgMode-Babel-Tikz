@@ -1,0 +1,94 @@
+\documentclass[10pt,tikz]{standalone}
+
+\ifstandalone%
+\usepackage{import}%
+\import{../../configuration/}{comon_packages.tex}%
+\import{../../configuration/}{variables.tex}%
+\import{../../configuration/}{conftikz.tex}%
+\import{../../configuration/}{custom_config.tex}%
+\fi
+
+\begin{document}
+\begin{tikzpicture}
+  % Parameters
+  \def\spacing{1}
+  \def\blockw{1.2cm}
+  \def\blockh{1.0cm}
+  \def\addsize{0.7cm}
+
+  % Blocs
+  \node[draw, block] (CI) {$H_{\text{CI}}$};
+  \node[draw, add, minimum size=\addsize, right=0.5*\spacing of CI] (addu) {};
+  \node[draw, block, right=0.5*\spacing of addu] (VC) {$H_{\text{VC}}$};
+
+  \node[draw, block, right=0.5*\spacing of VC] (G) {$\hat{G}$};
+
+  \node[draw, add, minimum size=\addsize, right=0.8*\spacing of G] (addy) {};
+  \node[draw, block, above=0.5*\spacing of addy] (Gd) {$\hat{G}_d$};
+
+  % Input weight
+  \node[draw, block, above=0.5*\spacing of CI] (Wni) {$W_{n_i}$};
+  \node[draw, block, above=0.5*\spacing of Wni] (Wxg) {$W_{x_g}$};
+  \node[draw, block, above=0.5*\spacing of Wxg] (Wn) {$W_n$};
+
+  \node[draw, add, minimum size=\addsize, right=\spacing of addy] (addn) {};
+
+  % Output weight
+  \node[draw, block, above right=1.5*\spacing and 0.2*\spacing of addn] (We) {${W_e}^{-1}$};
+  \node[draw, block, above=0.5*\spacing of We] (Wf) {${W_f}^{-1}$};
+
+  % Inputs
+  \coordinate[left=1.2*\spacing of Wni] (ni);
+  \coordinate[left=1.2*\spacing of Wxg] (xg);
+  \coordinate[left=1.2*\spacing of Wn] (n);
+
+  % Outputs
+  \coordinate[right=1.2*\spacing of We] (y);
+  \coordinate[right=1.2*\spacing of Wf] (F);
+
+  \coordinate (u) at (n|-G);
+  \coordinate (v) at (F|-G);
+
+  \node[fit={($(n) + (0, 0.5*\blockh) + (0.5*\spacing, 0.2*\spacing)$) ($(v|-CI.south) - (0.5*\spacing, 0.2*\spacing)$)}, inner sep=0pt, draw, dashed, color=gray, label={Generalized Weighted Plant $P$}] (P) {};
+
+  \node[draw, block, below=\spacing of P] (K) {$K$};
+
+
+  % Connections
+  \draw[->] (CI.east) -- (addu.west);
+  \draw[->] (addu.east) -- (VC.west);
+  \draw[->] (VC.east) -- (G.west);
+  \draw[->] (G.east) -- (addy.west);
+  \draw[->] (addy.east) -- (addn.west);
+  \draw[->] (Gd.south) -- (addy.north);
+  \draw[<-] (addn.north) -- ++(0, 0.5*\spacing);
+
+  \draw[->] (ni) -- (Wni.west);
+  \draw[->] (Wni.east) node[above right]{$\hat{n}_i$} -| (addu.north);
+  \draw[->] (xg) -- (Wxg.west);
+  \draw[->] (Wxg.east) node[above right]{$\hat{x}_g$} -| (Gd.north);
+  \draw[->] (n) -- (Wn.west);
+  \draw[->] (Wn.east) node[above right]{$\hat{n}$} -| (addn.north);
+
+  \draw[->] ($(addn.west) + (-0.4*\spacing, 0)$) |- (We.west) node[above left]{$\hat{d}$};
+  \draw[->] ($(G.west)    + (-0.4*\spacing, 0)$) |- (Wf.west) node[above left]{$\hat{F}$};
+  \draw[->] (We.east) -- (y);
+  \draw[->] (Wf) -- (F);
+
+  \draw[->] (addn.east) -- (v) |- (K.east);
+  \draw[->] (K.west) -| (u) -- (CI.west);
+
+  % Labels
+  \node[above right] (un)  at (u)  {$\hat{u}$};
+  \node[above left]  (vn)  at (v)  {$\hat{d}_m$};
+  \node[above right] (xgn) at (xg) {$x_g$};
+  \node[above right] (nin) at (ni) {$n_i$};
+  \node[above right] (nn)  at (n)  {$n$};
+  \node[above left]  (yn)  at (y)  {$d$};
+  \node[above left]  (Fn)  at (F)  {$F$};
+
+  % W and Z brackets
+  \draw [decoration={brace, raise=7pt}, decorate] (nin.south west) -- node[left=8pt]{$w$} (nn.north west);
+  \draw [decoration={brace, raise=5pt}, decorate] (Fn.north east) -- node[right=6pt]{$z$} (yn.south east);
+\end{tikzpicture}
+\end{document}

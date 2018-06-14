@@ -18,6 +18,7 @@
   \begin{scope}
     % Translation Stage - fixed part
     \draw[fill=black!40] (-0.5*\blockw, 0) coordinate[](tyb) rectangle (0.5*\blockw, 0.15*\blockh);
+    \coordinate[] (measposbot) at (0.5*\blockw, 0);
 
     % Tilt
     \path[] ([shift=(-120:4*\blockh)]0, 4.9*\blockh) coordinate(beginarc) arc (-120:-110:4*\blockh) %
@@ -124,6 +125,7 @@
         \coordinate[] (armnacel) at (-\nacer+\nacearmborder+\armr, 0);
         \coordinate[] (armnacec) at (0, 0);
         \coordinate[] (armnacer) at (\nacer-\nacearmborder-\armr, 0);
+        \coordinate[] (measpostop) at (\nacer, \naceh);
       \end{scope}
       % Nacelle1 END
 
@@ -133,6 +135,10 @@
       \draw[] (armbasel) -- (armnacec);
       \draw[] (armbaser) -- (armnacec);
       \draw[] (armbaser) -- (armnacer);
+
+      % Force actuator
+      \coordinate[] (nassfbot) at (0.8*\baser, \baseh);
+      \coordinate[] (nassftop) at (armnacec-|nassfbot);
     \end{scope}
   \end{scope}
 
@@ -162,6 +168,21 @@
   \node[left,xshift=-0.3cm, align=right] at (labelty) {Translation\\Stage};
   \draw[<-] ($0.5*(tiltte)+0.5*(beginarc)$) coordinate(arrowtilt) -- (arrowtilt-|labelty) node[left,xshift=-0.3cm] {Tilt Stage};
   \draw[<-] ($(spindlesw)+(0.5, 0.4)$) -- ++(-0.8, 0.5) coordinate(arrowspindle) -- (arrowspindle-|labelty) node[left,xshift=-0.3cm] {Spindle};
+
+  
+
+  % Measurement
+  \draw[dashed, color=black!50] (measposbot) -- ++(1,0) coordinate (measposbotend);
+  \draw[dashed, color=black!50] (measpostop) -- (measpostop-|measposbotend) coordinate (measpostopend);
+  \draw[<->, dashed] ($(measposbotend)+(-0.3, 0)$) -- node[midway, right](d){$d$} ($(measpostopend)+(-0.3, 0)$);
+
+  % Control
+  \draw[<->] (nassfbot) -- node[midway, right](F){$F$} (nassftop);
+  \def\blockw{1.2cm}
+  \def\blockh{1.0cm}
+  \node[draw, block, right=1 of F] (K){$K$};
+  \draw[->] (d.east) -- ++(0.2, 0) |- (K.east);
+  \draw[->] (K.west) -- (F.east);
 \end{tikzpicture}
 \end{document}
 
