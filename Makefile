@@ -19,7 +19,7 @@
 UNAME := $(shell uname)
 
 ifeq ($(UNAME), Linux)
-PDFVIEWER = evince
+PDFVIEWER = zathura
 endif
 
 ifeq ($(UNAME), Darwin)
