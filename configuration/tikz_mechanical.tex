@@ -1,29 +1,179 @@
 % =============================================================
 % Tikz Style for mechanical figures
 % =============================================================
-\tikzstyle{spring}=[thick,decorate,decoration={zigzag,pre length=0.3cm,post length=0.3cm,segment length=6}]
-\tikzstyle{coil}=[thick,decorate,decoration={coil,pre length=0.3cm,post length=0.3cm,segment length=4}]
-\tikzstyle{damper}=[thick,decoration={markings, mark connection node=dmp, mark=at position 0.5 with {
-  \node (dmp) [thick,inner sep=0pt,transform shape,rotate=-90,minimum width=15pt,minimum height=3pt,draw=none] {};
-  \draw [thick] ($(dmp.north east)+(2pt,0)$) -- (dmp.south east) -- (dmp.south west) -- ($(dmp.north west)+(2pt,0)$);
-  \draw [thick] ($(dmp.north)+(0,-5pt)$) -- ($(dmp.north)+(0,5pt)$);
-  }
-}, decorate]
-\tikzstyle{actuator}=[thick, draw=none, decoration={markings,
-  mark connection node=my node,
-  mark=at position .5 with {
-  \node [draw, minimum width=5pt, minimum height=20pt] (my node) {};
+
+% =============================================================
+% Spring
+% =============================================================
+\tikzset{%
+  spring/.style={%
+    thick,
+    decoration={
+      zigzag,
+      pre length  = #1cm,
+      post length = #1cm,
+      segment length = 6
+    },
+    decorate
   },
-  mark=at position .0 with {
-  \draw[<-] (0, 0) -- (my node.south);
-  },
-  mark=at position 1.0 with {
-  \draw[<-] (0, 0) -- (my node.north);
-  }
-},decorate]
-\tikzstyle{ground}=[fill,pattern=north east lines,draw=none,minimum width=0.75cm,minimum height=0.3cm]
+  spring/.default={0.2}
+}
 % =============================================================
 
+
+% =============================================================
+% Coil
+% =============================================================
+\tikzset{%
+  coil/.style n args={2}{%
+    thick,
+    decoration={
+      coil,
+      pre length  = #1cm,
+      post length = #2cm,
+      segment length = 4
+    },
+    decorate
+  },
+  coil/.default={0.3}{0.3}
+}
+% =============================================================
+
+
+% =============================================================
+% Damper
+% =============================================================
+\tikzset{%
+  damper/.style n args={2}{%
+    thick,
+    decoration={markings, mark connection node=dmp, mark=at position 0.5 with {
+        \node (dmp) [thick,
+                     inner sep = 0pt,
+                     transform shape,
+                     rotate  =-90,
+                     minimum width  = #1pt,
+                     minimum height = #2pt,
+                     draw=none] {};
+        \draw [thick] ($(dmp.north east)+(0.6*#2pt,0)$) -- (dmp.south east) -- (dmp.south west) -- ($(dmp.north west)+(0.6*#2pt,0)$);
+        \draw [thick] ($(dmp.north)+(0,-0.3*#1pt)$) -- ($(dmp.north)+(0,0.3*#1pt)$);
+      }
+    },
+    decorate
+  },
+  damper/.default={12}{3}
+}
+% =============================================================
+
+
+% =============================================================
+% Actuator
+% =============================================================
+\tikzset{%
+  actuator/.style n args={2}{%
+    thick,
+    draw=none,
+    decoration={
+      markings,
+      mark connection node=my node,
+      mark=at position .5 with {
+        \node [draw, inner sep=0pt, minimum width=#1cm, minimum height=#2cm,
+        transform shape] (my node) {};
+      },
+      mark=at position .0 with {
+        \draw[<-] (0, 0) -- (my node);
+      },
+      mark=at position 1.0 with {
+        \draw[<-] (0, 0) -- (my node);
+      }
+    },
+    decorate
+  },
+  actuator/.default={0.2}{0.5}
+}
+% =============================================================
+
+
+% =============================================================
+% Ground
+% =============================================================
+\tikzset{%
+  ground/.style n args={2}{%
+    fill,
+    pattern = north east lines,
+    draw = none,
+    anchor = north,
+    minimum width  = #1cm,
+    minimum height = #2cm,
+    append after command={
+      (\tikzlastnode.north west) edge (\tikzlastnode.north east)
+    }
+  },
+  ground/.default={2.5}{0.3}
+}
+% =============================================================
+
+
+% =============================================================
+% Force Sensor
+% =============================================================
+\tikzset{%
+  forcesensor/.style n args={2}{%
+    rectangle,
+    outer sep=0pt,
+    inner sep=0pt,
+    draw=black,
+    fill=white!60!black,
+    anchor=south,
+    minimum width =#1cm,
+    minimum height=#2cm,
+    append after command={
+      [every edge/.append style={
+        thick,
+        black,
+      }]
+      (\tikzlastnode.north west) edge (\tikzlastnode.south east)
+      (\tikzlastnode.north east) edge (\tikzlastnode.south west)
+    }
+  },
+  forcesensor/.default={2.0}{0.5}
+}
+% =============================================================
+
+
+% =============================================================
+% Inertial Sensor
+% =============================================================
+\tikzset{%
+  inertialsensor/.style n args={1}{%
+    rectangle,
+    outer sep=0pt,
+    inner sep=0pt,
+    draw=black,
+    fill=white!60!black,
+    anchor=south east,
+    minimum width=#1cm,
+    minimum height=#1cm,
+    append after command={
+      [every edge/.append style={
+        thick,
+        black,
+      }]
+      (\tikzlastnode.north west) edge (\tikzlastnode.south east)
+      (\tikzlastnode.north east) edge (\tikzlastnode.south west)
+    }
+  },
+  forcesensor/.default={0.5}
+}
+% =============================================================
+
+
+\newcommand{\AxisRotator}[1][rotate=0]{%
+  \tikz [x=0.1cm,y=0.30cm,-stealth,#1] \draw (0,0) arc (-150:150:1 and 1);%
+}
+\tikzstyle{cross}=[path picture={
+  \draw[black]
+  (path picture bounding box.south east) -- (path picture bounding box.north west) (path picture bounding box.south west) -- (path picture bounding box.north east);
+}]
 
 % =============================================================
 % Voice coil macro

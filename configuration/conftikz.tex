@@ -1,12 +1,12 @@
 % =============================================================
 % Packages
 % =============================================================
-\usepackage{tikz}             % Tikz
-\usepackage{tikzscale}        % Used to scale Tikz graphics
-\usepackage{adjustbox}        % Used to proper positioning of tikz pictures
-\usepackage{circuitikz}       % Draw electronic circuits
-\usepackage{pgfpages}         % Needed to use notes
-\usepackage{pgfplots}         % Used to plot functions
+\usepackage{tikz}       % Tikz
+\usepackage{tikzscale}  % Used to scale Tikz graphics
+\usepackage{adjustbox}  % Used to proper positioning of tikz pictures
+\usepackage{circuitikz} % Draw electronic circuits
+\usepackage{pgfpages}   % Needed to use notes
+\usepackage{pgfplots}   % Used to plot functions
 % =============================================================
 
 
@@ -14,6 +14,7 @@
 % Tikz Libraries
 % =============================================================
 \usetikzlibrary{arrows}                   % Arrow tip library
+\usetikzlibrary{arrows.meta}              % Add some arrows
 \usetikzlibrary{calc}                     % The library allows advanced Coordinate Calculations
 \usetikzlibrary{intersections}            % calculate intersections of paths
 \usetikzlibrary{matrix}                   %
@@ -30,6 +31,7 @@
 \usetikzlibrary{babel}                    % A tiny library that make the interaction with the babel package easier
 \usetikzlibrary{plotmarks}                % This library defines a number of plot marks
 \usetikzlibrary{fit}                      % Used to make rectangle as nodes by specifying two points
+\usetikzlibrary{backgrounds}              % Used to put things under others
 % =============================================================
 
 
@@ -37,6 +39,7 @@
 % PGF Plot libraries and config
 % =============================================================
 \usepgfplotslibrary{patchplots}
+\usepgfplotslibrary{groupplots}
 
 \pgfplotsset{compat=newest}
 \pgfplotsset{plot coordinates/math parser=false}
@@ -46,8 +49,8 @@
 % =============================================================
 % Setup size of figures
 % =============================================================
-\newlength{\fheight}%
-\newlength{\fwidth}%
+\newlength{\fheight}
+\newlength{\fwidth}
 
 \setlength{\fwidth}{85mm}
 \setlength{\fheight}{112mm}
@@ -57,9 +60,8 @@
 % =============================================================
 % Setup Arrows style
 % =============================================================
-% \tikzset{>=latex}
-\tikzset{>=stealth}
-% Linewidth
+\tikzset{>=Stealth}
+% Setup default Linewidth
 \tikzset{every path/.style={line width=1pt}}
 % =============================================================
 
@@ -72,4 +74,5 @@
 \import{./}{tikz_control.tex}%
 \import{./}{tikz_mechanical.tex}%
 \import{./}{tikz_optics.tex}%
+\import{./}{tikz_misc.tex}%
 % =============================================================

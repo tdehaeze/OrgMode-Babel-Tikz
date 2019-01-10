@@ -1,10 +1,24 @@
 % =============================================================
 % Tikz Style for Optical setups
 % =============================================================
-\tikzset{->-/.style={decoration={
+\tikzset{%
+  ->-/.style={
+    decoration={
       markings,
-      mark=at position #1 with {\arrow{>}}},postaction={decorate}}}
-\tikzset{-<-/.style={decoration={
+      mark = at position #1 with {\arrow{>}
+      }
+    },
+    postaction={decorate}
+  }
+}
+\tikzset{%
+  -<-/.style={
+    decoration={
       markings,
-      mark=at position #1 with {\arrow{<}}},postaction={decorate}}}
+      mark = at position #1 with {\arrow{<}
+      }
+    },
+    postaction={decorate}
+  }
+}
 % =============================================================

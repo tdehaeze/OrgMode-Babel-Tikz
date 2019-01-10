@@ -11,7 +11,6 @@
 | ~make open~  | ~f=filename~ | Open the pdf file corresponding to the Tikz figure                          |
 |--------------+--------------+-----------------------------------------------------------------------------|
 
-
 * Create a Tikz File
 
 |-------------+--------------+------------------------------------------------------------------------------------------|
@@ -19,7 +18,6 @@
 |-------------+--------------+------------------------------------------------------------------------------------------|
 | ~make tikz~ | ~f=filename~ | Create a standalone ~.tex~ containing a tikz picture here ~ressources/tikz/filename.tex~ |
 |-------------+--------------+------------------------------------------------------------------------------------------|
-
 
 * Import the Tikz/PDF file into your document
 
@@ -31,7 +29,7 @@ You should create one ~.tex~ file for each Tikz picture with the standalone clas
 \ifstandalone%
     \usepackage{import}
     \import{../../configuration/}{comon_packages.tex}%
-    \import{../../configuration/}{variables.tex}%
+
     \import{../../configuration/}{conftikz.tex}%
     \import{../../configuration/}{custom_config.tex}%
 \fi
@@ -72,4 +70,3 @@ You can then include it using ~\includegraphics~.
 #+END_SRC
 
 It will produce the exact same output but with no compilation time.
-
