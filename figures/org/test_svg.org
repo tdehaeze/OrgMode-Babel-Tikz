@@ -8,7 +8,7 @@
 #+PROPERTY: header-args:latex+ :exports both
 
 * Classical Feedback
-#+begin_src latex :file classical_feedback.svg
+#+begin_src latex :file classical_feedback.svg :exports both
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[block, right=1 of addfb] (K){$K$};
@@ -40,7 +40,7 @@
 [[file:classical_feedback.svg]]
 
 * Sensor Fusion Architecture
-#+begin_src latex :file sf_architecture.svg
+#+begin_src latex :file sf_architecture.svg :exports both
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[block, right=1 of addfb] (K){$K$};
@@ -87,7 +87,7 @@
 [[file:sf_architecture.svg]]
 
 * Complementary Filters
-#+begin_src latex :file sf_complementary_filters.svg
+#+begin_src latex :file sf_complementary_filters.svg :exports both
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[block, right=1 of addfb] (K){$K$};
@@ -129,7 +129,7 @@
 [[file:sf_complementary_filters.svg]]
 
 * Equivalent Configuration
-#+begin_src latex :file sf_eq_conf.svg
+#+begin_src latex :file sf_eq_conf.svg :exports both
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[addb={+}{}{}{}{-}, right=1 of addfb] (addsf){};
@@ -158,7 +158,7 @@
 [[file:sf_eq_conf.svg]]
 
 * Sf Error
-#+begin_src latex :file sf_error.svg
+#+begin_src latex :file sf_error.svg :exports both
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[block, right=2 of addfb] (K){$K$};
@@ -188,7 +188,7 @@
 [[file:sf_error.svg]]
 
 * Virtual Sensor Fusion
-#+begin_src latex :file sf_virtual.svg
+#+begin_src latex :file sf_virtual.svg :exports both
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[block, right=1 of addfb] (K){$K$};
