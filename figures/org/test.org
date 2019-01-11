@@ -261,4 +261,4 @@ ans = ".images/performance.png";
 
 #+CAPTION: Octave plot
 #+RESULTS:
-[[file:.images/performance.png]]
+[[file:sf_virtual.png]]
