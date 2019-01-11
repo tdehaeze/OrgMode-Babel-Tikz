@@ -3,7 +3,7 @@
 #+PROPERTY: header-args:latex+ :imagemagick t :fit yes
 #+PROPERTY: header-args:latex+ :iminoptions -scale 100% -density 150
 #+PROPERTY: header-args:latex+ :imoutoptions -quality 100 -flatten
-#+PROPERTY: header-args:latex+ :results raw replace :buffer no
+#+PROPERTY: header-args:latex+ :results silent :buffer no
 #+PROPERTY: header-args:latex+ :eval no-export
 #+PROPERTY: header-args:latex+ :exports both
 
@@ -32,12 +32,11 @@
     \draw[->] ($(addfb.west)+(-0.3, 0)$) node[branch]{} |- (adderror.west);
     \draw[->] (addn.west) -| (addfb.south) node[below right]{$y_m$};
     \draw[<-] (adddu.north) -- ++(0, 0.8) node[below right]{$d_u$};
-    \draw[<-] (adddy.north) -- ++(0, 0.8) node[below right]{$d_y$};
+    \draw[<-] (adddy.north) -- ++(0, 0.8) node[below right]{$d_u$};
   \end{tikzpicture}
 #+end_src
 
-#+RESULTS:
-[[file:classical_feedback.png]]
+[[./classical_feedback.png]]
 
 * Sensor Fusion Architecture
 #+begin_src latex :file sf_architecture.png
@@ -227,5 +226,5 @@
 #+RESULTS:
 [[file:sf_virtual.png]]
 
-[[sf_virtual.png]]
-[[sf_virtual.svg]]
+[[./sfvirtual.png]]
+[[./sf_virtual.svg]]
