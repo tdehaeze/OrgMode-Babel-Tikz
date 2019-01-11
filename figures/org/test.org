@@ -184,7 +184,7 @@
   \end{tikzpicture}
 #+end_src
 
-#+NAME: fig:dslfkjsdf
+#+CAPTION: Python plot
 #+RESULTS:
 [[file:sf_error.png]]
 
