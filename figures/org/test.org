@@ -224,9 +224,10 @@
   \end{tikzpicture}
 #+end_src
 
-#+RESULTS:
+sdlkfj
 [[file:sf_virtual.png]]
 
+lsdkfj
 [[sf_virtual.png]]
 [[sf_virtual.svg]]
 
