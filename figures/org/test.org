@@ -229,20 +229,20 @@
 #+RESULTS:
 [[file:sf_virtual.png]]
 
-sdlkfj
-[[file:sf_virtual.png]]
+# sdlkfj
+# [[file:sf_virtual.png]]
 
-lsdkfj
-[[sf_virtual.png]]
-[[sf_virtual.svg]]
+# lsdkfj
+# [[sf_virtual.png]]
+# [[sf_virtual.svg]]
 
-test new image export
+# test new image export
 
-[[file:sf_virtual.svg]]
+# [[file:sf_virtual.svg]]
 
-in a folder
+# in a folder
 
-[[file:img/sf_virtual.svg]]
+# [[file:img/sf_virtual.svg]]
 
 * TEST
 
