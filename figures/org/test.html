@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-01-11 ven. 22:50 -->
+<!-- 2019-01-12 sam. 00:22 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Test</title>
@@ -247,20 +247,34 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8a61189">1. Classical Feedback</a></li>
-<li><a href="#org4a96c4f">2. Sensor Fusion Architecture</a></li>
-<li><a href="#org08df216">3. Complementary Filters</a></li>
-<li><a href="#org314b58a">4. Equivalent Configuration</a></li>
-<li><a href="#org46915c4">5. Sf Error</a></li>
-<li><a href="#org80159fa">6. Virtual Sensor Fusion</a></li>
-<li><a href="#org83b706d">7. test</a></li>
+<li><a href="#org4591d3b">1. Table of contents&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOC_1_org">TOC_1_org</span></span></a></li>
+<li><a href="#org38afff5">2. Classical Feedback</a></li>
+<li><a href="#org15f15cb">3. Sensor Fusion Architecture</a></li>
+<li><a href="#orgd11a952">4. Complementary Filters</a></li>
+<li><a href="#orge4a628b">5. Equivalent Configuration</a></li>
+<li><a href="#org4c2a46b">6. Sf Error</a></li>
+<li><a href="#orgc6a2cd4">7. Virtual Sensor Fusion</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org8a61189" class="outline-2">
-<h2 id="org8a61189"><span class="section-number-2">1</span> Classical Feedback</h2>
+<div id="outline-container-org4591d3b" class="outline-2">
+<h2 id="org4591d3b"><span class="section-number-2">1</span> Table of contents&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TOC_1_org">TOC_1_org</span></span></h2>
 <div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><a href="#org38afff5">Classical Feedback</a></li>
+<li><a href="#org15f15cb">Sensor Fusion Architecture</a></li>
+<li><a href="#orgd11a952">Complementary Filters</a></li>
+<li><a href="#orge4a628b">Equivalent Configuration</a></li>
+<li><a href="#org4c2a46b">Sf Error</a></li>
+<li><a href="#orgc6a2cd4">Virtual Sensor Fusion</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org38afff5" class="outline-2">
+<h2 id="org38afff5"><span class="section-number-2">2</span> Classical Feedback</h2>
+<div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-latex"><span style="color: #859900; font-weight: bold;">\begin</span>{<span style="color: #268bd2;">tikzpicture</span>}
   <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
@@ -285,7 +299,7 @@ for the JavaScript code in this tag.
   <span style="color: #586e75;">\draw</span>[-&gt;] (<span style="color: #6c71c4;">$(addfb.west)+(-0.3, 0)$</span>) node[branch]{} |- (adderror.west);
   <span style="color: #586e75;">\draw</span>[-&gt;] (addn.west) -| (addfb.south) node[below right]{<span style="color: #6c71c4;">$y</span><span style="color: #fa8072;">_m</span><span style="color: #6c71c4;">$</span>};
   <span style="color: #586e75;">\draw</span>[&lt;-] (adddu.north) -- ++(0, 0.8) node[below right]{<span style="color: #6c71c4;">$d</span><span style="color: #fa8072;">_u</span><span style="color: #6c71c4;">$</span>};
-  <span style="color: #586e75;">\draw</span>[&lt;-] (adddy.north) -- ++(0, 0.8) node[below right]{<span style="color: #6c71c4;">$d</span><span style="color: #fa8072;">_y</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[&lt;-] (adddy.north) -- ++(0, 0.8) node[below right]{<span style="color: #6c71c4;">$d</span><span style="color: #fa8072;">_u</span><span style="color: #6c71c4;">$</span>};
 <span style="color: #859900; font-weight: bold;">\end</span>{<span style="color: #268bd2;">tikzpicture</span>}
 </pre>
 </div>
@@ -298,9 +312,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org4a96c4f" class="outline-2">
-<h2 id="org4a96c4f"><span class="section-number-2">2</span> Sensor Fusion Architecture</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-org15f15cb" class="outline-2">
+<h2 id="org15f15cb"><span class="section-number-2">3</span> Sensor Fusion Architecture</h2>
+<div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 <pre class="src src-latex"><span style="color: #859900; font-weight: bold;">\begin</span>{<span style="color: #268bd2;">tikzpicture</span>}
   <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
@@ -353,9 +367,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org08df216" class="outline-2">
-<h2 id="org08df216"><span class="section-number-2">3</span> Complementary Filters</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-orgd11a952" class="outline-2">
+<h2 id="orgd11a952"><span class="section-number-2">4</span> Complementary Filters</h2>
+<div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-latex"><span style="color: #859900; font-weight: bold;">\begin</span>{<span style="color: #268bd2;">tikzpicture</span>}
   <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
@@ -403,9 +417,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org314b58a" class="outline-2">
-<h2 id="org314b58a"><span class="section-number-2">4</span> Equivalent Configuration</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-orge4a628b" class="outline-2">
+<h2 id="orge4a628b"><span class="section-number-2">5</span> Equivalent Configuration</h2>
+<div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-latex"><span style="color: #859900; font-weight: bold;">\begin</span>{<span style="color: #268bd2;">tikzpicture</span>}
   <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
@@ -440,9 +454,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org46915c4" class="outline-2">
-<h2 id="org46915c4"><span class="section-number-2">5</span> Sf Error</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-org4c2a46b" class="outline-2">
+<h2 id="org4c2a46b"><span class="section-number-2">6</span> Sf Error</h2>
+<div class="outline-text-2" id="text-6">
 <div class="org-src-container">
 <pre class="src src-latex"><span style="color: #859900; font-weight: bold;">\begin</span>{<span style="color: #268bd2;">tikzpicture</span>}
   <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
@@ -478,9 +492,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org80159fa" class="outline-2">
-<h2 id="org80159fa"><span class="section-number-2">6</span> Virtual Sensor Fusion</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-orgc6a2cd4" class="outline-2">
+<h2 id="orgc6a2cd4"><span class="section-number-2">7</span> Virtual Sensor Fusion</h2>
+<div class="outline-text-2" id="text-7">
 <div class="org-src-container">
 <pre class="src src-latex"><span style="color: #859900; font-weight: bold;">\begin</span>{<span style="color: #268bd2;">tikzpicture</span>}
   <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
@@ -525,29 +539,10 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-org83b706d" class="outline-2">
-<h2 id="org83b706d"><span class="section-number-2">7</span> test</h2>
-<div class="outline-text-2" id="text-7">
-
-<div id="org73fa73f" class="figure">
-<p><img src="./sf_architecture.png" alt="sf_architecture.png" />
-</p>
-<p><span class="figure-number">Figure 7: </span>figure caption</p>
-</div>
-
-
-<div id="org7f182d3" class="figure">
-<p><object type="image/svg+xml" data="./sf_architecture.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
-</p>
-<p><span class="figure-number">Figure 8: </span>figure caption</p>
-</div>
-</div>
-</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Thomas Dehaeze</p>
-<p class="date">Created: 2019-01-11 ven. 22:50</p>
+<p class="date">Created: 2019-01-12 sam. 00:22</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
