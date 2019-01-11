@@ -8,7 +8,7 @@
 #+PROPERTY: header-args:latex+ :exports both
 
 * Classical Feedback
-#+begin_src latex :file ./classical_feedback.png
+#+begin_src latex :file classical_feedback.png :results graphics
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[block, right=1 of addfb] (K){$K$};
@@ -37,7 +37,7 @@
 #+end_src
 
 #+RESULTS:
-[[file:./classical_feedback.png]]
+[[file:classical_feedback.png]]
 
 * Sensor Fusion Architecture
 #+begin_src latex :file sf_architecture.png
@@ -229,3 +229,11 @@
 
 [[sf_virtual.png]]
 [[sf_virtual.svg]]
+
+test new image export
+
+[[file:sf_virtual.svg]]
+
+in a folder
+
+[[file:img/sf_virtual.svg]]
