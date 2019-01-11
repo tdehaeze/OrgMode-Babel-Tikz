@@ -7,28 +7,8 @@
 #+PROPERTY: header-args:latex+ :eval no-export
 #+PROPERTY: header-args:latex+ :exports both
 
-* TEST
-#+BEGIN_SRC latex :results file :var data=est-truth-data[1:-1, 0:1] :exports results
-truth = data(:, 1)
-estimate = data(:, 2)
-samples = linspace(1, 20, length(data))'
-
-figure( 1, "visible", "off" );
-hold on
-plot(samples, truth-estimate, 'r-x')
-xlabel ("Sample");
-ylabel ("Error");
-title("The error between the truth and estimate")
-print -dpng .images/performance.png -S400;
-ans = ".images/performance.png";
-#+END_SRC
-
-#+CAPTION: Octave plot
-#+RESULTS:
-[[file:sf_virtual.png]]
-
 * Classical Feedback
-#+begin_src latex :file classical_feedback.png :results graphics
+#+begin_src latex :file classical_feedback.png :results graphics :results file
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[block, right=1 of addfb] (K){$K$};
