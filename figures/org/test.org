@@ -225,6 +225,10 @@
   \end{tikzpicture}
 #+end_src
 
+#+CAPTION: Octave plot
+#+RESULTS:
+[[file:sf_virtual.png]]
+
 sdlkfj
 [[file:sf_virtual.png]]
 
@@ -261,4 +265,4 @@ ans = ".images/performance.png";
 
 #+CAPTION: Octave plot
 #+RESULTS:
-[[file:sf_virtual.png]]
+[[file:performance.png]]
