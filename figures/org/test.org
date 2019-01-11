@@ -226,13 +226,6 @@
 
 #+RESULTS:
 [[file:sf_virtual.png]]
-* test
-#+name: fig:figure_name
-#+caption: figure caption
-#+attr_latex: :float t :width \linewidth
-[[./sf_architecture.png]]
 
-#+name: fig:figure_namekk
-#+caption: figure caption
-#+attr_latex: :float t :width \linewidth
-[[./sf_architecture.svg]]
+[[sf_virtual.png]]
+[[sf_virtual.svg]]
