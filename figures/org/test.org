@@ -7,6 +7,14 @@
 #+PROPERTY: header-args:latex+ :eval no-export
 #+PROPERTY: header-args:latex+ :exports both
 
+* Table of contents                                                     :TOC:
+- [[#classical-feedback][Classical Feedback]]
+- [[#sensor-fusion-architecture][Sensor Fusion Architecture]]
+- [[#complementary-filters][Complementary Filters]]
+- [[#equivalent-configuration][Equivalent Configuration]]
+- [[#sf-error][Sf Error]]
+- [[#virtual-sensor-fusion][Virtual Sensor Fusion]]
+
 * Classical Feedback
 #+begin_src latex :file classical_feedback.png :exports both
   \begin{tikzpicture}
