@@ -8,7 +8,7 @@
 #+PROPERTY: header-args:latex+ :exports both
 
 * Classical Feedback
-#+begin_src latex :file classical_feedback.png :results graphics :results file
+#+begin_src latex :file classical_feedback.png :results file :exports results
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[block, right=1 of addfb] (K){$K$};
