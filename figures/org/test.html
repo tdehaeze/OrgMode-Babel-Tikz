@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-01-11 ven. 15:26 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Test</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Thomas Dehaeze" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Test</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org9b199c9">1. Classical Feedback</a></li>
+<li><a href="#org78fe951">2. Sensor Fusion Architecture</a></li>
+<li><a href="#orgfe2a7dd">3. Complementary Filters</a></li>
+<li><a href="#org05622f7">4. Equivalent Configuration</a></li>
+<li><a href="#orgf1df92b">5. Sf Error</a></li>
+<li><a href="#orgf80bef6">6. Virtual Sensor Fusion</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org9b199c9" class="outline-2">
+<h2 id="org9b199c9"><span class="section-number-2">1</span> Classical Feedback</h2>
+<div class="outline-text-2" id="text-1">
+<div class="org-src-container">
+<pre class="src src-latex"><span style="color: #859900; font-weight: bold;">\begin</span>{<span style="color: #268bd2;">tikzpicture</span>}
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
+  <span style="color: #586e75;">\node</span>[block, right=1 of addfb] (K){<span style="color: #6c71c4;">$K$</span>};
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{}, right=1 of K] (adddu){};
+  <span style="color: #586e75;">\node</span>[block, right=1 of adddu] (G){<span style="color: #6c71c4;">$B$</span>};
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{}, right=1 of G] (adddy){};
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{-}, above right=1 and 1 of adddy] (adderror) {};
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{}, below right=1 and 1 of adddy] (addn) {};
+
+
+  <span style="color: #586e75;">\draw</span>[-&gt;] (addfb.east) -- (K.west) node[above left]{<span style="color: #6c71c4;">$</span><span style="color: #6c71c4;">\epsilon</span><span style="color: #fa8072;">_{m}</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (K.east) -- (adddu.west);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (adddu.east) -- (G.west) node[above left]{<span style="color: #6c71c4;">$u$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (adderror.east) -- ++(0.8, 0) coordinate[](endpos) node[above left]{<span style="color: #6c71c4;">$</span><span style="color: #6c71c4;">\epsilon</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (G.east) -- (adddy.west);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (adddy.east) -- (G-|endpos) node[above left]{<span style="color: #6c71c4;">$y$</span>};
+  <span style="color: #586e75;">\draw</span>[&lt;-] (addfb.west) -- ++(-1, 0) node[above right]{<span style="color: #6c71c4;">$r$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (G-|adderror) node[branch]{} -- (addn.north);
+  <span style="color: #586e75;">\draw</span>[&lt;-] (addn.east) -- (addn-|endpos) node[above left]{<span style="color: #6c71c4;">$n$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (G-|adderror) -- (adderror.south);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (<span style="color: #6c71c4;">$(addfb.west)+(-0.3, 0)$</span>) node[branch]{} |- (adderror.west);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (addn.west) -| (addfb.south) node[below right]{<span style="color: #6c71c4;">$y</span><span style="color: #fa8072;">_m</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[&lt;-] (adddu.north) -- ++(0, 0.8) node[below right]{<span style="color: #6c71c4;">$d</span><span style="color: #fa8072;">_u</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[&lt;-] (adddy.north) -- ++(0, 0.8) node[below right]{<span style="color: #6c71c4;">$d</span><span style="color: #fa8072;">_y</span><span style="color: #6c71c4;">$</span>};
+<span style="color: #859900; font-weight: bold;">\end</span>{<span style="color: #268bd2;">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="classical_feedback.png" alt="classical_feedback.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org78fe951" class="outline-2">
+<h2 id="org78fe951"><span class="section-number-2">2</span> Sensor Fusion Architecture</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-latex"><span style="color: #859900; font-weight: bold;">\begin</span>{<span style="color: #268bd2;">tikzpicture</span>}
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
+  <span style="color: #586e75;">\node</span>[block, right=1 of addfb] (K){<span style="color: #6c71c4;">$K$</span>};
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{}, right=1 of K] (adddu){};
+  <span style="color: #586e75;">\node</span>[block, right=1 of adddu] (G){<span style="color: #6c71c4;">$G$</span>};
+  <span style="color: #586e75;">\node</span>[block, below=0.5 of G] (Gc){<span style="color: #6c71c4;">$G</span><span style="color: #fa8072;">_c</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{}, right=0.5 of G] (adddy){};
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{}, right=1.3 of Gc] (adddyc){};
+  <span style="color: #586e75;">\node</span>[block, below=1 of Gc] (Hl){<span style="color: #6c71c4;">$H</span><span style="color: #fa8072;">_L</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\node</span>[block, below=0.5 of Hl] (Hh){<span style="color: #6c71c4;">$H</span><span style="color: #fa8072;">_H</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{}] (addsf) at (Hl-|addfb) {};
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{-}, above right=1 and 1 of adddy] (adderror) {};
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{}] (addn) at (Hl-|adderror) {};
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{}] (addnc) at (<span style="color: #6c71c4;">$(Hh-|adderror)+(0.8, 0)$</span>) {};
+
+  <span style="color: #586e75;">\draw</span>[&lt;-] (addfb.west) -- ++(-1, 0) node[above right]{<span style="color: #6c71c4;">$r$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (addfb.east) -- (K.west) node[above left]{<span style="color: #6c71c4;">$</span><span style="color: #6c71c4;">\epsilon</span><span style="color: #fa8072;">_{sf}</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (K.east) -- (adddu.west);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (adddu.east) -- (G.west) node[above left]{<span style="color: #6c71c4;">$u$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (<span style="color: #6c71c4;">$(adddu.east)+(0.3, 0)$</span>) node[branch]{} |- (Gc.west);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (adderror.east) -- ++(1.5, 0) coordinate[](endpos) node[above left]{<span style="color: #6c71c4;">$</span><span style="color: #6c71c4;">\epsilon</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (G.east) -- (adddy.west);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (Gc.east) -- (adddyc.west);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (adddy.east) -- (G-|endpos) node[above left]{<span style="color: #6c71c4;">$y$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (adddyc.east) -- (Gc-|endpos) node[above left]{<span style="color: #6c71c4;">$y</span><span style="color: #fa8072;">_c</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (Hl.west) -- (addsf.east);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (Hh.west) -| (addsf.south);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (addsf.north) -- (addfb.south) node[below right]{<span style="color: #6c71c4;">$y</span><span style="color: #fa8072;">_{sf}</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;top] (G-|addn) node[branch]{} -- (addn.north);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (Gc-|addnc) node[branch]{} -- (addnc.north);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (addn.west) -- (Hl);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (addnc.west) -- (Hh);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (G-|adderror) -- (adderror.south);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (<span style="color: #6c71c4;">$(addfb.west)+(-0.5, 0)$</span>) node[branch]{} |- (adderror.west);
+  <span style="color: #586e75;">\draw</span>[&lt;-] (adddu.north) -- ++(0, 0.8) node[below right]{<span style="color: #6c71c4;">$d</span><span style="color: #fa8072;">_u</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[&lt;-] (adddy.north) -- ++(0, 0.8) node[below right]{<span style="color: #6c71c4;">$d</span><span style="color: #fa8072;">_y</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[&lt;-] (adddyc.north) -- ++(0, 0.8) node[below right]{<span style="color: #6c71c4;">$d</span><span style="color: #fa8072;">_{yc}</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[&lt;-top] (addn.east) -- (addn-|endpos) node[above left]{<span style="color: #6c71c4;">$n$</span>};
+  <span style="color: #586e75;">\draw</span>[&lt;-] (addnc.east) -- (addnc-|endpos) node[above left]{<span style="color: #6c71c4;">$n</span><span style="color: #fa8072;">_c</span><span style="color: #6c71c4;">$</span>};
+<span style="color: #859900; font-weight: bold;">\end</span>{<span style="color: #268bd2;">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="sf_architecture.png" alt="sf_architecture.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfe2a7dd" class="outline-2">
+<h2 id="orgfe2a7dd"><span class="section-number-2">3</span> Complementary Filters</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-latex"><span style="color: #859900; font-weight: bold;">\begin</span>{<span style="color: #268bd2;">tikzpicture</span>}
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
+  <span style="color: #586e75;">\node</span>[block, right=1 of addfb] (K){<span style="color: #6c71c4;">$K$</span>};
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{}, right=2 of K] (adddu){};
+  <span style="color: #586e75;">\node</span>[block, right=1 of adddu] (G){<span style="color: #6c71c4;">$G$</span>};
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{}, right=1 of G] (adddy){};
+  <span style="color: #586e75;">\coordinate</span>[] (KG) at (<span style="color: #6c71c4;">$0.5*(K.east)+0.5*(adddu.west)$</span>);
+  <span style="color: #586e75;">\node</span>[block, below=1 of KG] (Gm){<span style="color: #6c71c4;">$G</span><span style="color: #fa8072;">^\prime</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\node</span>[block, , below=0.6 of Gm] (Hh){<span style="color: #6c71c4;">$H</span><span style="color: #fa8072;">_H</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{}, below=0.6 of Hh] (addsf){};
+  <span style="color: #586e75;">\node</span>[block] (Hl) at (addsf-|G) {<span style="color: #6c71c4;">$H</span><span style="color: #fa8072;">_L</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{-}, above right=1 and 1 of adddy] (adderror) {};
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{}] (addn) at (Hl-|adderror) {};
+
+
+  <span style="color: #586e75;">\draw</span>[-&gt;] (addfb.east) -- (K.west) node[above left]{<span style="color: #6c71c4;">$</span><span style="color: #6c71c4;">\epsilon</span><span style="color: #fa8072;">_{sf}</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (K.east) -- (adddu.west);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (adddu.east) -- (G.west) node[above left]{<span style="color: #6c71c4;">$u$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (KG) node[branch]{} -- (Gm.north);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (Gm.south) -- (Hh.north);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (Hh.south) -- (addsf.north) node[above left]{<span style="color: #6c71c4;">$y</span><span style="color: #fa8072;">^\prime</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (Hl.west) -- (addsf.east);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (addsf.west) -| (addfb.south) node[below right]{<span style="color: #6c71c4;">$y</span><span style="color: #fa8072;">_{sf}</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (adderror.east) -- ++(0.8, 0) coordinate[](endpos) node[above left]{<span style="color: #6c71c4;">$</span><span style="color: #6c71c4;">\epsilon</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (G.east) -- (adddy.west);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (adddy.east) -- (G-|endpos) node[above left]{<span style="color: #6c71c4;">$y$</span>};
+  <span style="color: #586e75;">\draw</span>[&lt;-] (addfb.west) -- ++(-1, 0) node[above right]{<span style="color: #6c71c4;">$r$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (G-|adderror) node[branch]{} -- (addn.north);
+  <span style="color: #586e75;">\draw</span>[&lt;-] (addn.east) -- (addn-|endpos) node[above left]{<span style="color: #6c71c4;">$n$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (addn.west) -- (Hl.east) node[above right]{<span style="color: #6c71c4;">$y</span><span style="color: #fa8072;">_m</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (G-|adderror) -- (adderror.south);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (<span style="color: #6c71c4;">$(addfb.west)+(-0.3, 0)$</span>) node[branch]{} |- (adderror.west);
+  <span style="color: #586e75;">\draw</span>[&lt;-] (adddu.north) -- ++(0, 0.8) node[below right]{<span style="color: #6c71c4;">$d</span><span style="color: #fa8072;">_u</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[&lt;-] (adddy.north) -- ++(0, 0.8) node[below right]{<span style="color: #6c71c4;">$d</span><span style="color: #fa8072;">_y</span><span style="color: #6c71c4;">$</span>};
+<span style="color: #859900; font-weight: bold;">\end</span>{<span style="color: #268bd2;">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="sf_complementary_filters.png" alt="sf_complementary_filters.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org05622f7" class="outline-2">
+<h2 id="org05622f7"><span class="section-number-2">4</span> Equivalent Configuration</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+<pre class="src src-latex"><span style="color: #859900; font-weight: bold;">\begin</span>{<span style="color: #268bd2;">tikzpicture</span>}
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{-}, right=1 of addfb] (addsf){};
+  <span style="color: #586e75;">\node</span>[block, below right=0.5 and 0.5 of addsf] (Ke){<span style="color: #6c71c4;">$KG</span><span style="color: #fa8072;">_v</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\node</span>[block, right=2.5 of addsf] (K){<span style="color: #6c71c4;">$K$</span>};
+  <span style="color: #586e75;">\node</span>[block, right=1 of K] (G){<span style="color: #6c71c4;">$G$</span>};
+  <span style="color: #586e75;">\node</span>[block, below=1 of G] (Hl){<span style="color: #6c71c4;">$H</span><span style="color: #fa8072;">_L</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{-}, above right=0.5 and 0.5 of G] (adderror) {};
+
+  <span style="color: #586e75;">\draw</span>[-&gt;] (addfb.east) -- (addsf.west) node[above left]{<span style="color: #6c71c4;">$</span><span style="color: #6c71c4;">\epsilon</span><span style="color: #fa8072;">_{m}</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (addsf.east) -- (K.west) node[above left]{<span style="color: #6c71c4;">$</span><span style="color: #6c71c4;">\epsilon</span><span style="color: #fa8072;">_{sf}</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (K.east) -- (G.west) node[above left]{<span style="color: #6c71c4;">$u$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (<span style="color: #6c71c4;">$(K.west)+(-0.3, 0)$</span>) node[branch]{} |- (Ke.east);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (Ke.west) -| (addsf.south);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (Hl.west) -| (addfb.south);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (adderror.east) -- ++(0.5, 0) coordinate[](endpos) node[above left]{<span style="color: #6c71c4;">$</span><span style="color: #6c71c4;">\epsilon</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (G.east) -- (G-|endpos) node[above left]{<span style="color: #6c71c4;">$y$</span>};
+  <span style="color: #586e75;">\draw</span>[&lt;-] (addfb.west) -- ++(-1, 0) node[above right]{<span style="color: #6c71c4;">$r$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (G-|adderror) node[branch]{} |- (Hl.east);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (G-|adderror) -- (adderror.south);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (<span style="color: #6c71c4;">$(addfb.west)+(-0.5, 0)$</span>) node[branch]{} |- (adderror.west);
+<span style="color: #859900; font-weight: bold;">\end</span>{<span style="color: #268bd2;">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="sf_eq_conf.png" alt="sf_eq_conf.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf1df92b" class="outline-2">
+<h2 id="orgf1df92b"><span class="section-number-2">5</span> Sf Error</h2>
+<div class="outline-text-2" id="text-5">
+<div class="org-src-container">
+<pre class="src src-latex"><span style="color: #859900; font-weight: bold;">\begin</span>{<span style="color: #268bd2;">tikzpicture</span>}
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
+  <span style="color: #586e75;">\node</span>[block, right=2 of addfb] (K){<span style="color: #6c71c4;">$K$</span>};
+  <span style="color: #586e75;">\node</span>[block, right=1 of K] (G){<span style="color: #6c71c4;">$G$</span>};
+  <span style="color: #586e75;">\coordinate</span>[] (KG) at (<span style="color: #6c71c4;">$0.5*(addfb.east)+0.5*(K.west)$</span>);
+  <span style="color: #586e75;">\node</span>[block, below=1 of KG] (Gv){<span style="color: #6c71c4;">$KG</span><span style="color: #fa8072;">_v</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{}, below=1 of Gv] (addsf){};
+  <span style="color: #586e75;">\node</span>[block] (Hl) at (addsf-|G) {<span style="color: #6c71c4;">$H</span><span style="color: #fa8072;">_L</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{-}, above right=0.5 and 0.5 of G] (adderror) {};
+
+  <span style="color: #586e75;">\draw</span>[-&gt;] (addfb.east) -- (K.west) node[above left]{<span style="color: #6c71c4;">$</span><span style="color: #6c71c4;">\epsilon</span><span style="color: #fa8072;">_{sf}</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (K.east) -- (G.west) node[above left]{<span style="color: #6c71c4;">$u$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (KG) node[branch]{} -- (Gv.north);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (Gv.south) -- (addsf.north) node[above left]{<span style="color: #6c71c4;">$y</span><span style="color: #fa8072;">_v</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (Hl.west) -- (addsf.east);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (addsf.west) -| (addfb.south) node[below right]{<span style="color: #6c71c4;">$y</span><span style="color: #fa8072;">_{sf}</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (adderror.east) -- ++(0.5, 0) coordinate[](endpos) node[above left]{<span style="color: #6c71c4;">$</span><span style="color: #6c71c4;">\epsilon</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (G.east) -- (G-|endpos) node[above left]{<span style="color: #6c71c4;">$y$</span>};
+  <span style="color: #586e75;">\draw</span>[&lt;-] (addfb.west) -- ++(-1, 0) node[above right]{<span style="color: #6c71c4;">$r$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (G-|adderror) node[branch]{} |- (Hl.east);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (G-|adderror) -- (adderror.south);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (<span style="color: #6c71c4;">$(addfb.west)+(-0.5, 0)$</span>) node[branch]{} |- (adderror.west);
+<span style="color: #859900; font-weight: bold;">\end</span>{<span style="color: #268bd2;">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="sf_error.png" alt="sf_error.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf80bef6" class="outline-2">
+<h2 id="orgf80bef6"><span class="section-number-2">6</span> Virtual Sensor Fusion</h2>
+<div class="outline-text-2" id="text-6">
+<div class="org-src-container">
+<pre class="src src-latex"><span style="color: #859900; font-weight: bold;">\begin</span>{<span style="color: #268bd2;">tikzpicture</span>}
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
+  <span style="color: #586e75;">\node</span>[block, right=1 of addfb] (K){<span style="color: #6c71c4;">$K$</span>};
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{}, right=2 of K] (adddu){};
+  <span style="color: #586e75;">\node</span>[block, right=1 of adddu] (G){<span style="color: #6c71c4;">$G$</span>};
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{}, right=1 of G] (adddy){};
+  <span style="color: #586e75;">\coordinate</span>[] (KG) at (<span style="color: #6c71c4;">$0.5*(K.east)+0.5*(adddu.west)$</span>);
+  <span style="color: #586e75;">\node</span>[block, below=1 of KG] (Gv){<span style="color: #6c71c4;">$G</span><span style="color: #fa8072;">_v</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{}, below=1 of Gv] (addsf){};
+  <span style="color: #586e75;">\node</span>[block] (Hl) at (addsf-|G) {<span style="color: #6c71c4;">$H</span><span style="color: #fa8072;">_L</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{-}, above right=1 and 1 of adddy] (adderror) {};
+  <span style="color: #586e75;">\node</span>[addb={+}{}{}{}{}] (addn) at (Hl-|adderror) {};
+
+
+  <span style="color: #586e75;">\draw</span>[-&gt;] (addfb.east) -- (K.west) node[above left]{<span style="color: #6c71c4;">$</span><span style="color: #6c71c4;">\epsilon</span><span style="color: #fa8072;">_{sf}</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (K.east) -- (adddu.west);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (adddu.east) -- (G.west) node[above left]{<span style="color: #6c71c4;">$u$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (KG) node[branch]{} -- (Gv.north);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (Gv.south) -- (addsf.north) node[above left]{<span style="color: #6c71c4;">$y</span><span style="color: #fa8072;">_v</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (Hl.west) -- (addsf.east);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (addsf.west) -| (addfb.south) node[below right]{<span style="color: #6c71c4;">$y</span><span style="color: #fa8072;">_{sf}</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (adderror.east) -- ++(0.8, 0) coordinate[](endpos) node[above left]{<span style="color: #6c71c4;">$</span><span style="color: #6c71c4;">\epsilon</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (G.east) -- (adddy.west);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (adddy.east) -- (G-|endpos) node[above left]{<span style="color: #6c71c4;">$y$</span>};
+  <span style="color: #586e75;">\draw</span>[&lt;-] (addfb.west) -- ++(-1, 0) node[above right]{<span style="color: #6c71c4;">$r$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (G-|adderror) node[branch]{} -- (addn.north);
+  <span style="color: #586e75;">\draw</span>[&lt;-] (addn.east) -- (addn-|endpos) node[above left]{<span style="color: #6c71c4;">$n$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (addn.west) -- (Hl.east) node[above right]{<span style="color: #6c71c4;">$y</span><span style="color: #fa8072;">_m</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[-&gt;] (G-|adderror) -- (adderror.south);
+  <span style="color: #586e75;">\draw</span>[-&gt;] (<span style="color: #6c71c4;">$(addfb.west)+(-0.3, 0)$</span>) node[branch]{} |- (adderror.west);
+  <span style="color: #586e75;">\draw</span>[&lt;-] (adddu.north) -- ++(0, 0.8) node[below right]{<span style="color: #6c71c4;">$d</span><span style="color: #fa8072;">_u</span><span style="color: #6c71c4;">$</span>};
+  <span style="color: #586e75;">\draw</span>[&lt;-] (adddy.north) -- ++(0, 0.8) node[below right]{<span style="color: #6c71c4;">$d</span><span style="color: #fa8072;">_y</span><span style="color: #6c71c4;">$</span>};
+<span style="color: #859900; font-weight: bold;">\end</span>{<span style="color: #268bd2;">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="sf_virtual.png" alt="sf_virtual.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Thomas Dehaeze</p>
+<p class="date">Created: 2019-01-11 ven. 15:26</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
