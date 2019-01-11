@@ -8,7 +8,7 @@
 #+PROPERTY: header-args:latex+ :exports both
 
 * Classical Feedback
-#+begin_src latex :file classical_feedback.png
+#+begin_src latex :file ./classical_feedback.png
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[block, right=1 of addfb] (K){$K$};
@@ -226,5 +226,5 @@
 #+RESULTS:
 [[file:sf_virtual.png]]
 
-[[./sfvirtual.png]]
-[[./sf_virtual.svg]]
+[[sf_virtual.png]]
+[[sf_virtual.svg]]
