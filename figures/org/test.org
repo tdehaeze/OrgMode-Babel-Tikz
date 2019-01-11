@@ -239,3 +239,9 @@ test new image export
 in a folder
 
 [[file:img/sf_virtual.svg]]
+
+* TEST
+
+#+CAPTION: Python plot
+#+RESULTS:
+[[file:.images/est_vs_truth.png]]
