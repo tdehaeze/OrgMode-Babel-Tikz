@@ -189,7 +189,7 @@
 [[file:sf_error.png]]
 
 * Virtual Sensor Fusion
-#+begin_src latex :file sf_virtual.png
+#+BEGIN_SRC latex :file sf_virtual.png
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[block, right=1 of addfb] (K){$K$};
@@ -223,13 +223,13 @@
     \draw[<-] (adddu.north) -- ++(0, 0.8) node[below right]{$d_u$};
     \draw[<-] (adddy.north) -- ++(0, 0.8) node[below right]{$d_y$};
   \end{tikzpicture}
-#+end_src
+#+END_SRC
 
 #+CAPTION: Octave plot
 #+RESULTS:
 [[file:sf_virtual.png]]
 
-# sdlkfj
+sdlkfj
 # [[file:sf_virtual.png]]
 
 # lsdkfj
