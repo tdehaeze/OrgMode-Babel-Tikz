@@ -244,6 +244,11 @@ sdlkfj
 
 # [[file:img/sf_virtual.svg]]
 
+#+CAPTION: Octave plot
+#+RESULTS:
+[[file:sf_virtual.png]]
+
+
 * TEST
 
 
