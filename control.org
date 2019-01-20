@@ -12,7 +12,7 @@
 
 * Classical Feedback
 ** One Degree of Freedom
-#+begin_src latex :file classical_feedback.png :exports both
+#+begin_src latex :file classical_feedback.pdf :post pdf2svg(file=*this*, ext="svg") :exports both
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[block, right=1 of addfb] (K){$K$};
@@ -35,15 +35,15 @@
     \draw[->] ($(addfb.west)+(-0.3, 0)$) node[branch]{} |- (adderror.west);
     \draw[->] (addn.west) -| (addfb.south) node[below right]{$y_m$};
     \draw[<-] (adddu.north) -- ++(0, 0.8) node[below right]{$d_u$};
-    \draw[<-] (adddy.north) -- ++(0, 0.8) node[below right]{$d_u$};
+    \draw[<-] (adddy.north) -- ++(0, 0.8) node[below right]{$d_y$};
   \end{tikzpicture}
 #+end_src
 
 #+RESULTS:
-[[file:Figures/classical_feedback.png]]
+[[file:Figures/classical_feedback.svg]]
 
 ** Two Degrees of Freedom
-#+begin_src latex :file classical_feedback_2dof.png :exports both
+#+begin_src latex :file classical_feedback_2dof.pdf :post pdf2svg(file=*this*, ext="svg") :exports both
   \begin{tikzpicture}
     \node[block={1cm}{1.5cm}] (K) {$K$};
     \node[block, right=1 of K] (G) {$G$};
@@ -66,9 +66,10 @@
 #+end_src
 
 #+RESULTS:
-[[file:Figures/classical_feedback_2dof.png]]
+[[file:Figures/classical_feedback_2dof.svg]]
+
 ** One Degree of freedom with ADC and DAC
-#+begin_src latex :file classical_feedback_adc_dac.png :exports both
+#+begin_src latex :file classical_feedback_adc_dac.pdf :post pdf2svg(file=*this*, ext="svg") :exports both
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) {};
     \node[block, right=1 of addfb] (K) {$K$};
@@ -93,11 +94,11 @@
 #+end_src
 
 #+RESULTS:
-[[file:Figures/classical_feedback_adc_dac.png]]
+[[file:Figures/classical_feedback_adc_dac.svg]]
 
 * General Control Configuration
 ** Generalized Plant
-#+begin_src latex :file general_plant.png :exports both
+#+begin_src latex :file general_plant.pdf :post pdf2svg(file=*this*, ext="svg") :exports both
   \begin{tikzpicture}
     \node[block={2.0cm}{2.0cm}] (P) {$P$};
 
@@ -117,10 +118,10 @@
 #+end_src
 
 #+RESULTS:
-[[file:Figures/general_plant.png]]
+[[file:Figures/general_plant.svg]]
 
 ** General Control configuration
-#+begin_src latex :file general_control.png :exports both
+#+begin_src latex :file general_control.pdf :post pdf2svg(file=*this*, ext="svg") :exports both
   \begin{tikzpicture}
 
     % Blocs
@@ -143,10 +144,10 @@
 #+end_src
 
 #+RESULTS:
-[[file:Figures/general_control.png]]
+[[file:Figures/general_control.svg]]
 
 ** General Control Configuration - 1DoF Feedback
-#+begin_src latex :file general_control_exp.png :exports both
+#+begin_src latex :file general_control_exp.pdf :post pdf2svg(file=*this*, ext="svg") :exports both
   \begin{tikzpicture}
     % Blocs
     \node[block] (G) {$G$};
@@ -201,10 +202,10 @@
 #+end_src
 
 #+RESULTS:
-[[file:Figures/general_control_exp.png]]
+[[file:Figures/general_control_exp.svg]]
 
 ** Weighted General Control Configuration
-#+begin_src latex :file general_plant_weights.png :exports both
+#+begin_src latex :file general_plant_weights.pdf :post pdf2svg(file=*this*, ext="svg") :exports both
   \begin{tikzpicture}
     % Blocs
     \node[block={2.0cm}{2.0cm}] (P) {$\tilde{P}$};
@@ -235,10 +236,10 @@
 #+end_src
 
 #+RESULTS:
-[[file:Figures/general_plant_weights.png]]
+[[file:Figures/general_plant_weights.svg]]
 
 ** General Control Configuration - Weighted 1DoF Feedback
-#+begin_src latex :file general_control_exp_weighted.png :exports both
+#+begin_src latex :file general_control_exp_weighted.pdf :post pdf2svg(file=*this*, ext="svg") :exports both
   \begin{tikzpicture}
     % Blocs
     \node[block] (G) {$G$};
@@ -304,11 +305,11 @@
 #+end_src
 
 #+RESULTS:
-[[file:Figures/general_control_exp_weighted.png]]
+[[file:Figures/general_control_exp_weighted.svg]]
 
 * Control Architectures
 ** PID
-#+begin_src latex :file control_pid.png :exports both
+#+begin_src latex :file control_pid.pdf :post pdf2svg(file=*this*, ext="svg") :exports both
   \begin{tikzpicture}
     % Blocs
     \node[block] (KP) {$K_P$};
@@ -340,4 +341,4 @@
 #+end_src
 
 #+RESULTS:
-[[file:Figures/control_pid.png]]
+[[file:Figures/control_pid.svg]]
