@@ -1,7 +1,7 @@
 #+TITLE: Tikz with Org-Mode Literate Programming
 
+Files:
 - [[file:config.org][Configuration]]
-
 - [[file:control.org][Control]]
-- [[file:config.html][Mechanical]]
--
+- [[file:matlab.org][Matlab]]
+- [[file:mechanical.org][Mechanical]]
