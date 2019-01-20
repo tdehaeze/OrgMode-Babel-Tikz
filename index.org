@@ -1,0 +1,7 @@
+#+TITLE: Tikz with Org-Mode Literate Programming
+
+- [[file:config.org][Configuration]]
+
+- [[file:control.org][Control]]
+- [[file:config.html][Mechanical]]
+-

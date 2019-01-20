@@ -1,0 +1,342 @@
+#+TITLE: Tikz - Control Diagram
+#+PROPERTY: header-args:latex  :headers '("\\usepackage{tikz}" "\\usepackage{import}" "\\import{/home/tdehaeze/gdrive/These/LaTeX/ressources/}{config.tex}")
+#+PROPERTY: header-args:latex+ :imagemagick t :fit yes
+#+PROPERTY: header-args:latex+ :iminoptions -scale 100% -density 150
+#+PROPERTY: header-args:latex+ :imoutoptions -quality 100
+#+PROPERTY: header-args:latex+ :results raw replace :buffer no
+#+PROPERTY: header-args:latex+ :eval no-export
+#+PROPERTY: header-args:latex+ :exports both
+#+PROPERTY: header-args:latex+ :mkdirp yes
+#+PROPERTY: header-args:latex+ :output-dir Figures
+
+
+* Classical Feedback
+** One Degree of Freedom
+#+begin_src latex :file classical_feedback.png
+  \begin{tikzpicture}
+    \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
+    \node[block, right=1 of addfb] (K){$K$};
+    \node[addb={+}{}{}{}{}, right=1 of K] (adddu){};
+    \node[block, right=1 of adddu] (G){$G$};
+    \node[addb={+}{}{}{}{}, right=1 of G] (adddy){};
+    \node[addb={+}{}{}{}{-}, above right=1 and 1 of adddy] (adderror) {};
+    \node[addb={+}{}{}{}{}, below right=1 and 1 of adddy] (addn) {};
+
+    \draw[->] (addfb.east) -- (K.west) node[above left]{$\epsilon_{m}$};
+    \draw[->] (K.east) -- (adddu.west);
+    \draw[->] (adddu.east) -- (G.west) node[above left]{$u$};
+    \draw[->] (adderror.east) -- ++(0.8, 0) coordinate[](endpos) node[above left]{$\epsilon$};
+    \draw[->] (G.east) -- (adddy.west);
+    \draw[->] (adddy.east) -- (G-|endpos) node[above left]{$y$};
+    \draw[<-] (addfb.west) -- ++(-1, 0) node[above right]{$r$};
+    \draw[->] (G-|adderror) node[branch]{} -- (addn.north);
+    \draw[<-] (addn.east) -- (addn-|endpos) node[above left]{$n$};
+    \draw[->] (G-|adderror) -- (adderror.south);
+    \draw[->] ($(addfb.west)+(-0.3, 0)$) node[branch]{} |- (adderror.west);
+    \draw[->] (addn.west) -| (addfb.south) node[below right]{$y_m$};
+    \draw[<-] (adddu.north) -- ++(0, 0.8) node[below right]{$d_u$};
+    \draw[<-] (adddy.north) -- ++(0, 0.8) node[below right]{$d_u$};
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:Figures/classical_feedback.png]]
+** Two Degrees of Freedom
+#+begin_src latex :file classical_feedback_2dof.png
+  \begin{tikzpicture}
+    \node[block={1cm}{1.5cm}] (K) {$K$};
+    \node[block, right=1 of K] (G) {$G$};
+    \node[addb, right=1 of G] (addy) {};
+    \node[addb, below right=0.7 and 1 of addy] (addn) {};
+
+    % Inputs of the controllers
+    \coordinate[] (inputr) at ($(K.south west)!0.75!(K.north west)$);
+    \coordinate[] (inputy) at ($(K.south west)!0.25!(K.north west)$);
+
+    % Connections and labels
+    \draw[<-] (inputr) -- ++(-0.8, 0) node[above right]{$r$};
+    \draw[->] (K.east) -- (G.west) node[above left]{$u$};
+    \draw[->] (G.east) -- (addy.west);
+    \draw[->] (addn.west) -| ($(inputy) - (0.8, 0)$) -- (inputy) node[above left]{$y_m$};
+    \draw[->] (addy.east) -| (addn.north) node[above right]{$y$};
+    \draw[<-] (addy.north) -- ++(0, 0.8) node[below right]{$d$};
+    \draw[<-] (addn.east) -- ++(0.8, 0) node[above left]{$n$};
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:Figures/classical_feedback_2dof.png]]
+** One Degree of freedom with ADC and DAC
+#+begin_src latex :file classical_feedback_adc_dac.png
+  \begin{tikzpicture}
+    \node[addb={+}{}{}{}{-}] (addfb) {};
+    \node[block, right=1 of addfb] (K) {$K$};
+    \node[DAC, right=1 of K] (DAC) {DAC};
+    \node[block, right=1 of DAC] (G) {$G$};
+    \node[addb, right=1 of G] (addy) {};
+    \node[addb, below right=1 of addy] (addn) {};
+    \node[ADC, left=1 of addn] (ADC) {ADC};
+
+    % Connections and labels
+    \draw[->] (K.east) -- node[sloped]{$/$}(DAC.west);
+    \draw[->] (DAC.east) -- (G.west) node[above left]{$u$};
+    \draw[->] (G.east) -- (addy.west);
+    \draw[->] (addy.east) -| (addn.north) node[above right]{$y$};
+    \draw[<-] (addy.north) -- ++(0, 0.8) node[below right]{$d$};
+    \draw[<-] (addn.east) -- ++(0.8, 0) node[above left]{$n$};
+    \draw[->] (addn.west) -- (ADC.east);
+    \draw[->] (ADC.west) -| node[near start, sloped]{$/$} (addfb.south) node[below right]{$y_m$};
+    \draw[->] (addfb.east) -- node[sloped]{$/$} (K.west) node[above left]{$\epsilon_m$};
+    \draw[<-] (addfb.west) -- node[sloped]{$/$} ++(-1, 0) node[above right]{$r$};
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:Figures/classical_feedback_adc_dac.png]]
+
+* General Control Configuration
+** Generalized Plant
+#+begin_src latex :file general_plant.png
+  \begin{tikzpicture}
+    \node[block={2.0cm}{2.0cm}] (P) {$P$};
+
+    % Input and outputs coordinates
+    \coordinate[] (inputw)  at ($(P.south west)!0.75!(P.north west)$);
+    \coordinate[] (inputu)  at ($(P.south west)!0.25!(P.north west)$);
+    \coordinate[] (outputz) at ($(P.south east)!0.75!(P.north east)$);
+    \coordinate[] (outputv) at ($(P.south east)!0.25!(P.north east)$);
+
+    % Connections and labels
+    \draw[<-] (inputw) -- ++(-0.8, 0) node[above right]{$w$};
+    \draw[<-] (inputu) -- ++(-0.8, 0) node[above right]{$u$};
+
+    \draw[->] (outputz) -- ++(0.8, 0) node[above left]{$z$};
+    \draw[->] (outputv) -- ++(0.8, 0) node[above left]{$v$};
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:Figures/general_plant.png]]
+
+** General Control configuration
+#+begin_src latex :file general_control.png
+  \begin{tikzpicture}
+
+    % Blocs
+    \node[block={2.0cm}{2.0cm}] (P) {$P$};
+    \node[block={1.5cm}{1.5cm}, below=0.7 of P] (K) {$K$};
+
+    % Input and outputs coordinates
+    \coordinate[] (inputw)  at ($(P.south west)!0.75!(P.north west)$);
+    \coordinate[] (inputu)  at ($(P.south west)!0.25!(P.north west)$);
+    \coordinate[] (outputz) at ($(P.south east)!0.75!(P.north east)$);
+    \coordinate[] (outputv) at ($(P.south east)!0.25!(P.north east)$);
+
+    % Connections and labels
+    \draw[<-] (inputw) node[above left]{$w$} -- ++(-0.8, 0);
+    \draw[<-] (inputu) node[above left]{$u$} -- ++(-0.8, 0) |- (K.west);
+
+    \draw[->] (outputz) node[above right]{$z$} -- ++(0.8, 0);
+    \draw[->] (outputv) node[above right]{$v$} -- ++(0.8, 0) |- (K.east);
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:Figures/general_control.png]]
+
+** General Control Configuration - 1DoF Feedback
+#+begin_src latex :file general_control_exp.png
+  \begin{tikzpicture}
+    % Blocs
+    \node[block] (G) {$G$};
+
+    \node[addb, right=1 of G] (addy) {};
+    \node[block, above=0.5 of addy] (Gd) {$G_d$};
+
+    \node[addb, right=1 of addy] (addn) {};
+
+    % Inputs
+    \coordinate[above left=2.2 and 1.2 of G] (d);
+    \coordinate[above=1 of d] (n);
+    % Outputs
+    \coordinate[above right=2.2 and 1.2 of addn] (y);
+    \coordinate[above=1 of y] (F);
+
+    \coordinate (u) at (n|-G);
+    \coordinate (v) at (F|-G);
+
+    \node[fit={($(n) + (0.5, 0.2)$) ($(v|-G.south) - (0.5, 0.2)$)}, inner sep=0pt, draw, dashed, color=gray, label={Generalized Plant}] (P) {};
+
+    \node[draw, block, below=1 of P] (K) {$K$};
+
+
+    % Connections
+    \draw[->] (G.east) -- (addy.west);
+    \draw[->] (addy.east) -- (addn.west);
+    \draw[->] (Gd.south) -- (addy.north);
+    \draw[<-] (addn.north) -- ++(0, 0.5);
+
+    \draw[->] (d) -| (Gd.north);
+    \draw[->] (n) -| (addn.north);
+
+    \draw[->] ($(addn.west) + (-0.4, 0)$) |- (y);
+    \draw[->] ($(G.west)    + (-0.4, 0)$) |- (F);
+
+    \draw[->] (addn.east) -- (v) |- (K.east);
+
+    \draw[->] (K.west) -| (u) -- (G.west);
+
+    % Labels
+    \node[above right] (un) at (u) {$u$};
+    \node[above left] (vn) at (v) {$v$};
+    \node[above right] (dn) at (d) {$d$};
+    \node[above right] (nn) at (n) {$n$};
+    \node[above left] (yn) at (y) {$y$};
+    \node[above left] (Fn) at (F) {$u$};
+
+    \draw [decoration={brace, raise=7pt}, decorate] (dn.south west) -- node[left=8pt]{$w$} (nn.north west);
+    \draw [decoration={brace, mirror, raise=5pt}, decorate] (yn.south east) -- node[right=6pt]{$z$} (Fn.north east);
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:Figures/general_control_exp.png]]
+
+** Weighted General Control Configuration
+#+begin_src latex :file general_plant_weights.png
+  \begin{tikzpicture}
+    % Blocs
+    \node[block={2.0cm}{2.0cm}] (P) {$\tilde{P}$};
+    \node[block={1.5cm}{1.5cm}, below=0.7 of P] (K) {$K$};
+
+    % Input and outputs coordinates
+    \coordinate[] (inputw)  at ($(P.south west)!0.75!(P.north west)$);
+    \coordinate[] (inputu)  at ($(P.south west)!0.25!(P.north west)$);
+    \coordinate[] (outputz) at ($(P.south east)!0.75!(P.north east)$);
+    \coordinate[] (outputv) at ($(P.south east)!0.25!(P.north east)$);
+
+    % Weights
+    \node[block, right=0.7 of outputz] (Wz) {$W_z$};
+    \node[block, left =0.7 of inputw]  (Ww) {$W_w$};
+
+    % Connections and labels
+    \draw[<-] (Ww.west) -- ++(-1, 0) node[above right](w){$w$};
+    \draw[->] (Ww.east) -- (inputw) node[above left]{$\tilde{w}$};
+    \draw[<-] (inputu) -- (w|-inputu) node[above]{$u$} |- (K.west);
+
+    \draw[->] (outputz) -- (Wz.west) node[above left]{$\tilde{z}$};
+    \draw[->] (Wz.east) -- ++(1, 0) node[above left](z){$z$};
+    \draw[->] (outputv) -- (z|-outputv) node[above](v){$v$} |- (K.east);
+
+    % Weighted plant
+    \node[fit={($(Ww.north west) + (-0.4, 0.2)$) ($(Wz.east|-P.south) + (0.4, -0.2)$)}, inner sep=0pt, draw, dashed, color=gray, label={Generalized Weighted Plant $P$}] (P) {};
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:Figures/general_plant_weights.png]]
+
+** General Control Configuration - Weighted 1DoF Feedback
+#+begin_src latex :file general_control_exp_weighted.png
+  \begin{tikzpicture}
+    % Blocs
+    \node[block] (G) {$G$};
+
+    \node[addb, right=1 of G] (addy) {};
+    \node[block, above=0.5 of addy] (Gd) {$G_d$};
+
+    \node[block, above=2.0 of G] (Wd) {$W_d$};
+    \node[block, above=0.5 of Wd] (Wn) {$W_n$};
+
+    \node[addb, right=1 of addy] (addn) {};
+
+    \node[block, above right=1.5 and 0.2 of addn] (Wu) {${W_u}^{-1}$};
+    \node[block, above=0.5 of Wu] (We) {${W_e}^{-1}$};
+
+    % Inputs
+    \coordinate[left=1.2 of Wd] (d);
+    \coordinate[left=1.2 of Wn] (n);
+
+    % Outputs
+    \coordinate[right=1.2 of We] (y);
+    \coordinate[right=1.2 of Wu] (F);
+
+    \coordinate (u) at (n|-G);
+    \coordinate (v) at (F|-G);
+
+    \node[fit={($(n) + (0, 0.5) + (0.5, 0.2)$) ($(v|-G.south) - (0.5, 0.2)$)}, inner sep=0pt, draw, dashed, color=gray, label={Generalized Weighted Plant $P$}] (P) {};
+
+    \node[block={1.5cm}{1.5cm}, below=0.7 of P] (K) {$K$};
+
+
+    % Connections
+    \draw[->] (G.east) -- (addy.west);
+    \draw[->] (addy.east) -- (addn.west);
+    \draw[->] (Gd.south) -- (addy.north);
+    \draw[<-] (addn.north) -- ++(0, 0.5);
+
+    \draw[->] (d) -- (Wd.west);
+    \draw[->] (Wd.east) node[above right]{$\tilde{d}$} -| (Gd.north);
+    \draw[->] (n) -- (Wn.west);
+    \draw[->] (Wn.east) node[above right]{$\tilde{n}$} -| (addn.north);
+
+    \draw[->] ($(addn.west) + (-0.4, 0)$) node[branch]{} |- (We.west) node[above left]{$\tilde{y}$};
+    \draw[->] ($(G.west)    + (-0.4, 0)$) node[branch]{} |- (Wu.west) node[above left]{$\tilde{u}$};
+    \draw[->] (We.east) -- (y);
+    \draw[->] (Wu) -- (F);
+
+    \draw[->] (addn.east) -- (v) |- (K.east);
+    \draw[->] (K.west) -| (u) -- (G.west);
+
+    % Labels
+    \node[above right] (un) at (u) {$u$};
+    \node[above left] (vn) at (v) {$v$};
+    \node[above right] (dn) at (d) {$d$};
+    \node[above right] (nn) at (n) {$n$};
+    \node[above left] (yn) at (y) {$y$};
+    \node[above left] (Fn) at (F) {$u$};
+
+    % W and Z brackets
+    \draw [decoration={brace, raise=7pt}, decorate] (dn.south west) -- node[left=8pt]{$w$} (nn.north west);
+    \draw [decoration={brace, raise=5pt}, decorate] (yn.north east) -- node[right=6pt]{$z$} (Fn.south east);
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:Figures/general_control_exp_weighted.png]]
+
+* Control Architectures
+** PID
+#+begin_src latex :file control_pid.png
+  \begin{tikzpicture}
+    % Blocs
+    \node[block] (KP) {$K_P$};
+    \node[block, above=0.7 of KP] (KD) {$K_D$};
+    \node[block, below=0.7 of KP] (KI) {$K_I$};
+
+    \node[block, right=1 of KD] (deriv) {$\frac{d\hphantom{t}}{dt}$};
+    \node[block, right=1 of KI] (int)   {$\int$};
+
+    \node[addb, right=2.5 of KP] (add) {};
+
+    \node[branch, left=1 of KP] (connect) {};
+
+    % Connections and labels
+    \draw[->] (KD.east) -- (deriv);
+    \draw[->] (KI.east) -- (int);
+
+    \draw[->] (deriv) -| (add);
+    \draw[->] (KP)    -- (add);
+    \draw[->] (int)   -| (add);
+
+    \draw[->] (connect) |- (KD);
+    \draw[->] (connect) -- (KP);
+    \draw[->] (connect) |- (KI);
+
+    \draw[->] (add.east) -- ++(0.8, 0) node[above left]{$u$};
+    \draw[] (connect.west) -- ++(-0.8, 0) node[above right]{$\epsilon$};
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:Figures/control_pid.png]]
