@@ -41,6 +41,7 @@
 
 #+RESULTS:
 [[./Figures/classical_feedback.png]]
+
 ** Two Degrees of Freedom
 #+begin_src latex :file classical_feedback_2dof.png
   \begin{tikzpicture}
