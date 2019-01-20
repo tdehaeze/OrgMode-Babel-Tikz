@@ -12,7 +12,7 @@
 
 * Classical Feedback
 ** One Degree of Freedom
-#+begin_src latex :file classical_feedback.png
+#+begin_src latex :file classical_feedback.png :exports both
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[block, right=1 of addfb] (K){$K$};
@@ -39,12 +39,11 @@
   \end{tikzpicture}
 #+end_src
 
-#+NAME: fig:filters_result
 #+RESULTS:
 [[file:Figures/classical_feedback.png]]
 
 ** Two Degrees of Freedom
-#+begin_src latex :file classical_feedback_2dof.png
+#+begin_src latex :file classical_feedback_2dof.png :exports both
   \begin{tikzpicture}
     \node[block={1cm}{1.5cm}] (K) {$K$};
     \node[block, right=1 of K] (G) {$G$};
@@ -69,7 +68,7 @@
 #+RESULTS:
 [[file:Figures/classical_feedback_2dof.png]]
 ** One Degree of freedom with ADC and DAC
-#+begin_src latex :file classical_feedback_adc_dac.png
+#+begin_src latex :file classical_feedback_adc_dac.png :exports both
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) {};
     \node[block, right=1 of addfb] (K) {$K$};
@@ -98,7 +97,7 @@
 
 * General Control Configuration
 ** Generalized Plant
-#+begin_src latex :file general_plant.png
+#+begin_src latex :file general_plant.png :exports both
   \begin{tikzpicture}
     \node[block={2.0cm}{2.0cm}] (P) {$P$};
 
@@ -121,7 +120,7 @@
 [[file:Figures/general_plant.png]]
 
 ** General Control configuration
-#+begin_src latex :file general_control.png
+#+begin_src latex :file general_control.png :exports both
   \begin{tikzpicture}
 
     % Blocs
@@ -147,7 +146,7 @@
 [[file:Figures/general_control.png]]
 
 ** General Control Configuration - 1DoF Feedback
-#+begin_src latex :file general_control_exp.png
+#+begin_src latex :file general_control_exp.png :exports both
   \begin{tikzpicture}
     % Blocs
     \node[block] (G) {$G$};
@@ -205,7 +204,7 @@
 [[file:Figures/general_control_exp.png]]
 
 ** Weighted General Control Configuration
-#+begin_src latex :file general_plant_weights.png
+#+begin_src latex :file general_plant_weights.png :exports both
   \begin{tikzpicture}
     % Blocs
     \node[block={2.0cm}{2.0cm}] (P) {$\tilde{P}$};
@@ -239,7 +238,7 @@
 [[file:Figures/general_plant_weights.png]]
 
 ** General Control Configuration - Weighted 1DoF Feedback
-#+begin_src latex :file general_control_exp_weighted.png
+#+begin_src latex :file general_control_exp_weighted.png :exports both
   \begin{tikzpicture}
     % Blocs
     \node[block] (G) {$G$};
@@ -309,7 +308,7 @@
 
 * Control Architectures
 ** PID
-#+begin_src latex :file control_pid.png
+#+begin_src latex :file control_pid.png :exports both
   \begin{tikzpicture}
     % Blocs
     \node[block] (KP) {$K_P$};

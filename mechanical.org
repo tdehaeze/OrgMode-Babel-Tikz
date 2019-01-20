@@ -62,7 +62,7 @@
 [[file:Figures/mech_sys_1dof.png]]
 
 ** Two masses
-#+begin_src latex :file mech_sys_2dof.png
+#+begin_src latex :file mech_sys_2dof.png :exports both
   \begin{tikzpicture}
     % ====================
     % Parameters
@@ -215,7 +215,7 @@
 [[file:Figures/mech_sys_3dof.png]]
 
 * Control Based on distance measurement
-#+begin_src latex :file mech_sys_1dof_contr.png
+#+begin_src latex :file mech_sys_1dof_contr.png :exports both
   \begin{tikzpicture}
     % Parameters
     \def\massw{3}
@@ -269,7 +269,7 @@
 [[file:Figures/mech_sys_1dof_contr.png]]
 
 * Inertial Control
-#+begin_src latex :file mech_sys_1dof_inertial_contr.png
+#+begin_src latex :file mech_sys_1dof_inertial_contr.png :exports both
   \begin{tikzpicture}
     % Parameters
     \def\massw{3}
@@ -304,7 +304,7 @@
 [[file:Figures/mech_sys_1dof_inertial_contr.png]]
 
 * Force Feedback Control
-#+begin_src latex :file mech_sys_1dof_force_contr.png
+#+begin_src latex :file mech_sys_1dof_force_contr.png :exports both
   \begin{tikzpicture}
     % Parameters
     \def\massw{3}
@@ -339,7 +339,7 @@
 [[file:Figures/mech_sys_1dof_force_contr.png]]
 
 * Stewart Platform
-#+begin_src latex :file tikz_stewart.png
+#+begin_src latex :file tikz_stewart.png :exports both
   \begin{tikzpicture}
     \newcommand{\AxisRotator}[1][rotate=0]{%
       \tikz [x=0.25cm,y=0.60cm,line width=.2ex,-stealth,#1] \draw (0,0) arc (-150:150:1 and 1);%

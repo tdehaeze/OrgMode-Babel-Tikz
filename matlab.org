@@ -430,7 +430,7 @@
   };
 #+end_src
 
-#+begin_src latex :file tikz_bode.png
+#+begin_src latex :file tikz_bode.png :exports both
   <<tikz_bode_size>>
   <<tikz_bode_colors>>
   \begin{tikzpicture}
