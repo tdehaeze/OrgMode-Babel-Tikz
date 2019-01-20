@@ -430,7 +430,7 @@
   };
 #+end_src
 
-#+begin_src latex :file tikz_bode.png :exports both
+#+begin_src latex :file tikz_bode.pdf :post pdf2svg(file=*this*, ext="png") :exports both
   <<tikz_bode_size>>
   <<tikz_bode_colors>>
   \begin{tikzpicture}
@@ -501,4 +501,4 @@
 
 #+RESULTS:
 [[file:Figures/tikz_bode.png]]
-* Regular plot
+* TODO Regular plot

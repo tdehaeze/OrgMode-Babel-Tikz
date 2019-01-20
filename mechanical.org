@@ -23,12 +23,26 @@
   \def\brach{-10pt} % Brace shift horizontaly
 #+end_src
 
+#+RESULTS: tikz_1dof_smd_params
+\def\massw{2.2}   % Width of the masses
+\def\massh{0.8}   % Height of the masses
+\def\spaceh{1.4}  % Height of the springs/dampers
+\def\dispw{0.3}   % Width of the dashed line for the displacement
+\def\disph{0.5}   % Height of the arrow for the displacements
+\def\bracs{0.05}  % Brace spacing vertically
+\def\brach{-10pt} % Brace shift horizontaly
+
 #+NAME: tikz_1dof_smd_ground
 #+begin_src latex
   \draw (-0.5*\massw, 0) -- (0.5*\massw, 0);
   \draw[dashed] (0.5*\massw, 0) -- ++(\dispw, 0);
   \draw[->] (0.5*\massw+0.5*\dispw, 0) -- ++(0, \disph) node[right]{$x_{w}$};
 #+end_src
+
+#+RESULTS: tikz_1dof_smd_ground
+\draw (-0.5*\massw, 0) -- (0.5*\massw, 0);
+\draw[dashed] (0.5*\massw, 0) -- ++(\dispw, 0);
+\draw[->] (0.5*\massw+0.5*\dispw, 0) -- ++(0, \disph) node[right]{$x_{w}$};
 
 #+NAME: tikz_1dof_smd_mass
 #+begin_src latex
@@ -50,7 +64,25 @@
   %   node[midway,rotate=90,anchor=south,yshift=10pt]{};
 #+end_src
 
-#+begin_src latex :file mech_sys_1dof.png :exports results
+#+RESULTS: tikz_1dof_smd_mass
+% Mass
+\draw[fill=white] (-0.5*\massw, \spaceh) rectangle (0.5*\massw, \spaceh+\massh) node[pos=0.5]{$m_{g}$};
+
+% Spring, Damper, and Actuator
+\draw[spring] (-0.4*\massw, 0) -- (-0.4*\massw, \spaceh) node[midway, left=0.1]{$k_{g}$};
+\draw[damper] (0, 0)           -- ( 0, \spaceh)          node[midway, left=0.2]{$c_{g}$};
+\draw[actuator] ( 0.4*\massw, 0) -- (	0.4*\massw, \spaceh) node[midway, left=0.1](F){$F_{g}$};
+
+% Displacements
+\draw[dashed] (0.5*\massw, \spaceh) -- ++(\dispw, 0);
+\draw[->] (0.5*\massw+0.5*\dispw, \spaceh) -- ++(0, \disph) node[right]{$x_{g}$};
+
+% Legend
+% \draw[decorate, decoration={brace, amplitude=8pt}, xshift=\brach] %
+%   (-0.5*\massw, \bracs) -- (-0.5*\massw, \spaceh+\massh-\bracs) %
+%   node[midway,rotate=90,anchor=south,yshift=10pt]{};
+
+#+begin_src latex :file mech_sys_1dof.pdf :post pdf2svg(file=*this*, ext="png") :exports results
   \begin{tikzpicture}
     <<tikz_1dof_smd_params>>
     <<tikz_1dof_smd_ground>>
@@ -62,7 +94,7 @@
 [[file:Figures/mech_sys_1dof.png]]
 
 ** Two masses
-#+begin_src latex :file mech_sys_2dof.png :exports both
+#+begin_src latex :file mech_sys_2dof.pdf :post pdf2svg(file=*this*, ext="png") :exports both
   \begin{tikzpicture}
     % ====================
     % Parameters
@@ -128,7 +160,7 @@
 [[file:Figures/mech_sys_2dof.png]]
 
 ** Three masses
-#+begin_src latex :file mech_sys_3dof.png :export both
+#+begin_src latex :file mech_sys_3dof.pdf :post pdf2svg(file=*this*, ext="png") :export both
   \begin{tikzpicture}
     % ====================
     % Parameters
@@ -215,7 +247,7 @@
 [[file:Figures/mech_sys_3dof.png]]
 
 * Control Based on distance measurement
-#+begin_src latex :file mech_sys_1dof_contr.png :exports both
+#+begin_src latex :file mech_sys_1dof_contr.pdf :post pdf2svg(file=*this*, ext="png") :exports both
   \begin{tikzpicture}
     % Parameters
     \def\massw{3}
@@ -269,7 +301,7 @@
 [[file:Figures/mech_sys_1dof_contr.png]]
 
 * Inertial Control
-#+begin_src latex :file mech_sys_1dof_inertial_contr.png :exports both
+#+begin_src latex :file mech_sys_1dof_inertial_contr.pdf :post pdf2svg(file=*this*, ext="png") :exports both
   \begin{tikzpicture}
     % Parameters
     \def\massw{3}
@@ -304,7 +336,7 @@
 [[file:Figures/mech_sys_1dof_inertial_contr.png]]
 
 * Force Feedback Control
-#+begin_src latex :file mech_sys_1dof_force_contr.png :exports both
+#+begin_src latex :file mech_sys_1dof_force_contr.pdf :post pdf2svg(file=*this*, ext="png") :exports both
   \begin{tikzpicture}
     % Parameters
     \def\massw{3}
@@ -339,7 +371,7 @@
 [[file:Figures/mech_sys_1dof_force_contr.png]]
 
 * Stewart Platform
-#+begin_src latex :file tikz_stewart.png :exports both
+#+begin_src latex :file tikz_stewart.pdf :post pdf2svg(file=*this*, ext="png") :exports both
   \begin{tikzpicture}
     \newcommand{\AxisRotator}[1][rotate=0]{%
       \tikz [x=0.25cm,y=0.60cm,line width=.2ex,-stealth,#1] \draw (0,0) arc (-150:150:1 and 1);%
