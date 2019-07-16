@@ -110,7 +110,7 @@
 #+end_src
 
 #+RESULTS:
-[[file:figs/classical_feedback.svg]]
+[[file:figs/classical_feedback.png]]
 
 ** One Degree of Freedom - Alternative
 #+begin_src latex :file classical_feedback_alt.pdf :post pdf2svg(file=*this*, ext="png") :exports both
@@ -184,7 +184,7 @@
 #+end_src
 
 #+RESULTS:
-[[file:figs/classical_feedback_bis.svg]]
+[[file:figs/classical_feedback_bis.png]]
 
 ** One Degree of Freedom - Check Stability
 #+begin_src latex :file classical_feedback_stability.pdf :post pdf2svg(file=*this*, ext="png") :exports both
@@ -206,7 +206,7 @@
 #+end_src
 
 #+RESULTS:
-[[file:figs/classical_feedback_stability.svg]]
+[[file:figs/classical_feedback_stability.png]]
 
 ** One Degree of Freedom - Measurement transfer function
 #+begin_src latex :file classical_feedback_meas.pdf :post pdf2svg(file=*this*, ext="png") :exports both
@@ -234,7 +234,7 @@
 #+end_src
 
 #+RESULTS:
-[[file:figs/classical_feedback_meas.svg]]
+[[file:figs/classical_feedback_meas.png]]
 
 ** Two Degrees of Freedom
 #+begin_src latex :file classical_feedback_2dof.pdf :post pdf2svg(file=*this*, ext="png") :exports both
@@ -260,7 +260,7 @@
 #+end_src
 
 #+RESULTS:
-[[file:figs/classical_feedback_2dof.svg]]
+[[file:figs/classical_feedback_2dof.png]]
 
 ** Two Degrees of Freedom - Alternative
 #+begin_src latex :file classical_feedback_2dof_alt.pdf :post pdf2svg(file=*this*, ext="png") :exports both
@@ -288,7 +288,7 @@
 #+end_src
 
 #+RESULTS:
-[[file:figs/classical_feedback_2dof_alt.svg]]
+[[file:figs/classical_feedback_2dof_alt.png]]
 
 ** Two Degrees of Freedom - Simple
 #+begin_src latex :file classical_feedback_2dof_simple.pdf :post pdf2svg(file=*this*, ext="png") :exports both
@@ -336,7 +336,7 @@
 #+end_src
 
 #+RESULTS:
-[[file:figs/classical_feedback_sep.svg]]
+[[file:figs/classical_feedback_sep.png]]
 
 ** One Degree of freedom with ADC and DAC
 #+begin_src latex :file classical_feedback_adc_dac.pdf :post pdf2svg(file=*this*, ext="png") :exports both
@@ -364,7 +364,7 @@
 #+end_src
 
 #+RESULTS:
-[[file:figs/classical_feedback_adc_dac.svg]]
+[[file:figs/classical_feedback_adc_dac.png]]
 
 * Feedforward
 ** Simple Adaptive feedforward
@@ -469,7 +469,7 @@
 #+end_src
 
 #+RESULTS:
-[[file:figs/general_control_names.svg]]
+[[file:figs/general_control_names.png]]
 
 ** General Control Configuration - Diagonal Control
 #+begin_src latex :file general_control_diag.pdf :post pdf2svg(file=*this*, ext="png") :exports both
@@ -563,7 +563,7 @@
 #+end_src
 
 #+RESULTS:
-[[file:figs/general_control_exp.svg]]
+[[file:figs/general_control_exp.png]]
 
 ** Weighted General Control Configuration
 #+begin_src latex :file general_plant_weights.pdf :post pdf2svg(file=*this*, ext="png") :exports both
@@ -597,7 +597,7 @@
 #+end_src
 
 #+RESULTS:
-[[file:figs/general_plant_weights.svg]]
+[[file:figs/general_plant_weights.png]]
 
 ** General Control Configuration - Weighted 1DoF Feedback
 #+begin_src latex :file general_control_exp_weighted.pdf :post pdf2svg(file=*this*, ext="png") :exports both
@@ -697,7 +697,7 @@
 #+end_src
 
 #+RESULTS:
-[[file:figs/general_control_delta.svg]]
+[[file:figs/general_control_delta.png]]
 
 ** Uncertainty block - NDelta configuration
 #+begin_src latex :file general_control_Ndelta.pdf :post pdf2svg(file=*this*, ext="png") :exports both
@@ -723,7 +723,7 @@
 #+end_src
 
 #+RESULTS:
-[[file:figs/general_control_Ndelta.svg]]
+[[file:figs/general_control_Ndelta.png]]
 
 ** M Delta Analysis
 #+begin_src latex :file general_control_Mdelta.pdf :post pdf2svg(file=*this*, ext="png") :exports both
@@ -739,7 +739,7 @@
 #+end_src
 
 #+RESULTS:
-[[file:figs/general_control_Mdelta.svg]]
+[[file:figs/general_control_Mdelta.png]]
 
 * Control Architectures
 ** PID
@@ -805,7 +805,7 @@
 #+end_src
 
 #+RESULTS:
-[[file:figs/input_output_uncertainty.svg]]
+[[file:figs/input_output_uncertainty.png]]
 
 ** Input Multiplicative Uncertainty - Feedback
 #+begin_src latex :file input_uncertainty_set_feedback.pdf :post pdf2svg(file=*this*, ext="png") :exports both
@@ -962,7 +962,7 @@
 #+end_src
 
 #+RESULTS:
-[[file:figs/additive_uncertainty.svg]]
+[[file:figs/additive_uncertainty.png]]
 
 *** Input Multiplicative Uncertainty
 #+begin_src latex :file input_uncertainty.pdf :post pdf2svg(file=*this*, ext="png") :exports both
@@ -1013,7 +1013,7 @@
 #+end_src
 
 #+RESULTS:
-[[file:figs/output_uncertainty.svg]]
+[[file:figs/output_uncertainty.png]]
 *** Inverse Additive Uncertainty
 #+begin_src latex :file inv_additive_uncertainty.pdf :post pdf2svg(file=*this*, ext="png") :exports both
   \begin{tikzpicture}
@@ -1037,7 +1037,7 @@
 #+end_src
 
 #+RESULTS:
-[[file:figs/inv_additive_uncertainty.svg]]
+[[file:figs/inv_additive_uncertainty.png]]
 
 *** Inverse Multiplicative Input Uncertainty
 #+begin_src latex :file inv_input_uncertainty.pdf :post pdf2svg(file=*this*, ext="png") :exports both
@@ -1063,7 +1063,7 @@
 #+end_src
 
 #+RESULTS:
-[[file:figs/inv_input_uncertainty.svg]]
+[[file:figs/inv_input_uncertainty.png]]
 *** Inverse Multiplicative Output Uncertainty
 #+begin_src latex :file inv_output_uncertainty.pdf :post pdf2svg(file=*this*, ext="png") :exports both
   \begin{tikzpicture}
@@ -1088,7 +1088,7 @@
 #+end_src
 
 #+RESULTS:
-[[file:figs/inv_output_uncertainty.svg]]
+[[file:figs/inv_output_uncertainty.png]]
 
 * Sensor Fusion
 ** Mechanical Architecture

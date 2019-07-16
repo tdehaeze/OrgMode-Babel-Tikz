@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-07-16 mar. 11:34 -->
+<!-- 2019-07-16 mar. 11:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Tikz - Control Diagram</title>
@@ -280,192 +280,192 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org7bc533b">1. Control Synthesis - General Procedure</a>
+<li><a href="#orga38790f">1. Control Synthesis - General Procedure</a>
 <ul>
-<li><a href="#org0dcac36">1.1. Control Procedure</a></li>
-<li><a href="#orgdaf702a">1.2. Control Procedure - Digital Synthesis</a></li>
+<li><a href="#org1a46004">1.1. Control Procedure</a></li>
+<li><a href="#org5c48eb8">1.2. Control Procedure - Digital Synthesis</a></li>
 </ul>
 </li>
-<li><a href="#orgea17a5f">2. Classical Feedback</a>
+<li><a href="#orgd9b0fc8">2. Classical Feedback</a>
 <ul>
-<li><a href="#orgb24868c">2.1. One Degree of Freedom</a></li>
-<li><a href="#orgc84fb94">2.2. One Degree of Freedom - Alternative</a></li>
-<li><a href="#org2101f0b">2.3. One Degree of Freedom - Small</a></li>
-<li><a href="#orgca2df2e">2.4. One Degree of Freedom - Alternative bis</a></li>
-<li><a href="#orge19e282">2.5. One Degree of Freedom - Check Stability</a></li>
-<li><a href="#orgdb5411a">2.6. One Degree of Freedom - Measurement transfer function</a></li>
-<li><a href="#orgc16ee34">2.7. Two Degrees of Freedom</a></li>
-<li><a href="#org53a5152">2.8. Two Degrees of Freedom - Alternative</a></li>
-<li><a href="#orgaee6ab7">2.9. Two Degrees of Freedom - Simple</a></li>
-<li><a href="#org580a22f">2.10. Two Degrees of Freedom - separated</a></li>
-<li><a href="#org23f8605">2.11. One Degree of freedom with ADC and DAC</a></li>
+<li><a href="#org4c05109">2.1. One Degree of Freedom</a></li>
+<li><a href="#org10d7f31">2.2. One Degree of Freedom - Alternative</a></li>
+<li><a href="#org4fa1ba5">2.3. One Degree of Freedom - Small</a></li>
+<li><a href="#org95ba123">2.4. One Degree of Freedom - Alternative bis</a></li>
+<li><a href="#org62674d5">2.5. One Degree of Freedom - Check Stability</a></li>
+<li><a href="#org85af479">2.6. One Degree of Freedom - Measurement transfer function</a></li>
+<li><a href="#orgc56903b">2.7. Two Degrees of Freedom</a></li>
+<li><a href="#org34d40d3">2.8. Two Degrees of Freedom - Alternative</a></li>
+<li><a href="#org87c2748">2.9. Two Degrees of Freedom - Simple</a></li>
+<li><a href="#org7dc4bc0">2.10. Two Degrees of Freedom - separated</a></li>
+<li><a href="#orgb002241">2.11. One Degree of freedom with ADC and DAC</a></li>
 </ul>
 </li>
-<li><a href="#org9ef5d56">3. Feedforward</a>
+<li><a href="#org48f5384">3. Feedforward</a>
 <ul>
-<li><a href="#orgd62c54c">3.1. Simple Adaptive feedforward</a></li>
+<li><a href="#org2ac0382">3.1. Simple Adaptive feedforward</a></li>
 </ul>
 </li>
-<li><a href="#orgb517c8f">4. General Control Configuration</a>
+<li><a href="#org790e979">4. General Control Configuration</a>
 <ul>
-<li><a href="#org17b77dd">4.1. Generalized Plant</a></li>
-<li><a href="#orgf1d025c">4.2. General Control configuration</a></li>
-<li><a href="#orgbe2a279">4.3. General Control configuration - Names</a></li>
-<li><a href="#orga604a77">4.4. General Control Configuration - Diagonal Control</a></li>
-<li><a href="#orgfa09b31">4.5. General Control Configuration - 1DoF Feedback</a></li>
-<li><a href="#org5157b60">4.6. Weighted General Control Configuration</a></li>
-<li><a href="#org3a2bb98">4.7. General Control Configuration - Weighted 1DoF Feedback</a></li>
-<li><a href="#org2e8c6be">4.8. Uncertainty block</a></li>
-<li><a href="#org77bf48d">4.9. Uncertainty block - NDelta configuration</a></li>
-<li><a href="#org10f7122">4.10. M Delta Analysis</a></li>
+<li><a href="#orgca656da">4.1. Generalized Plant</a></li>
+<li><a href="#org889e60e">4.2. General Control configuration</a></li>
+<li><a href="#org0950cf1">4.3. General Control configuration - Names</a></li>
+<li><a href="#orgcb60034">4.4. General Control Configuration - Diagonal Control</a></li>
+<li><a href="#orgdab0afc">4.5. General Control Configuration - 1DoF Feedback</a></li>
+<li><a href="#org8959bfa">4.6. Weighted General Control Configuration</a></li>
+<li><a href="#org6c5554f">4.7. General Control Configuration - Weighted 1DoF Feedback</a></li>
+<li><a href="#orgdcf1574">4.8. Uncertainty block</a></li>
+<li><a href="#orgecb97e0">4.9. Uncertainty block - NDelta configuration</a></li>
+<li><a href="#org1bf1bda">4.10. M Delta Analysis</a></li>
 </ul>
 </li>
-<li><a href="#orgc701769">5. Control Architectures</a>
+<li><a href="#orgb9d5008">5. Control Architectures</a>
 <ul>
-<li><a href="#org9a270e5">5.1. PID</a></li>
+<li><a href="#org6c76cf9">5.1. PID</a></li>
 </ul>
 </li>
-<li><a href="#org3d80130">6. Input Output Uncertainty</a>
+<li><a href="#org1b7c75b">6. Input Output Uncertainty</a>
 <ul>
-<li><a href="#org4ed821b">6.1. Input and output uncertainty</a></li>
-<li><a href="#org69ccc4e">6.2. Input Multiplicative Uncertainty - Feedback</a></li>
-<li><a href="#orgbe4db9b">6.3. Input Multiplicative Uncertainty - Feedback - weight</a></li>
-<li><a href="#orgab35925">6.4. Input Multiplicative Uncertainty - Feedback - weight - bis</a></li>
-<li><a href="#orgb97a711">6.5. Inverse Multiplicative Uncertainty - Feedback</a></li>
-<li><a href="#org2178c6d">6.6. Six types of uncertainty</a>
+<li><a href="#org83f1b26">6.1. Input and output uncertainty</a></li>
+<li><a href="#org922487f">6.2. Input Multiplicative Uncertainty - Feedback</a></li>
+<li><a href="#org576b8b8">6.3. Input Multiplicative Uncertainty - Feedback - weight</a></li>
+<li><a href="#org9543c1f">6.4. Input Multiplicative Uncertainty - Feedback - weight - bis</a></li>
+<li><a href="#orgf85d22f">6.5. Inverse Multiplicative Uncertainty - Feedback</a></li>
+<li><a href="#orge8e5d8f">6.6. Six types of uncertainty</a>
 <ul>
-<li><a href="#org9707993">6.6.1. Additive Uncertainty</a></li>
-<li><a href="#org47632b0">6.6.2. Input Multiplicative Uncertainty</a></li>
-<li><a href="#org69c5324">6.6.3. Output Multiplicative Uncertainty</a></li>
-<li><a href="#org7a8a58e">6.6.4. Inverse Additive Uncertainty</a></li>
-<li><a href="#org2e5d01c">6.6.5. Inverse Multiplicative Input Uncertainty</a></li>
-<li><a href="#orgd989b59">6.6.6. Inverse Multiplicative Output Uncertainty</a></li>
+<li><a href="#org6eaa8aa">6.6.1. Additive Uncertainty</a></li>
+<li><a href="#org7c05149">6.6.2. Input Multiplicative Uncertainty</a></li>
+<li><a href="#orgc52e184">6.6.3. Output Multiplicative Uncertainty</a></li>
+<li><a href="#org43b8ed8">6.6.4. Inverse Additive Uncertainty</a></li>
+<li><a href="#org4b4cd8e">6.6.5. Inverse Multiplicative Input Uncertainty</a></li>
+<li><a href="#orgc59ee74">6.6.6. Inverse Multiplicative Output Uncertainty</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org128a288">7. Sensor Fusion</a>
+<li><a href="#org5251b4e">7. Sensor Fusion</a>
 <ul>
-<li><a href="#org6587b9f">7.1. Mechanical Architecture</a></li>
-<li><a href="#orge764e70">7.2. Sensor Fusion with complementary filters</a></li>
-<li><a href="#org00a0551">7.3. General Sensor Fusion with real sensors</a></li>
-<li><a href="#orgcc3bfa2">7.4. Equivalent configuration</a></li>
-<li><a href="#orgb7effd8">7.5. Equivalent configuration - classical Feedback</a></li>
-<li><a href="#org275b042">7.6. Equivalent configuration - classical Feedback with pre-filter</a></li>
-<li><a href="#org9e3a0a0">7.7. H-Infinity - Complementary filters - Generalized plant</a></li>
-<li><a href="#orgdbd76f0">7.8. H-Infinity - Complementary filters - Generalized plant - bis</a></li>
-<li><a href="#orgb2ec377">7.9. H-Infinity - Complementary filters</a></li>
-<li><a href="#orgba2cc50">7.10. H-Infinity - Complementary filters - bis</a></li>
+<li><a href="#orgf3f4aa8">7.1. Mechanical Architecture</a></li>
+<li><a href="#org2ab3eaa">7.2. Sensor Fusion with complementary filters</a></li>
+<li><a href="#orgcac051a">7.3. General Sensor Fusion with real sensors</a></li>
+<li><a href="#org3be74ea">7.4. Equivalent configuration</a></li>
+<li><a href="#org37cd77c">7.5. Equivalent configuration - classical Feedback</a></li>
+<li><a href="#org62329fa">7.6. Equivalent configuration - classical Feedback with pre-filter</a></li>
+<li><a href="#org86abc91">7.7. H-Infinity - Complementary filters - Generalized plant</a></li>
+<li><a href="#orge95893f">7.8. H-Infinity - Complementary filters - Generalized plant - bis</a></li>
+<li><a href="#orgcbf2160">7.9. H-Infinity - Complementary filters</a></li>
+<li><a href="#org76eb10e">7.10. H-Infinity - Complementary filters - bis</a></li>
 </ul>
 </li>
-<li><a href="#org3636eea">8. Rotating Frame</a>
+<li><a href="#org0886814">8. Rotating Frame</a>
 <ul>
-<li><a href="#org72159f1">8.1. Control Diagram for fixed measurement</a></li>
-<li><a href="#org5e51d7d">8.2. Control Diagram for fixed measurement - 2DoF</a></li>
-<li><a href="#orge1f73bc">8.3. Control diagram for rotating measurement</a></li>
-<li><a href="#orga7e4a0b">8.4. Control diagram for rotating measurement - 2DoF</a></li>
-<li><a href="#org3139fa1">8.5. Rotating Frame - 1DoF</a></li>
-<li><a href="#org8c6cb69">8.6. Rotating Frame - 2DoF</a></li>
-<li><a href="#orgc85680d">8.7. SISO Controller</a></li>
-<li><a href="#org565c533">8.8. Diagonal Controller</a></li>
+<li><a href="#orgacc2c4f">8.1. Control Diagram for fixed measurement</a></li>
+<li><a href="#orga93510c">8.2. Control Diagram for fixed measurement - 2DoF</a></li>
+<li><a href="#org386057b">8.3. Control diagram for rotating measurement</a></li>
+<li><a href="#org40e0e2f">8.4. Control diagram for rotating measurement - 2DoF</a></li>
+<li><a href="#orgf640d75">8.5. Rotating Frame - 1DoF</a></li>
+<li><a href="#org2844da9">8.6. Rotating Frame - 2DoF</a></li>
+<li><a href="#org959c2a1">8.7. SISO Controller</a></li>
+<li><a href="#orge5a9e4b">8.8. Diagonal Controller</a></li>
 </ul>
 </li>
-<li><a href="#org94fec4a">9. Mass-Spring Systems</a>
+<li><a href="#orga09cafa">9. Mass-Spring Systems</a>
 <ul>
-<li><a href="#org144e3a4">9.1. One mass</a></li>
-<li><a href="#org3e823e9">9.2. One mass - Control</a></li>
-<li><a href="#orgd08997d">9.3. Two masses</a></li>
-<li><a href="#org16ceb79">9.4. Three masses</a></li>
+<li><a href="#orgcfa374e">9.1. One mass</a></li>
+<li><a href="#orge44bdf9">9.2. One mass - Control</a></li>
+<li><a href="#orgdf7cdb9">9.3. Two masses</a></li>
+<li><a href="#org513c21b">9.4. Three masses</a></li>
 </ul>
 </li>
-<li><a href="#orgb0037b4">10. Mechanical Systems</a>
+<li><a href="#org64c4b55">10. Mechanical Systems</a>
 <ul>
-<li><a href="#orgfa58042">10.1. Piezoelectric Actuator</a></li>
+<li><a href="#org09e91e3">10.1. Piezoelectric Actuator</a></li>
 </ul>
 </li>
-<li><a href="#org71ecf22">11. Control Tradeoffs</a>
+<li><a href="#org5334e64">11. Control Tradeoffs</a>
 <ul>
-<li><a href="#orga1d6dde">11.1. Performance / Robustness</a></li>
-<li><a href="#orgfec987f">11.2. Performance / Knowledge</a></li>
+<li><a href="#org1eab692">11.1. Performance / Robustness</a></li>
+<li><a href="#org7f58c67">11.2. Performance / Knowledge</a></li>
 </ul>
 </li>
-<li><a href="#org85c8319">12. Pendulum Experiment</a>
+<li><a href="#orgcefc7c1">12. Pendulum Experiment</a>
 <ul>
-<li><a href="#org39ea019">12.1. Side view</a></li>
-<li><a href="#orge648c47">12.2. Top view</a></li>
+<li><a href="#orgc2f3d43">12.1. Side view</a></li>
+<li><a href="#orga1166f0">12.2. Top view</a></li>
 </ul>
 </li>
-<li><a href="#org2023a92">13. Optics</a>
+<li><a href="#orgd3bdfd3">13. Optics</a>
 <ul>
-<li><a href="#org699c784">13.1. Interferometer - Schematic</a></li>
+<li><a href="#org53166e2">13.1. Interferometer - Schematic</a></li>
 </ul>
 </li>
-<li><a href="#orgeb589c0">14. Loop Shaping</a>
+<li><a href="#orgeb6f473">14. Loop Shaping</a>
 <ul>
-<li><a href="#org5d20cfb">14.1. Loop Shaping the Open Loop transfer function</a></li>
-<li><a href="#orga80cc09">14.2. Loop Shaping of \(S\) and \(T\)</a></li>
+<li><a href="#org6f17408">14.1. Loop Shaping the Open Loop transfer function</a></li>
+<li><a href="#org166a4b8">14.2. Loop Shaping of \(S\) and \(T\)</a></li>
 </ul>
 </li>
-<li><a href="#org3cc8760">15. Modern Control</a>
+<li><a href="#org133d44b">15. Modern Control</a>
 <ul>
-<li><a href="#org134201e">15.1. LQG</a></li>
-<li><a href="#org6155eaa">15.2. LQG with Kalman filter</a></li>
-<li><a href="#org55b728b">15.3. LQG with Integral Action</a></li>
+<li><a href="#org6367872">15.1. LQG</a></li>
+<li><a href="#orgd2b3582">15.2. LQG with Kalman filter</a></li>
+<li><a href="#org6110bc2">15.3. LQG with Integral Action</a></li>
 </ul>
 </li>
-<li><a href="#org1f37dc6">16. H-Infinity Control</a>
+<li><a href="#org5cf6657">16. H-Infinity Control</a>
 <ul>
-<li><a href="#org96003c3">16.1. H-Infinity norm - Example</a></li>
-<li><a href="#orgb94df78">16.2. Performance Specification - Sensitivity Function</a></li>
-<li><a href="#org4bf8d0f">16.3. Performance Specification - Sensitivity Function</a></li>
-<li><a href="#org821291e">16.4. S/KS Mixed sensitivity - Disturbance Rejection</a></li>
-<li><a href="#org1f87c7e">16.5. S/KS Mixed sensitivity - Reference Tracking</a></li>
-<li><a href="#org0c52f98">16.6. S/T Mixed sensitivity</a></li>
-<li><a href="#org57dd9eb">16.7. Signal Based H-Infinity</a></li>
-<li><a href="#org4710a03">16.8. Mixed sensitivity configuration</a></li>
-<li><a href="#orgbbbc8fb">16.9. 4 blocs criterion</a></li>
-<li><a href="#orgb2a4dbe">16.10. 4 blocs criterion - bis</a></li>
-<li><a href="#org411f3e4">16.11. 4 blocs criterion - General conf</a></li>
-<li><a href="#org8391f07">16.12. 4 blocs criterion - General conf with noise</a></li>
-<li><a href="#orgb6fa7c9">16.13. 4 blocs criterion - constrains</a></li>
+<li><a href="#org0da2810">16.1. H-Infinity norm - Example</a></li>
+<li><a href="#orgc691347">16.2. Performance Specification - Sensitivity Function</a></li>
+<li><a href="#org5d91b7c">16.3. Performance Specification - Sensitivity Function</a></li>
+<li><a href="#org89af4fc">16.4. S/KS Mixed sensitivity - Disturbance Rejection</a></li>
+<li><a href="#orgcf0c114">16.5. S/KS Mixed sensitivity - Reference Tracking</a></li>
+<li><a href="#org33bc017">16.6. S/T Mixed sensitivity</a></li>
+<li><a href="#org6b2f0f4">16.7. Signal Based H-Infinity</a></li>
+<li><a href="#org361d855">16.8. Mixed sensitivity configuration</a></li>
+<li><a href="#orgebfd6fd">16.9. 4 blocs criterion</a></li>
+<li><a href="#org4c3664c">16.10. 4 blocs criterion - bis</a></li>
+<li><a href="#org5670966">16.11. 4 blocs criterion - General conf</a></li>
+<li><a href="#org4ee6674">16.12. 4 blocs criterion - General conf with noise</a></li>
+<li><a href="#org302e9a6">16.13. 4 blocs criterion - constrains</a></li>
 </ul>
 </li>
-<li><a href="#orge4c6d74">17. MIMO Control</a>
+<li><a href="#org5b43720">17. MIMO Control</a>
 <ul>
-<li><a href="#orge2de1b3">17.1. Plant</a></li>
-<li><a href="#org92a4629">17.2. Plant - Leg measurement</a></li>
-<li><a href="#org9e72a3a">17.3. Jacobian</a></li>
-<li><a href="#org4679704">17.4. Jacobian Control - Cartesian Frame</a></li>
-<li><a href="#org12b0a81">17.5. Jacobian Control - Cartesian Frame</a></li>
-<li><a href="#orgef2b5f8">17.6. Modal Transformation</a></li>
-<li><a href="#org2bb9bef">17.7. SVD Control - Static</a></li>
-<li><a href="#orgeb0c244">17.8. Inverse Based Control</a></li>
-<li><a href="#orgf4f5813">17.9. MIMO Sensor Fusion</a></li>
-<li><a href="#orgce969db">17.10. MIMO Sensor Fusion - Equivalent Feedback Control</a></li>
-<li><a href="#orga343860">17.11. MIMO Sensor Fusion - Equivalent Feedback Control - bis</a></li>
+<li><a href="#org12f1a72">17.1. Plant</a></li>
+<li><a href="#org6bf7b20">17.2. Plant - Leg measurement</a></li>
+<li><a href="#orge26d753">17.3. Jacobian</a></li>
+<li><a href="#org245c06f">17.4. Jacobian Control - Cartesian Frame</a></li>
+<li><a href="#orgaab8b56">17.5. Jacobian Control - Cartesian Frame</a></li>
+<li><a href="#org1ef8ab2">17.6. Modal Transformation</a></li>
+<li><a href="#org364fe2a">17.7. SVD Control - Static</a></li>
+<li><a href="#orgd828069">17.8. Inverse Based Control</a></li>
+<li><a href="#org33f6c14">17.9. MIMO Sensor Fusion</a></li>
+<li><a href="#orgce73c53">17.10. MIMO Sensor Fusion - Equivalent Feedback Control</a></li>
+<li><a href="#org49d7e0d">17.11. MIMO Sensor Fusion - Equivalent Feedback Control - bis</a></li>
 </ul>
 </li>
-<li><a href="#org359651d">18. Others</a>
+<li><a href="#orgf1fbf51">18. Others</a>
 <ul>
-<li><a href="#org5c0e5b3">18.1. Huddle test</a></li>
-<li><a href="#org50e8174">18.2. Coprime uncertainty</a></li>
-<li><a href="#org02af1b8">18.3. Coprime uncertainty - Bis</a></li>
-<li><a href="#orgfe49739">18.4. Shaped Plant</a></li>
-<li><a href="#org96201dd">18.5. Practical Implementation</a></li>
-<li><a href="#org7708593">18.6. Anti-Windup</a></li>
-<li><a href="#orgb603317">18.7. Block Diagonal Scalings</a></li>
+<li><a href="#org2a6d14d">18.1. Huddle test</a></li>
+<li><a href="#org0b56ece">18.2. Coprime uncertainty</a></li>
+<li><a href="#org78ddcda">18.3. Coprime uncertainty - Bis</a></li>
+<li><a href="#org603f221">18.4. Shaped Plant</a></li>
+<li><a href="#org3c273e4">18.5. Practical Implementation</a></li>
+<li><a href="#org579a015">18.6. Anti-Windup</a></li>
+<li><a href="#org5f27615">18.7. Block Diagonal Scalings</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org7bc533b" class="outline-2">
-<h2 id="org7bc533b"><span class="section-number-2">1</span> Control Synthesis - General Procedure</h2>
+<div id="outline-container-orga38790f" class="outline-2">
+<h2 id="orga38790f"><span class="section-number-2">1</span> Control Synthesis - General Procedure</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org0dcac36" class="outline-3">
-<h3 id="org0dcac36"><span class="section-number-3">1.1</span> Control Procedure</h3>
+<div id="outline-container-org1a46004" class="outline-3">
+<h3 id="org1a46004"><span class="section-number-3">1.1</span> Control Procedure</h3>
 <div class="outline-text-3" id="text-1-1">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -501,8 +501,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgdaf702a" class="outline-3">
-<h3 id="orgdaf702a"><span class="section-number-3">1.2</span> Control Procedure - Digital Synthesis</h3>
+<div id="outline-container-org5c48eb8" class="outline-3">
+<h3 id="org5c48eb8"><span class="section-number-3">1.2</span> Control Procedure - Digital Synthesis</h3>
 <div class="outline-text-3" id="text-1-2">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -530,12 +530,12 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgea17a5f" class="outline-2">
-<h2 id="orgea17a5f"><span class="section-number-2">2</span> Classical Feedback</h2>
+<div id="outline-container-orgd9b0fc8" class="outline-2">
+<h2 id="orgd9b0fc8"><span class="section-number-2">2</span> Classical Feedback</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgb24868c" class="outline-3">
-<h3 id="orgb24868c"><span class="section-number-3">2.1</span> One Degree of Freedom</h3>
+<div id="outline-container-org4c05109" class="outline-3">
+<h3 id="org4c05109"><span class="section-number-3">2.1</span> One Degree of Freedom</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -567,15 +567,14 @@ for the JavaScript code in this tag.
 
 
 <div class="figure">
-<p><object type="image/svg+xml" data="figs/classical_feedback.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
+<p><img src="figs/classical_feedback.png" alt="classical_feedback.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgc84fb94" class="outline-3">
-<h3 id="orgc84fb94"><span class="section-number-3">2.2</span> One Degree of Freedom - Alternative</h3>
+<div id="outline-container-org10d7f31" class="outline-3">
+<h3 id="org10d7f31"><span class="section-number-3">2.2</span> One Degree of Freedom - Alternative</h3>
 <div class="outline-text-3" id="text-2-2">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -608,8 +607,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org2101f0b" class="outline-3">
-<h3 id="org2101f0b"><span class="section-number-3">2.3</span> One Degree of Freedom - Small</h3>
+<div id="outline-container-org4fa1ba5" class="outline-3">
+<h3 id="org4fa1ba5"><span class="section-number-3">2.3</span> One Degree of Freedom - Small</h3>
 <div class="outline-text-3" id="text-2-3">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -640,8 +639,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orgca2df2e" class="outline-3">
-<h3 id="orgca2df2e"><span class="section-number-3">2.4</span> One Degree of Freedom - Alternative bis</h3>
+<div id="outline-container-org95ba123" class="outline-3">
+<h3 id="org95ba123"><span class="section-number-3">2.4</span> One Degree of Freedom - Alternative bis</h3>
 <div class="outline-text-3" id="text-2-4">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -666,15 +665,14 @@ Sorry, your browser does not support SVG.</object>
 
 
 <div class="figure">
-<p><object type="image/svg+xml" data="figs/classical_feedback_bis.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
+<p><img src="figs/classical_feedback_bis.png" alt="classical_feedback_bis.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orge19e282" class="outline-3">
-<h3 id="orge19e282"><span class="section-number-3">2.5</span> One Degree of Freedom - Check Stability</h3>
+<div id="outline-container-org62674d5" class="outline-3">
+<h3 id="org62674d5"><span class="section-number-3">2.5</span> One Degree of Freedom - Check Stability</h3>
 <div class="outline-text-3" id="text-2-5">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -697,15 +695,14 @@ Sorry, your browser does not support SVG.</object>
 
 
 <div class="figure">
-<p><object type="image/svg+xml" data="figs/classical_feedback_stability.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
+<p><img src="figs/classical_feedback_stability.png" alt="classical_feedback_stability.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgdb5411a" class="outline-3">
-<h3 id="orgdb5411a"><span class="section-number-3">2.6</span> One Degree of Freedom - Measurement transfer function</h3>
+<div id="outline-container-org85af479" class="outline-3">
+<h3 id="org85af479"><span class="section-number-3">2.6</span> One Degree of Freedom - Measurement transfer function</h3>
 <div class="outline-text-3" id="text-2-6">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -734,15 +731,14 @@ Sorry, your browser does not support SVG.</object>
 
 
 <div class="figure">
-<p><object type="image/svg+xml" data="figs/classical_feedback_meas.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
+<p><img src="figs/classical_feedback_meas.png" alt="classical_feedback_meas.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgc16ee34" class="outline-3">
-<h3 id="orgc16ee34"><span class="section-number-3">2.7</span> Two Degrees of Freedom</h3>
+<div id="outline-container-orgc56903b" class="outline-3">
+<h3 id="orgc56903b"><span class="section-number-3">2.7</span> Two Degrees of Freedom</h3>
 <div class="outline-text-3" id="text-2-7">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -769,15 +765,14 @@ Sorry, your browser does not support SVG.</object>
 
 
 <div class="figure">
-<p><object type="image/svg+xml" data="figs/classical_feedback_2dof.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
+<p><img src="figs/classical_feedback_2dof.png" alt="classical_feedback_2dof.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org53a5152" class="outline-3">
-<h3 id="org53a5152"><span class="section-number-3">2.8</span> Two Degrees of Freedom - Alternative</h3>
+<div id="outline-container-org34d40d3" class="outline-3">
+<h3 id="org34d40d3"><span class="section-number-3">2.8</span> Two Degrees of Freedom - Alternative</h3>
 <div class="outline-text-3" id="text-2-8">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -806,15 +801,14 @@ Sorry, your browser does not support SVG.</object>
 
 
 <div class="figure">
-<p><object type="image/svg+xml" data="figs/classical_feedback_2dof_alt.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
+<p><img src="figs/classical_feedback_2dof_alt.png" alt="classical_feedback_2dof_alt.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgaee6ab7" class="outline-3">
-<h3 id="orgaee6ab7"><span class="section-number-3">2.9</span> Two Degrees of Freedom - Simple</h3>
+<div id="outline-container-org87c2748" class="outline-3">
+<h3 id="org87c2748"><span class="section-number-3">2.9</span> Two Degrees of Freedom - Simple</h3>
 <div class="outline-text-3" id="text-2-9">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -841,8 +835,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org580a22f" class="outline-3">
-<h3 id="org580a22f"><span class="section-number-3">2.10</span> Two Degrees of Freedom - separated</h3>
+<div id="outline-container-org7dc4bc0" class="outline-3">
+<h3 id="org7dc4bc0"><span class="section-number-3">2.10</span> Two Degrees of Freedom - separated</h3>
 <div class="outline-text-3" id="text-2-10">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -871,15 +865,14 @@ Sorry, your browser does not support SVG.</object>
 
 
 <div class="figure">
-<p><object type="image/svg+xml" data="figs/classical_feedback_sep.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
+<p><img src="figs/classical_feedback_sep.png" alt="classical_feedback_sep.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org23f8605" class="outline-3">
-<h3 id="org23f8605"><span class="section-number-3">2.11</span> One Degree of freedom with ADC and DAC</h3>
+<div id="outline-container-orgb002241" class="outline-3">
+<h3 id="orgb002241"><span class="section-number-3">2.11</span> One Degree of freedom with ADC and DAC</h3>
 <div class="outline-text-3" id="text-2-11">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -908,20 +901,19 @@ Sorry, your browser does not support SVG.</object>
 
 
 <div class="figure">
-<p><object type="image/svg+xml" data="figs/classical_feedback_adc_dac.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
+<p><img src="figs/classical_feedback_adc_dac.png" alt="classical_feedback_adc_dac.png" />
 </p>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org9ef5d56" class="outline-2">
-<h2 id="org9ef5d56"><span class="section-number-2">3</span> Feedforward</h2>
+<div id="outline-container-org48f5384" class="outline-2">
+<h2 id="org48f5384"><span class="section-number-2">3</span> Feedforward</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgd62c54c" class="outline-3">
-<h3 id="orgd62c54c"><span class="section-number-3">3.1</span> Simple Adaptive feedforward</h3>
+<div id="outline-container-org2ac0382" class="outline-3">
+<h3 id="org2ac0382"><span class="section-number-3">3.1</span> Simple Adaptive feedforward</h3>
 <div class="outline-text-3" id="text-3-1">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -956,12 +948,12 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orgb517c8f" class="outline-2">
-<h2 id="orgb517c8f"><span class="section-number-2">4</span> General Control Configuration</h2>
+<div id="outline-container-org790e979" class="outline-2">
+<h2 id="org790e979"><span class="section-number-2">4</span> General Control Configuration</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org17b77dd" class="outline-3">
-<h3 id="org17b77dd"><span class="section-number-3">4.1</span> Generalized Plant</h3>
+<div id="outline-container-orgca656da" class="outline-3">
+<h3 id="orgca656da"><span class="section-number-3">4.1</span> Generalized Plant</h3>
 <div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -992,8 +984,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orgf1d025c" class="outline-3">
-<h3 id="orgf1d025c"><span class="section-number-3">4.2</span> General Control configuration</h3>
+<div id="outline-container-org889e60e" class="outline-3">
+<h3 id="org889e60e"><span class="section-number-3">4.2</span> General Control configuration</h3>
 <div class="outline-text-3" id="text-4-2">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -1026,8 +1018,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orgbe2a279" class="outline-3">
-<h3 id="orgbe2a279"><span class="section-number-3">4.3</span> General Control configuration - Names</h3>
+<div id="outline-container-org0950cf1" class="outline-3">
+<h3 id="org0950cf1"><span class="section-number-3">4.3</span> General Control configuration - Names</h3>
 <div class="outline-text-3" id="text-4-3">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -1054,15 +1046,14 @@ Sorry, your browser does not support SVG.</object>
 
 
 <div class="figure">
-<p><object type="image/svg+xml" data="figs/general_control_names.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
+<p><img src="figs/general_control_names.png" alt="general_control_names.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orga604a77" class="outline-3">
-<h3 id="orga604a77"><span class="section-number-3">4.4</span> General Control Configuration - Diagonal Control</h3>
+<div id="outline-container-orgcb60034" class="outline-3">
+<h3 id="orgcb60034"><span class="section-number-3">4.4</span> General Control Configuration - Diagonal Control</h3>
 <div class="outline-text-3" id="text-4-4">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -1105,8 +1096,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orgfa09b31" class="outline-3">
-<h3 id="orgfa09b31"><span class="section-number-3">4.5</span> General Control Configuration - 1DoF Feedback</h3>
+<div id="outline-container-orgdab0afc" class="outline-3">
+<h3 id="orgdab0afc"><span class="section-number-3">4.5</span> General Control Configuration - 1DoF Feedback</h3>
 <div class="outline-text-3" id="text-4-5">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -1165,15 +1156,14 @@ Sorry, your browser does not support SVG.</object>
 
 
 <div class="figure">
-<p><object type="image/svg+xml" data="figs/general_control_exp.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
+<p><img src="figs/general_control_exp.png" alt="general_control_exp.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org5157b60" class="outline-3">
-<h3 id="org5157b60"><span class="section-number-3">4.6</span> Weighted General Control Configuration</h3>
+<div id="outline-container-org8959bfa" class="outline-3">
+<h3 id="org8959bfa"><span class="section-number-3">4.6</span> Weighted General Control Configuration</h3>
 <div class="outline-text-3" id="text-4-6">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -1208,15 +1198,14 @@ Sorry, your browser does not support SVG.</object>
 
 
 <div class="figure">
-<p><object type="image/svg+xml" data="figs/general_plant_weights.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
+<p><img src="figs/general_plant_weights.png" alt="general_plant_weights.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org3a2bb98" class="outline-3">
-<h3 id="org3a2bb98"><span class="section-number-3">4.7</span> General Control Configuration - Weighted 1DoF Feedback</h3>
+<div id="outline-container-org6c5554f" class="outline-3">
+<h3 id="org6c5554f"><span class="section-number-3">4.7</span> General Control Configuration - Weighted 1DoF Feedback</h3>
 <div class="outline-text-3" id="text-4-7">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -1292,8 +1281,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org2e8c6be" class="outline-3">
-<h3 id="org2e8c6be"><span class="section-number-3">4.8</span> Uncertainty block</h3>
+<div id="outline-container-orgdcf1574" class="outline-3">
+<h3 id="orgdcf1574"><span class="section-number-3">4.8</span> Uncertainty block</h3>
 <div class="outline-text-3" id="text-4-8">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -1325,15 +1314,14 @@ Sorry, your browser does not support SVG.</object>
 
 
 <div class="figure">
-<p><object type="image/svg+xml" data="figs/general_control_delta.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
+<p><img src="figs/general_control_delta.png" alt="general_control_delta.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org77bf48d" class="outline-3">
-<h3 id="org77bf48d"><span class="section-number-3">4.9</span> Uncertainty block - NDelta configuration</h3>
+<div id="outline-container-orgecb97e0" class="outline-3">
+<h3 id="orgecb97e0"><span class="section-number-3">4.9</span> Uncertainty block - NDelta configuration</h3>
 <div class="outline-text-3" id="text-4-9">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -1360,15 +1348,14 @@ Sorry, your browser does not support SVG.</object>
 
 
 <div class="figure">
-<p><object type="image/svg+xml" data="figs/general_control_Ndelta.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
+<p><img src="figs/general_control_Ndelta.png" alt="general_control_Ndelta.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org10f7122" class="outline-3">
-<h3 id="org10f7122"><span class="section-number-3">4.10</span> M Delta Analysis</h3>
+<div id="outline-container-org1bf1bda" class="outline-3">
+<h3 id="org1bf1bda"><span class="section-number-3">4.10</span> M Delta Analysis</h3>
 <div class="outline-text-3" id="text-4-10">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -1385,20 +1372,19 @@ Sorry, your browser does not support SVG.</object>
 
 
 <div class="figure">
-<p><object type="image/svg+xml" data="figs/general_control_Mdelta.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
+<p><img src="figs/general_control_Mdelta.png" alt="general_control_Mdelta.png" />
 </p>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgc701769" class="outline-2">
-<h2 id="orgc701769"><span class="section-number-2">5</span> Control Architectures</h2>
+<div id="outline-container-orgb9d5008" class="outline-2">
+<h2 id="orgb9d5008"><span class="section-number-2">5</span> Control Architectures</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org9a270e5" class="outline-3">
-<h3 id="org9a270e5"><span class="section-number-3">5.1</span> PID</h3>
+<div id="outline-container-org6c76cf9" class="outline-3">
+<h3 id="org6c76cf9"><span class="section-number-3">5.1</span> PID</h3>
 <div class="outline-text-3" id="text-5-1">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -1441,12 +1427,12 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org3d80130" class="outline-2">
-<h2 id="org3d80130"><span class="section-number-2">6</span> Input Output Uncertainty</h2>
+<div id="outline-container-org1b7c75b" class="outline-2">
+<h2 id="org1b7c75b"><span class="section-number-2">6</span> Input Output Uncertainty</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org4ed821b" class="outline-3">
-<h3 id="org4ed821b"><span class="section-number-3">6.1</span> Input and output uncertainty</h3>
+<div id="outline-container-org83f1b26" class="outline-3">
+<h3 id="org83f1b26"><span class="section-number-3">6.1</span> Input and output uncertainty</h3>
 <div class="outline-text-3" id="text-6-1">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -1476,15 +1462,14 @@ Sorry, your browser does not support SVG.</object>
 
 
 <div class="figure">
-<p><object type="image/svg+xml" data="figs/input_output_uncertainty.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
+<p><img src="figs/input_output_uncertainty.png" alt="input_output_uncertainty.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org69ccc4e" class="outline-3">
-<h3 id="org69ccc4e"><span class="section-number-3">6.2</span> Input Multiplicative Uncertainty - Feedback</h3>
+<div id="outline-container-org922487f" class="outline-3">
+<h3 id="org922487f"><span class="section-number-3">6.2</span> Input Multiplicative Uncertainty - Feedback</h3>
 <div class="outline-text-3" id="text-6-2">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -1521,8 +1506,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orgbe4db9b" class="outline-3">
-<h3 id="orgbe4db9b"><span class="section-number-3">6.3</span> Input Multiplicative Uncertainty - Feedback - weight</h3>
+<div id="outline-container-org576b8b8" class="outline-3">
+<h3 id="org576b8b8"><span class="section-number-3">6.3</span> Input Multiplicative Uncertainty - Feedback - weight</h3>
 <div class="outline-text-3" id="text-6-3">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -1565,8 +1550,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orgab35925" class="outline-3">
-<h3 id="orgab35925"><span class="section-number-3">6.4</span> Input Multiplicative Uncertainty - Feedback - weight - bis</h3>
+<div id="outline-container-org9543c1f" class="outline-3">
+<h3 id="org9543c1f"><span class="section-number-3">6.4</span> Input Multiplicative Uncertainty - Feedback - weight - bis</h3>
 <div class="outline-text-3" id="text-6-4">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -1606,8 +1591,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orgb97a711" class="outline-3">
-<h3 id="orgb97a711"><span class="section-number-3">6.5</span> Inverse Multiplicative Uncertainty - Feedback</h3>
+<div id="outline-container-orgf85d22f" class="outline-3">
+<h3 id="orgf85d22f"><span class="section-number-3">6.5</span> Inverse Multiplicative Uncertainty - Feedback</h3>
 <div class="outline-text-3" id="text-6-5">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -1646,12 +1631,12 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 </div>
-<div id="outline-container-org2178c6d" class="outline-3">
-<h3 id="org2178c6d"><span class="section-number-3">6.6</span> Six types of uncertainty</h3>
+<div id="outline-container-orge8e5d8f" class="outline-3">
+<h3 id="orge8e5d8f"><span class="section-number-3">6.6</span> Six types of uncertainty</h3>
 <div class="outline-text-3" id="text-6-6">
 </div>
-<div id="outline-container-org9707993" class="outline-4">
-<h4 id="org9707993"><span class="section-number-4">6.6.1</span> Additive Uncertainty</h4>
+<div id="outline-container-org6eaa8aa" class="outline-4">
+<h4 id="org6eaa8aa"><span class="section-number-4">6.6.1</span> Additive Uncertainty</h4>
 <div class="outline-text-4" id="text-6-6-1">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -1677,15 +1662,14 @@ Sorry, your browser does not support SVG.</object>
 
 
 <div class="figure">
-<p><object type="image/svg+xml" data="figs/additive_uncertainty.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
+<p><img src="figs/additive_uncertainty.png" alt="additive_uncertainty.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org47632b0" class="outline-4">
-<h4 id="org47632b0"><span class="section-number-4">6.6.2</span> Input Multiplicative Uncertainty</h4>
+<div id="outline-container-org7c05149" class="outline-4">
+<h4 id="org7c05149"><span class="section-number-4">6.6.2</span> Input Multiplicative Uncertainty</h4>
 <div class="outline-text-4" id="text-6-6-2">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -1717,8 +1701,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org69c5324" class="outline-4">
-<h4 id="org69c5324"><span class="section-number-4">6.6.3</span> Output Multiplicative Uncertainty</h4>
+<div id="outline-container-orgc52e184" class="outline-4">
+<h4 id="orgc52e184"><span class="section-number-4">6.6.3</span> Output Multiplicative Uncertainty</h4>
 <div class="outline-text-4" id="text-6-6-3">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -1745,14 +1729,13 @@ Sorry, your browser does not support SVG.</object>
 
 
 <div class="figure">
-<p><object type="image/svg+xml" data="figs/output_uncertainty.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
+<p><img src="figs/output_uncertainty.png" alt="output_uncertainty.png" />
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org7a8a58e" class="outline-4">
-<h4 id="org7a8a58e"><span class="section-number-4">6.6.4</span> Inverse Additive Uncertainty</h4>
+<div id="outline-container-org43b8ed8" class="outline-4">
+<h4 id="org43b8ed8"><span class="section-number-4">6.6.4</span> Inverse Additive Uncertainty</h4>
 <div class="outline-text-4" id="text-6-6-4">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -1778,15 +1761,14 @@ Sorry, your browser does not support SVG.</object>
 
 
 <div class="figure">
-<p><object type="image/svg+xml" data="figs/inv_additive_uncertainty.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
+<p><img src="figs/inv_additive_uncertainty.png" alt="inv_additive_uncertainty.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org2e5d01c" class="outline-4">
-<h4 id="org2e5d01c"><span class="section-number-4">6.6.5</span> Inverse Multiplicative Input Uncertainty</h4>
+<div id="outline-container-org4b4cd8e" class="outline-4">
+<h4 id="org4b4cd8e"><span class="section-number-4">6.6.5</span> Inverse Multiplicative Input Uncertainty</h4>
 <div class="outline-text-4" id="text-6-6-5">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -1813,14 +1795,13 @@ Sorry, your browser does not support SVG.</object>
 
 
 <div class="figure">
-<p><object type="image/svg+xml" data="figs/inv_input_uncertainty.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
+<p><img src="figs/inv_input_uncertainty.png" alt="inv_input_uncertainty.png" />
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgd989b59" class="outline-4">
-<h4 id="orgd989b59"><span class="section-number-4">6.6.6</span> Inverse Multiplicative Output Uncertainty</h4>
+<div id="outline-container-orgc59ee74" class="outline-4">
+<h4 id="orgc59ee74"><span class="section-number-4">6.6.6</span> Inverse Multiplicative Output Uncertainty</h4>
 <div class="outline-text-4" id="text-6-6-6">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -1847,8 +1828,7 @@ Sorry, your browser does not support SVG.</object>
 
 
 <div class="figure">
-<p><object type="image/svg+xml" data="figs/inv_output_uncertainty.svg" class="org-svg">
-Sorry, your browser does not support SVG.</object>
+<p><img src="figs/inv_output_uncertainty.png" alt="inv_output_uncertainty.png" />
 </p>
 </div>
 </div>
@@ -1856,12 +1836,12 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org128a288" class="outline-2">
-<h2 id="org128a288"><span class="section-number-2">7</span> Sensor Fusion</h2>
+<div id="outline-container-org5251b4e" class="outline-2">
+<h2 id="org5251b4e"><span class="section-number-2">7</span> Sensor Fusion</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-org6587b9f" class="outline-3">
-<h3 id="org6587b9f"><span class="section-number-3">7.1</span> Mechanical Architecture</h3>
+<div id="outline-container-orgf3f4aa8" class="outline-3">
+<h3 id="orgf3f4aa8"><span class="section-number-3">7.1</span> Mechanical Architecture</h3>
 <div class="outline-text-3" id="text-7-1">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -1929,8 +1909,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orge764e70" class="outline-3">
-<h3 id="orge764e70"><span class="section-number-3">7.2</span> Sensor Fusion with complementary filters</h3>
+<div id="outline-container-org2ab3eaa" class="outline-3">
+<h3 id="org2ab3eaa"><span class="section-number-3">7.2</span> Sensor Fusion with complementary filters</h3>
 <div class="outline-text-3" id="text-7-2">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -1972,8 +1952,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org00a0551" class="outline-3">
-<h3 id="org00a0551"><span class="section-number-3">7.3</span> General Sensor Fusion with real sensors</h3>
+<div id="outline-container-orgcac051a" class="outline-3">
+<h3 id="orgcac051a"><span class="section-number-3">7.3</span> General Sensor Fusion with real sensors</h3>
 <div class="outline-text-3" id="text-7-3">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -2023,8 +2003,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orgcc3bfa2" class="outline-3">
-<h3 id="orgcc3bfa2"><span class="section-number-3">7.4</span> Equivalent configuration</h3>
+<div id="outline-container-org3be74ea" class="outline-3">
+<h3 id="org3be74ea"><span class="section-number-3">7.4</span> Equivalent configuration</h3>
 <div class="outline-text-3" id="text-7-4">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -2066,8 +2046,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orgb7effd8" class="outline-3">
-<h3 id="orgb7effd8"><span class="section-number-3">7.5</span> Equivalent configuration - classical Feedback</h3>
+<div id="outline-container-org37cd77c" class="outline-3">
+<h3 id="org37cd77c"><span class="section-number-3">7.5</span> Equivalent configuration - classical Feedback</h3>
 <div class="outline-text-3" id="text-7-5">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -2100,8 +2080,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org275b042" class="outline-3">
-<h3 id="org275b042"><span class="section-number-3">7.6</span> Equivalent configuration - classical Feedback with pre-filter</h3>
+<div id="outline-container-org62329fa" class="outline-3">
+<h3 id="org62329fa"><span class="section-number-3">7.6</span> Equivalent configuration - classical Feedback with pre-filter</h3>
 <div class="outline-text-3" id="text-7-6">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -2136,8 +2116,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org9e3a0a0" class="outline-3">
-<h3 id="org9e3a0a0"><span class="section-number-3">7.7</span> H-Infinity - Complementary filters - Generalized plant</h3>
+<div id="outline-container-org86abc91" class="outline-3">
+<h3 id="org86abc91"><span class="section-number-3">7.7</span> H-Infinity - Complementary filters - Generalized plant</h3>
 <div class="outline-text-3" id="text-7-7">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -2172,8 +2152,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orgdbd76f0" class="outline-3">
-<h3 id="orgdbd76f0"><span class="section-number-3">7.8</span> H-Infinity - Complementary filters - Generalized plant - bis</h3>
+<div id="outline-container-orge95893f" class="outline-3">
+<h3 id="orge95893f"><span class="section-number-3">7.8</span> H-Infinity - Complementary filters - Generalized plant - bis</h3>
 <div class="outline-text-3" id="text-7-8">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -2209,8 +2189,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orgb2ec377" class="outline-3">
-<h3 id="orgb2ec377"><span class="section-number-3">7.9</span> H-Infinity - Complementary filters</h3>
+<div id="outline-container-orgcbf2160" class="outline-3">
+<h3 id="orgcbf2160"><span class="section-number-3">7.9</span> H-Infinity - Complementary filters</h3>
 <div class="outline-text-3" id="text-7-9">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -2248,8 +2228,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orgba2cc50" class="outline-3">
-<h3 id="orgba2cc50"><span class="section-number-3">7.10</span> H-Infinity - Complementary filters - bis</h3>
+<div id="outline-container-org76eb10e" class="outline-3">
+<h3 id="org76eb10e"><span class="section-number-3">7.10</span> H-Infinity - Complementary filters - bis</h3>
 <div class="outline-text-3" id="text-7-10">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -2288,12 +2268,12 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org3636eea" class="outline-2">
-<h2 id="org3636eea"><span class="section-number-2">8</span> Rotating Frame</h2>
+<div id="outline-container-org0886814" class="outline-2">
+<h2 id="org0886814"><span class="section-number-2">8</span> Rotating Frame</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-org72159f1" class="outline-3">
-<h3 id="org72159f1"><span class="section-number-3">8.1</span> Control Diagram for fixed measurement</h3>
+<div id="outline-container-orgacc2c4f" class="outline-3">
+<h3 id="orgacc2c4f"><span class="section-number-3">8.1</span> Control Diagram for fixed measurement</h3>
 <div class="outline-text-3" id="text-8-1">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -2321,8 +2301,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org5e51d7d" class="outline-3">
-<h3 id="org5e51d7d"><span class="section-number-3">8.2</span> Control Diagram for fixed measurement - 2DoF</h3>
+<div id="outline-container-orga93510c" class="outline-3">
+<h3 id="orga93510c"><span class="section-number-3">8.2</span> Control Diagram for fixed measurement - 2DoF</h3>
 <div class="outline-text-3" id="text-8-2">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -2350,8 +2330,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orge1f73bc" class="outline-3">
-<h3 id="orge1f73bc"><span class="section-number-3">8.3</span> Control diagram for rotating measurement</h3>
+<div id="outline-container-org386057b" class="outline-3">
+<h3 id="org386057b"><span class="section-number-3">8.3</span> Control diagram for rotating measurement</h3>
 <div class="outline-text-3" id="text-8-3">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -2379,8 +2359,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orga7e4a0b" class="outline-3">
-<h3 id="orga7e4a0b"><span class="section-number-3">8.4</span> Control diagram for rotating measurement - 2DoF</h3>
+<div id="outline-container-org40e0e2f" class="outline-3">
+<h3 id="org40e0e2f"><span class="section-number-3">8.4</span> Control diagram for rotating measurement - 2DoF</h3>
 <div class="outline-text-3" id="text-8-4">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -2408,8 +2388,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org3139fa1" class="outline-3">
-<h3 id="org3139fa1"><span class="section-number-3">8.5</span> Rotating Frame - 1DoF</h3>
+<div id="outline-container-orgf640d75" class="outline-3">
+<h3 id="orgf640d75"><span class="section-number-3">8.5</span> Rotating Frame - 1DoF</h3>
 <div class="outline-text-3" id="text-8-5">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -2489,8 +2469,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org8c6cb69" class="outline-3">
-<h3 id="org8c6cb69"><span class="section-number-3">8.6</span> Rotating Frame - 2DoF</h3>
+<div id="outline-container-org2844da9" class="outline-3">
+<h3 id="org2844da9"><span class="section-number-3">8.6</span> Rotating Frame - 2DoF</h3>
 <div class="outline-text-3" id="text-8-6">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -2567,8 +2547,8 @@ below
 </div>
 </div>
 
-<div id="outline-container-orgc85680d" class="outline-3">
-<h3 id="orgc85680d"><span class="section-number-3">8.7</span> SISO Controller</h3>
+<div id="outline-container-org959c2a1" class="outline-3">
+<h3 id="org959c2a1"><span class="section-number-3">8.7</span> SISO Controller</h3>
 <div class="outline-text-3" id="text-8-7">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -2594,8 +2574,8 @@ below
 </div>
 </div>
 
-<div id="outline-container-org565c533" class="outline-3">
-<h3 id="org565c533"><span class="section-number-3">8.8</span> Diagonal Controller</h3>
+<div id="outline-container-orge5a9e4b" class="outline-3">
+<h3 id="orge5a9e4b"><span class="section-number-3">8.8</span> Diagonal Controller</h3>
 <div class="outline-text-3" id="text-8-8">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -2622,12 +2602,12 @@ below
 </div>
 </div>
 
-<div id="outline-container-org94fec4a" class="outline-2">
-<h2 id="org94fec4a"><span class="section-number-2">9</span> Mass-Spring Systems</h2>
+<div id="outline-container-orga09cafa" class="outline-2">
+<h2 id="orga09cafa"><span class="section-number-2">9</span> Mass-Spring Systems</h2>
 <div class="outline-text-2" id="text-9">
 </div>
-<div id="outline-container-org144e3a4" class="outline-3">
-<h3 id="org144e3a4"><span class="section-number-3">9.1</span> One mass</h3>
+<div id="outline-container-orgcfa374e" class="outline-3">
+<h3 id="orgcfa374e"><span class="section-number-3">9.1</span> One mass</h3>
 <div class="outline-text-3" id="text-9-1">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -2682,8 +2662,8 @@ below
 </div>
 </div>
 
-<div id="outline-container-org3e823e9" class="outline-3">
-<h3 id="org3e823e9"><span class="section-number-3">9.2</span> One mass - Control</h3>
+<div id="outline-container-orge44bdf9" class="outline-3">
+<h3 id="orge44bdf9"><span class="section-number-3">9.2</span> One mass - Control</h3>
 <div class="outline-text-3" id="text-9-2">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -2746,8 +2726,8 @@ below
 </div>
 </div>
 
-<div id="outline-container-orgd08997d" class="outline-3">
-<h3 id="orgd08997d"><span class="section-number-3">9.3</span> Two masses</h3>
+<div id="outline-container-orgdf7cdb9" class="outline-3">
+<h3 id="orgdf7cdb9"><span class="section-number-3">9.3</span> Two masses</h3>
 <div class="outline-text-3" id="text-9-3">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -2820,8 +2800,8 @@ below
 </div>
 </div>
 
-<div id="outline-container-org16ceb79" class="outline-3">
-<h3 id="org16ceb79"><span class="section-number-3">9.4</span> Three masses</h3>
+<div id="outline-container-org513c21b" class="outline-3">
+<h3 id="org513c21b"><span class="section-number-3">9.4</span> Three masses</h3>
 <div class="outline-text-3" id="text-9-4">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -2915,12 +2895,12 @@ below
 </div>
 </div>
 </div>
-<div id="outline-container-orgb0037b4" class="outline-2">
-<h2 id="orgb0037b4"><span class="section-number-2">10</span> Mechanical Systems</h2>
+<div id="outline-container-org64c4b55" class="outline-2">
+<h2 id="org64c4b55"><span class="section-number-2">10</span> Mechanical Systems</h2>
 <div class="outline-text-2" id="text-10">
 </div>
-<div id="outline-container-orgfa58042" class="outline-3">
-<h3 id="orgfa58042"><span class="section-number-3">10.1</span> Piezoelectric Actuator</h3>
+<div id="outline-container-org09e91e3" class="outline-3">
+<h3 id="org09e91e3"><span class="section-number-3">10.1</span> Piezoelectric Actuator</h3>
 <div class="outline-text-3" id="text-10-1">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -2944,12 +2924,12 @@ below
 </div>
 </div>
 
-<div id="outline-container-org71ecf22" class="outline-2">
-<h2 id="org71ecf22"><span class="section-number-2">11</span> Control Tradeoffs</h2>
+<div id="outline-container-org5334e64" class="outline-2">
+<h2 id="org5334e64"><span class="section-number-2">11</span> Control Tradeoffs</h2>
 <div class="outline-text-2" id="text-11">
 </div>
-<div id="outline-container-orga1d6dde" class="outline-3">
-<h3 id="orga1d6dde"><span class="section-number-3">11.1</span> Performance / Robustness</h3>
+<div id="outline-container-org1eab692" class="outline-3">
+<h3 id="org1eab692"><span class="section-number-3">11.1</span> Performance / Robustness</h3>
 <div class="outline-text-3" id="text-11-1">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -3038,8 +3018,8 @@ below
 </div>
 </div>
 </div>
-<div id="outline-container-orgfec987f" class="outline-3">
-<h3 id="orgfec987f"><span class="section-number-3">11.2</span> Performance / Knowledge</h3>
+<div id="outline-container-org7f58c67" class="outline-3">
+<h3 id="org7f58c67"><span class="section-number-3">11.2</span> Performance / Knowledge</h3>
 <div class="outline-text-3" id="text-11-2">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -3087,12 +3067,12 @@ below
 </div>
 </div>
 </div>
-<div id="outline-container-org85c8319" class="outline-2">
-<h2 id="org85c8319"><span class="section-number-2">12</span> Pendulum Experiment</h2>
+<div id="outline-container-orgcefc7c1" class="outline-2">
+<h2 id="orgcefc7c1"><span class="section-number-2">12</span> Pendulum Experiment</h2>
 <div class="outline-text-2" id="text-12">
 </div>
-<div id="outline-container-org39ea019" class="outline-3">
-<h3 id="org39ea019"><span class="section-number-3">12.1</span> Side view</h3>
+<div id="outline-container-orgc2f3d43" class="outline-3">
+<h3 id="orgc2f3d43"><span class="section-number-3">12.1</span> Side view</h3>
 <div class="outline-text-3" id="text-12-1">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -3162,8 +3142,8 @@ below
 </div>
 </div>
 
-<div id="outline-container-orge648c47" class="outline-3">
-<h3 id="orge648c47"><span class="section-number-3">12.2</span> Top view</h3>
+<div id="outline-container-orga1166f0" class="outline-3">
+<h3 id="orga1166f0"><span class="section-number-3">12.2</span> Top view</h3>
 <div class="outline-text-3" id="text-12-2">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -3325,12 +3305,12 @@ below
 </div>
 </div>
 
-<div id="outline-container-org2023a92" class="outline-2">
-<h2 id="org2023a92"><span class="section-number-2">13</span> Optics</h2>
+<div id="outline-container-orgd3bdfd3" class="outline-2">
+<h2 id="orgd3bdfd3"><span class="section-number-2">13</span> Optics</h2>
 <div class="outline-text-2" id="text-13">
 </div>
-<div id="outline-container-org699c784" class="outline-3">
-<h3 id="org699c784"><span class="section-number-3">13.1</span> Interferometer - Schematic</h3>
+<div id="outline-container-org53166e2" class="outline-3">
+<h3 id="org53166e2"><span class="section-number-3">13.1</span> Interferometer - Schematic</h3>
 <div class="outline-text-3" id="text-13-1">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -3425,12 +3405,12 @@ below
 </div>
 </div>
 </div>
-<div id="outline-container-orgeb589c0" class="outline-2">
-<h2 id="orgeb589c0"><span class="section-number-2">14</span> Loop Shaping</h2>
+<div id="outline-container-orgeb6f473" class="outline-2">
+<h2 id="orgeb6f473"><span class="section-number-2">14</span> Loop Shaping</h2>
 <div class="outline-text-2" id="text-14">
 </div>
-<div id="outline-container-org5d20cfb" class="outline-3">
-<h3 id="org5d20cfb"><span class="section-number-3">14.1</span> Loop Shaping the Open Loop transfer function</h3>
+<div id="outline-container-org6f17408" class="outline-3">
+<h3 id="org6f17408"><span class="section-number-3">14.1</span> Loop Shaping the Open Loop transfer function</h3>
 <div class="outline-text-3" id="text-14-1">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -3477,8 +3457,8 @@ below
 </div>
 </div>
 
-<div id="outline-container-orga80cc09" class="outline-3">
-<h3 id="orga80cc09"><span class="section-number-3">14.2</span> Loop Shaping of \(S\) and \(T\)</h3>
+<div id="outline-container-org166a4b8" class="outline-3">
+<h3 id="org166a4b8"><span class="section-number-3">14.2</span> Loop Shaping of \(S\) and \(T\)</h3>
 <div class="outline-text-3" id="text-14-2">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate">\definecolor</span>{T}{rgb}{0.230, 0.299, 0.754}<span class="org-comment">%</span>
@@ -3611,12 +3591,12 @@ below
 </div>
 </div>
 
-<div id="outline-container-org3cc8760" class="outline-2">
-<h2 id="org3cc8760"><span class="section-number-2">15</span> Modern Control</h2>
+<div id="outline-container-org133d44b" class="outline-2">
+<h2 id="org133d44b"><span class="section-number-2">15</span> Modern Control</h2>
 <div class="outline-text-2" id="text-15">
 </div>
-<div id="outline-container-org134201e" class="outline-3">
-<h3 id="org134201e"><span class="section-number-3">15.1</span> LQG</h3>
+<div id="outline-container-org6367872" class="outline-3">
+<h3 id="org6367872"><span class="section-number-3">15.1</span> LQG</h3>
 <div class="outline-text-3" id="text-15-1">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -3649,8 +3629,8 @@ below
 </div>
 </div>
 
-<div id="outline-container-org6155eaa" class="outline-3">
-<h3 id="org6155eaa"><span class="section-number-3">15.2</span> LQG with Kalman filter</h3>
+<div id="outline-container-orgd2b3582" class="outline-3">
+<h3 id="orgd2b3582"><span class="section-number-3">15.2</span> LQG with Kalman filter</h3>
 <div class="outline-text-3" id="text-15-2">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -3702,8 +3682,8 @@ below
 </div>
 </div>
 
-<div id="outline-container-org55b728b" class="outline-3">
-<h3 id="org55b728b"><span class="section-number-3">15.3</span> LQG with Integral Action</h3>
+<div id="outline-container-org6110bc2" class="outline-3">
+<h3 id="org6110bc2"><span class="section-number-3">15.3</span> LQG with Integral Action</h3>
 <div class="outline-text-3" id="text-15-3">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -3752,12 +3732,12 @@ below
 </div>
 </div>
 
-<div id="outline-container-org1f37dc6" class="outline-2">
-<h2 id="org1f37dc6"><span class="section-number-2">16</span> H-Infinity Control</h2>
+<div id="outline-container-org5cf6657" class="outline-2">
+<h2 id="org5cf6657"><span class="section-number-2">16</span> H-Infinity Control</h2>
 <div class="outline-text-2" id="text-16">
 </div>
-<div id="outline-container-org96003c3" class="outline-3">
-<h3 id="org96003c3"><span class="section-number-3">16.1</span> H-Infinity norm - Example</h3>
+<div id="outline-container-org0da2810" class="outline-3">
+<h3 id="org0da2810"><span class="section-number-3">16.1</span> H-Infinity norm - Example</h3>
 <div class="outline-text-3" id="text-16-1">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -3891,8 +3871,8 @@ below
 </div>
 </div>
 
-<div id="outline-container-orgb94df78" class="outline-3">
-<h3 id="orgb94df78"><span class="section-number-3">16.2</span> Performance Specification - Sensitivity Function</h3>
+<div id="outline-container-orgc691347" class="outline-3">
+<h3 id="orgc691347"><span class="section-number-3">16.2</span> Performance Specification - Sensitivity Function</h3>
 <div class="outline-text-3" id="text-16-2">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -3938,8 +3918,8 @@ below
 </div>
 </div>
 
-<div id="outline-container-org4bf8d0f" class="outline-3">
-<h3 id="org4bf8d0f"><span class="section-number-3">16.3</span> Performance Specification - Sensitivity Function</h3>
+<div id="outline-container-org5d91b7c" class="outline-3">
+<h3 id="org5d91b7c"><span class="section-number-3">16.3</span> Performance Specification - Sensitivity Function</h3>
 <div class="outline-text-3" id="text-16-3">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -3978,8 +3958,8 @@ below
 </div>
 </div>
 </div>
-<div id="outline-container-org821291e" class="outline-3">
-<h3 id="org821291e"><span class="section-number-3">16.4</span> S/KS Mixed sensitivity - Disturbance Rejection</h3>
+<div id="outline-container-org89af4fc" class="outline-3">
+<h3 id="org89af4fc"><span class="section-number-3">16.4</span> S/KS Mixed sensitivity - Disturbance Rejection</h3>
 <div class="outline-text-3" id="text-16-4">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4030,8 +4010,8 @@ below
 </div>
 </div>
 
-<div id="outline-container-org1f87c7e" class="outline-3">
-<h3 id="org1f87c7e"><span class="section-number-3">16.5</span> S/KS Mixed sensitivity - Reference Tracking</h3>
+<div id="outline-container-orgcf0c114" class="outline-3">
+<h3 id="orgcf0c114"><span class="section-number-3">16.5</span> S/KS Mixed sensitivity - Reference Tracking</h3>
 <div class="outline-text-3" id="text-16-5">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4079,8 +4059,8 @@ below
 </div>
 </div>
 
-<div id="outline-container-org0c52f98" class="outline-3">
-<h3 id="org0c52f98"><span class="section-number-3">16.6</span> S/T Mixed sensitivity</h3>
+<div id="outline-container-org33bc017" class="outline-3">
+<h3 id="org33bc017"><span class="section-number-3">16.6</span> S/T Mixed sensitivity</h3>
 <div class="outline-text-3" id="text-16-6">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4128,8 +4108,8 @@ below
 </div>
 </div>
 
-<div id="outline-container-org57dd9eb" class="outline-3">
-<h3 id="org57dd9eb"><span class="section-number-3">16.7</span> Signal Based H-Infinity</h3>
+<div id="outline-container-org6b2f0f4" class="outline-3">
+<h3 id="org6b2f0f4"><span class="section-number-3">16.7</span> Signal Based H-Infinity</h3>
 <div class="outline-text-3" id="text-16-7">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4191,8 +4171,8 @@ below
 </div>
 </div>
 
-<div id="outline-container-org4710a03" class="outline-3">
-<h3 id="org4710a03"><span class="section-number-3">16.8</span> Mixed sensitivity configuration</h3>
+<div id="outline-container-org361d855" class="outline-3">
+<h3 id="org361d855"><span class="section-number-3">16.8</span> Mixed sensitivity configuration</h3>
 <div class="outline-text-3" id="text-16-8">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4230,8 +4210,8 @@ below
 </div>
 </div>
 
-<div id="outline-container-orgbbbc8fb" class="outline-3">
-<h3 id="orgbbbc8fb"><span class="section-number-3">16.9</span> 4 blocs criterion</h3>
+<div id="outline-container-orgebfd6fd" class="outline-3">
+<h3 id="orgebfd6fd"><span class="section-number-3">16.9</span> 4 blocs criterion</h3>
 <div class="outline-text-3" id="text-16-9">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4270,8 +4250,8 @@ below
 </div>
 </div>
 </div>
-<div id="outline-container-orgb2a4dbe" class="outline-3">
-<h3 id="orgb2a4dbe"><span class="section-number-3">16.10</span> 4 blocs criterion - bis</h3>
+<div id="outline-container-org4c3664c" class="outline-3">
+<h3 id="org4c3664c"><span class="section-number-3">16.10</span> 4 blocs criterion - bis</h3>
 <div class="outline-text-3" id="text-16-10">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4316,8 +4296,8 @@ below
 </div>
 </div>
 </div>
-<div id="outline-container-org411f3e4" class="outline-3">
-<h3 id="org411f3e4"><span class="section-number-3">16.11</span> 4 blocs criterion - General conf</h3>
+<div id="outline-container-org5670966" class="outline-3">
+<h3 id="org5670966"><span class="section-number-3">16.11</span> 4 blocs criterion - General conf</h3>
 <div class="outline-text-3" id="text-16-11">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4363,8 +4343,8 @@ below
 </div>
 </div>
 </div>
-<div id="outline-container-org8391f07" class="outline-3">
-<h3 id="org8391f07"><span class="section-number-3">16.12</span> 4 blocs criterion - General conf with noise</h3>
+<div id="outline-container-org4ee6674" class="outline-3">
+<h3 id="org4ee6674"><span class="section-number-3">16.12</span> 4 blocs criterion - General conf with noise</h3>
 <div class="outline-text-3" id="text-16-12">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4414,8 +4394,8 @@ below
 </div>
 </div>
 </div>
-<div id="outline-container-orgb6fa7c9" class="outline-3">
-<h3 id="orgb6fa7c9"><span class="section-number-3">16.13</span> 4 blocs criterion - constrains</h3>
+<div id="outline-container-org302e9a6" class="outline-3">
+<h3 id="org302e9a6"><span class="section-number-3">16.13</span> 4 blocs criterion - constrains</h3>
 <div class="outline-text-3" id="text-16-13">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4476,12 +4456,12 @@ below
 </div>
 </div>
 </div>
-<div id="outline-container-orge4c6d74" class="outline-2">
-<h2 id="orge4c6d74"><span class="section-number-2">17</span> MIMO Control</h2>
+<div id="outline-container-org5b43720" class="outline-2">
+<h2 id="org5b43720"><span class="section-number-2">17</span> MIMO Control</h2>
 <div class="outline-text-2" id="text-17">
 </div>
-<div id="outline-container-orge2de1b3" class="outline-3">
-<h3 id="orge2de1b3"><span class="section-number-3">17.1</span> Plant</h3>
+<div id="outline-container-org12f1a72" class="outline-3">
+<h3 id="org12f1a72"><span class="section-number-3">17.1</span> Plant</h3>
 <div class="outline-text-3" id="text-17-1">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4502,8 +4482,8 @@ below
 </div>
 </div>
 
-<div id="outline-container-org92a4629" class="outline-3">
-<h3 id="org92a4629"><span class="section-number-3">17.2</span> Plant - Leg measurement</h3>
+<div id="outline-container-org6bf7b20" class="outline-3">
+<h3 id="org6bf7b20"><span class="section-number-3">17.2</span> Plant - Leg measurement</h3>
 <div class="outline-text-3" id="text-17-2">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4524,8 +4504,8 @@ below
 </div>
 </div>
 
-<div id="outline-container-org9e72a3a" class="outline-3">
-<h3 id="org9e72a3a"><span class="section-number-3">17.3</span> Jacobian</h3>
+<div id="outline-container-orge26d753" class="outline-3">
+<h3 id="orge26d753"><span class="section-number-3">17.3</span> Jacobian</h3>
 <div class="outline-text-3" id="text-17-3">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4548,8 +4528,8 @@ below
 </div>
 </div>
 
-<div id="outline-container-org4679704" class="outline-3">
-<h3 id="org4679704"><span class="section-number-3">17.4</span> Jacobian Control - Cartesian Frame</h3>
+<div id="outline-container-org245c06f" class="outline-3">
+<h3 id="org245c06f"><span class="section-number-3">17.4</span> Jacobian Control - Cartesian Frame</h3>
 <div class="outline-text-3" id="text-17-4">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4577,8 +4557,8 @@ below
 </div>
 </div>
 
-<div id="outline-container-org12b0a81" class="outline-3">
-<h3 id="org12b0a81"><span class="section-number-3">17.5</span> Jacobian Control - Cartesian Frame</h3>
+<div id="outline-container-orgaab8b56" class="outline-3">
+<h3 id="orgaab8b56"><span class="section-number-3">17.5</span> Jacobian Control - Cartesian Frame</h3>
 <div class="outline-text-3" id="text-17-5">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4606,8 +4586,8 @@ below
 </div>
 </div>
 
-<div id="outline-container-orgef2b5f8" class="outline-3">
-<h3 id="orgef2b5f8"><span class="section-number-3">17.6</span> Modal Transformation</h3>
+<div id="outline-container-org1ef8ab2" class="outline-3">
+<h3 id="org1ef8ab2"><span class="section-number-3">17.6</span> Modal Transformation</h3>
 <div class="outline-text-3" id="text-17-6">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4634,8 +4614,8 @@ below
 </div>
 </div>
 </div>
-<div id="outline-container-org2bb9bef" class="outline-3">
-<h3 id="org2bb9bef"><span class="section-number-3">17.7</span> SVD Control - Static</h3>
+<div id="outline-container-org364fe2a" class="outline-3">
+<h3 id="org364fe2a"><span class="section-number-3">17.7</span> SVD Control - Static</h3>
 <div class="outline-text-3" id="text-17-7">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4660,8 +4640,8 @@ below
 </div>
 </div>
 </div>
-<div id="outline-container-orgeb0c244" class="outline-3">
-<h3 id="orgeb0c244"><span class="section-number-3">17.8</span> Inverse Based Control</h3>
+<div id="outline-container-orgd828069" class="outline-3">
+<h3 id="orgd828069"><span class="section-number-3">17.8</span> Inverse Based Control</h3>
 <div class="outline-text-3" id="text-17-8">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4684,8 +4664,8 @@ below
 </div>
 </div>
 </div>
-<div id="outline-container-orgf4f5813" class="outline-3">
-<h3 id="orgf4f5813"><span class="section-number-3">17.9</span> MIMO Sensor Fusion</h3>
+<div id="outline-container-org33f6c14" class="outline-3">
+<h3 id="org33f6c14"><span class="section-number-3">17.9</span> MIMO Sensor Fusion</h3>
 <div class="outline-text-3" id="text-17-9">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4727,8 +4707,8 @@ below
 </div>
 </div>
 
-<div id="outline-container-orgce969db" class="outline-3">
-<h3 id="orgce969db"><span class="section-number-3">17.10</span> MIMO Sensor Fusion - Equivalent Feedback Control</h3>
+<div id="outline-container-orgce73c53" class="outline-3">
+<h3 id="orgce73c53"><span class="section-number-3">17.10</span> MIMO Sensor Fusion - Equivalent Feedback Control</h3>
 <div class="outline-text-3" id="text-17-10">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4760,8 +4740,8 @@ below
 </div>
 </div>
 </div>
-<div id="outline-container-orga343860" class="outline-3">
-<h3 id="orga343860"><span class="section-number-3">17.11</span> MIMO Sensor Fusion - Equivalent Feedback Control - bis</h3>
+<div id="outline-container-org49d7e0d" class="outline-3">
+<h3 id="org49d7e0d"><span class="section-number-3">17.11</span> MIMO Sensor Fusion - Equivalent Feedback Control - bis</h3>
 <div class="outline-text-3" id="text-17-11">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4796,12 +4776,12 @@ below
 </div>
 </div>
 </div>
-<div id="outline-container-org359651d" class="outline-2">
-<h2 id="org359651d"><span class="section-number-2">18</span> Others</h2>
+<div id="outline-container-orgf1fbf51" class="outline-2">
+<h2 id="orgf1fbf51"><span class="section-number-2">18</span> Others</h2>
 <div class="outline-text-2" id="text-18">
 </div>
-<div id="outline-container-org5c0e5b3" class="outline-3">
-<h3 id="org5c0e5b3"><span class="section-number-3">18.1</span> Huddle test</h3>
+<div id="outline-container-org2a6d14d" class="outline-3">
+<h3 id="org2a6d14d"><span class="section-number-3">18.1</span> Huddle test</h3>
 <div class="outline-text-3" id="text-18-1">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4834,8 +4814,8 @@ below
 </div>
 </div>
 </div>
-<div id="outline-container-org50e8174" class="outline-3">
-<h3 id="org50e8174"><span class="section-number-3">18.2</span> Coprime uncertainty</h3>
+<div id="outline-container-org0b56ece" class="outline-3">
+<h3 id="org0b56ece"><span class="section-number-3">18.2</span> Coprime uncertainty</h3>
 <div class="outline-text-3" id="text-18-2">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4869,8 +4849,8 @@ below
 </div>
 </div>
 </div>
-<div id="outline-container-org02af1b8" class="outline-3">
-<h3 id="org02af1b8"><span class="section-number-3">18.3</span> Coprime uncertainty - Bis</h3>
+<div id="outline-container-org78ddcda" class="outline-3">
+<h3 id="org78ddcda"><span class="section-number-3">18.3</span> Coprime uncertainty - Bis</h3>
 <div class="outline-text-3" id="text-18-3">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4904,8 +4884,8 @@ below
 </div>
 </div>
 </div>
-<div id="outline-container-orgfe49739" class="outline-3">
-<h3 id="orgfe49739"><span class="section-number-3">18.4</span> Shaped Plant</h3>
+<div id="outline-container-org603f221" class="outline-3">
+<h3 id="org603f221"><span class="section-number-3">18.4</span> Shaped Plant</h3>
 <div class="outline-text-3" id="text-18-4">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4931,8 +4911,8 @@ below
 </div>
 </div>
 </div>
-<div id="outline-container-org96201dd" class="outline-3">
-<h3 id="org96201dd"><span class="section-number-3">18.5</span> Practical Implementation</h3>
+<div id="outline-container-org3c273e4" class="outline-3">
+<h3 id="org3c273e4"><span class="section-number-3">18.5</span> Practical Implementation</h3>
 <div class="outline-text-3" id="text-18-5">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4964,8 +4944,8 @@ below
 </div>
 </div>
 </div>
-<div id="outline-container-org7708593" class="outline-3">
-<h3 id="org7708593"><span class="section-number-3">18.6</span> Anti-Windup</h3>
+<div id="outline-container-org579a015" class="outline-3">
+<h3 id="org579a015"><span class="section-number-3">18.6</span> Anti-Windup</h3>
 <div class="outline-text-3" id="text-18-6">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -4999,8 +4979,8 @@ below
 </div>
 </div>
 </div>
-<div id="outline-container-orgb603317" class="outline-3">
-<h3 id="orgb603317"><span class="section-number-3">18.7</span> Block Diagonal Scalings</h3>
+<div id="outline-container-org5f27615" class="outline-3">
+<h3 id="org5f27615"><span class="section-number-3">18.7</span> Block Diagonal Scalings</h3>
 <div class="outline-text-3" id="text-18-7">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -5038,7 +5018,7 @@ below
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Dehaeze Thomas</p>
-<p class="date">Created: 2019-07-16 mar. 11:34</p>
+<p class="date">Created: 2019-07-16 mar. 11:43</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
