@@ -1,5 +1,25 @@
 #+TITLE: Tikz - Mechanical Systems
-#+PROPERTY: header-args:latex  :headers '("\\usepackage{tikz}" "\\usepackage{import}" "\\import{/home/tdehaeze/gdrive/These/LaTeX/ressources/}{config.tex}")
+:DRAWER:
+#+STARTUP: overview
+
+#+LANGUAGE: en
+#+EMAIL: dehaeze.thomas@gmail.com
+#+AUTHOR: Dehaeze Thomas
+
+#+HTML_LINK_HOME: ./index.html
+#+HTML_LINK_UP: ./index.html
+
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./css/htmlize.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./css/readtheorg.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./css/zenburn.css"/>
+#+HTML_HEAD: <script type="text/javascript" src="./js/jquery.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="./js/jquery.stickytableheaders.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="./js/readtheorg.js"></script>
+
+#+HTML_MATHJAX: align: center tagside: right font: TeX
+
+#+PROPERTY: header-args:latex  :headers '("\\usepackage{tikz}" "\\usepackage{import}" "\\import{$HOME/MEGA/These/LaTeX/}{config.tex}")
 #+PROPERTY: header-args:latex+ :imagemagick t :fit yes
 #+PROPERTY: header-args:latex+ :iminoptions -scale 100% -density 150
 #+PROPERTY: header-args:latex+ :imoutoptions -quality 100
@@ -7,13 +27,13 @@
 #+PROPERTY: header-args:latex+ :eval no-export
 #+PROPERTY: header-args:latex+ :exports both
 #+PROPERTY: header-args:latex+ :mkdirp yes
-#+PROPERTY: header-args:latex+ :output-dir Figures
-#+PROPERTY: header-args:latex+ :noweb yes
+#+PROPERTY: header-args:latex+ :output-dir figs
+:END:
 
 * Mass-Spring Systems
 ** One mass
 #+NAME: tikz_1dof_smd_params
-#+begin_src latex
+#+begin_src latex :eval no
   \def\massw{2.2}   % Width of the masses
   \def\massh{0.8}   % Height of the masses
   \def\spaceh{1.4}  % Height of the springs/dampers
@@ -23,29 +43,15 @@
   \def\brach{-10pt} % Brace shift horizontaly
 #+end_src
 
-#+RESULTS: tikz_1dof_smd_params
-\def\massw{2.2}   % Width of the masses
-\def\massh{0.8}   % Height of the masses
-\def\spaceh{1.4}  % Height of the springs/dampers
-\def\dispw{0.3}   % Width of the dashed line for the displacement
-\def\disph{0.5}   % Height of the arrow for the displacements
-\def\bracs{0.05}  % Brace spacing vertically
-\def\brach{-10pt} % Brace shift horizontaly
-
 #+NAME: tikz_1dof_smd_ground
-#+begin_src latex
+#+begin_src latex :eval no
   \draw (-0.5*\massw, 0) -- (0.5*\massw, 0);
   \draw[dashed] (0.5*\massw, 0) -- ++(\dispw, 0);
   \draw[->] (0.5*\massw+0.5*\dispw, 0) -- ++(0, \disph) node[right]{$x_{w}$};
 #+end_src
 
-#+RESULTS: tikz_1dof_smd_ground
-\draw (-0.5*\massw, 0) -- (0.5*\massw, 0);
-\draw[dashed] (0.5*\massw, 0) -- ++(\dispw, 0);
-\draw[->] (0.5*\massw+0.5*\dispw, 0) -- ++(0, \disph) node[right]{$x_{w}$};
-
 #+NAME: tikz_1dof_smd_mass
-#+begin_src latex
+#+begin_src latex :eval no
   % Mass
   \draw[fill=white] (-0.5*\massw, \spaceh) rectangle (0.5*\massw, \spaceh+\massh) node[pos=0.5]{$m_{g}$};
 
@@ -64,24 +70,6 @@
   %   node[midway,rotate=90,anchor=south,yshift=10pt]{};
 #+end_src
 
-#+RESULTS: tikz_1dof_smd_mass
-% Mass
-\draw[fill=white] (-0.5*\massw, \spaceh) rectangle (0.5*\massw, \spaceh+\massh) node[pos=0.5]{$m_{g}$};
-
-% Spring, Damper, and Actuator
-\draw[spring] (-0.4*\massw, 0) -- (-0.4*\massw, \spaceh) node[midway, left=0.1]{$k_{g}$};
-\draw[damper] (0, 0)           -- ( 0, \spaceh)          node[midway, left=0.2]{$c_{g}$};
-\draw[actuator] ( 0.4*\massw, 0) -- (	0.4*\massw, \spaceh) node[midway, left=0.1](F){$F_{g}$};
-
-% Displacements
-\draw[dashed] (0.5*\massw, \spaceh) -- ++(\dispw, 0);
-\draw[->] (0.5*\massw+0.5*\dispw, \spaceh) -- ++(0, \disph) node[right]{$x_{g}$};
-
-% Legend
-% \draw[decorate, decoration={brace, amplitude=8pt}, xshift=\brach] %
-%   (-0.5*\massw, \bracs) -- (-0.5*\massw, \spaceh+\massh-\bracs) %
-%   node[midway,rotate=90,anchor=south,yshift=10pt]{};
-
 #+begin_src latex :file mech_sys_1dof.pdf :post pdf2svg(file=*this*, ext="png") :exports results
   \begin{tikzpicture}
     <<tikz_1dof_smd_params>>
@@ -91,7 +79,7 @@
 #+end_src
 
 #+RESULTS:
-[[file:Figures/mech_sys_1dof.png]]
+[[file:figs/mech_sys_1dof.png]]
 
 ** Two masses
 #+begin_src latex :file mech_sys_2dof.pdf :post pdf2svg(file=*this*, ext="png") :exports both
@@ -157,7 +145,7 @@
 #+end_src
 
 #+RESULTS:
-[[file:Figures/mech_sys_2dof.png]]
+[[file:figs/mech_sys_2dof.png]]
 
 ** Three masses
 #+begin_src latex :file mech_sys_3dof.pdf :post pdf2svg(file=*this*, ext="png") :export both
@@ -244,7 +232,83 @@
 #+end_src
 
 #+RESULTS:
-[[file:Figures/mech_sys_3dof.png]]
+[[file:figs/mech_sys_3dof.png]]
+
+** Four masses
+#+begin_src latex :file mech_sys_4dof.pdf :post pdf2svg(file=*this*, ext="png") :export both
+  \begin{tikzpicture}
+    % ====================
+    % Parameters
+    \def\massw{2.2}  % Width of the masses
+    \def\massh{0.8}  % Height of the masses
+    \def\spaceh{1.2} % Height of the springs/dampers
+    \def\dispw{0.3}  % Width of the dashed line for the displacement
+    \def\disph{0.5}  % Height of the arrow for the displacements
+    \def\bracs{0.05} % Brace spacing vertically
+    \def\brach{-10pt} % Brace shift horizontaly
+
+    % ====================
+    % Ground
+    \draw (-0.5*\massw, 0) -- (0.5*\massw, 0);
+    \draw[dashed] (0.5*\massw, 0) -- ++(\dispw, 0);
+    \draw[->] (0.5*\massw+0.5*\dispw, 0) -- ++(0, \disph) node[right]{$x_{w}$};
+
+    \begin{scope}[shift={(0, 0*(\spaceh+\massh))}]
+      % Mass
+      \draw[fill=white] (-0.5*\massw, \spaceh) rectangle (0.5*\massw, \spaceh+\massh) node[pos=0.5]{$m_4$};
+
+      % Spring, Damper, and Actuator
+      \draw[spring] (-0.4*\massw, 0) -- (-0.4*\massw, \spaceh) node[midway, left=0.1]{$k_4$};
+      \draw[damper] (0, 0)           -- ( 0, \spaceh)          node[midway, left=0.2]{$c_4$};
+
+      % Displacements
+      \draw[dashed] (0.5*\massw, \spaceh) -- ++(\dispw, 0);
+      \draw[->] (0.5*\massw+0.5*\dispw, \spaceh) -- ++(0, \disph) node[right]{$x_4$};
+    \end{scope}
+
+    \begin{scope}[shift={(0, 1*(\spaceh+\massh))}]
+      % Mass
+      \draw[fill=white] (-0.5*\massw, \spaceh) rectangle (0.5*\massw, \spaceh+\massh) node[pos=0.5]{$m_3$};
+
+      % Spring, Damper, and Actuator
+      \draw[spring] (-0.4*\massw, 0) -- (-0.4*\massw, \spaceh) node[midway, left=0.1]{$k_3$};
+      \draw[damper] (0, 0)           -- ( 0, \spaceh)          node[midway, left=0.2]{$c_3$};
+
+      % Displacements
+      \draw[dashed] (0.5*\massw, \spaceh) -- ++(\dispw, 0);
+      \draw[->] (0.5*\massw+0.5*\dispw, \spaceh) -- ++(0, \disph) node[right]{$x_3$};
+    \end{scope}
+
+    \begin{scope}[shift={(0, 2*(\spaceh+\massh))}]
+      % Mass
+      \draw[fill=white] (-0.5*\massw, \spaceh) rectangle (0.5*\massw, \spaceh+\massh) node[pos=0.5]{$m_2$};
+
+      % Spring, Damper, and Actuator
+      \draw[spring] (-0.4*\massw, 0) -- (-0.4*\massw, \spaceh) node[midway, left=0.1]{$k_2$};
+      \draw[damper] (0, 0)           -- ( 0, \spaceh)          node[midway, left=0.2]{$c_2$};
+
+      % Displacements
+      \draw[dashed] (0.5*\massw, \spaceh) -- ++(\dispw, 0);
+      \draw[->] (0.5*\massw+0.5*\dispw, \spaceh) -- ++(0, \disph) node[right]{$x_2$};
+    \end{scope}
+
+    \begin{scope}[shift={(0, 3*(\spaceh+\massh))}]
+      % Mass
+      \draw[fill=white] (-0.5*\massw, \spaceh) rectangle (0.5*\massw, \spaceh+\massh) node[pos=0.5]{$m_1$};
+
+      % Spring, Damper, and Actuator
+      \draw[spring] (-0.4*\massw, 0) -- (-0.4*\massw, \spaceh) node[midway, left=0.1]{$k_1$};
+      \draw[damper] (0, 0)           -- ( 0, \spaceh)          node[midway, left=0.2]{$c_1$};
+
+      % Displacements
+      \draw[dashed] (0.5*\massw, \spaceh) -- ++(\dispw, 0);
+      \draw[->] (0.5*\massw+0.5*\dispw, \spaceh) -- ++(0, \disph) node[right]{$x_1$};
+    \end{scope}
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:figs/mech_sys_4dof.png]]
 
 * Control Based on distance measurement
 #+begin_src latex :file mech_sys_1dof_contr.pdf :post pdf2svg(file=*this*, ext="png") :exports both
@@ -298,7 +362,7 @@
 #+end_src
 
 #+RESULTS:
-[[file:Figures/mech_sys_1dof_contr.png]]
+[[file:figs/mech_sys_1dof_contr.png]]
 
 * Inertial Control
 #+begin_src latex :file mech_sys_1dof_inertial_contr.pdf :post pdf2svg(file=*this*, ext="png") :exports both
@@ -311,7 +375,7 @@
     % Ground
     \draw[] (-0.5*\massw, 0) -- (0.5*\massw, 0);
     % Mass
-    \draw[] (-0.5*\massw, \spaceh) rectangle (0.5*\massw, \spaceh+\massh) node[pos=0.5](m){$m$};
+    \draw[fill=white] (-0.5*\massw, \spaceh) rectangle (0.5*\massw, \spaceh+\massh) node[pos=0.5](m){$m$};
 
     % Spring, Damper, and Actuator
     \draw[spring]   (-0.3*\massw, 0) -- (-0.3*\massw, \spaceh) node[midway, left=0.1]{$k$};
@@ -333,7 +397,7 @@
 #+end_src
 
 #+RESULTS:
-[[file:Figures/mech_sys_1dof_inertial_contr.png]]
+[[file:figs/mech_sys_1dof_inertial_contr.png]]
 
 * Force Feedback Control
 #+begin_src latex :file mech_sys_1dof_force_contr.pdf :post pdf2svg(file=*this*, ext="png") :exports both
@@ -346,7 +410,7 @@
     % Ground
     \draw[] (-0.5*\massw, 0) -- (0.5*\massw, 0);
     % Mass
-    \draw[] (-0.5*\massw, \spaceh) rectangle (0.5*\massw, \spaceh+\massh) node[pos=0.5](m){$m$};
+    \draw[fill=white] (-0.5*\massw, \spaceh) rectangle (0.5*\massw, \spaceh+\massh) node[pos=0.5](m){$m$};
 
     % Spring, Damper, and Actuator
     \draw[spring]   (-0.3*\massw, 0) -- (-0.3*\massw, \spaceh) node[midway, left=0.1]{$k$};
@@ -368,15 +432,12 @@
 #+end_src
 
 #+RESULTS:
-[[file:Figures/mech_sys_1dof_force_contr.png]]
+[[file:figs/mech_sys_1dof_force_contr.png]]
 
 * Stewart Platform
+** Single Stewart platform
 #+begin_src latex :file tikz_stewart.pdf :post pdf2svg(file=*this*, ext="png") :exports both
   \begin{tikzpicture}
-    \newcommand{\AxisRotator}[1][rotate=0]{%
-      \tikz [x=0.25cm,y=0.60cm,line width=.2ex,-stealth,#1] \draw (0,0) arc (-150:150:1 and 1);%
-    }
-
     % Parameters definitions
     \def\baseh{0.2} % Height of the base
     \def\naceh{0.2} % Height of the nacelle
@@ -398,7 +459,7 @@
     % Hexapod1
     \begin{scope}[shift={(\xbase, \ybase)}, rotate=\abase]
       % Base
-      \draw[] (-\baser, 0) rectangle (\baser, \baseh);
+      \draw[fill=white] (-\baser, 0) rectangle (\baser, \baseh);
 
       \coordinate[] (armbasel) at (-\baser+\basearmborder+\armr, \baseh);
       \coordinate[] (armbasec) at (0, \baseh);
@@ -406,7 +467,7 @@
 
       % Nacelle1
       \begin{scope}[shift={(\xnace, \ynace)}, rotate=\anace]
-        \draw[] (-\nacer, 0) rectangle (\nacer, \naceh);
+        \draw[fill=white] (-\nacer, 0) rectangle (\nacer, \naceh);
         \coordinate[] (armnacel) at (-\nacer+\nacearmborder+\armr, 0);
         \coordinate[] (armnacec) at (0, 0);
         \coordinate[] (armnacer) at (\nacer-\nacearmborder-\armr, 0);
@@ -424,5 +485,644 @@
 #+end_src
 
 #+RESULTS:
-[[file:Figures/tikz_stewart.png]]
+[[file:figs/tikz_stewart.png]]
+** Stacked Stewart platform
+#+begin_src latex :file tikz_stewart_stacked.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+  \begin{tikzpicture}
+    % Parameters definitions
+    \def\baseh{0.2} % Height of the base
+    \def\naceh{0.2} % Height of the nacelle
+    \def\baser{3.8} % Radius of the base
+    \def\nacer{3.0} % Radius of the nacelle
+
+    \def\armr{0.2} % Radius of the arms
+    \def\basearmborder{0.2}
+    \def\nacearmborder{0.2}
+
+    \def\xnace{0.5} % X position of the nacelle
+    \def\ynace{2.0} % Y position of the nacelle
+    \def\anace{3.0} % Angle of the nacelle
+
+    \def\xbase{0.0} % X position of the base
+    \def\ybase{0.0} % Y position of the base
+    \def\abase{0.0} % Angle of the base
+
+    % Hexapod1
+    \begin{scope}[shift={(\xbase, \ybase)}, rotate=\abase]
+      % Base
+      \draw[fill=white] (-\baser, 0) rectangle (\baser, \baseh);
+
+      \coordinate[] (armbasel) at (-\baser+\basearmborder+\armr, \baseh);
+      \coordinate[] (armbasec) at (0, \baseh);
+      \coordinate[] (armbaser) at (\baser-\basearmborder-\armr, \baseh);
+
+      % Nacelle1
+      \begin{scope}[shift={(\xnace, \ynace)}, rotate=\anace]
+        \draw[fill=white] (-\nacer, 0) rectangle (\nacer, \naceh);
+        \coordinate[] (armnacel) at (-\nacer+\nacearmborder+\armr, 0);
+        \coordinate[] (armnacec) at (0, 0);
+        \coordinate[] (armnacer) at (\nacer-\nacearmborder-\armr, 0);
+      \end{scope}
+      % Nacelle1 END
+
+      \draw[] (armbasec) -- (armnacer);
+      \draw[] (armbasec) -- (armnacel);
+      \draw[] (armbasel) -- (armnacel);
+      \draw[] (armbasel) -- (armnacec);
+      \draw[] (armbaser) -- (armnacec);
+      \draw[] (armbaser) -- (armnacer);
+
+      % Hexapod2
+      \begin{scope}[shift={(\xnace, \ynace+\baseh)}, rotate=\anace]
+        \def\baser{3.0} % Radius of the nacelle
+        \def\nacer{2.5} % Radius of the nacelle
+        \def\xnace{0.0} % X position of the nacelle
+        \def\ynace{1.5} % Y position of the nacelle
+
+        \def\anace{-3.0} % Angle of the nacelle
+
+        % Base
+        \draw[fill=white] (-\baser, 0) rectangle (\baser, \baseh);
+
+        \coordinate[] (armbasel) at (-\baser+\basearmborder+\armr, \baseh);
+        \coordinate[] (armbasec) at (0, \baseh);
+        \coordinate[] (armbaser) at (\baser-\basearmborder-\armr, \baseh);
+
+        % Nacelle2
+        \begin{scope}[shift={(\xnace, \ynace)}, rotate=\anace]
+          \draw[fill=white] (-\nacer, 0) rectangle (\nacer, \naceh);
+          \coordinate[] (armnacel) at (-\nacer+\nacearmborder+\armr, 0);
+          \coordinate[] (armnacec) at (0, 0);
+          \coordinate[] (armnacer) at (\nacer-\nacearmborder-\armr, 0);
+
+          \draw[] (armbasec) -- (armnacer);
+          \draw[] (armbasec) -- (armnacel);
+          \draw[] (armbasel) -- (armnacel);
+          \draw[] (armbasel) -- (armnacec);
+          \draw[] (armbaser) -- (armnacec);
+          \draw[] (armbaser) -- (armnacer);
+
+          % Sample
+          \begin{scope}[shift={(0, \naceh)}]
+            \def\samph{2.6} % Height of the sample
+            \def\sampr{2.4} % Radius of the sample
+            \draw[fill=white] (-\sampr, 0) rectangle (\sampr, \samph);
+
+            \coordinate[] (massc) at (0, 0.5*\samph);
+            \draw[->] (massc) node[]{$\bullet$} -- ++(0,-1) node[right]{$F_g$};
+          \end{scope}
+          % Sample END
+        \end{scope}
+        % Nacelle2 END
+      \end{scope}
+      % Hexapod2 END
+    \end{scope}
+    % Hexapod1 END
+
+    \draw[dashed] (0, -0.4) -- (0, 7);
+    \node[] at (0, 6) {\AxisRotator[rotate=-90]};
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:figs/tikz_stewart_stacked.png]]
+** Stewart Platform - 3D - Jacobian
+#+begin_src latex :file jacobian.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+  \begin{tikzpicture}
+    \coordinate[] (O) at (0, 0);
+    \coordinate[] (P) at (1, 2);
+
+    \draw[thin] (O) circle (3.0 and 0.5);
+    \draw[thin] (P) circle (1.5 and 0.25);
+
+    \coordinate[] (A) at ($(O) + (-3.0, 0)$);
+    \coordinate[] (B) at ($(P) + (-1.5, 0)$);
+
+    \node[branch] at (O){};
+    \node[branch] at (P){};
+    \node[branch] at (A){};
+    \node[branch] at (B){};
+
+    \draw[thin] (A) node[above left]{$A_i$} -- node[midway, above left]{$d_i$} (B) node[above left]{$B_i$};
+    \draw[->] (O) -- node[midway, right]{$\vec{p}$} (P);
+    \draw[->] (O) -- node[midway, above]{$\vec{a_i}$} (A);
+
+    \draw[->] (A) -- node[midway, above]{$\vec{s_i}$} ($(A)!1cm!(B)$);
+
+    \draw[->] (O) node[above left]{$O$} -- ++(1,0,0) node[anchor=north east]{$x$};
+    \draw[->] (O) -- ++(0,1,0) node[anchor=north west]{$y$};
+    \draw[->] (O) -- ++(0,0,1) node[anchor=south]{$z$};
+
+    \draw[->] (P) node[above left]{$P$} -- ++(1,0,0) node[anchor=north east]{$u$};
+    \draw[->] (P) -- ++(0,1,0) node[anchor=north west]{$v$};
+    \draw[->] (P) -- ++(0,0,1) node[anchor=south]{$w$};
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:figs/jacobian.png]]
+
+** Cubic Stewart Platform - Not aligned
+#+begin_src latex :file 3d-cubic-stewart-misaligned.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+  \begin{tikzpicture}
+    \begin{scope}[rotate={45}, shift={(0, 0, -4)}]
+      % We first define the coordinate of the points of the Cube
+      \coordinate[] (bot) at (0,0,4);
+      \coordinate[] (top) at (4,4,0);
+      \coordinate[] (A1) at (0,0,0);
+      \coordinate[] (A2) at (4,0,4);
+      \coordinate[] (A3) at (0,4,4);
+      \coordinate[] (B1) at (4,0,0);
+      \coordinate[] (B2) at (4,4,4);
+      \coordinate[] (B3) at (0,4,0);
+
+      % Center of the Cube
+      \node[] at ($0.5*(bot) + 0.5*(top)$){$\bullet$};
+
+      % Size of the cube
+      \draw[<->, dashed] ($(B1)+(0.2, 0, 0)$) -- node[midway, above right]{$L$} ($(top)+(0.2, 0, 0)$);
+
+      % We then draw parts of the cube that is not part of the Stewart platform
+      \draw[dashed] (A1) -- (bot);
+      \draw[dashed] (A2) -- (bot);
+      \draw[dashed] (A3) -- (bot);
+      \draw[dashed] (B1) -- (top);
+      \draw[dashed] (B2) -- (top);
+      \draw[dashed] (B3) -- (top);
+
+      % We draw parts of the cube that corresponds to the Stewart platform
+      \draw[] (A1)node[]{$\bullet$} -- (B1)node[]{$\bullet$} -- (A2)node[]{$\bullet$} -- (B2)node[]{$\bullet$} -- (A3)node[]{$\bullet$} -- (B3)node[]{$\bullet$} -- (A1);
+
+      % ai and bi are computed
+      \def\lfrom{0.1}
+      \def\lto{0.6}
+
+      \coordinate(a1) at ($(A1) - \lfrom*(A1) + \lfrom*(B1)$);
+      \coordinate(b1) at ($(A1) - \lto*(A1)   + \lto*(B1)$);
+      \coordinate(a2) at ($(A2) - \lfrom*(A2) + \lfrom*(B1)$);
+      \coordinate(b2) at ($(A2) - \lto*(A2)   + \lto*(B1)$);
+      \coordinate(a3) at ($(A2) - \lfrom*(A2) + \lfrom*(B2)$);
+      \coordinate(b3) at ($(A2) - \lto*(A2)   + \lto*(B2)$);
+      \coordinate(a4) at ($(A3) - \lfrom*(A3) + \lfrom*(B2)$);
+      \coordinate(b4) at ($(A3) - \lto*(A3)   + \lto*(B2)$);
+      \coordinate(a5) at ($(A3) - \lfrom*(A3) + \lfrom*(B3)$);
+      \coordinate(b5) at ($(A3) - \lto*(A3)   + \lto*(B3)$);
+      \coordinate(a6) at ($(A1) - \lfrom*(A1) + \lfrom*(B3)$);
+      \coordinate(b6) at ($(A1) - \lto*(A1)   + \lto*(B3)$);
+
+      % Center of the Stewart Platform
+      \node[color=colorblue] at ($0.25*(a1) + 0.25*(a6) + 0.25*(b3) + 0.25*(b4)$){$\bullet$};
+
+      % We draw the fixed and mobiles platforms
+      \path[fill=colorblue, opacity=0.2] (a1) -- (a2) -- (a3) -- (a4) -- (a5) -- (a6) -- cycle;
+      \path[fill=colorblue, opacity=0.2] (b1) -- (b2) -- (b3) -- (b4) -- (b5) -- (b6) -- cycle;
+      \draw[color=colorblue, dashed] (a1) -- (a2) -- (a3) -- (a4) -- (a5) -- (a6) -- cycle;
+      \draw[color=colorblue, dashed] (b1) -- (b2) -- (b3) -- (b4) -- (b5) -- (b6) -- cycle;
+
+      % The legs of the hexapod are drawn
+      \draw[color=colorblue] (a1)node{$\bullet$} -- (b1)node{$\bullet$};
+      \draw[color=colorblue] (a2)node{$\bullet$} -- (b2)node{$\bullet$};
+      \draw[color=colorblue] (a3)node{$\bullet$} -- (b3)node{$\bullet$};
+      \draw[color=colorblue] (a4)node{$\bullet$} -- (b4)node{$\bullet$};
+      \draw[color=colorblue] (a5)node{$\bullet$} -- (b5)node{$\bullet$};
+      \draw[color=colorblue] (a6)node{$\bullet$} -- (b6)node{$\bullet$};
+
+      % Labels
+      \node[left=0.1 of a5] {$a_i$};
+      \node[left=0.1 of b5] {$b_i$};
+
+    \end{scope}
+
+    % Height of the Hexapod
+    \coordinate[] (sizepos) at ($(a2)+(0.2, 0)$);
+    \coordinate[] (origin) at (0,0,0);
+    \draw[<->, dashed] (a2-|sizepos) -- node[midway, right]{$H$} (b2-|sizepos);
+    % Height offset
+    \draw[<->, dashed] (a2-|sizepos) -- node[midway, right]{$H_0$} (origin-|sizepos);
+
+    \draw[->] (0,0,0) -- (0,0,1)node[left]{$x$};
+    \draw[->] (0,0,0) -- (1,0,0)node[above]{$y$};
+    \draw[->] (0,0,0) -- (0,1,0)node[right]{$z$};
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:figs/3d-cubic-stewart-misaligned.png]]
+
+** Cubic Stewart Platform - Centered
+#+begin_src latex :file 3d-cubic-stewart-aligned.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+  \begin{tikzpicture}
+    \begin{scope}[rotate={45}, shift={(0, 0, -4)}]
+      % We first define the coordinate of the points of the Cube
+      \coordinate[] (bot) at (0,0,4);
+      \coordinate[] (top) at (4,4,0);
+      \coordinate[] (A1) at (0,0,0);
+      \coordinate[] (A2) at (4,0,4);
+      \coordinate[] (A3) at (0,4,4);
+      \coordinate[] (B1) at (4,0,0);
+      \coordinate[] (B2) at (4,4,4);
+      \coordinate[] (B3) at (0,4,0);
+
+      % Center of the Cube
+      \node[] at ($0.5*(bot) + 0.5*(top)$){$\bullet$};
+
+      % Size of the cube
+      \draw[<->, dashed] ($(B1)+(0.2, 0, 0)$) -- node[midway, above right]{$L$} ($(top)+(0.2, 0, 0)$);
+
+      % We then draw parts of the cube that is not part of the Stewart platform
+      \draw[dashed] (A1) -- (bot);
+      \draw[dashed] (A2) -- (bot);
+      \draw[dashed] (A3) -- (bot);
+      \draw[dashed] (B1) -- (top);
+      \draw[dashed] (B2) -- (top);
+      \draw[dashed] (B3) -- (top);
+
+      % We draw parts of the cube that corresponds to the Stewart platform
+      \draw[] (A1)node[]{$\bullet$} -- (B1)node[]{$\bullet$} -- (A2)node[]{$\bullet$} -- (B2)node[]{$\bullet$} -- (A3)node[]{$\bullet$} -- (B3)node[]{$\bullet$} -- (A1);
+
+      % ai and bi are computed
+      \def\lfrom{0.2}
+      \def\lto{0.8}
+
+      \coordinate(a1) at ($(A1) - \lfrom*(A1) + \lfrom*(B1)$);
+      \coordinate(b1) at ($(A1) - \lto*(A1)   + \lto*(B1)$);
+      \coordinate(a2) at ($(A2) - \lfrom*(A2) + \lfrom*(B1)$);
+      \coordinate(b2) at ($(A2) - \lto*(A2)   + \lto*(B1)$);
+      \coordinate(a3) at ($(A2) - \lfrom*(A2) + \lfrom*(B2)$);
+      \coordinate(b3) at ($(A2) - \lto*(A2)   + \lto*(B2)$);
+      \coordinate(a4) at ($(A3) - \lfrom*(A3) + \lfrom*(B2)$);
+      \coordinate(b4) at ($(A3) - \lto*(A3)   + \lto*(B2)$);
+      \coordinate(a5) at ($(A3) - \lfrom*(A3) + \lfrom*(B3)$);
+      \coordinate(b5) at ($(A3) - \lto*(A3)   + \lto*(B3)$);
+      \coordinate(a6) at ($(A1) - \lfrom*(A1) + \lfrom*(B3)$);
+      \coordinate(b6) at ($(A1) - \lto*(A1)   + \lto*(B3)$);
+
+      % Center of the Stewart Platform
+      \node[color=colorblue] at ($0.25*(a1) + 0.25*(a6) + 0.25*(b3) + 0.25*(b4)$){$\bullet$};
+
+      % We draw the fixed and mobiles platforms
+      \path[fill=colorblue, opacity=0.2] (a1) -- (a2) -- (a3) -- (a4) -- (a5) -- (a6) -- cycle;
+      \path[fill=colorblue, opacity=0.2] (b1) -- (b2) -- (b3) -- (b4) -- (b5) -- (b6) -- cycle;
+      \draw[color=colorblue, dashed] (a1) -- (a2) -- (a3) -- (a4) -- (a5) -- (a6) -- cycle;
+      \draw[color=colorblue, dashed] (b1) -- (b2) -- (b3) -- (b4) -- (b5) -- (b6) -- cycle;
+
+      % The legs of the hexapod are drawn
+      \draw[color=colorblue] (a1)node{$\bullet$} -- (b1)node{$\bullet$};
+      \draw[color=colorblue] (a2)node{$\bullet$} -- (b2)node{$\bullet$};
+      \draw[color=colorblue] (a3)node{$\bullet$} -- (b3)node{$\bullet$};
+      \draw[color=colorblue] (a4)node{$\bullet$} -- (b4)node{$\bullet$};
+      \draw[color=colorblue] (a5)node{$\bullet$} -- (b5)node{$\bullet$};
+      \draw[color=colorblue] (a6)node{$\bullet$} -- (b6)node{$\bullet$};
+
+      % Labels
+      \node[left=0.1 of a5] {$a_i$};
+      \node[left=0.1 of b5] {$b_i$};
+
+    \end{scope}
+
+    % Height of the Hexapod
+    \coordinate[] (sizepos) at ($(a2)+(0.2, 0)$);
+    \coordinate[] (origin) at (0,0,0);
+    \draw[<->, dashed] (a2-|sizepos) -- node[midway, right]{$H$} (b2-|sizepos);
+    % Height offset
+    \draw[<->, dashed] (a2-|sizepos) -- node[midway, right]{$H_0$} (origin-|sizepos);
+
+    \draw[->] (0,0,0) -- (0,0,1)node[left]{$x$};
+    \draw[->] (0,0,0) -- (1,0,0)node[above]{$y$};
+    \draw[->] (0,0,0) -- (0,1,0)node[right]{$z$};
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:figs/3d-cubic-stewart-aligned.png]]
+
 * 3D
+** Coriolis Forces
+#+begin_src latex :file 3d-mass.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+  \begin{tikzpicture}
+
+    \draw[->] (0, 0, 0) -- (4, 0, 0) node[above] {$x$};
+    \draw[->] (0, 0, 0) -- (0, 4, 0) node[left] {$z$};
+    \draw[->] (0, 0, 0) -- (0, 0, -4) node[right] {$y$};
+
+    \draw[->, style={canvas is zx plane at y=2}] (1, 0) arc (0:270:1) node[left]{$\vv{\Omega_z}$};
+
+
+    \begin{scope}[shift={(4, 3.2, 0)}]
+      \draw (1,0,0)--(1,1,0)--(0,1,0);
+      \draw[dashed] (0,1,0)--(0,0,0)--(1,0,0);
+      \draw (0,0,1)--(1,0,1)--(1,1,1)--(0,1,1)--(0,0,1);
+      \draw[dashed] (0,0,0) -- (0,0,1);
+      \draw (1,0,0) -- (1,0,1);
+      \draw (1,1,0) -- (1,1,1);
+      \draw (0,1,0) -- (0,1,1);
+
+      \fill[fill=black!10, opacity=0.7] (0,0,1)--(1,0,1)--(1,1,1)--(0,1,1)--cycle;
+      \fill[fill=black!20, opacity=0.7] (1,0,1)--(1,0,0)--(1,1,0)--(1,1,1)--cycle;
+
+      \draw (0.5, 1, 0) node [above] {Masse $m$};
+
+      \draw[->] (0.5, 0.5, 0.5) -- ++(3, 0, 0) node[above]{$\displaystyle\vec{v_x}$};
+
+      \draw[->] (0.5, 0.5, 0.5) -- ++(0, 0, 3) node[below right]{$\displaystyle\vv{F_{cor}} = 2 m \vv{v_x} \wedge \vv{\Omega_z}$};
+    \end{scope}
+
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:figs/3d-mass.png]]
+
+** Cube
+#+begin_src latex :file 3d-cube.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+  \begin{tikzpicture}
+    \begin{scope}
+      \fill[fill=black!40, opacity=0.7] (0,0,4) -- (4,0,4) -- (4,4,4) -- (0,4,4) -- cycle;
+      \fill[fill=black!20, opacity=0.7] (4,0,4) -- (4,0,0) -- (4,4,0) -- (4,4,4) -- cycle;
+
+      \draw (4,0,0)node{$\bullet$} -- (4,4,0)node{$\bullet$} -- (0,4,0)node{$\bullet$};
+      \draw[dashed] (0,4,0) -- (0,0,0) -- (4,0,0);
+      \draw (0,0,4)node{$\bullet$} -- (4,0,4)node{$\bullet$} -- (4,4,4)node{$\bullet$} -- (0,4,4)node{$\bullet$} -- (0,0,4);
+      \draw[dashed] (0,0,0)node{$\bullet$} -- (0,0,4);
+      \draw (4,0,0) -- (4,0,4);
+      \draw (4,4,0) -- (4,4,4);
+      \draw (0,4,0) -- (0,4,4);
+    \end{scope}
+
+    \draw[->] (0, 0, 0) -- (0, 0, 2) node[above] {$x$};
+    \draw[->] (0, 0, 0) -- (2, 0, 0) node[right] {$y$};
+    \draw[->] (0, 0, 0) -- (0, 2, 0) node[left]  {$z$};
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:figs/3d-cube.png]]
+
+* Gravity Compensation System
+** Null angle
+#+begin_src latex :file gravity_compensation.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+  \begin{tikzpicture}
+    % Parameters definitions
+    \def\baseh{0.2} % Height of the base
+    \def\naceh{0.2} % Height of the nacelle
+    \def\baser{3.8} % Radius of the base
+    \def\nacer{3.0} % Radius of the nacelle
+
+    \def\armr{0.2} % Radius of the arms
+    \def\basearmborder{0.2}
+    \def\nacearmborder{0.2}
+
+    \def\xnace{0.0} % X position of the nacelle
+    \def\ynace{2.0} % Y position of the nacelle
+    \def\anace{0.0} % Angle of the nacelle
+
+    \def\xbase{0.0} % X position of the base
+    \def\ybase{0.0} % Y position of the base
+    \def\abase{0.0} % Angle of the base
+
+    % Hexapod1
+    \begin{scope}[shift={(\xbase, \ybase)}, rotate=\abase]
+      % Base
+      \draw[fill=white] (-\baser, 0) rectangle (\baser, \baseh);
+      \coordinate (armbasel) at (-\baser+\basearmborder+\armr, \baseh);
+      \coordinate (armbasec) at (0, \baseh);
+      \coordinate (armbaser) at (\baser-\basearmborder-\armr, \baseh);
+
+      % Nacelle1
+      \begin{scope}[shift={(\xnace, \ynace)}, rotate=\anace]
+        \draw[fill=white] (-\nacer, 0) rectangle (\nacer, \naceh);
+        \coordinate (armnacel) at (-\nacer+\nacearmborder+\armr, 0);
+        \coordinate (armnacec) at (0, 0);
+        \coordinate (armnacer) at (\nacer-\nacearmborder-\armr, 0);
+      \end{scope}
+
+      \draw (armbasec) -- (armnacer);
+      \draw (armbasec) -- (armnacel);
+      \draw (armbasel) -- (armnacel);
+      \draw (armbasel) -- (armnacec);
+      \draw (armbaser) -- (armnacec);
+      \draw (armbaser) -- (armnacer);
+
+      \draw[fill=white] (-0.5*\nacer, \ynace+\naceh) rectangle coordinate[pos=0.5](massc) (0.5*\nacer, \ynace+\naceh+2);
+      \draw[spring] (0, \baseh) -- node[midway, left=0.1]{$k$} (0, \baseh+\ynace-\naceh) coordinate(stiffnessF);
+      \draw[->, color=colorred] (stiffnessF)node{$\bullet$} -- ++(0, 1) node[below left]{$F$};
+    \end{scope}
+    \draw[->, color=colorblue] (massc)node{$\bullet$} -- ++(0, -1) node[above right]{$m\vec{g}$};
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:figs/gravity_compensation.png]]
+** Maximum angle
+#+begin_src latex :file gravity_compensation_angle.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+  \begin{tikzpicture}
+    % Parameters definitions
+    \def\baseh{0.2} % Height of the base
+    \def\naceh{0.2} % Height of the nacelle
+    \def\baser{3.8} % Radius of the base
+    \def\nacer{3.0} % Radius of the nacelle
+
+    \def\armr{0.2} % Radius of the arms
+    \def\basearmborder{0.2}
+    \def\nacearmborder{0.2}
+
+    \def\xnace{0.0} % X position of the nacelle
+    \def\ynace{2.0} % Y position of the nacelle
+    \def\anace{0.0} % Angle of the nacelle
+
+    \def\xbase{0.0} % X position of the base
+    \def\ybase{0.0} % Y position of the base
+    \def\abase{-3.0} % Angle of the base
+
+    % Hexapod1
+    \begin{scope}[shift={(\xbase, \ybase)}, rotate=\abase]
+      % Base
+      \draw[fill=white] (-\baser, 0) rectangle (\baser, \baseh);
+      \coordinate (armbasel) at (-\baser+\basearmborder+\armr, \baseh);
+      \coordinate (armbasec) at (0, \baseh);
+      \coordinate (armbaser) at (\baser-\basearmborder-\armr, \baseh);
+
+      % Nacelle1
+      \begin{scope}[shift={(\xnace, \ynace)}, rotate=\anace]
+        \draw[fill=white] (-\nacer, 0) rectangle (\nacer, \naceh);
+        \coordinate (armnacel) at (-\nacer+\nacearmborder+\armr, 0);
+        \coordinate (armnacec) at (0, 0);
+        \coordinate (armnacer) at (\nacer-\nacearmborder-\armr, 0);
+      \end{scope}
+
+      \draw (armbasec) -- (armnacer);
+      \draw (armbasec) -- (armnacel);
+      \draw (armbasel) -- (armnacel);
+      \draw (armbasel) -- (armnacec);
+      \draw (armbaser) -- (armnacec);
+      \draw (armbaser) -- (armnacer);
+
+      \draw[fill=white] (-0.5*\nacer, \ynace+\naceh) rectangle coordinate[pos=0.5](massc) (0.5*\nacer, \ynace+\naceh+2);
+      \draw[spring] (0, \baseh) -- node[midway, left=0.1]{$k$} (0, \baseh+\ynace-\naceh) coordinate(stiffnessF);
+      \draw[->, color=colorred] (stiffnessF)node{$\bullet$} -- ++(0, 1) node[below left]{$F$};
+    \end{scope}
+    \draw[->, color=colorblue] (massc)node{$\bullet$} -- ++(0, -1) node[above right]{$m\vec{g}$};
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:figs/gravity_compensation_angle.png]]
+* 3Dof System
+#+begin_src latex :file 3dof_system.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+  \begin{tikzpicture}
+    \draw[fill=white] (-3, 0) -- (-3, 1) -- (3, 1) -- (3, 0) -- cycle;
+    \draw[fill=white] (-3, 4) -- (-3, 5) -- (3, 5) -- (3, 4) -- cycle;
+
+    \coordinate[] (a1) at (-3, 1);
+    \coordinate[] (a2) at ( 1, 1);
+    \coordinate[] (a3) at ( 3, 1);
+    \coordinate[] (b1) at (-3, 4);
+    \coordinate[] (b2) at ( 2, 4);
+    \coordinate[] (b3) at ( 2, 4);
+
+    \draw[spring] (a1) -- (b1);
+    \draw[spring] (a2) -- (b2);
+    \draw[spring] (a3) -- (b3);
+
+    \node[] at (a1){$\bullet$}; \node[left]        at (a1) {$A_1$};
+    \node[] at (a2){$\bullet$}; \node[above left]  at (a2) {$A_2$};
+    \node[] at (a3){$\bullet$}; \node[above right] at (a3) {$A_3$};
+    \node[] at (b1){$\bullet$}; \node[left]        at (b1) {$B_1$};
+    \node[] at (b2){$\bullet$}; \node[above left]  at (b2) {$B_2$};
+    \node[] at (b3){$\bullet$}; \node[above right] at (b3) {$B_3$};
+
+    \draw[<->, dashed] ($(a1)+(0.2,0)$) -- node[midway, right]{$l_1$} ($(b1)+(0.2,0)$);
+    \draw[->] (a1) -- ($0.8*(a1)+0.2*(b1)$) node[left]{$\hat{s}_1$};
+
+    \begin{scope}[shift={(0,0)}]
+      \draw[->] (0, 0) -- ++(1, 0) node[above]{$x$};
+      \draw[->] (0, 0) -- ++(0, 1) node[right]{$y$};
+      \draw[] (0, 0)node[]{$\bullet$} circle [radius=0.2] node[above left]{$\{A\}$};
+    \end{scope}
+
+    \begin{scope}[shift={(0,5)}]
+      \draw[->] (0, 0) -- ++(1, 0) node[above]{$x$};
+      \draw[->] (0, 0) -- ++(0, 1) node[right]{$y$};
+      \draw[] (0, 0)node[]{$\bullet$} circle [radius=0.2] node[above left]{$\{B\}$};
+    \end{scope}
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:figs/3dof_system.png]]
+* 3Dof System - bis
+#+begin_src latex :file 3dof_system_bis.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+  \begin{tikzpicture}
+    \draw[fill=white] (-1, -1) -- (-1, 7) -- (0, 7) -- (0, 0) -- (6, 0) -- (6, -1) -- cycle;
+
+    \draw[->] (0, 0) -- ++(1, 0) node[above]{$x$};
+    \draw[->] (0, 0) -- ++(0, 1) node[right]{$y$};
+    \draw[] (0, 0)node[]{$\bullet$} circle [radius=0.2] node[above left]{$\{A\}$};
+
+    \begin{scope}[shift={(4,5)}]
+      \draw[fill=white] (-2, -3) rectangle (2, 3);
+
+      \draw[->] (0, 0) -- ++(1, 0) node[above]{$x$};
+      \draw[->] (0, 0) -- ++(0, 1) node[right]{$y$};
+      \draw[] (0, 0)node[]{$\bullet$} circle [radius=0.2] node[above left]{$\{B\}$};
+
+      \coordinate[] (b1) at (-2, -1);
+      \coordinate[] (b2) at (-1.5, -3);
+      \coordinate[] (b3) at ( 1.5, -3);
+
+      \draw[dashed] (0, 0) -- ++(-2, 0);
+      \draw[dashed] (0, 0) -- ++(0, -3);
+      \draw[dashed, <->] (-1.9, 0) -- node[midway,right]{$h_1$} ++(0, -1);
+      \draw[dashed, <->] (0, -2.9) -- node[midway,above]{$l_2$} ++(-1.5, 0);
+      \draw[dashed, <->] (0, -2.9) -- node[midway,above]{$l_3$} ++( 1.5, 0);
+
+      \draw[dashed, <->] (-2, 2.9) -- node[midway,below]{$l$} (2, 2.9);
+      \draw[dashed, <->] ( 1.9, -3) -- node[midway,left]{$h$} (1.9, 3);
+    \end{scope}
+
+    \coordinate[] (a1) at (0, 4);
+    \coordinate[] (a2) at (2.5, 0);
+    \coordinate[] (a3) at (5.5, 0);
+
+    \draw[spring] (a1) -- node[midway, above]{$k_1$} (b1);
+    \draw[spring] (a2) -- node[midway, right]{$k_2$} (b2);
+    \draw[spring] (a3) -- node[midway, right]{$k_3$} (b3);
+
+    \node[] at (a1){$\bullet$}; \node[left]  at (a1) {$A_1$};
+    \node[] at (a2){$\bullet$}; \node[below] at (a2) {$A_2$};
+    \node[] at (a3){$\bullet$}; \node[below] at (a3) {$A_3$};
+    \node[] at (b1){$\bullet$}; \node[below right] at (b1) {$B_1$};
+    \node[] at (b2){$\bullet$}; \node[above] at (b2) {$B_2$};
+    \node[] at (b3){$\bullet$}; \node[above] at (b3) {$B_3$};
+
+
+
+    \draw[<->, dashed] (0, 7) -- node[midway, above]{$l_a$} ++(2, 0);
+    \draw[<->, dashed] (6, 0) -- node[midway, right]{$h_a$} ++(0, 2);
+    % \draw[->] (a1) -- ($0.8*(a1)+0.2*(b1)$) node[left]{$\hat{s}_1$};
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:figs/3dof_system_bis.png]]
+* Guiding Errors
+#+begin_src latex :file guiding_error.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+  \begin{tikzpicture}
+    \tikzset{%
+      guidingpath/.style={%
+        decorate,
+        decoration={random steps,segment length=2.8pt,amplitude=0.8pt}
+      }
+    }
+    \def\massw{1.6}   % Width of the masses
+    \def\massh{0.6}   % Height of the masses
+    \def\spaceh{1.2}  % Height of the springs/dampers
+
+    \draw[guidingpath] (-2,0) -- (2,0);
+    \draw[dashed] (-2, 3) -- (2, 3);
+
+    \draw[fill=black] (0, 0.1) circle [radius=0.1];
+    \draw[] (0, 0.2) -- ++(0, 0.1);
+
+    \begin{scope}[shift={(0, 0.3)}]
+      \draw[] (-0.5*\massw, 0) -- (0.5*\massw, 0);
+
+      % Mass
+      \draw[fill=white] (-0.5*\massw, \spaceh) rectangle (0.5*\massw, \spaceh+\massh) node[pos=0.5]{$m$};
+      \coordinate[] (masstop) at (0, \spaceh+\massh);
+
+      % Spring, Damper, and Actuator
+      \draw[spring] (-0.3*\massw, 0) -- (-0.3*\massw, \spaceh) node[midway, left=0.1]{$k$};
+      \draw[damper] ( 0.3*\massw, 0) -- ( 0.3*\massw, \spaceh) node[midway, left=0.2]{$c$};
+    \end{scope}
+
+    \draw[dashed, <->] (masstop) -- node[midway, right]{$d$} (0, 3);
+
+    \draw[dashed, <->] (-2, -0.2) -- node[midway, below]{$x$} (0, -0.2);
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:figs/guiding_error.png]]
+* Vibration analysis procedure
+#+begin_src latex :file vibration_analysis_procedure.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+  \begin{tikzpicture}
+    \node[block, inner sep = 8pt, align=center] (1) {Description\\of structure};
+    \node[block, inner sep = 8pt, align=center, right=0.6 of 1] (2) {Vibration\\Modes};
+    \node[block, inner sep = 8pt, align=center, right=0.6 of 2] (3) {Response\\Levels};
+
+    \draw[<->] (1) -- (2);
+    \draw[<->] (2) -- (3);
+
+    \node[above] (labelt) at (1.north) {Spatial Model};
+    \node[] at (2|-labelt) {Modal Model};
+    \node[] at (3|-labelt) {Response Model};
+
+    \node[align = center, font=\tiny, below] (labelb) at (1.south) {Mass, Damping\\Stiffness};
+    \node[align = center, font=\tiny] at (2|-labelb) {Natural Frequencies\\Mode Shapes};
+    \node[align = center, font=\tiny] at (3|-labelb) {Frequency Responses\\Impulse Responses};
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:figs/vibration_analysis_procedure.png]]

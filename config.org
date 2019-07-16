@@ -1,6 +1,29 @@
-#+TITLE: Tikz Configuration
-#+PROPERTY: header-args:latex+ :tangle config.tex
+#+TITLE: LaTeX Configuration for Tikz export
+:DRAWER:
+#+STARTUP: overview
+
+#+LANGUAGE: en
+#+EMAIL: dehaeze.thomas@gmail.com
+#+AUTHOR: Dehaeze Thomas
+
+#+HTML_LINK_HOME: ./index.html
+#+HTML_LINK_UP: ./index.html
+
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./css/htmlize.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./css/readtheorg.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./css/zenburn.css"/>
+#+HTML_HEAD: <script type="text/javascript" src="./js/jquery.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="./js/jquery.stickytableheaders.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="./js/readtheorg.js"></script>
+
+#+HTML_MATHJAX: align: center tagside: right font: TeX
+
+#+PROPERTY: header-args:latex  :tangle config.tex
 #+PROPERTY: header-args:latex+ :exports code
+:END:
+
+You can download the =config.tex= file [[file:config.tex][here]].
 
 * Packages
 #+begin_src latex
@@ -61,6 +84,7 @@
   \usetikzlibrary{calc}                     % The library allows advanced Coordinate Calculations
   \usetikzlibrary{intersections}            % calculate intersections of paths
   \usetikzlibrary{matrix}                   %
+  \usetikzlibrary{matrix.skeleton}          %
   \usetikzlibrary{patterns}                 %
   \usetikzlibrary{shapes}                   % Defines circle and rectangle
   \usetikzlibrary{shapes.geometric}         % Use for the shape diamond and isosceles triangle
@@ -134,7 +158,7 @@
   }
 #+end_src
 
-** Branches
+** TODO Branches
 #+begin_src latex
   \tikzstyle{branch}=[fill,shape=circle,minimum size=4pt,inner sep=0pt]
   \tikzstyle{->top}=[-{Stealth[color=black, scale=0.8]}, draw=white, double=black, double distance=1pt, line width=1pt]
@@ -147,26 +171,12 @@ Usefull for schematic plots
   \tikzstyle{handwriten}=[decorate,decoration={random steps,amplitude=0.1pt,segment length=0.8pt}]
 #+end_src
 
-** Dot
-#+begin_src latex
-  \tikzset{%
-    dot/.style{%
-      draw,
-      circle,
-      fill,
-      minimum size = #1,
-      inner sep = 0pt,
-      outer sep = 0pt,
-    },
-    dot/.default={2pt}
-  }
-#+end_src
-
 ** DAC
 #+begin_src latex
   \tikzset{%
     DAC/.style={%
       draw,
+      fill=white,
       signal,
     }
   }
@@ -177,6 +187,7 @@ Usefull for schematic plots
   \tikzset{%
     ADC/.style={%
       draw,
+      fill=white,
       signal,
       signal to = west,
     }
@@ -189,6 +200,7 @@ Maybe use =isosceles= instead of regular polygon?
   \tikzset{%
     gain right/.style={%
       draw,
+      fill=white,
       regular polygon,
       regular polygon sides = 3,
       inner sep = 2pt,
@@ -196,6 +208,7 @@ Maybe use =isosceles= instead of regular polygon?
     },
     gain left/.style={%
       draw,
+      fill=white,
       regular polygon,
       regular polygon sides = 3,
       inner sep = 2pt,
@@ -203,6 +216,7 @@ Maybe use =isosceles= instead of regular polygon?
     },
     gain top/.style={%
       draw,
+      fill=white,
       regular polygon,
       regular polygon sides = 3,
       inner sep = 2pt,
@@ -210,41 +224,12 @@ Maybe use =isosceles= instead of regular polygon?
     },
     gain bottom/.style={%
       draw,
+      fill=white,
       regular polygon,
       regular polygon sides = 3,
       inner sep = 2pt,
       shape border rotate=180
     },
-  }
-#+end_src
-
-** Pole
-#+begin_src latex
-  \tikzset{%
-    pole/.style{%
-      color=red,
-      cross out,
-      draw,
-      inner sep = 0pt,
-      outer sep = 0pt,
-      minimum size = #1
-    },
-    pole/.default={4pt}
-  }
-#+end_src
-
-** Zero
-#+begin_src latex
-  \tikzset{%
-    zero/.style{%
-      color=red,
-      circle,
-      draw,
-      inner sep = 0pt,
-      outer sep = 0pt,
-      minimum size = #1
-    },
-    zero/.default={4pt}
   }
 #+end_src
 
@@ -304,6 +289,135 @@ Maybe use =isosceles= instead of regular polygon?
         }
     },
     addb/.default={+}{}{}{}{},
+  }
+#+end_src
+
+* Electronics
+#+begin_src latex
+  \ctikzset{bipoles/thickness=1}
+#+end_src
+
+* Plots
+** Grid
+#+begin_src latex
+  \pgfplotsset{grid style={black}}
+  \pgfplotsset{major grid style={black!30!white}}
+  \pgfplotsset{minor grid style={black!10!white}}
+  \pgfplotsset{xmajorgrids}
+  \pgfplotsset{ymajorgrids}
+#+end_src
+
+** Lines
+#+begin_src latex
+  \pgfplotsset{separate axis lines=false} % draw axis as rectangle and not as 4 lines
+  \pgfplotsset{every outer x axis line/.append style={black}}
+  \pgfplotsset{every outer y axis line/.append style={black}}
+  \pgfplotsset{axis background/.style={fill=white}}
+  \pgfplotsset{axis x line*=bottom} % solid line on the bottom with thin on the top
+  \pgfplotsset{axis y line*=left} % solid line on the left with thin on the right
+#+end_src
+
+** Ticks
+#+begin_src latex
+  \pgfplotsset{every y tick label/.append style={font=\color{black}}}
+  \pgfplotsset{every y tick/.append style={black}}
+  \pgfplotsset{every x tick label/.append style={font=\color{black}}}
+  \pgfplotsset{every x tick/.append style={black}}
+#+end_src
+
+** Size
+If =scale only axis=false= (the default), pgfplots will try to produce the desired width including labels, titles and ticks.
+#+begin_src latex
+  \pgfplotsset{scale only axis=true}
+#+end_src
+
+** Label
+Used to align all of ylabel of one figure.
+#+begin_src latex
+  \pgfplotsset{ylabel absolute}
+#+end_src
+
+** Legend
+#+begin_src latex
+  % https://tex.stackexchange.com/questions/54794/using-a-pgfplots-style-legend-in-a-plain-old-tikzpicture#54834
+
+  % argument #1: any options
+  \newenvironment{customlegend}[1][]{%
+    \begingroup
+    % inits/clears the lists (which might be populated from previous
+    % axes):
+    \csname pgfplots@init@cleared@structures\endcsname
+    \pgfplotsset{#1}%
+  }{%
+    % draws the legend:
+    \csname pgfplots@createlegend\endcsname
+    \endgroup
+  }%
+
+  % makes \addlegendimage available (typically only available within an
+  % axis environment):
+  \def\addlegendimage{\csname pgfplots@addlegendimage\endcsname}
+
+  % definition to insert numbers
+  % \pgfkeys{/pgfplots/number in legend/.style={%
+  %     /pgfplots/legend image code/.code={%
+  %       \node at (0.125,-0.0225){#1}; % <= changed x value
+  %     },%
+  %   },
+  % }
+  \pgfplotsset{
+    every legend to name picture/.style={west}
+  }
+#+end_src
+
+** Upper and Lower bounds
+#+begin_src latex
+  \tikzstyle{upperbound}=[line cap=round, postaction={decorate,draw,decoration={border, segment length=0.2cm, amplitude=0.3cm, angle=60}}]
+  \tikzstyle{lowerbound}=[line cap=round, postaction={decorate,draw,decoration={border, segment length=0.2cm, amplitude=0.3cm, angle=-60}}]
+#+end_src
+
+And we add the corresdonding
+#+begin_src latex
+  \pgfplotsset{
+    /pgfplots/upperbound/.style 1 args={
+      legend image code/.code={
+        \draw[##1, upperbound]
+          plot coordinates {
+          (0cm,0cm)
+          (0.6cm,0cm)
+        }
+      }
+    }
+  }
+#+end_src
+
+** Pole
+#+begin_src latex
+  \tikzset{%
+    pole/.style{%
+      color=red,
+      cross out,
+      draw,
+      inner sep=0pt,
+      outer sep=0pt,
+      minimum size=#1pt
+    },
+    pole/.default={4}
+  }
+#+end_src
+
+** Zero
+#+begin_src latex
+  \tikzset{%
+    zero/.style{%
+      color=red,
+      circle,
+      draw,
+      inner sep=0pt,
+      outer sep=0pt,
+      minimum size=#1pt
+    },
+    zero/.default={4}
   }
 #+end_src
 
@@ -474,6 +588,30 @@ Maybe use =isosceles= instead of regular polygon?
 
 #+end_src
 
+** Piezoelectric actuator
+#+begin_src latex
+  \tikzset{%
+    piezo/.style n args={3}{%
+      draw,
+      rectangle,
+      minimum width  = #1cm,
+      minimum height = #2cm,
+      fill=blue!10!white,
+      anchor=center,
+      append after command={
+        [every edge/.append style={
+          thick,
+          black,
+        }]
+        \foreach \i in {1,...,#3}{
+          (${\i/(1+#3)}*(\tikzlastnode.north west)+{(1+#3-\i)/(1+#3)}*(\tikzlastnode.south west)+0.1*(#1,0)$) edge (${\i/(1+#3)}*(\tikzlastnode.north east)+{(1+#3-\i)/(1+#3)}*(\tikzlastnode.south east)-0.1*(#1,0)$)
+        }
+      }
+    },
+    piezo/.default={2}{4}{10}
+  }
+#+end_src
+
 ** Voice coil
 #+begin_src latex
   \def\voicecoil#1#2#3{
@@ -499,7 +637,7 @@ Maybe use =isosceles= instead of regular polygon?
       % ======================
       % Magnet
       % ======================
-      \draw[] (0, 0) -| ++(0.5*\magnetw, \magneth) -| ++(-0.5*\magnetw+0.5*\magnetwg, -\magnethg) -| (0.5*\magnetw-\magnetwb, \magnethl) -| (-0.5*\magnetw+\magnetwb, \magneth-\magnethg) -| (-0.5*\magnetwg, \magneth) -| (-0.5*\magnetw, 0) -- (cycle);
+      \draw[fill=white] (0, 0) -| ++(0.5*\magnetw, \magneth) -| ++(-0.5*\magnetw+0.5*\magnetwg, -\magnethg) -| (0.5*\magnetw-\magnetwb, \magnethl) -| (-0.5*\magnetw+\magnetwb, \magneth-\magnethg) -| (-0.5*\magnetwg, \magneth) -| (-0.5*\magnetw, 0) -- (cycle);
       \begin{scope}[shift={(0, \magnethl)}]
         \draw[fill=red]  (-0.5*\magnetmw, 0) rectangle (0.5*\magnetmw, \magnetmh);
         \draw[fill=blue] (-0.5*\magnetmw, \magnetmh) rectangle (0.5*\magnetmw, 2*\magnetmh);
@@ -520,7 +658,7 @@ Maybe use =isosceles= instead of regular polygon?
         \node[circle,inner sep=0.6pt,fill] at ( \coilwidth, \x*0.7*\magneth/10+0.5*\magneth);
         \node[circle,inner sep=0.6pt,fill] at (-\coilwidth, \x*0.7*\magneth/10+0.5*\magneth);
       }
-      \draw[] (-0.5*\magnetw, 1.2*\magneth) rectangle ++(\magnetw, \magnethg);
+      \draw[fill=white] (-0.5*\magnetw, 1.2*\magneth) rectangle ++(\magnetw, \magnethg);
       % ======================
 
       % ======================
@@ -573,6 +711,16 @@ Maybe use =isosceles= instead of regular polygon?
       shape=circle,
       inner sep=2pt,
       outer sep=6pt,
+    }
+  }
+#+end_src
+
+** Pencil Draw Style
+#+begin_src latex
+  \tikzset{%
+    pencildraw/.style={%
+      decorate,
+      decoration={random steps,segment length=0.8pt,amplitude=0.1pt}
     }
   }
 #+end_src

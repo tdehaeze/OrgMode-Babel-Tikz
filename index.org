@@ -1,7 +1,21 @@
 #+TITLE: Tikz with Org-Mode Literate Programming
+:DRAWER:
+#+STARTUP: overview
 
-Files:
-- [[file:config.org][Configuration]]
-- [[file:control.org][Control]]
-- [[file:matlab.org][Matlab]]
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./css/htmlize.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./css/readtheorg.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./css/zenburn.css"/>
+#+HTML_HEAD: <script type="text/javascript" src="./js/jquery.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="./js/jquery.stickytableheaders.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="./js/readtheorg.js"></script>
+:END:
+
+First of all, [[file:config.org][here]] is the =Tikz= configuration that I use for all my figures.
+
+Then, I have multiple files containing various figures. They are sorted by subject:
+- [[file:control.org][Control]]: contains various block diagram
 - [[file:mechanical.org][Mechanical]]
+- [[file:matlab.org][Matlab]]
+- [[file:measurement.org][Modal Measurements]]
+- [[file:nass.org][NASS]]

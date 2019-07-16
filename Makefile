@@ -2,13 +2,13 @@
 # Some Notes About Makefiles
 # =============================================================
 # cible: dependance
-# 	commandes
+#		commandes
 
-# $@ 	Le nom de la cible
-# $< 	Le nom de la première dépendance
-# $^ 	La liste des dépendances
-# $? 	La liste des dépendances plus récentes que la cible
-# $* 	Le nom du fichier sans suffixe
+# $@	Le nom de la cible
+# $<	Le nom de la première dépendance
+# $^	La liste des dépendances
+# $?	La liste des dépendances plus récentes que la cible
+# $*	Le nom du fichier sans suffixe
 
 # The .PHONY rule keeps make from processing a file named "watch" or "clean".
 # =============================================================
@@ -109,5 +109,3 @@ else
 tikz:
 	cp $(MAINDIRECTORY)/snippets/tikzpicture.tex $(MAINDIRECTORY)/ressources/tikz/$(f).tex
 endif
-
-

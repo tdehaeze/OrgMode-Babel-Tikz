@@ -1,0 +1,179 @@
+#+TITLE: Tikz - Filters
+:DRAWER:
+#+STARTUP: overview
+
+#+LANGUAGE: en
+#+EMAIL: dehaeze.thomas@gmail.com
+#+AUTHOR: Dehaeze Thomas
+
+#+HTML_LINK_HOME: ./index.html
+#+HTML_LINK_UP: ./index.html
+
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./css/htmlize.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./css/readtheorg.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./css/zenburn.css"/>
+#+HTML_HEAD: <script type="text/javascript" src="./js/jquery.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="./js/jquery.stickytableheaders.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="./js/readtheorg.js"></script>
+
+#+HTML_MATHJAX: align: center tagside: right font: TeX
+
+#+PROPERTY: header-args:latex  :headers '("\\usepackage{tikz}" "\\usepackage{import}" "\\import{$HOME/MEGA/These/LaTeX/}{config.tex}")
+#+PROPERTY: header-args:latex+ :imagemagick t :fit yes
+#+PROPERTY: header-args:latex+ :iminoptions -scale 100% -density 150
+#+PROPERTY: header-args:latex+ :imoutoptions -quality 100
+#+PROPERTY: header-args:latex+ :results raw replace :buffer no
+#+PROPERTY: header-args:latex+ :eval no-export
+#+PROPERTY: header-args:latex+ :exports both
+#+PROPERTY: header-args:latex+ :mkdirp yes
+#+PROPERTY: header-args:latex+ :output-dir figs
+:END:
+
+* TODO First Order LPF
+
+#+begin_src latex :file lpf_first_order.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+  \definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+  \begin{tikzpicture}
+    \begin{axis}[%
+      width=\fwidth,
+      height=0.453\fheight,
+      at={(0\fwidth,0.514\fheight)},
+      xmode=log,
+      xmin=0.1,
+      xmax=10,
+      xtick={0.1,1,10},
+      xticklabels={{}},
+      xminorticks=true,
+      ymode=log,
+      ymin=0.1,
+      ymax=1,
+      yminorticks=true,
+      ylabel={Amplitude},
+      xminorgrids,
+      yminorgrids
+      ]
+      \addplot [color=mycolor1, line width=1.5pt, forget plot]
+      table[row sep=crcr]{%
+        0.1	0.0995037190209989\\
+        0.162259528707809	0.160164804810826\\
+        0.224052786930002	0.218632346269219\\
+        0.286059553517574	0.275028013818558\\
+        0.350384224529067	0.330673443303891\\
+        0.415545533471887	0.38373305663567\\
+        0.483820966492595	0.435524456768104\\
+        0.55302242561929	0.483948100280684\\
+        0.626320745219869	0.530803608956686\\
+        0.702824426430835	0.575012182520845\\
+        0.785045620020451	0.617496303004071\\
+        0.872852662384837	0.657587868295071\\
+        0.97048088773803	0.696435709256315\\
+        1.07406615333343	0.731891468263351\\
+        1.1887076977119	0.765233678195741\\
+        1.3155856240457	0.796117027320002\\
+        1.46273335620113	0.825522233892017\\
+        1.62633950404819	0.851850976336224\\
+        1.81659978837533	0.876038664710839\\
+        2.04791209666509	0.898592277073029\\
+        2.33006141069692	0.918944676480109\\
+        2.67563844455205	0.936715846709769\\
+        3.11525422355549	0.95214706836893\\
+        3.71167181947576	0.965569785521705\\
+        4.5462954695324	0.976652805808668\\
+        5.83130511352622	0.985612466311578\\
+        8.0150069615654	0.992306434253987\\
+        10	0.995037190209989\\
+      };
+    \end{axis}
+
+    \begin{axis}[%
+      width=\fwidth,
+      height=0.453\fheight,
+      at={(0\fwidth,0\fheight)},
+      xmode=log,
+      xmin=0.1,
+      xmax=10,
+      xminorticks=true,
+      xlabel={Frequency [Hz]},
+      ymin=-180,
+      ymax=180,
+      ytick={-180,  -90,    0,   90,  180},
+      ylabel={Phase [deg]},
+      axis background/.style={fill=white},
+      xminorgrids
+      ]
+      \addplot [color=mycolor1, line width=1.5pt, forget plot]
+      table[row sep=crcr]{%
+        0.1	84.2894068625004\\
+        0.108151870255229	83.8273464964254\\
+        0.11696827039704	83.3285269754666\\
+        0.126503372039592	82.7901877125998\\
+        0.136815762796745	82.2094034956696\\
+        0.148652484499784	81.5447572961833\\
+        0.161513269350308	80.8252033639153\\
+        0.175486714964814	80.046698671149\\
+        0.190669084051225	79.2050374634246\\
+        0.207164967560208	78.2958838125988\\
+        0.225088005209548	77.3148172391363\\
+        0.244561668345247	76.2573941302492\\
+        0.265720110532454	75.1192278393924\\
+        0.290043049386403	73.8255658068852\\
+        0.316592411198357	72.4326080777986\\
+        0.345571993676209	70.9362838665632\\
+        0.378947091907461	69.2459425348624\\
+        0.415545533471881	67.4348906337936\\
+        0.457784053837669	65.4024485503398\\
+        0.506646100892133	63.1311245519021\\
+        0.56331426706014	60.6068183110632\\
+        0.632121847581245	57.7021250432209\\
+        0.719211887222109	54.2758627543063\\
+        0.837380653526647	50.0578453434875\\
+        1.10928986489522	42.0339527547858\\
+        1.3462605792989	36.6049002879862\\
+        1.54592773641949	32.897243348863\\
+        1.74277467840892	29.8471022217197\\
+        1.94665634334225	27.1896271080647\\
+        2.16438908606399	24.7980767718183\\
+        2.38439047009369	22.7529037932609\\
+        2.6267541037238	20.8417284870977\\
+        2.88044415339625	19.1453998295639\\
+        3.15863540826777	17.5673919222014\\
+        3.44776405473441	16.1744341931149\\
+        3.76335836228649	14.8807721606076\\
+        4.1078408899656	13.6817818674322\\
+        4.48385594802115	12.5724857796515\\
+        4.8717802187946	11.5996291640458\\
+        5.29326605836054	10.6981918902769\\
+        5.75121707184161	9.86376015391463\\
+        6.24878807200691	9.09201049935923\\
+        6.78940681269615	8.37875385951436\\
+        7.37679760252781	7.71996681419471\\
+        8.01500696156551	7.11181249739019\\
+        8.70843149769087	6.55065327092214\\
+        9.46184819472188	6.03305696454714\\
+        10	5.71059313749964\\
+      };
+    \end{axis}
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:figs/lpf_first_order.png]]
+
+* TODO First Order HPF
+#+begin_src latex :file hpf_first_order.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+  \begin{tikzpicture}
+  \end{tikzpicture}
+#+end_src
+
+* TODO Second Order LPF
+#+begin_src latex :file lpf_second_order.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+  \begin{tikzpicture}
+  \end{tikzpicture}
+#+end_src
+
+* TODO Second Order HPF
+#+begin_src latex :file hpf_second_order.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+  \begin{tikzpicture}
+  \end{tikzpicture}
+#+end_src

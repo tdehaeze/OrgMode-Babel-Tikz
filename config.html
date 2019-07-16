@@ -1,0 +1,1242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-07-16 mar. 11:33 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LaTeX Configuration for Tikz export</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Dehaeze Thomas" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="./css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="./css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="./css/zenburn.css"/>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="./js/readtheorg.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="./index.html"> UP </a>
+ |
+ <a accesskey="H" href="./index.html"> HOME </a>
+</div><div id="content">
+<h1 class="title">LaTeX Configuration for Tikz export</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgcde4d17">1. Packages</a></li>
+<li><a href="#orga29a115">2. Tikz related packages</a></li>
+<li><a href="#orgf4156c1">3. Tikz Libraries</a></li>
+<li><a href="#org6414e79">4. PGF Plot libraries and config</a></li>
+<li><a href="#orgd0d9e12">5. Setup size of figures</a></li>
+<li><a href="#org22d3348">6. Setup Arrows style</a></li>
+<li><a href="#orgc8defee">7. Colors</a></li>
+<li><a href="#orge8852f1">8. Control</a>
+<ul>
+<li><a href="#org729b25a">8.1. Blocks</a></li>
+<li><a href="#orgf56d435">8.2. <span class="todo TODO">TODO</span> Branches</a></li>
+<li><a href="#org47562f5">8.3. <span class="todo TODO">TODO</span> Hand Writen Style</a></li>
+<li><a href="#orgf688071">8.4. DAC</a></li>
+<li><a href="#org57284b5">8.5. ADC</a></li>
+<li><a href="#org86c332a">8.6. <span class="todo TODO">TODO</span> Gain</a></li>
+<li><a href="#org2d4ffd9">8.7. Add / Substract / Divide / Multiply block</a></li>
+</ul>
+</li>
+<li><a href="#org74629e7">9. Electronics</a></li>
+<li><a href="#orgd215c08">10. Plots</a>
+<ul>
+<li><a href="#orgae5171d">10.1. Grid</a></li>
+<li><a href="#org0db9a2e">10.2. Lines</a></li>
+<li><a href="#orge902983">10.3. Ticks</a></li>
+<li><a href="#orga96caf9">10.4. Size</a></li>
+<li><a href="#orgbb1a4ed">10.5. Label</a></li>
+<li><a href="#org5a7c3d7">10.6. Legend</a></li>
+<li><a href="#org4e824ef">10.7. Upper and Lower bounds</a></li>
+<li><a href="#org75a0551">10.8. Pole</a></li>
+<li><a href="#org9455d9e">10.9. Zero</a></li>
+</ul>
+</li>
+<li><a href="#org0d65dfc">11. Mechanical</a>
+<ul>
+<li><a href="#org0fd6f1b">11.1. Spring</a></li>
+<li><a href="#org740e659">11.2. Coil</a></li>
+<li><a href="#orge46f935">11.3. Damper</a></li>
+<li><a href="#orge563253">11.4. Actuator</a></li>
+<li><a href="#orgc1b6cfc">11.5. Ground</a></li>
+<li><a href="#org0e1973c">11.6. Force Sensor</a></li>
+<li><a href="#orgf17dd37">11.7. Inertial Sensor</a></li>
+<li><a href="#orgf4fd2ea">11.8. Axis Rotator</a></li>
+<li><a href="#org17a9d12">11.9. Cross</a></li>
+<li><a href="#org6f12abb">11.10. Piezoelectric actuator</a></li>
+<li><a href="#orgb5bf848">11.11. Voice coil</a></li>
+</ul>
+</li>
+<li><a href="#org38ffeeb">12. Optics</a></li>
+<li><a href="#org158b54e">13. Misc</a>
+<ul>
+<li><a href="#org865c0ba">13.1. Pencil Draw Style</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<p>
+You can download the <code>config.tex</code> file <a href="config.tex">here</a>.
+</p>
+
+<div id="outline-container-orgcde4d17" class="outline-2">
+<h2 id="orgcde4d17"><span class="section-number-2">1</span> Packages</h2>
+<div class="outline-text-2" id="text-1">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>[<span class="org-variable-name">utf8</span>]{<span class="org-function-name">inputenc</span>}
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>[<span class="org-variable-name">T1</span>]{<span class="org-function-name">fontenc</span>}
+
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>[<span class="org-variable-name">french, english</span>]{<span class="org-function-name">babel</span>} <span class="org-comment">% Last language is main language</span>
+
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">lmodern</span>} <span class="org-comment">% Latin Modern Font</span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">gensymb</span>} <span class="org-comment">% Generic symbols for both text and math mode</span>
+
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">standalone</span>} <span class="org-comment">% Used to generate standalone Tikz</span>
+
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">amsmath</span>}   <span class="org-comment">% Main math Package</span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">mathtools</span>} <span class="org-comment">% Extension package to amsmath</span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">amsthm</span>}    <span class="org-comment">% Typesetting theorems (AMS style)</span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">amsfonts</span>}  <span class="org-comment">% More fonts from the AMS</span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">textcomp</span>}  <span class="org-comment">% provide many text symbols</span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">steinmetz</span>} <span class="org-comment">% For phase symbol</span>
+
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">xstring</span>}  <span class="org-comment">% Utils to manipulate strings</span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">etoolbox</span>} <span class="org-comment">% Add basic if/then</span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">esvect</span>}   <span class="org-comment">% Beautyfull vectors</span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">graphicx</span>} <span class="org-comment">% Enhanced support for graphics</span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">grffile</span>}  <span class="org-comment">% Used by matlab2tikz</span>
+
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">microtype</span>} <span class="org-comment">% typographic tuning</span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">setspace</span>}  <span class="org-comment">% for line spacing, e.g. </span><span class="org-font-latex-sedate"><span class="org-comment">\onehalfspacing</span></span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">tabularx</span>}  <span class="org-comment">% table features</span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">enumitem</span>}  <span class="org-comment">% for simple list modifications</span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">booktabs</span>}  <span class="org-comment">% better table support</span>
+
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">stackengine</span>} <span class="org-comment">%</span>
+
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>[<span class="org-variable-name">load-configurations=abbreviations</span>]{<span class="org-function-name">siunitx</span>} <span class="org-comment">% SI units</span>
+<span class="org-font-latex-sedate">\sisetup</span>{
+    locale = US,
+    detect-all,
+    range-phrase=--,
+    range-units=single
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga29a115" class="outline-2">
+<h2 id="orga29a115"><span class="section-number-2">2</span> Tikz related packages</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">tikz</span>}       <span class="org-comment">% Tikz</span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">tikzscale</span>}  <span class="org-comment">% Used to scale Tikz graphics</span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">adjustbox</span>}  <span class="org-comment">% Used to proper positioning of tikz pictures</span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">circuitikz</span>} <span class="org-comment">% Draw electronic circuits</span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">pgfpages</span>}   <span class="org-comment">% Needed to use notes</span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">pgfplots</span>}   <span class="org-comment">% Used to plot functions</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf4156c1" class="outline-2">
+<h2 id="orgf4156c1"><span class="section-number-2">3</span> Tikz Libraries</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\usetikzlibrary</span>{arrows}                   <span class="org-comment">% Arrow tip library</span>
+<span class="org-font-latex-sedate">\usetikzlibrary</span>{arrows.meta}              <span class="org-comment">% Add some arrows</span>
+<span class="org-font-latex-sedate">\usetikzlibrary</span>{calc}                     <span class="org-comment">% The library allows advanced Coordinate Calculations</span>
+<span class="org-font-latex-sedate">\usetikzlibrary</span>{intersections}            <span class="org-comment">% calculate intersections of paths</span>
+<span class="org-font-latex-sedate">\usetikzlibrary</span>{matrix}                   <span class="org-comment">%</span>
+<span class="org-font-latex-sedate">\usetikzlibrary</span>{matrix.skeleton}          <span class="org-comment">%</span>
+<span class="org-font-latex-sedate">\usetikzlibrary</span>{patterns}                 <span class="org-comment">%</span>
+<span class="org-font-latex-sedate">\usetikzlibrary</span>{shapes}                   <span class="org-comment">% Defines circle and rectangle</span>
+<span class="org-font-latex-sedate">\usetikzlibrary</span>{shapes.geometric}         <span class="org-comment">% Use for the shape diamond and isosceles triangle</span>
+<span class="org-font-latex-sedate">\usetikzlibrary</span>{snakes}                   <span class="org-comment">% snake=coil and snake=zigzag using segment amplitude=10pt</span>
+<span class="org-font-latex-sedate">\usetikzlibrary</span>{positioning}              <span class="org-comment">% Additional options for placing nodes</span>
+<span class="org-font-latex-sedate">\usetikzlibrary</span>{3d}                       <span class="org-comment">% Plot 3D shapes</span>
+<span class="org-font-latex-sedate">\usetikzlibrary</span>{spy}                      <span class="org-comment">% Creating a magnified area</span>
+<span class="org-font-latex-sedate">\usetikzlibrary</span>{decorations.text}         <span class="org-comment">% Used to make text follows a curve</span>
+<span class="org-font-latex-sedate">\usetikzlibrary</span>{decorations.pathmorphing} <span class="org-comment">% deformation of a path</span>
+<span class="org-font-latex-sedate">\usetikzlibrary</span>{decorations.markings}     <span class="org-comment">% Used for spring and damper</span>
+<span class="org-font-latex-sedate">\usetikzlibrary</span>{babel}                    <span class="org-comment">% A tiny library that make the interaction with the babel package easier</span>
+<span class="org-font-latex-sedate">\usetikzlibrary</span>{plotmarks}                <span class="org-comment">% This library defines a number of plot marks</span>
+<span class="org-font-latex-sedate">\usetikzlibrary</span>{fit}                      <span class="org-comment">% Used to make rectangle as nodes by specifying two points</span>
+<span class="org-font-latex-sedate">\usetikzlibrary</span>{backgrounds}              <span class="org-comment">% Used to put things under others</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6414e79" class="outline-2">
+<h2 id="org6414e79"><span class="section-number-2">4</span> PGF Plot libraries and config</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\usepgfplotslibrary</span>{patchplots}
+<span class="org-font-latex-sedate">\usepgfplotslibrary</span>{groupplots}
+
+<span class="org-font-latex-sedate">\pgfplotsset</span>{compat=newest}
+<span class="org-font-latex-sedate">\pgfplotsset</span>{plot coordinates/math parser=false}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd0d9e12" class="outline-2">
+<h2 id="orgd0d9e12"><span class="section-number-2">5</span> Setup size of figures</h2>
+<div class="outline-text-2" id="text-5">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\newlength</span></span>{<span class="org-font-latex-sedate"><span class="org-function-name">\fheight</span></span>}
+<span class="org-font-latex-sedate"><span class="org-keyword">\newlength</span></span>{<span class="org-font-latex-sedate"><span class="org-function-name">\fwidth</span></span>}
+
+<span class="org-font-latex-sedate"><span class="org-keyword">\setlength</span></span>{<span class="org-font-latex-sedate"><span class="org-variable-name">\fwidth</span></span>}{<span class="org-variable-name">85mm</span>}
+<span class="org-font-latex-sedate"><span class="org-keyword">\setlength</span></span>{<span class="org-font-latex-sedate"><span class="org-variable-name">\fheight</span></span>}{<span class="org-variable-name">112mm</span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org22d3348" class="outline-2">
+<h2 id="org22d3348"><span class="section-number-2">6</span> Setup Arrows style</h2>
+<div class="outline-text-2" id="text-6">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\tikzset</span>{&gt;=Stealth}
+<span class="org-comment-delimiter">% </span><span class="org-comment">Setup default Linewidth</span>
+<span class="org-font-latex-sedate">\tikzset</span>{every path/.style={line width=1pt}}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc8defee" class="outline-2">
+<h2 id="orgc8defee"><span class="section-number-2">7</span> Colors</h2>
+<div class="outline-text-2" id="text-7">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\usepackage</span></span>{<span class="org-function-name">xcolor</span>}<span class="org-comment">% Color extension</span>
+
+<span class="org-font-latex-sedate">\definecolor</span>{colorblack}{rgb}{0, 0, 0}
+<span class="org-font-latex-sedate">\definecolor</span>{colorblue}{rgb}{0, 0.4470, 0.7410}
+<span class="org-font-latex-sedate">\definecolor</span>{colorred}{rgb}{0.8500, 0.3250, 0.0980}
+<span class="org-font-latex-sedate">\definecolor</span>{coloryellow}{rgb}{0.9290, 0.6940, 0.1250}
+<span class="org-font-latex-sedate">\definecolor</span>{colorpurple}{rgb}{0.4940, 0.1840, 0.5560}
+<span class="org-font-latex-sedate">\definecolor</span>{colorgreen}{rgb}{0.4660, 0.6740, 0.1880}
+<span class="org-font-latex-sedate">\definecolor</span>{colorcyan}{rgb}{0.3010, 0.7450, 0.9330}
+<span class="org-font-latex-sedate">\definecolor</span>{colorbordeau}{rgb}{0.6350, 0.0780, 0.1840}
+
+<span class="org-comment-delimiter">% </span><span class="org-comment">Main color</span>
+<span class="org-font-latex-sedate">\definecolor</span>{maincolor}{RGB}{89, 9, 38}
+<span class="org-font-latex-sedate">\definecolor</span>{secondcolor}{RGB}{20, 9, 89}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge8852f1" class="outline-2">
+<h2 id="orge8852f1"><span class="section-number-2">8</span> Control</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-org729b25a" class="outline-3">
+<h3 id="org729b25a"><span class="section-number-3">8.1</span> Blocks</h3>
+<div class="outline-text-3" id="text-8-1">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\tikzset</span>{<span class="org-comment">%</span>
+  block/.style n args={2}{<span class="org-comment">%</span>
+    draw,
+    fill=white,
+    minimum width  = #1,
+    minimum height = #2,
+  },
+  block/.default={1.2cm}{1.0cm}
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf56d435" class="outline-3">
+<h3 id="orgf56d435"><span class="section-number-3">8.2</span> <span class="todo TODO">TODO</span> Branches</h3>
+<div class="outline-text-3" id="text-8-2">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\tikzstyle</span>{branch}=[fill,shape=circle,minimum size=4pt,inner sep=0pt]
+<span class="org-font-latex-sedate">\tikzstyle</span>{-&gt;top}=[-{Stealth[color=black, scale=0.8]}, draw=white, double=black, double distance=1pt, line width=1pt]
+<span class="org-font-latex-sedate">\tikzstyle</span>{&lt;-top}=[{stealth[color=black, scale=0.8]}-, draw=white, double=black, double distance=1pt, line width=1pt]
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org47562f5" class="outline-3">
+<h3 id="org47562f5"><span class="section-number-3">8.3</span> <span class="todo TODO">TODO</span> Hand Writen Style</h3>
+<div class="outline-text-3" id="text-8-3">
+<p>
+Usefull for schematic plots
+</p>
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\tikzstyle</span>{handwriten}=[decorate,decoration={random steps,amplitude=0.1pt,segment length=0.8pt}]
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf688071" class="outline-3">
+<h3 id="orgf688071"><span class="section-number-3">8.4</span> DAC</h3>
+<div class="outline-text-3" id="text-8-4">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\tikzset</span>{<span class="org-comment">%</span>
+  DAC/.style={<span class="org-comment">%</span>
+    draw,
+    fill=white,
+    signal,
+  }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org57284b5" class="outline-3">
+<h3 id="org57284b5"><span class="section-number-3">8.5</span> ADC</h3>
+<div class="outline-text-3" id="text-8-5">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\tikzset</span>{<span class="org-comment">%</span>
+  ADC/.style={<span class="org-comment">%</span>
+    draw,
+    fill=white,
+    signal,
+    signal to = west,
+  }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org86c332a" class="outline-3">
+<h3 id="org86c332a"><span class="section-number-3">8.6</span> <span class="todo TODO">TODO</span> Gain</h3>
+<div class="outline-text-3" id="text-8-6">
+<p>
+Maybe use <code>isosceles</code> instead of regular polygon?
+</p>
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\tikzset</span>{<span class="org-comment">%</span>
+  gain right/.style={<span class="org-comment">%</span>
+    draw,
+    fill=white,
+    regular polygon,
+    regular polygon sides = 3,
+    inner sep = 2pt,
+    shape border rotate=-90
+  },
+  gain left/.style={<span class="org-comment">%</span>
+    draw,
+    fill=white,
+    regular polygon,
+    regular polygon sides = 3,
+    inner sep = 2pt,
+    shape border rotate=90
+  },
+  gain top/.style={<span class="org-comment">%</span>
+    draw,
+    fill=white,
+    regular polygon,
+    regular polygon sides = 3,
+    inner sep = 2pt,
+    shape border rotate=0
+  },
+  gain bottom/.style={<span class="org-comment">%</span>
+    draw,
+    fill=white,
+    regular polygon,
+    regular polygon sides = 3,
+    inner sep = 2pt,
+    shape border rotate=180
+  },
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2d4ffd9" class="outline-3">
+<h3 id="org2d4ffd9"><span class="section-number-3">8.7</span> Add / Substract / Divide / Multiply block</h3>
+<div class="outline-text-3" id="text-8-7">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\tikzset</span>{<span class="org-comment">% Add block with Circled operations</span>
+  addc/.style n args={5}{<span class="org-comment">%</span>
+    draw,
+    fill=white,
+    circle,
+    outer sep = 0pt,
+    inner sep = 0pt,
+    minimum size = 2em,
+    execute at begin node={<span class="org-font-latex-sedate"><span class="org-keyword">\LARGE</span></span><span class="org-type"> </span><span class="org-type"><span class="org-font-latex-math">$#1$</span></span>},
+    append after command={<span class="org-font-latex-sedate">\pgfextra</span>{<span class="org-font-latex-sedate">\let\mainnode=\tikzlastnode</span>}
+      <span class="org-font-latex-sedate">\ifx</span>#2<span class="org-font-latex-sedate">\empty\else</span>
+      node[draw, circle, outer sep=6pt, inner sep=0pt, above left] at (<span class="org-font-latex-sedate">\mainnode</span>.west) {<span class="org-font-latex-math">$#2$</span>}<span class="org-comment">%</span>
+      <span class="org-font-latex-sedate">\fi</span>
+      <span class="org-font-latex-sedate">\ifx</span>#3<span class="org-font-latex-sedate">\empty\else</span>
+      node[draw, circle, outer sep=6pt, inner sep=0pt, above right] at (<span class="org-font-latex-sedate">\mainnode</span>.north) {<span class="org-font-latex-math">$#3$</span>}<span class="org-comment">%</span>
+      <span class="org-font-latex-sedate">\fi</span>
+      <span class="org-font-latex-sedate">\ifx</span>#4<span class="org-font-latex-sedate">\empty\else</span>
+      node[draw, circle, outer sep=6pt, inner sep=0pt, below right] at (<span class="org-font-latex-sedate">\mainnode</span>.east) {<span class="org-font-latex-math">$#4$</span>}<span class="org-comment">%</span>
+      <span class="org-font-latex-sedate">\fi</span>
+      <span class="org-font-latex-sedate">\ifx</span>#5<span class="org-font-latex-sedate">\empty\else</span>
+      node[draw, circle, outer sep=6pt, inner sep=0pt, below left] at (<span class="org-font-latex-sedate">\mainnode</span>.south) {<span class="org-font-latex-math">$#5$</span>}<span class="org-comment">%</span>
+      <span class="org-font-latex-sedate">\fi</span>
+      }
+  },
+  addc/.default={+}{}{}{}{},
+}
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\tikzset</span>{<span class="org-comment">% Add Block</span>
+  addb/.style n args={5}{<span class="org-comment">%</span>
+    draw,
+    fill=white,
+    circle,
+    outer sep = 0pt,
+    inner sep = 0pt,
+    minimum size = 2em,
+    execute at begin node={<span class="org-font-latex-sedate"><span class="org-keyword">\LARGE</span></span><span class="org-type"> </span><span class="org-type"><span class="org-font-latex-math">$#1$</span></span>},
+    append after command={<span class="org-font-latex-sedate">\pgfextra</span>{<span class="org-font-latex-sedate">\let\mainnode=\tikzlastnode</span>}
+      <span class="org-font-latex-sedate">\ifx</span>#2<span class="org-font-latex-sedate">\empty\else</span>
+      node[outer sep=2pt, inner sep=0pt, above left] at (<span class="org-font-latex-sedate">\mainnode</span>.west) {<span class="org-font-latex-math">$#2$</span>}<span class="org-comment">%</span>
+      <span class="org-font-latex-sedate">\fi</span>
+      <span class="org-font-latex-sedate">\ifx</span>#3<span class="org-font-latex-sedate">\empty\else</span>
+      node[outer sep=2pt, inner sep=0pt, above right] at (<span class="org-font-latex-sedate">\mainnode</span>.north) {<span class="org-font-latex-math">$#3$</span>}<span class="org-comment">%</span>
+      <span class="org-font-latex-sedate">\fi</span>
+      <span class="org-font-latex-sedate">\ifx</span>#4<span class="org-font-latex-sedate">\empty\else</span>
+      node[outer sep=2pt, inner sep=0pt, below right] at (<span class="org-font-latex-sedate">\mainnode</span>.east) {<span class="org-font-latex-math">$#4$</span>}<span class="org-comment">%</span>
+      <span class="org-font-latex-sedate">\fi</span>
+      <span class="org-font-latex-sedate">\ifx</span>#5<span class="org-font-latex-sedate">\empty\else</span>
+      node[outer sep=2pt, inner sep=0pt, below left] at (<span class="org-font-latex-sedate">\mainnode</span>.south) {<span class="org-font-latex-math">$#5$</span>}<span class="org-comment">%</span>
+      <span class="org-font-latex-sedate">\fi</span>
+      }
+  },
+  addb/.default={+}{}{}{}{},
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org74629e7" class="outline-2">
+<h2 id="org74629e7"><span class="section-number-2">9</span> Electronics</h2>
+<div class="outline-text-2" id="text-9">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\ctikzset</span>{bipoles/thickness=1}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd215c08" class="outline-2">
+<h2 id="orgd215c08"><span class="section-number-2">10</span> Plots</h2>
+<div class="outline-text-2" id="text-10">
+</div>
+<div id="outline-container-orgae5171d" class="outline-3">
+<h3 id="orgae5171d"><span class="section-number-3">10.1</span> Grid</h3>
+<div class="outline-text-3" id="text-10-1">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\pgfplotsset</span>{grid style={black}}
+<span class="org-font-latex-sedate">\pgfplotsset</span>{major grid style={black!30!white}}
+<span class="org-font-latex-sedate">\pgfplotsset</span>{minor grid style={black!10!white}}
+<span class="org-font-latex-sedate">\pgfplotsset</span>{xmajorgrids}
+<span class="org-font-latex-sedate">\pgfplotsset</span>{ymajorgrids}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0db9a2e" class="outline-3">
+<h3 id="org0db9a2e"><span class="section-number-3">10.2</span> Lines</h3>
+<div class="outline-text-3" id="text-10-2">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\pgfplotsset</span>{separate axis lines=false} <span class="org-comment">% draw axis as rectangle and not as 4 lines</span>
+<span class="org-font-latex-sedate">\pgfplotsset</span>{every outer x axis line/.append style={black}}
+<span class="org-font-latex-sedate">\pgfplotsset</span>{every outer y axis line/.append style={black}}
+<span class="org-font-latex-sedate">\pgfplotsset</span>{axis background/.style={fill=white}}
+<span class="org-font-latex-sedate">\pgfplotsset</span>{axis x line*=bottom} <span class="org-comment">% solid line on the bottom with thin on the top</span>
+<span class="org-font-latex-sedate">\pgfplotsset</span>{axis y line*=left} <span class="org-comment">% solid line on the left with thin on the right</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge902983" class="outline-3">
+<h3 id="orge902983"><span class="section-number-3">10.3</span> Ticks</h3>
+<div class="outline-text-3" id="text-10-3">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\pgfplotsset</span>{every y tick label/.append style={font=<span class="org-font-latex-sedate">\color</span>{black}}}
+<span class="org-font-latex-sedate">\pgfplotsset</span>{every y tick/.append style={black}}
+<span class="org-font-latex-sedate">\pgfplotsset</span>{every x tick label/.append style={font=<span class="org-font-latex-sedate">\color</span>{black}}}
+<span class="org-font-latex-sedate">\pgfplotsset</span>{every x tick/.append style={black}}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga96caf9" class="outline-3">
+<h3 id="orga96caf9"><span class="section-number-3">10.4</span> Size</h3>
+<div class="outline-text-3" id="text-10-4">
+<p>
+If <code>scale only axis=false</code> (the default), pgfplots will try to produce the desired width including labels, titles and ticks.
+</p>
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\pgfplotsset</span>{scale only axis=true}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbb1a4ed" class="outline-3">
+<h3 id="orgbb1a4ed"><span class="section-number-3">10.5</span> Label</h3>
+<div class="outline-text-3" id="text-10-5">
+<p>
+Used to align all of ylabel of one figure.
+</p>
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\pgfplotsset</span>{ylabel absolute}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5a7c3d7" class="outline-3">
+<h3 id="org5a7c3d7"><span class="section-number-3">10.6</span> Legend</h3>
+<div class="outline-text-3" id="text-10-6">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-comment-delimiter">% </span><span class="org-comment">https://tex.stackexchange.com/questions/54794/using-a-pgfplots-style-legend-in-a-plain-old-tikzpicture#54834</span>
+
+<span class="org-comment-delimiter">% </span><span class="org-comment">argument #1: any options</span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\newenvironment</span></span>{<span class="org-function-name">customlegend</span>}[<span class="org-variable-name">1</span>][]{<span class="org-function-name"><span class="org-comment">%</span></span>
+<span class="org-function-name">  </span><span class="org-font-latex-sedate"><span class="org-function-name">\begingroup</span></span>
+<span class="org-function-name">  </span><span class="org-function-name"><span class="org-comment">% inits/clears the lists (which might be populated from previous</span></span>
+<span class="org-function-name">  </span><span class="org-function-name"><span class="org-comment">% axes):</span></span>
+<span class="org-function-name">  </span><span class="org-font-latex-sedate"><span class="org-function-name">\csname</span></span><span class="org-function-name"> pgfplots@init@cleared@structures</span><span class="org-font-latex-sedate"><span class="org-function-name">\endcsname</span></span>
+<span class="org-function-name">  </span><span class="org-font-latex-sedate"><span class="org-function-name">\pgfplotsset</span></span><span class="org-function-name">{#1}</span><span class="org-function-name"><span class="org-comment">%</span></span>
+}{<span class="org-function-name"><span class="org-comment">%</span></span>
+<span class="org-function-name">  </span><span class="org-function-name"><span class="org-comment">% draws the legend:</span></span>
+<span class="org-function-name">  </span><span class="org-font-latex-sedate"><span class="org-function-name">\csname</span></span><span class="org-function-name"> pgfplots@createlegend</span><span class="org-font-latex-sedate"><span class="org-function-name">\endcsname</span></span>
+<span class="org-function-name">  </span><span class="org-font-latex-sedate"><span class="org-function-name">\endgroup</span></span>
+}<span class="org-comment">%</span>
+
+<span class="org-comment-delimiter">% </span><span class="org-comment">makes </span><span class="org-font-latex-sedate"><span class="org-comment">\addlegendimage</span></span><span class="org-comment"> available (typically only available within an</span>
+<span class="org-comment-delimiter">% </span><span class="org-comment">axis environment):</span>
+<span class="org-font-latex-sedate">\def\addlegendimage</span>{<span class="org-font-latex-sedate">\csname</span> pgfplots@addlegendimage<span class="org-font-latex-sedate">\endcsname</span>}
+
+<span class="org-comment-delimiter">% </span><span class="org-comment">definition to insert numbers</span>
+<span class="org-comment-delimiter">% </span><span class="org-font-latex-sedate"><span class="org-comment">\pgfkeys</span></span><span class="org-comment">{/pgfplots/number in legend/.style={%</span>
+<span class="org-comment-delimiter">%     </span><span class="org-comment">/pgfplots/legend image code/.code={%</span>
+<span class="org-comment-delimiter">%       </span><span class="org-font-latex-sedate"><span class="org-comment">\node</span></span><span class="org-comment"> at (0.125,-0.0225){#1}; % &lt;= changed x value</span>
+<span class="org-comment-delimiter">%     </span><span class="org-comment">},%</span>
+<span class="org-comment-delimiter">%   </span><span class="org-comment">},</span>
+<span class="org-comment-delimiter">% </span><span class="org-comment">}</span>
+<span class="org-font-latex-sedate">\pgfplotsset</span>{
+  every legend to name picture/.style={west}
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4e824ef" class="outline-3">
+<h3 id="org4e824ef"><span class="section-number-3">10.7</span> Upper and Lower bounds</h3>
+<div class="outline-text-3" id="text-10-7">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\tikzstyle</span>{upperbound}=[line cap=round, postaction={decorate,draw,decoration={border, segment length=0.2cm, amplitude=0.3cm, angle=60}}]
+<span class="org-font-latex-sedate">\tikzstyle</span>{lowerbound}=[line cap=round, postaction={decorate,draw,decoration={border, segment length=0.2cm, amplitude=0.3cm, angle=-60}}]
+</pre>
+</div>
+
+<p>
+And we add the corresdonding
+</p>
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\pgfplotsset</span>{
+  /pgfplots/upperbound/.style 1 args={
+    legend image code/.code={
+      <span class="org-font-latex-sedate">\draw</span>[##1, upperbound]
+        plot coordinates {
+        (0cm,0cm)
+        (0.6cm,0cm)
+      }
+    }
+  }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org75a0551" class="outline-3">
+<h3 id="org75a0551"><span class="section-number-3">10.8</span> Pole</h3>
+<div class="outline-text-3" id="text-10-8">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\tikzset</span>{<span class="org-comment">%</span>
+  pole/.style{<span class="org-comment">%</span>
+    color=red,
+    cross out,
+    draw,
+    inner sep=0pt,
+    outer sep=0pt,
+    minimum size=#1pt
+  },
+  pole/.default={4}
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9455d9e" class="outline-3">
+<h3 id="org9455d9e"><span class="section-number-3">10.9</span> Zero</h3>
+<div class="outline-text-3" id="text-10-9">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\tikzset</span>{<span class="org-comment">%</span>
+  zero/.style{<span class="org-comment">%</span>
+    color=red,
+    circle,
+    draw,
+    inner sep=0pt,
+    outer sep=0pt,
+    minimum size=#1pt
+  },
+  zero/.default={4}
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0d65dfc" class="outline-2">
+<h2 id="org0d65dfc"><span class="section-number-2">11</span> Mechanical</h2>
+<div class="outline-text-2" id="text-11">
+</div>
+<div id="outline-container-org0fd6f1b" class="outline-3">
+<h3 id="org0fd6f1b"><span class="section-number-3">11.1</span> Spring</h3>
+<div class="outline-text-3" id="text-11-1">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\tikzset</span>{<span class="org-comment">%</span>
+  spring/.style={<span class="org-comment">%</span>
+    thick,
+    decoration={
+      zigzag,
+      pre length  = #1cm,
+      post length = #1cm,
+      segment length = 6
+    },
+    decorate
+  },
+  spring/.default={0.2}
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org740e659" class="outline-3">
+<h3 id="org740e659"><span class="section-number-3">11.2</span> Coil</h3>
+<div class="outline-text-3" id="text-11-2">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\tikzset</span>{<span class="org-comment">%</span>
+  coil/.style n args={2}{<span class="org-comment">%</span>
+    thick,
+    decoration={
+      coil,
+      pre length  = #1cm,
+      post length = #2cm,
+      segment length = 4
+    },
+    decorate
+  },
+  coil/.default={0.3}{0.3}
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge46f935" class="outline-3">
+<h3 id="orge46f935"><span class="section-number-3">11.3</span> Damper</h3>
+<div class="outline-text-3" id="text-11-3">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\tikzset</span>{<span class="org-comment">%</span>
+  damper/.style n args={2}{<span class="org-comment">%</span>
+    thick,
+    decoration={markings, mark connection node=dmp, mark=at position 0.5 with {
+        <span class="org-font-latex-sedate">\node</span> (dmp) [thick,
+                     inner sep = 0pt,
+                     transform shape,
+                     rotate  =-90,
+                     minimum width  = #1pt,
+                     minimum height = #2pt,
+                     draw=none] {};
+        <span class="org-font-latex-sedate">\draw</span> [thick] (<span class="org-font-latex-math">$(dmp.north east)+(0.6*#2pt,0)$</span>) -- (dmp.south east) -- (dmp.south west) -- (<span class="org-font-latex-math">$(dmp.north west)+(0.6*#2pt,0)$</span>);
+        <span class="org-font-latex-sedate">\draw</span> [thick] (<span class="org-font-latex-math">$(dmp.north)+(0,-0.3*#1pt)$</span>) -- (<span class="org-font-latex-math">$(dmp.north)+(0,0.3*#1pt)$</span>);
+      }
+    },
+    decorate
+  },
+  damper/.default={12}{3}
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge563253" class="outline-3">
+<h3 id="orge563253"><span class="section-number-3">11.4</span> Actuator</h3>
+<div class="outline-text-3" id="text-11-4">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\tikzset</span>{<span class="org-comment">%</span>
+  actuator/.style n args={2}{<span class="org-comment">%</span>
+    thick,
+    draw=none,
+    decoration={
+      markings,
+      mark connection node=my node,
+      mark=at position .5 with {
+        <span class="org-font-latex-sedate">\node</span> [draw, inner sep=0pt, minimum width=#1cm, minimum height=#2cm,
+        transform shape, fill=white] (my node) {};
+      },
+      mark=at position .0 with {
+        <span class="org-font-latex-sedate">\draw</span>[&lt;-] (0, 0) -- (my node);
+      },
+      mark=at position 1.0 with {
+        <span class="org-font-latex-sedate">\draw</span>[&lt;-] (0, 0) -- (my node);
+      }
+    },
+    decorate
+  },
+  actuator/.default={0.5}{0.2}
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc1b6cfc" class="outline-3">
+<h3 id="orgc1b6cfc"><span class="section-number-3">11.5</span> Ground</h3>
+<div class="outline-text-3" id="text-11-5">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\tikzset</span>{<span class="org-comment">%</span>
+  ground/.style n args={2}{<span class="org-comment">%</span>
+    fill,
+    pattern = north east lines,
+    draw = none,
+    anchor = north,
+    minimum width  = #1cm,
+    minimum height = #2cm,
+    append after command={
+      (<span class="org-font-latex-sedate">\tikzlastnode</span>.north west) edge (<span class="org-font-latex-sedate">\tikzlastnode</span>.north east)
+    }
+  },
+  ground/.default={2.5}{0.3}
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0e1973c" class="outline-3">
+<h3 id="org0e1973c"><span class="section-number-3">11.6</span> Force Sensor</h3>
+<div class="outline-text-3" id="text-11-6">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\tikzset</span>{<span class="org-comment">%</span>
+  forcesensor/.style n args={2}{<span class="org-comment">%</span>
+    rectangle,
+    outer sep=0pt,
+    inner sep=0pt,
+    draw=black,
+    fill=white!60!black,
+    anchor=south,
+    minimum width =#1cm,
+    minimum height=#2cm,
+    append after command={
+      [every edge/.append style={
+        thick,
+        black,
+      }]
+      (<span class="org-font-latex-sedate">\tikzlastnode</span>.north west) edge (<span class="org-font-latex-sedate">\tikzlastnode</span>.south east)
+      (<span class="org-font-latex-sedate">\tikzlastnode</span>.north east) edge (<span class="org-font-latex-sedate">\tikzlastnode</span>.south west)
+    }
+  },
+  forcesensor/.default={2.0}{0.5}
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf17dd37" class="outline-3">
+<h3 id="orgf17dd37"><span class="section-number-3">11.7</span> Inertial Sensor</h3>
+<div class="outline-text-3" id="text-11-7">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\tikzset</span>{<span class="org-comment">%</span>
+  inertialsensor/.style={<span class="org-comment">%</span>
+    rectangle,
+    outer sep=0pt,
+    inner sep=0pt,
+    draw=black,
+    fill=white!60!black,
+    anchor=south east,
+    minimum size=#1cm,
+    append after command={
+      [every edge/.append style={
+        thick,
+        black,
+      }]
+      (<span class="org-font-latex-sedate">\tikzlastnode</span>.north west) edge (<span class="org-font-latex-sedate">\tikzlastnode</span>.south east)
+      (<span class="org-font-latex-sedate">\tikzlastnode</span>.north east) edge (<span class="org-font-latex-sedate">\tikzlastnode</span>.south west)
+    }
+  },
+  inertialsensor/.default={0.3}
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf4fd2ea" class="outline-3">
+<h3 id="orgf4fd2ea"><span class="section-number-3">11.8</span> Axis Rotator</h3>
+<div class="outline-text-3" id="text-11-8">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\newcommand</span></span>{<span class="org-font-latex-sedate"><span class="org-function-name">\AxisRotator</span></span>}[<span class="org-variable-name">1</span>][<span class="org-variable-name">rotate=0</span>]{<span class="org-function-name"><span class="org-comment">%</span></span>
+<span class="org-function-name">  </span><span class="org-font-latex-sedate"><span class="org-function-name">\tikz</span></span><span class="org-function-name"> [x=0.1cm,y=0.30cm,-stealth,#1] </span><span class="org-font-latex-sedate"><span class="org-function-name">\draw</span></span><span class="org-function-name"> (0,0) arc (-150:150:1 and 1);</span><span class="org-function-name"><span class="org-comment">%</span></span>
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org17a9d12" class="outline-3">
+<h3 id="org17a9d12"><span class="section-number-3">11.9</span> Cross</h3>
+<div class="outline-text-3" id="text-11-9">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\tikzstyle</span>{cross}=[path picture={
+  <span class="org-font-latex-sedate">\draw</span>[black]
+  (path picture bounding box.south east) -- (path picture bounding box.north west) (path picture bounding box.south west) -- (path picture bounding box.north east);
+}]
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6f12abb" class="outline-3">
+<h3 id="org6f12abb"><span class="section-number-3">11.10</span> Piezoelectric actuator</h3>
+<div class="outline-text-3" id="text-11-10">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\tikzset</span>{<span class="org-comment">%</span>
+  piezo/.style n args={3}{<span class="org-comment">%</span>
+    draw,
+    rectangle,
+    minimum width  = #1cm,
+    minimum height = #2cm,
+    fill=blue!10!white,
+    anchor=center,
+    append after command={
+      [every edge/.append style={
+        thick,
+        black,
+      }]
+      <span class="org-font-latex-sedate">\foreach</span> <span class="org-font-latex-sedate">\i</span> in {1,...,#3}{
+        (<span class="org-font-latex-math">${</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\i/</span></span><span class="org-font-latex-math">(1+#3)}*(</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\tikzlastnode</span></span><span class="org-font-latex-math">.north west)+{(1+#3-</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\i</span></span><span class="org-font-latex-math">)/(1+#3)}*(</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\tikzlastnode</span></span><span class="org-font-latex-math">.south west)+0.1*(#1,0)$</span>) edge (<span class="org-font-latex-math">${</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\i/</span></span><span class="org-font-latex-math">(1+#3)}*(</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\tikzlastnode</span></span><span class="org-font-latex-math">.north east)+{(1+#3-</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\i</span></span><span class="org-font-latex-math">)/(1+#3)}*(</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\tikzlastnode</span></span><span class="org-font-latex-math">.south east)-0.1*(#1,0)$</span>)
+      }
+    }
+  },
+  piezo/.default={2}{4}{10}
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb5bf848" class="outline-3">
+<h3 id="orgb5bf848"><span class="section-number-3">11.11</span> Voice coil</h3>
+<div class="outline-text-3" id="text-11-11">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\def\voicecoil</span>#1#2#3{
+  <span class="org-comment">% ======================</span>
+  <span class="org-comment">% Parameters</span>
+  <span class="org-comment">% ======================</span>
+  <span class="org-font-latex-sedate">\def\voicecoilw</span>{#1} <span class="org-comment">% Total Width</span>
+  <span class="org-font-latex-sedate">\def\voicecoilh</span>{#2} <span class="org-comment">% Total Height</span>
+
+  <span class="org-font-latex-sedate">\def\magnetw</span>{<span class="org-font-latex-sedate">\voicecoilw</span>} <span class="org-comment">% Width of the magnet</span>
+  <span class="org-font-latex-sedate">\def\magneth</span>{<span class="org-font-latex-sedate">\voicecoilh/1</span>.4} <span class="org-comment">% Height of the magnet</span>
+
+  <span class="org-font-latex-sedate">\def\magnetwb</span>{0.15*<span class="org-font-latex-sedate">\magnetw</span>} <span class="org-comment">% Width of the borders of the magnet</span>
+  <span class="org-font-latex-sedate">\def\magnetmw</span>{0.15*<span class="org-font-latex-sedate">\magnetw</span>} <span class="org-comment">% Width of the middle part of the magnet</span>
+  <span class="org-font-latex-sedate">\def\magnetwg</span>{0.5*<span class="org-font-latex-sedate">\magnetw</span>} <span class="org-comment">% Width of the gap of the magnet</span>
+
+  <span class="org-font-latex-sedate">\def\magnethl</span>{<span class="org-font-latex-sedate">\magnetwb</span>} <span class="org-comment">% Height of the low part of the magnet</span>
+  <span class="org-font-latex-sedate">\def\magnetmh</span>{0.15*<span class="org-font-latex-sedate">\magneth</span>} <span class="org-comment">% Height of the middle part of the magnet</span>
+  <span class="org-font-latex-sedate">\def\magnethg</span>{0.2*<span class="org-font-latex-sedate">\magneth</span>} <span class="org-comment">% Height of the gap of the magnet</span>
+  <span class="org-comment">% ======================</span>
+
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(0.5*<span class="org-font-latex-sedate">\voicecoilw</span>, 0.5*<span class="org-font-latex-sedate">\voicecoilh</span>)}, rotate=#3, shift={(0, -0.5*<span class="org-font-latex-sedate">\voicecoilh</span>)}]
+    <span class="org-comment">% ======================</span>
+    <span class="org-comment">% Magnet</span>
+    <span class="org-comment">% ======================</span>
+    <span class="org-font-latex-sedate">\draw</span>[fill=white] (0, 0) -| ++(0.5*<span class="org-font-latex-sedate">\magnetw</span>, <span class="org-font-latex-sedate">\magneth</span>) -| ++(-0.5*<span class="org-font-latex-sedate">\magnetw+0</span>.5*<span class="org-font-latex-sedate">\magnetwg</span>, -<span class="org-font-latex-sedate">\magnethg</span>) -| (0.5*<span class="org-font-latex-sedate">\magnetw-\magnetwb</span>, <span class="org-font-latex-sedate">\magnethl</span>) -| (-0.5*<span class="org-font-latex-sedate">\magnetw+\magnetwb</span>, <span class="org-font-latex-sedate">\magneth-\magnethg</span>) -| (-0.5*<span class="org-font-latex-sedate">\magnetwg</span>, <span class="org-font-latex-sedate">\magneth</span>) -| (-0.5*<span class="org-font-latex-sedate">\magnetw</span>, 0) -- (cycle);
+    <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(0, <span class="org-font-latex-sedate">\magnethl</span>)}]
+      <span class="org-font-latex-sedate">\draw</span>[fill=red]  (-0.5*<span class="org-font-latex-sedate">\magnetmw</span>, 0) rectangle (0.5*<span class="org-font-latex-sedate">\magnetmw</span>, <span class="org-font-latex-sedate">\magnetmh</span>);
+      <span class="org-font-latex-sedate">\draw</span>[fill=blue] (-0.5*<span class="org-font-latex-sedate">\magnetmw</span>, <span class="org-font-latex-sedate">\magnetmh</span>) rectangle (0.5*<span class="org-font-latex-sedate">\magnetmw</span>, 2*<span class="org-font-latex-sedate">\magnetmh</span>);
+      <span class="org-comment">% Top conductive Magnet</span>
+      <span class="org-font-latex-sedate">\draw</span>[fill=white] (-0.5*<span class="org-font-latex-sedate">\magnetmw</span>, 2*<span class="org-font-latex-sedate">\magnetmh</span>) -| (0.5*<span class="org-font-latex-sedate">\magnetmw</span>, -<span class="org-font-latex-sedate">\magnethl+\magneth-\magnethg</span>) -| ++(0.1, <span class="org-font-latex-sedate">\magnethg</span>) -| ++(-0.2-<span class="org-font-latex-sedate">\magnetmw</span>, -<span class="org-font-latex-sedate">\magnethg</span>) -| (-0.5*<span class="org-font-latex-sedate">\magnetmw</span>, <span class="org-font-latex-sedate">\magnetmh</span>);
+    <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+    <span class="org-comment">% ======================</span>
+
+    <span class="org-comment">% ======================</span>
+    <span class="org-comment">% Coil</span>
+    <span class="org-comment">% ======================</span>
+    <span class="org-font-latex-sedate">\pgfmathsetmacro</span>{<span class="org-font-latex-sedate">\coilwidth</span>}{0.5*0.5*<span class="org-font-latex-sedate">\magnetmw+0</span>.5*0.1+0.25*<span class="org-font-latex-sedate">\magnetwg</span>}<span class="org-comment">%</span>
+    <span class="org-font-latex-sedate">\draw</span>[] ( <span class="org-font-latex-sedate">\coilwidth</span>, 0.5*<span class="org-font-latex-sedate">\magneth</span>) -- ++(0, 0.7*<span class="org-font-latex-sedate">\magneth</span>);
+    <span class="org-font-latex-sedate">\draw</span>[] (-<span class="org-font-latex-sedate">\coilwidth</span>, 0.5*<span class="org-font-latex-sedate">\magneth</span>) -- ++(0, 0.7*<span class="org-font-latex-sedate">\magneth</span>);
+    <span class="org-comment">% Point on the coil</span>
+    <span class="org-font-latex-sedate">\foreach</span> <span class="org-font-latex-sedate">\x</span> in {0,1,...,9}
+    {
+      <span class="org-font-latex-sedate">\node</span>[circle,inner sep=0.6pt,fill] at ( <span class="org-font-latex-sedate">\coilwidth</span>, <span class="org-font-latex-sedate">\x*0</span>.7*<span class="org-font-latex-sedate">\magneth/10+0</span>.5*<span class="org-font-latex-sedate">\magneth</span>);
+      <span class="org-font-latex-sedate">\node</span>[circle,inner sep=0.6pt,fill] at (-<span class="org-font-latex-sedate">\coilwidth</span>, <span class="org-font-latex-sedate">\x*0</span>.7*<span class="org-font-latex-sedate">\magneth/10+0</span>.5*<span class="org-font-latex-sedate">\magneth</span>);
+    }
+    <span class="org-font-latex-sedate">\draw</span>[fill=white] (-0.5*<span class="org-font-latex-sedate">\magnetw</span>, 1.2*<span class="org-font-latex-sedate">\magneth</span>) rectangle ++(<span class="org-font-latex-sedate">\magnetw</span>, <span class="org-font-latex-sedate">\magnethg</span>);
+    <span class="org-comment">% ======================</span>
+
+    <span class="org-comment">% ======================</span>
+    <span class="org-comment">% Coordinates</span>
+    <span class="org-comment">% ======================</span>
+    <span class="org-comment">% Force</span>
+    <span class="org-font-latex-sedate">\coordinate</span>[] (vc_force) at (0, <span class="org-font-latex-sedate">\magneth-0</span>.5*<span class="org-font-latex-sedate">\magnethg</span>);
+    <span class="org-comment">% Coil</span>
+    <span class="org-font-latex-sedate">\coordinate</span>[] (vc_coil) at (0, <span class="org-font-latex-sedate">\voicecoilh</span>);
+    <span class="org-comment">% Magnet</span>
+    <span class="org-font-latex-sedate">\coordinate</span>[] (vc_magnet) at (0, 0);
+    <span class="org-comment">% Coil Wires</span>
+    <span class="org-font-latex-sedate">\coordinate</span>[] (vc_wire_one) at ( <span class="org-font-latex-sedate">\coilwidth</span>, 1.2*<span class="org-font-latex-sedate">\magneth</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (vc_wire_two) at (-<span class="org-font-latex-sedate">\coilwidth</span>, 1.2*<span class="org-font-latex-sedate">\magneth</span>);
+    <span class="org-comment">% ======================</span>
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org38ffeeb" class="outline-2">
+<h2 id="org38ffeeb"><span class="section-number-2">12</span> Optics</h2>
+<div class="outline-text-2" id="text-12">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\tikzset</span>{<span class="org-comment">%</span>
+  -&gt;-/.style={
+    decoration={
+      markings,
+      mark = at position #1 with {<span class="org-font-latex-sedate">\arrow</span>{&gt;}
+      }
+    },
+    postaction={decorate}
+  }
+}
+<span class="org-font-latex-sedate">\tikzset</span>{<span class="org-comment">%</span>
+  -&lt;-/.style={
+    decoration={
+      markings,
+      mark = at position #1 with {<span class="org-font-latex-sedate">\arrow</span>{&lt;}
+      }
+    },
+    postaction={decorate}
+  }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org158b54e" class="outline-2">
+<h2 id="org158b54e"><span class="section-number-2">13</span> Misc</h2>
+<div class="outline-text-2" id="text-13">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\tikzset</span>{<span class="org-comment">%</span>
+  labelc/.style= {<span class="org-comment">%</span>
+    draw,
+    fill=white,
+    shape=circle,
+    inner sep=2pt,
+    outer sep=6pt,
+  }
+}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org865c0ba" class="outline-3">
+<h3 id="org865c0ba"><span class="section-number-3">13.1</span> Pencil Draw Style</h3>
+<div class="outline-text-3" id="text-13-1">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\tikzset</span>{<span class="org-comment">%</span>
+  pencildraw/.style={<span class="org-comment">%</span>
+    decorate,
+    decoration={random steps,segment length=0.8pt,amplitude=0.1pt}
+  }
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Dehaeze Thomas</p>
+<p class="date">Created: 2019-07-16 mar. 11:33</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

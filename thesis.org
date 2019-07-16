@@ -1,0 +1,123 @@
+#+TITLE: NASS - Nano Active Stabilization System
+:DRAWER:
+#+STARTUP: overview
+
+#+LANGUAGE: en
+#+EMAIL: dehaeze.thomas@gmail.com
+#+AUTHOR: Dehaeze Thomas
+
+#+HTML_LINK_HOME: ./index.html
+#+HTML_LINK_UP: ./index.html
+
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./css/htmlize.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./css/readtheorg.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./css/zenburn.css"/>
+#+HTML_HEAD: <script type="text/javascript" src="./js/jquery.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="./js/jquery.stickytableheaders.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="./js/readtheorg.js"></script>
+
+#+HTML_MATHJAX: align: center tagside: right font: TeX
+
+#+PROPERTY: header-args:latex  :headers '("\\usepackage{tikz}" "\\usepackage{import}" "\\import{$HOME/MEGA/These/LaTeX/}{config.tex}")
+#+PROPERTY: header-args:latex+ :imagemagick t :fit yes
+#+PROPERTY: header-args:latex+ :iminoptions -scale 100% -density 150
+#+PROPERTY: header-args:latex+ :imoutoptions -quality 100
+#+PROPERTY: header-args:latex+ :results raw replace :buffer no
+#+PROPERTY: header-args:latex+ :eval no-export
+#+PROPERTY: header-args:latex+ :exports both
+#+PROPERTY: header-args:latex+ :mkdirp yes
+#+PROPERTY: header-args:latex+ :output-dir figs
+:END:
+
+* Schedule of the thesis
+#+begin_src latex :file thesis-schedule.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+  \begin{tikzpicture}
+    \tikzstyle{table} = [
+      label skeleton,
+      matrix of nodes,
+      column sep=0pt,
+      row sep=0pt,
+      nodes in empty cells,
+      nodes={
+        align=left,
+        fill=white,
+        minimum height=1cm,
+        minimum width=2cm,
+        anchor=south
+        },
+      column 1/.style={
+        text width=7cm
+        }
+    ]
+    \tikzstyle{done} = [fill = green!70!black]
+    \tikzstyle{sche} = [fill = blue!60!white]
+
+    \matrix (m) [table] {
+                                                                                    & & & & \\
+      {\textbf{Definition of the requirements}\\Mobility, Stiffness}                & & & & \\
+      {\textbf{System Identification}\\Disturbances, Noise, Dynamics}               & & & & \\
+      {\textbf{Uniaxial model}\\Mass-Spring Model, PZ/VC evaluation}                & & & & \\
+      {\textbf{Full finite mass model}\\Simscape Model, Simulations}                & & & & \\
+      {\textbf{Control Architecture Development}\\MIMO Optimal (virtual) Sensor Fusion} & & & & \\
+      {\textbf{Design of the Nano-Hexapod}\\Modal Analysis, Control implementation} & & & & \\
+      {\textbf{Manufacture/Assembly/Test}\\Integration in the beamline}             & & & & \\
+    };
+
+    % Done
+    \path[done] (m-2-2.north west) rectangle (m-2-2.south);
+
+    \path[done] (m-3-2.north west) rectangle (m-3-3.south);
+    \path[sche] (m-3-3.north) rectangle (m-3-4.south west);
+
+    \path[done] (m-4-2.north west) rectangle (m-4-3.south west);
+
+    \path[done] (m-5-2.north) rectangle (m-5-3.south);
+    \path[sche] (m-5-3.north) rectangle (m-5-4.south);
+
+    \path[done] (m-6-3.north west) rectangle (m-6-3.south);
+    \path[sche] (m-6-3.north) rectangle (m-6-5.south west);
+
+    \path[sche] (m-7-3.north) rectangle (m-7-5.south west);
+
+    \path[sche] (m-8-4.north) rectangle (m-8-5.south east);
+
+    % Years
+    \node[] at (m-1-1) {\textbf{Work Package}};
+    \node[] at (m-1-2) {\textbf{1\textsuperscript{st} Year}};
+    \node[] at (m-1-3) {\textbf{2\textsuperscript{nd} Year}};
+    \node[] at (m-1-4) {\textbf{3\textsuperscript{rd} Year}};
+    \node[] at (m-1-5) {\textbf{4\textsuperscript{th} Year}};
+
+    % Vertical Lines
+    \draw[] (m-1-2.north west) -- (m-8-2.south west);
+    \draw[] (m-1-3.north west) -- (m-8-3.south west);
+    \draw[] (m-1-4.north west) -- (m-8-4.south west);
+    \draw[] (m-1-5.north west) -- (m-8-5.south west);
+
+    \draw[thin] (m-2-2.north) -- (m-8-2.south);
+    \draw[thin] (m-2-3.north) -- (m-8-3.south);
+    \draw[thin] (m-2-4.north) -- (m-8-4.south);
+    \draw[thin] (m-2-5.north) -- (m-8-5.south);
+
+    % Horizontal Lines
+    \draw[] (m-1-1.south west) -- (m-1-5.south east);
+    \draw[] (m-2-1.south west) -- (m-2-5.south east);
+    \draw[] (m-3-1.south west) -- (m-3-5.south east);
+    \draw[] (m-4-1.south west) -- (m-4-5.south east);
+    \draw[] (m-5-1.south west) -- (m-5-5.south east);
+    \draw[] (m-6-1.south west) -- (m-6-5.south east);
+    \draw[] (m-7-1.south west) -- (m-7-5.south east);
+
+    % Vertical year indicating the current time
+    \draw[dashed, color=black!60!white, thick] ($(m-2-2.north)+(0.2, 0)$) -- ($(m-8-2.south)+(0.2, 0)$);
+    \draw[<-] ($(m-8-2.south)+(0.2, 0)$) -- ++(0, -0.5) node[below]{1\textsuperscript{st} meeting};
+    \draw[dashed, thick] ($(m-2-3.north)+(0.2, 0)$) -- ($(m-8-3.south)+(0.2, 0)$);
+    \draw[<-] ($(m-8-3.south)+(0.2, 0)$) -- ++(0, -0.5) node[below]{Now};
+
+    \draw[<-] (m-8-5.south east) -- ++(0, -0.5) node[below]{11/2021};
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:figs/thesis-schedule.png]]
