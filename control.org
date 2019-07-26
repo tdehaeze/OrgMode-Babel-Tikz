@@ -1439,6 +1439,27 @@
 #+RESULTS:
 [[file:figs/sf_hinf_filters_b.png]]
 
+** Generate Complementary Filters using Feedback Control Architecture
+#+begin_src latex :file complementary_filters_feedback_architecture.pdf :tangle figs/complementary_filters_feedback_architecture.tex :exports both
+  \begin{tikzpicture}
+    \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
+    \node[block, right=1 of addfb] (L){$L$};
+    \node[addb={+}{}{}{}{}, right=1 of L] (adddy){};
+
+    \draw[<-] (addfb.west) -- ++(-1, 0) node[above right]{$y_1$};
+    \draw[->] (addfb.east) -- (L.west);
+    \draw[->] (L.east) -- (adddy.west);
+    \draw[->] (adddy.east) -- ++(1, 0) node[above left]{$y_s$};
+    \draw[->] ($(adddy.east) + (0.5, 0)$) node[branch]{} -- ++(0, -1) -| (addfb.south);
+    \draw[<-] (adddy.north) -- ++(0, 1) node[below right]{$y_2$};
+  \end{tikzpicture}
+#+end_src
+
+#+name: fig:complementary_filters_feedback_architecture
+#+caption: Generation of Complementary Filters using the feedback architecture ([[./figs/complementary_filters_feedback_architecture.png][png]], [[./figs/complementary_filters_feedback_architecture.pdf][pdf]], [[./figs/complementary_filters_feedback_architecture.tex][tex]]).
+#+RESULTS:
+[[file:figs/complementary_filters_feedback_architecture.png]]
+
 * Rotating Frame
 ** Control Diagram for fixed measurement
 #+begin_src latex :file control_measure_fixed.pdf
