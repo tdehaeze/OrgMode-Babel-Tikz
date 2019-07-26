@@ -28,10 +28,11 @@
 #+PROPERTY: header-args:latex+ :exports both
 #+PROPERTY: header-args:latex+ :mkdirp yes
 #+PROPERTY: header-args:latex+ :output-dir figs
+#+PROPERTY: header-args:latex+ :post pdf2svg(file=*this*, ext="png")
 :END:
 
 * 1DoF Feedback control
-#+begin_src latex :file pend-exp-1dof-fb.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file pend-exp-1dof-fb.pdf
 \begin{tikzpicture}
   % Blocs
   \coordinate[] (start) at (0, 0);
@@ -59,7 +60,7 @@
 #+RESULTS:
 [[file:figs/pend-exp-1dof-fb.png]]
 * General Control Configuration
-#+begin_src latex :file pend-exp-general-conf.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file pend-exp-general-conf.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block] (CI) {$H_{\text{CI}}$};
@@ -141,7 +142,7 @@
 #+RESULTS:
 [[file:figs/pend-exp-general-conf.png]]
 * System blocs
-#+begin_src latex :file pend-exp-blocs.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file pend-exp-blocs.pdf
   \begin{tikzpicture}
     % Blocks
     \node[DAC] (dac) {DAC};

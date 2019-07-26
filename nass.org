@@ -28,11 +28,12 @@
 #+PROPERTY: header-args:latex+ :exports both
 #+PROPERTY: header-args:latex+ :mkdirp yes
 #+PROPERTY: header-args:latex+ :output-dir figs
+#+PROPERTY: header-args:latex+ :post pdf2svg(file=*this*, ext="png")
 :END:
 
 * Schematics
 ** Experiment - Schematic
-#+begin_src latex :file exp_full_setup.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file exp_full_setup.pdf
   \begin{tikzpicture}
     % Parameters
     \def\blockw{6.0cm}
@@ -171,7 +172,7 @@
 [[file:figs/exp_full_setup.png]]
 
 ** NASS - Solidworks
-#+begin_src latex :file nass_solidworks.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file nass_solidworks.pdf
   \graphicspath{{~/MEGA/These/LaTeX/img/}}
   \begin{tikzpicture}
     \tikzstyle{legend}=[draw, text width=4.2cm, align=center]
@@ -248,7 +249,7 @@
 [[file:figs/nass_solidworks.png]]
 
 ** NASS - Picture
-#+begin_src latex :file nass_picture.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file nass_picture.pdf
   \graphicspath{{~/MEGA/These/LaTeX/img/}}
   \begin{tikzpicture}
     \node[inner sep=0pt, anchor=south west] (photo) at (0,0)
@@ -287,7 +288,7 @@
 [[file:figs/nass_picture.png]]
 
 ** NASS - Schematic
-#+begin_src latex :file nass_schematic.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file nass_schematic.pdf
 \begin{tikzpicture}
   % Parameters
   \def\blockw{6.0cm}
@@ -507,7 +508,7 @@
 [[file:figs/nass_schematic.png]]
 
 ** NASS - Schematic without nano-station
-#+begin_src latex :file nass_schematic_wo_nano_stage.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file nass_schematic_wo_nano_stage.pdf
   \begin{tikzpicture}
     % Parameters
     \def\blockw{6.0cm}
@@ -679,7 +680,7 @@
 [[file:figs/nass_schematic_wo_nano_stage.png]]
 * Control
 ** Classical Control
-#+begin_src latex :file nass_ctrl_class.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file nass_ctrl_class.pdf
   \begin{tikzpicture}
     % Parameters
     \def\blockw{6.0cm}
@@ -844,7 +845,7 @@
 [[file:figs/nass_ctrl_class.png]]
 
 ** Colocated Control
-#+begin_src latex :file nass_ctrl_colocated.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file nass_ctrl_colocated.pdf
   \begin{tikzpicture}
     % Parameters
     \def\blockw{6.0cm}
@@ -1009,7 +1010,7 @@
 [[file:figs/nass_ctrl_colocated.png]]
 
 ** Sensor Fusion
-#+begin_src latex :file nass_ctrl_sf.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file nass_ctrl_sf.pdf
   \begin{tikzpicture}
     % Parameters
     \def\blockw{6.0cm}
@@ -1198,7 +1199,7 @@
 [[file:figs/nass_ctrl_sf.png]]
 * Uni-axial Model
 ** Uni-axial Model - Micro Station
-#+begin_src latex :file nass-uniaxial-model-micro-station.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file nass-uniaxial-model-micro-station.pdf
   \begin{tikzpicture}
     % ====================
     % Parameters
@@ -1277,7 +1278,7 @@
 [[file:figs/nass-uniaxial-model-micro-station.png]]
 
 ** Uni-axial Model - NASS
-#+begin_src latex :file nass-uniaxial-model.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file nass-uniaxial-model.pdf
   \begin{tikzpicture}
     % ====================
     % Parameters
@@ -1419,7 +1420,7 @@
 #+RESULTS:
 [[file:figs/nass-uniaxial-model.png]]
 ** Uni-axial Model - Spindle
-#+begin_src latex :file uniaxial-model-spindle.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file uniaxial-model-spindle.pdf
   \begin{tikzpicture}
     % ====================
     % Parameters
@@ -1495,7 +1496,7 @@
 [[file:figs/uniaxial-model-spindle.png]]
 
 ** Uni-axial Model - DVF
-#+begin_src latex :file uniaxial-model-dvf.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file uniaxial-model-dvf.pdf
   \begin{tikzpicture}
     % ====================
     % Parameters
@@ -1652,7 +1653,7 @@
 [[file:figs/uniaxial-model-dvf.png]]
 
 ** Uni-axial Model - HAC-LAC
-#+begin_src latex :file uniaxial-model-hac-lac.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file uniaxial-model-hac-lac.pdf
   \begin{tikzpicture}
     % ====================
     % Parameters
@@ -1815,7 +1816,7 @@
 [[file:figs/uniaxial-model-hac-lac.png]]
 
 ** Uni-axial Model - Skyhook Damper
-#+begin_src latex :file uniaxial-model-skyhook.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file uniaxial-model-skyhook.pdf
   \begin{tikzpicture}
     % ====================
     % Parameters
@@ -1977,7 +1978,7 @@
 [[file:figs/uniaxial-model-skyhook.png]]
 * Uni-axial Model - bis
 ** Uni-axial Model - Micro Station
-#+begin_src latex :file uniaxial-model-micro-station.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file uniaxial-model-micro-station.pdf
   \begin{tikzpicture}
     % ====================
     % Parameters
@@ -2070,7 +2071,7 @@
 [[file:figs/uniaxial-model-micro-station.png]]
 
 ** Uni-axial Model - NASS
-#+begin_src latex :file uniaxial-model-nass.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file uniaxial-model-nass.pdf
   \begin{tikzpicture}
     % ====================
     % Parameters
@@ -2212,7 +2213,7 @@
 [[file:figs/uniaxial-model-nass.png]]
 
 ** Uni-axial Model - NASS - Flexible
-#+begin_src latex :file uniaxial-model-nass-flexible.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file uniaxial-model-nass-flexible.pdf
   \begin{tikzpicture}
     % ====================
     % Parameters
@@ -2377,7 +2378,7 @@
 [[file:figs/uniaxial-model-nass-flexible.png]]
 
 ** Uni-axial Model - Active Damping
-#+begin_src latex :file uniaxial-model-act_damp.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file uniaxial-model-act_damp.pdf
   \begin{tikzpicture}
     % ====================
     % Parameters
@@ -2680,7 +2681,7 @@
 [[file:figs/uniaxial-model-act_damp.png]]
 
 ** Uni-axial Model - HAC-LAC
-#+begin_src latex :file uniaxial-model-hac-lac.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file uniaxial-model-hac-lac.pdf
   \begin{tikzpicture}
     % ====================
     % Parameters
@@ -2844,7 +2845,7 @@
 
 * Measurements
 ** Geophone Measurements
-#+begin_src latex :file geophone_meas.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file geophone_meas.pdf
   \begin{tikzpicture}
     % Parameters
     \def\blockw{6.0cm}
@@ -2973,7 +2974,7 @@
 
 * Setup
 ** Schematic Setup
-#+begin_src latex :file nass-setup-test.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file nass-setup-test.pdf
   \tikzstyle{cin} = [font=\small, color=blue!40!black, below left]
   \tikzstyle{cout} = [font=\small, color=blue!40!black, above left]
 
@@ -3029,7 +3030,7 @@
 #+RESULTS:
 [[file:figs/nass-setup-test.png]]
 ** Modal Measurement Setup
-#+begin_src latex :file nass-modal-test.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file nass-modal-test.pdf
   \newcommand\axisdef[6][]{
   \begin{scope}[#5, shift={(#1)}]
     \def\axissize{0.8cm}

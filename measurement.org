@@ -28,11 +28,12 @@
 #+PROPERTY: header-args:latex+ :exports both
 #+PROPERTY: header-args:latex+ :mkdirp yes
 #+PROPERTY: header-args:latex+ :output-dir figs
+#+PROPERTY: header-args:latex+ :post pdf2svg(file=*this*, ext="png")
 :END:
 
 * Modal Test
 ** Diagram for modal test
-#+begin_src latex :file modal_test_procedure.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file modal_test_procedure.pdf
   \begin{tikzpicture}
     \tikzset{mylabel/.style={anchor=north, above, font=\bfseries\small, color=black, text width=3cm, align=center}};
     \tikzset{mystep/.style={block, align=center, text width=3cm, minimum height=2cm}};
@@ -66,7 +67,7 @@
 #+RESULTS:
 [[file:figs/modal_test_procedure.png]]
 ** Diagram for modal test
-#+begin_src latex :file modal_test_procedure_vertical.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file modal_test_procedure_vertical.pdf
   \begin{tikzpicture}
     % Styles
     \tikzset{mystep/.style=  {draw, fill=white,          text width=3cm, align=center, minimum height=2cm}};

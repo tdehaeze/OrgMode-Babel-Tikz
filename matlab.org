@@ -28,6 +28,7 @@
 #+PROPERTY: header-args:latex+ :exports both
 #+PROPERTY: header-args:latex+ :mkdirp yes
 #+PROPERTY: header-args:latex+ :output-dir figs
+#+PROPERTY: header-args:latex+ :post pdf2svg(file=*this*, ext="png")
 :END:
 
 * Bode Plot
@@ -451,7 +452,7 @@
   };
 #+end_src
 ** Plot
-#+begin_src latex :file tikz_bode.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file tikz_bode.pdf
   <<tikz_bode_size>>
   <<tikz_bode_colors>>
   \begin{tikzpicture}

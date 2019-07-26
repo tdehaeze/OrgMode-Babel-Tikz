@@ -28,6 +28,7 @@
 #+PROPERTY: header-args:latex+ :exports both
 #+PROPERTY: header-args:latex+ :mkdirp yes
 #+PROPERTY: header-args:latex+ :output-dir figs
+#+PROPERTY: header-args:latex+ :post pdf2svg(file=*this*, ext="png")
 :END:
 
 * Mass-Spring Systems
@@ -82,7 +83,7 @@
 [[file:figs/mech_sys_1dof.png]]
 
 ** Two masses
-#+begin_src latex :file mech_sys_2dof.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file mech_sys_2dof.pdf
   \begin{tikzpicture}
     % ====================
     % Parameters
@@ -311,7 +312,7 @@
 [[file:figs/mech_sys_4dof.png]]
 
 * Control Based on distance measurement
-#+begin_src latex :file mech_sys_1dof_contr.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file mech_sys_1dof_contr.pdf
   \begin{tikzpicture}
     % Parameters
     \def\massw{3}
@@ -365,7 +366,7 @@
 [[file:figs/mech_sys_1dof_contr.png]]
 
 * Inertial Control
-#+begin_src latex :file mech_sys_1dof_inertial_contr.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file mech_sys_1dof_inertial_contr.pdf
   \begin{tikzpicture}
     % Parameters
     \def\massw{3}
@@ -400,7 +401,7 @@
 [[file:figs/mech_sys_1dof_inertial_contr.png]]
 
 * Force Feedback Control
-#+begin_src latex :file mech_sys_1dof_force_contr.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file mech_sys_1dof_force_contr.pdf
   \begin{tikzpicture}
     % Parameters
     \def\massw{3}
@@ -436,7 +437,7 @@
 
 * Stewart Platform
 ** Single Stewart platform
-#+begin_src latex :file tikz_stewart.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file tikz_stewart.pdf
   \begin{tikzpicture}
     % Parameters definitions
     \def\baseh{0.2} % Height of the base
@@ -487,7 +488,7 @@
 #+RESULTS:
 [[file:figs/tikz_stewart.png]]
 ** Stacked Stewart platform
-#+begin_src latex :file tikz_stewart_stacked.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file tikz_stewart_stacked.pdf
   \begin{tikzpicture}
     % Parameters definitions
     \def\baseh{0.2} % Height of the base
@@ -587,7 +588,7 @@
 #+RESULTS:
 [[file:figs/tikz_stewart_stacked.png]]
 ** Stewart Platform - 3D - Jacobian
-#+begin_src latex :file jacobian.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file jacobian.pdf
   \begin{tikzpicture}
     \coordinate[] (O) at (0, 0);
     \coordinate[] (P) at (1, 2);
@@ -623,7 +624,7 @@
 [[file:figs/jacobian.png]]
 
 ** Cubic Stewart Platform - Not aligned
-#+begin_src latex :file 3d-cubic-stewart-misaligned.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file 3d-cubic-stewart-misaligned.pdf
   \begin{tikzpicture}
     \begin{scope}[rotate={45}, shift={(0, 0, -4)}]
       % We first define the coordinate of the points of the Cube
@@ -710,7 +711,7 @@
 [[file:figs/3d-cubic-stewart-misaligned.png]]
 
 ** Cubic Stewart Platform - Centered
-#+begin_src latex :file 3d-cubic-stewart-aligned.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file 3d-cubic-stewart-aligned.pdf
   \begin{tikzpicture}
     \begin{scope}[rotate={45}, shift={(0, 0, -4)}]
       % We first define the coordinate of the points of the Cube
@@ -798,7 +799,7 @@
 
 * 3D
 ** Coriolis Forces
-#+begin_src latex :file 3d-mass.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file 3d-mass.pdf
   \begin{tikzpicture}
 
     \draw[->] (0, 0, 0) -- (4, 0, 0) node[above] {$x$};
@@ -834,7 +835,7 @@
 [[file:figs/3d-mass.png]]
 
 ** Cube
-#+begin_src latex :file 3d-cube.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file 3d-cube.pdf
   \begin{tikzpicture}
     \begin{scope}
       \fill[fill=black!40, opacity=0.7] (0,0,4) -- (4,0,4) -- (4,4,4) -- (0,4,4) -- cycle;
@@ -860,7 +861,7 @@
 
 * Gravity Compensation System
 ** Null angle
-#+begin_src latex :file gravity_compensation.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file gravity_compensation.pdf
   \begin{tikzpicture}
     % Parameters definitions
     \def\baseh{0.2} % Height of the base
@@ -914,7 +915,7 @@
 #+RESULTS:
 [[file:figs/gravity_compensation.png]]
 ** Maximum angle
-#+begin_src latex :file gravity_compensation_angle.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file gravity_compensation_angle.pdf
   \begin{tikzpicture}
     % Parameters definitions
     \def\baseh{0.2} % Height of the base
@@ -968,7 +969,7 @@
 #+RESULTS:
 [[file:figs/gravity_compensation_angle.png]]
 * 3Dof System
-#+begin_src latex :file 3dof_system.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file 3dof_system.pdf
   \begin{tikzpicture}
     \draw[fill=white] (-3, 0) -- (-3, 1) -- (3, 1) -- (3, 0) -- cycle;
     \draw[fill=white] (-3, 4) -- (-3, 5) -- (3, 5) -- (3, 4) -- cycle;
@@ -1011,7 +1012,7 @@
 #+RESULTS:
 [[file:figs/3dof_system.png]]
 * 3Dof System - bis
-#+begin_src latex :file 3dof_system_bis.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file 3dof_system_bis.pdf
   \begin{tikzpicture}
     \draw[fill=white] (-1, -1) -- (-1, 7) -- (0, 7) -- (0, 0) -- (6, 0) -- (6, -1) -- cycle;
 
@@ -1066,7 +1067,7 @@
 #+RESULTS:
 [[file:figs/3dof_system_bis.png]]
 * Guiding Errors
-#+begin_src latex :file guiding_error.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file guiding_error.pdf
   \begin{tikzpicture}
     \tikzset{%
       guidingpath/.style={%
@@ -1105,7 +1106,7 @@
 #+RESULTS:
 [[file:figs/guiding_error.png]]
 * Vibration analysis procedure
-#+begin_src latex :file vibration_analysis_procedure.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file vibration_analysis_procedure.pdf
   \begin{tikzpicture}
     \node[block, inner sep = 8pt, align=center] (1) {Description\\of structure};
     \node[block, inner sep = 8pt, align=center, right=0.6 of 1] (2) {Vibration\\Modes};

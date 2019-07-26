@@ -28,11 +28,12 @@
 #+PROPERTY: header-args:latex+ :exports both
 #+PROPERTY: header-args:latex+ :mkdirp yes
 #+PROPERTY: header-args:latex+ :output-dir figs
+#+PROPERTY: header-args:latex+ :post pdf2svg(file=*this*, ext="png")
 :END:
 
 * Control Synthesis - General Procedure
 ** Control Procedure
-#+begin_src latex :file control-procedure.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file control-procedure.pdf
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addsub) at (0, 0){};
 
@@ -61,7 +62,7 @@
 [[file:figs/control-procedure.png]]
 
 ** Control Procedure - Digital Synthesis
-#+begin_src latex :file control-procedure-digital.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file control-procedure-digital.pdf
   \begin{tikzpicture}
     \node[draw, fill=white, align=center, text width=2cm] (m_continu) at (0, 0) {Modèle continu};
     \node[draw, fill=white, align=center, text width=2cm] (m_discret) at (6, 0) {Modèle discret};
@@ -82,7 +83,7 @@
 
 * Classical Feedback
 ** One Degree of Freedom
-#+begin_src latex :file classical_feedback.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file classical_feedback.pdf
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[block, right=1 of addfb] (K){$K$};
@@ -113,7 +114,7 @@
 [[file:figs/classical_feedback.png]]
 
 ** One Degree of Freedom - Alternative
-#+begin_src latex :file classical_feedback_alt.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file classical_feedback_alt.pdf
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[block, right=1 of addfb] (K){$K$};
@@ -139,7 +140,7 @@
 [[file:figs/classical_feedback_alt.png]]
 
 ** One Degree of Freedom - Small
-#+begin_src latex :file classical_feedback_small.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file classical_feedback_small.pdf
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[block, right=0.6 of addfb] (K){$K$};
@@ -163,7 +164,7 @@
 [[file:figs/classical_feedback_small.png]]
 
 ** One Degree of Freedom - Alternative bis
-#+begin_src latex :file classical_feedback_bis.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file classical_feedback_bis.pdf
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[block, right=1 of addfb] (K){$K$};
@@ -187,7 +188,7 @@
 [[file:figs/classical_feedback_bis.png]]
 
 ** One Degree of Freedom - Check Stability
-#+begin_src latex :file classical_feedback_stability.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file classical_feedback_stability.pdf
   \begin{tikzpicture}
     \node[block] (K){$-K$};
     \node[addb={+}{}{}{}{}, right=1 of K] (adddu){};
@@ -209,7 +210,7 @@
 [[file:figs/classical_feedback_stability.png]]
 
 ** One Degree of Freedom - Measurement transfer function
-#+begin_src latex :file classical_feedback_meas.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file classical_feedback_meas.pdf
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[block, right=1 of addfb] (K){$K$};
@@ -237,7 +238,7 @@
 [[file:figs/classical_feedback_meas.png]]
 
 ** Two Degrees of Freedom
-#+begin_src latex :file classical_feedback_2dof.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file classical_feedback_2dof.pdf
   \begin{tikzpicture}
     \node[block={1cm}{1.5cm}] (K) {$K$};
     \node[block, right=1 of K] (G) {$G$};
@@ -263,7 +264,7 @@
 [[file:figs/classical_feedback_2dof.png]]
 
 ** Two Degrees of Freedom - Alternative
-#+begin_src latex :file classical_feedback_2dof_alt.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file classical_feedback_2dof_alt.pdf
   \begin{tikzpicture}
     \node[block={1.5cm}{1cm}] (K) {$K$};
     \node[block, right=1 of K] (G) {$G$};
@@ -291,7 +292,7 @@
 [[file:figs/classical_feedback_2dof_alt.png]]
 
 ** Two Degrees of Freedom - Simple
-#+begin_src latex :file classical_feedback_2dof_simple.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file classical_feedback_2dof_simple.pdf
   \begin{tikzpicture}
     \node[block={1.5cm}{1cm}] (K) {$K$};
     \node[block, right=0.6 of K] (G) {$G$};
@@ -311,7 +312,7 @@
 [[file:figs/classical_feedback_2dof_simple.png]]
 
 ** Two Degrees of Freedom - separated
-#+begin_src latex :file classical_feedback_sep.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file classical_feedback_sep.pdf
   \begin{tikzpicture}
     \node[block] (Kr) at (0, 0){$K_r$};
     \node[addb={+}{}{}{}{-}, right=1 of Kr] (addfb){};
@@ -339,7 +340,7 @@
 [[file:figs/classical_feedback_sep.png]]
 
 ** One Degree of freedom with ADC and DAC
-#+begin_src latex :file classical_feedback_adc_dac.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file classical_feedback_adc_dac.pdf
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) {};
     \node[block, right=1 of addfb] (K) {$K$};
@@ -368,7 +369,7 @@
 
 * Feedforward
 ** Simple Adaptive feedforward
-#+begin_src latex :file feedforward_adaptative.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file feedforward_adaptative.pdf
   \begin{tikzpicture}
     \node[block={2.0cm}{2.0cm}] (P) {$P$};
     \node[above] at (P.north) {System};
@@ -396,7 +397,7 @@
 
 * General Control Configuration
 ** Generalized Plant
-#+begin_src latex :file general_plant.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file general_plant.pdf
   \begin{tikzpicture}
     \node[block={2.0cm}{2.0cm}] (P) {$P$};
     \node[above] at (P.north) {Generalized Plant};
@@ -420,7 +421,7 @@
 [[file:figs/general_plant.png]]
 
 ** General Control configuration
-#+begin_src latex :file general_control.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file general_control.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block={2.0cm}{2.0cm}] (P) {$P$};
@@ -446,7 +447,7 @@
 [[file:figs/general_control.png]]
 
 ** General Control configuration - Names
-#+begin_src latex :file general_control_names.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file general_control_names.pdf
   \begin{tikzpicture}
 
     % Blocs
@@ -472,7 +473,7 @@
 [[file:figs/general_control_names.png]]
 
 ** General Control Configuration - Diagonal Control
-#+begin_src latex :file general_control_diag.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file general_control_diag.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block={3cm}{2cm}] (P) {P};
@@ -508,7 +509,7 @@
 [[file:figs/general_control_diag.png]]
 
 ** General Control Configuration - 1DoF Feedback
-#+begin_src latex :file general_control_exp.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file general_control_exp.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block] (G) {$G$};
@@ -566,7 +567,7 @@
 [[file:figs/general_control_exp.png]]
 
 ** Weighted General Control Configuration
-#+begin_src latex :file general_plant_weights.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file general_plant_weights.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block={2.0cm}{2.0cm}] (P) {$\tilde{P}$};
@@ -600,7 +601,7 @@
 [[file:figs/general_plant_weights.png]]
 
 ** General Control Configuration - Weighted 1DoF Feedback
-#+begin_src latex :file general_control_exp_weighted.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file general_control_exp_weighted.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block] (G) {$G$};
@@ -669,7 +670,7 @@
 [[file:figs/general_control_exp_weighted.png]]
 
 ** Uncertainty block
-#+begin_src latex :file general_control_delta.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file general_control_delta.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block={2.0cm}{2.0cm}] (P) {$P$};
@@ -700,7 +701,7 @@
 [[file:figs/general_control_delta.png]]
 
 ** Uncertainty block - NDelta configuration
-#+begin_src latex :file general_control_Ndelta.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file general_control_Ndelta.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block={2.0cm}{2.0cm}] (P) {$N$};
@@ -726,7 +727,7 @@
 [[file:figs/general_control_Ndelta.png]]
 
 ** M Delta Analysis
-#+begin_src latex :file general_control_Mdelta.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file general_control_Mdelta.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block={1.5cm}{1.2cm}] (M) {$M$};
@@ -743,7 +744,7 @@
 
 * Control Architectures
 ** PID
-#+begin_src latex :file control_pid.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file control_pid.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block] (KP) {$K_P$};
@@ -779,7 +780,7 @@
 
 * Input Output Uncertainty
 ** Input and output uncertainty
-#+begin_src latex :file input_output_uncertainty.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file input_output_uncertainty.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block] (G) {$G$};
@@ -808,7 +809,7 @@
 [[file:figs/input_output_uncertainty.png]]
 
 ** Input Multiplicative Uncertainty - Feedback
-#+begin_src latex :file input_uncertainty_set_feedback.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file input_uncertainty_set_feedback.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block] (G) {$G$};
@@ -838,7 +839,7 @@
 [[file:figs/input_uncertainty_set_feedback.png]]
 
 ** Input Multiplicative Uncertainty - Feedback - weight
-#+begin_src latex :file input_uncertainty_set_feedback_weight.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file input_uncertainty_set_feedback_weight.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block] (G) {$G$};
@@ -874,7 +875,7 @@
 [[file:figs/input_uncertainty_set_feedback_weight.png]]
 
 ** Input Multiplicative Uncertainty - Feedback - weight - bis
-#+begin_src latex :file input_uncertainty_set_feedback_weight_bis.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file input_uncertainty_set_feedback_weight_bis.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block] (G) {$G$};
@@ -907,7 +908,7 @@
 [[file:figs/input_uncertainty_set_feedback_weight_bis.png]]
 
 ** Inverse Multiplicative Uncertainty - Feedback
-#+begin_src latex :file inverse_uncertainty_set.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file inverse_uncertainty_set.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block] (G) {$G$};
@@ -940,7 +941,7 @@
 [[file:figs/inverse_uncertainty_set.png]]
 ** Six types of uncertainty
 *** Additive Uncertainty
-#+begin_src latex :file additive_uncertainty.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file additive_uncertainty.pdf
   \begin{tikzpicture}
     \node[block] (G) {$G$};
 
@@ -965,7 +966,7 @@
 [[file:figs/additive_uncertainty.png]]
 
 *** Input Multiplicative Uncertainty
-#+begin_src latex :file input_uncertainty.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file input_uncertainty.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block] (G) {$G$};
@@ -990,7 +991,7 @@
 [[file:figs/input_uncertainty.png]]
 
 *** Output Multiplicative Uncertainty
-#+begin_src latex :file output_uncertainty.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file output_uncertainty.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block] (G) {$G$};
@@ -1015,7 +1016,7 @@
 #+RESULTS:
 [[file:figs/output_uncertainty.png]]
 *** Inverse Additive Uncertainty
-#+begin_src latex :file inv_additive_uncertainty.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file inv_additive_uncertainty.pdf
   \begin{tikzpicture}
     \node[block] (G) {$G$};
 
@@ -1040,7 +1041,7 @@
 [[file:figs/inv_additive_uncertainty.png]]
 
 *** Inverse Multiplicative Input Uncertainty
-#+begin_src latex :file inv_input_uncertainty.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file inv_input_uncertainty.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block] (G) {$G$};
@@ -1065,7 +1066,7 @@
 #+RESULTS:
 [[file:figs/inv_input_uncertainty.png]]
 *** Inverse Multiplicative Output Uncertainty
-#+begin_src latex :file inv_output_uncertainty.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file inv_output_uncertainty.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block] (G) {$G$};
@@ -1092,7 +1093,7 @@
 
 * Sensor Fusion
 ** Mechanical Architecture
-#+begin_src latex :file sf_arch_mech.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file sf_arch_mech.pdf
   \begin{tikzpicture}
     % Sensors
     \node[draw, fill=white, align=center, minimum height=1cm, minimum width=3cm] (lpsensor) at (0, 0) {High authority\\sensor};
@@ -1153,7 +1154,7 @@
 [[file:figs/sf_arch_mech.png]]
 
 ** Sensor Fusion with complementary filters
-#+begin_src latex :file sf_arch.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file sf_arch.pdf
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[block, right=0.75 of addfb] (K){$K$};
@@ -1188,7 +1189,7 @@
 [[file:figs/sf_arch.png]]
 
 ** General Sensor Fusion with real sensors
-#+begin_src latex :file sf_arch_real_sensors.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file sf_arch_real_sensors.pdf
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[block, right=1 of addfb] (K){$K$};
@@ -1231,7 +1232,7 @@
 [[file:figs/sf_arch_real_sensors.png]]
 
 ** Equivalent configuration
-#+begin_src latex :file sf_arch_eq.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file sf_arch_eq.pdf
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[addb={+}{}{}{}{-}, right=0.75 of addfb] (addK){};
@@ -1266,7 +1267,7 @@
 [[file:figs/sf_arch_eq.png]]
 
 ** Equivalent configuration - classical Feedback
-#+begin_src latex :file sf_arch_class.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file sf_arch_class.pdf
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[block, right=0.75 of addfb] (K){$K_{\text{fb}}$};
@@ -1292,7 +1293,7 @@
 [[file:figs/sf_arch_class.png]]
 
 ** Equivalent configuration - classical Feedback with pre-filter
-#+begin_src latex :file sf_arch_class_prefilter.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file sf_arch_class_prefilter.pdf
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[block={1cm}{0.9cm}, left=0.5 of addfb] (Kr){$K_r$};
@@ -1320,7 +1321,7 @@
 [[file:figs/sf_arch_class_prefilter.png]]
 
 ** H-Infinity - Complementary filters - Generalized plant
-#+begin_src latex :file sf_hinf_filters_plant.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file sf_hinf_filters_plant.pdf
   \begin{tikzpicture}
      \node[block={6.0cm}{5.0cm}, dashed] (P) {};
 
@@ -1348,7 +1349,7 @@
 [[file:figs/sf_hinf_filters_plant.png]]
 
 ** H-Infinity - Complementary filters - Generalized plant - bis
-#+begin_src latex :file sf_hinf_filters_plant_b.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file sf_hinf_filters_plant_b.pdf
   \begin{tikzpicture}
      \node[block={5.0cm}{4.0cm}, dashed] (P) {};
 
@@ -1377,7 +1378,7 @@
 [[file:figs/sf_hinf_filters_plant_b.png]]
 
 ** H-Infinity - Complementary filters
-#+begin_src latex :file sf_hinf_filters.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file sf_hinf_filters.pdf
   \begin{tikzpicture}
     \node[block={6.0cm}{5.0cm}, dashed] (P) {};
 
@@ -1408,7 +1409,7 @@
 [[file:figs/sf_hinf_filters.png]]
 
 ** H-Infinity - Complementary filters - bis
-#+begin_src latex :file sf_hinf_filters_b.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file sf_hinf_filters_b.pdf
   \begin{tikzpicture}
      \node[block={5.0cm}{4.0cm}, dashed] (P) {};
 
@@ -1440,7 +1441,7 @@
 
 * Rotating Frame
 ** Control Diagram for fixed measurement
-#+begin_src latex :file control_measure_fixed.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file control_measure_fixed.pdf
   \begin{tikzpicture}
     % Blocs
     \node[addb={+}{}{}{}{-}] (subr) at (0, 0) {};
@@ -1461,7 +1462,7 @@
 [[file:figs/control_measure_fixed.png]]
 
 ** Control Diagram for fixed measurement - 2DoF
-#+begin_src latex :file control_measure_fixed_2dof.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file control_measure_fixed_2dof.pdf
   \begin{tikzpicture}
     % Blocs
     \node[addb={+}{}{}{}{-}] (subr) at (0, 0) {};
@@ -1482,7 +1483,7 @@
 [[file:figs/control_measure_fixed_2dof.png]]
 
 ** Control diagram for rotating measurement
-#+begin_src latex :file control_measure_rotating.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file control_measure_rotating.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block] (J) at (0, 0) {$J(\theta)$};
@@ -1503,7 +1504,7 @@
 [[file:figs/control_measure_rotating.png]]
 
 ** Control diagram for rotating measurement - 2DoF
-#+begin_src latex :file control_measure_rotating_2dof.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file control_measure_rotating_2dof.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block] (J) at (0, 0) {$J(\theta)$};
@@ -1524,7 +1525,7 @@
 [[file:figs/control_measure_rotating_2dof.png]]
 
 ** Rotating Frame - 1DoF
-#+begin_src latex :file rotating_frame.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file rotating_frame.pdf
   \begin{tikzpicture}
     % ================
     % Parameters
@@ -1597,7 +1598,7 @@
 [[file:figs/rotating_frame.png]]
 
 ** Rotating Frame - 2DoF
-#+begin_src latex :file rotating_frame_2dof.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file rotating_frame_2dof.pdf
   \begin{tikzpicture}
     % ================
     % Parameters
@@ -1667,7 +1668,7 @@
 [[file:figs/rotating_frame_2dof.png]]
 
 ** SISO Controller
-#+begin_src latex :file 3dof_model_siso_control.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file 3dof_model_siso_control.pdf
   \begin{tikzpicture}
     % Blocs
     \node[addb={+}{}{}{}{-}] (subr) at (0, 0) {};
@@ -1686,7 +1687,7 @@
 [[file:figs/3dof_model_siso_control.png]]
 
 ** Diagonal Controller
-#+begin_src latex :file 3dof_model_diagonal_control.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file 3dof_model_diagonal_control.pdf
   \begin{tikzpicture}
     % Blocs
     \node[addb={+}{}{}{}{-}] (subr) at (0, 0) {};
@@ -1706,7 +1707,7 @@
 
 * Mass-Spring Systems
 ** One mass
-#+begin_src latex :file mech_sys_alone.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file mech_sys_alone.pdf
   \begin{tikzpicture}
     % ====================
     % Parameters
@@ -1754,7 +1755,7 @@
 [[file:figs/mech_sys_alone.png]]
 
 ** One mass - Control
-#+begin_src latex :file mech_sys_alone_ctrl.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file mech_sys_alone_ctrl.pdf
   \begin{tikzpicture}
     % ====================
     % Parameters
@@ -1810,7 +1811,7 @@
 [[file:figs/mech_sys_alone_ctrl.png]]
 
 ** Two masses
-#+begin_src latex :file mech_sys.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file mech_sys.pdf
   \begin{tikzpicture}
     % ====================
     % Parameters
@@ -1876,7 +1877,7 @@
 [[file:figs/mech_sys.png]]
 
 ** Three masses
-#+begin_src latex :file mech_sys_flex.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file mech_sys_flex.pdf
   \begin{tikzpicture}
     % ====================
     % Parameters
@@ -1963,7 +1964,7 @@
 [[file:figs/mech_sys_flex.png]]
 * Mechanical Systems
 ** Piezoelectric Actuator
-#+begin_src latex :file 1dof_isolation_piezo.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file 1dof_isolation_piezo.pdf
   \begin{tikzpicture}
     \node[piezo={2}{3}{10}] (piezo) at (0, 0){};
     \node[draw, fill=white, anchor=south, minimum width=3cm, minimum height=1.5cm] (mass) at ($(piezo.north)+(0, 0.5)$) {Mass};
@@ -1980,7 +1981,7 @@
 
 * Control Tradeoffs
 ** Performance / Robustness
-#+begin_src latex :file robustness_performance.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file robustness_performance.pdf
   \begin{tikzpicture}
     % Scale
     \def\yscale{0.8}
@@ -2062,7 +2063,7 @@
 #+RESULTS:
 [[file:figs/robustness_performance.png]]
 ** Performance / Knowledge
-#+begin_src latex :file robust_perf_knowledge.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file robust_perf_knowledge.pdf
   \begin{tikzpicture}
     % Scale
     \def\yscale{0.5}
@@ -2103,7 +2104,7 @@
 [[file:figs/robust_perf_knowledge.png]]
 * Pendulum Experiment
 ** Side view
-#+begin_src latex :file pend_side_view.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file pend_side_view.pdf
   \begin{tikzpicture}
     % Colors
     \definecolor{mirror}{RGB}{178,178,178} % light grey
@@ -2166,7 +2167,7 @@
 [[file:figs/pend_side_view.png]]
 
 ** Top view
-#+begin_src latex :file pend_top_view.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file pend_top_view.pdf
   \begin{tikzpicture}
     % Parameters definitions
     \def\splitw{2} % Width of the split mirrors
@@ -2321,7 +2322,7 @@
 
 * Optics
 ** Interferometer - Schematic
-#+begin_src latex :file interferometer_schematic.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file interferometer_schematic.pdf
   \begin{tikzpicture}
     % Parameters definitions
     \def\splitw{2.0cm} % Width of the split mirrors
@@ -2409,7 +2410,7 @@
 [[file:figs/interferometer_schematic.png]]
 * Loop Shaping
 ** Loop Shaping the Open Loop transfer function
-#+begin_src latex :file loop-shaping-L.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file loop-shaping-L.pdf
   \begin{tikzpicture}
     % Phase Axis
     \draw[->] (-0.3, -0.5) -- ++(8, 0) node[above]{$\omega$}; \draw[<-] (0, 0)
@@ -2449,7 +2450,7 @@
 [[file:figs/loop-shaping-L.png]]
 
 ** Loop Shaping of $S$ and $T$
-#+begin_src latex :file loop-shaping-S-T.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file loop-shaping-S-T.pdf
   \definecolor{T}{rgb}{0.230, 0.299, 0.754}%
   \definecolor{S}{rgb}{0.706, 0.016, 0.150}%
 
@@ -2575,7 +2576,7 @@
 
 * Modern Control
 ** LQG
-#+begin_src latex :file lqg_separation.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file lqg_separation.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block={2.0cm}{1.5cm}] (P) {Plant};
@@ -2601,7 +2602,7 @@
 [[file:figs/lqg_separation.png]]
 
 ** LQG with Kalman filter
-#+begin_src latex :file lqg_kalman_filter.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file lqg_kalman_filter.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block={2.0cm}{1.5cm}] (P) {Plant};
@@ -2646,7 +2647,7 @@
 [[file:figs/lqg_kalman_filter.png]]
 
 ** LQG with Integral Action
-#+begin_src latex :file lqg_integral.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file lqg_integral.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block={2.0cm}{1.5cm}] (P) {Plant};
@@ -2688,7 +2689,7 @@
 
 * H-Infinity Control
 ** H-Infinity norm - Example
-#+begin_src latex :file h-infinity-norm-exp.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file h-infinity-norm-exp.pdf
   \begin{tikzpicture}
     \begin{axis}[%
       width=8cm,
@@ -2815,7 +2816,7 @@
 [[file:figs/h-infinity-norm-exp.png]]
 
 ** Performance Specification - Sensitivity Function
-#+begin_src latex :file h-infinity-spec-S.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file h-infinity-spec-S.pdf
   \begin{tikzpicture}
     \begin{axis}[%
       width=8cm,
@@ -2854,7 +2855,7 @@
 [[file:figs/h-infinity-spec-S.png]]
 
 ** Performance Specification - Sensitivity Function
-#+begin_src latex :file h-infinity-spec-T.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file h-infinity-spec-T.pdf
   \begin{tikzpicture}
     \begin{axis}[%
       width=8cm,
@@ -2886,7 +2887,7 @@
 #+RESULTS:
 [[file:figs/h-infinity-spec-T.png]]
 ** S/KS Mixed sensitivity - Disturbance Rejection
-#+begin_src latex :file mixed_sensitivity_dist_rejection.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file mixed_sensitivity_dist_rejection.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block] (G) {$G$};
@@ -2930,7 +2931,7 @@
 [[file:figs/mixed_sensitivity_dist_rejection.png]]
 
 ** S/KS Mixed sensitivity - Reference Tracking
-#+begin_src latex :file mixed_sensitivity_ref_tracking.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file mixed_sensitivity_ref_tracking.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block] (G) {$G$};
@@ -2971,7 +2972,7 @@
 [[file:figs/mixed_sensitivity_ref_tracking.png]]
 
 ** S/T Mixed sensitivity
-#+begin_src latex :file mixed_sensitivity_s_t.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file mixed_sensitivity_s_t.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block] (G) {$G$};
@@ -3012,7 +3013,7 @@
 [[file:figs/mixed_sensitivity_s_t.png]]
 
 ** Signal Based H-Infinity
-#+begin_src latex :file hinf_signal_based.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file hinf_signal_based.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block] (G) {$G$};
@@ -3067,7 +3068,7 @@
 [[file:figs/hinf_signal_based.png]]
 
 ** Mixed sensitivity configuration
-#+begin_src latex :file h-infinity-mixed-sensitivity.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file h-infinity-mixed-sensitivity.pdf
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addsub) {};
     \node[block, right=1.5 of addsub] (K) {$K(s)$};
@@ -3098,7 +3099,7 @@
 [[file:figs/h-infinity-mixed-sensitivity.png]]
 
 ** 4 blocs criterion
-#+begin_src latex :file h-infinity-4-blocs.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file h-infinity-4-blocs.pdf
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addsub) {};
     \node[block, right=1 of addsub, opacity=0] (K) {$K(s)$};
@@ -3130,7 +3131,7 @@
 #+RESULTS:
 [[file:figs/h-infinity-4-blocs.png]]
 ** 4 blocs criterion - bis
-#+begin_src latex :file h-infinity-4-blocs-full.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file h-infinity-4-blocs-full.pdf
   \begin{tikzpicture}
     \node[addb] (addsub) {};
     \node[block, left=1.0 of addsub, fill=black!40] (1) {$1/1$};
@@ -3168,7 +3169,7 @@
 #+RESULTS:
 [[file:figs/h-infinity-4-blocs-full.png]]
 ** 4 blocs criterion - General conf
-#+begin_src latex :file h-infinity-4-blocs-general-conf.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file h-infinity-4-blocs-general-conf.pdf
   \begin{tikzpicture}
     % Blocs
     \node[addb={+}{}{}{}{}] (addd) {};
@@ -3207,7 +3208,7 @@
 #+RESULTS:
 [[file:figs/h-infinity-4-blocs-general-conf.png]]
 ** 4 blocs criterion - General conf with noise
-#+begin_src latex :file h-infinity-4-blocs-general-conf-b.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file h-infinity-4-blocs-general-conf-b.pdf
   \begin{tikzpicture}
     % Blocs
     \node[addb={+}{}{}{}{}] (addd) {};
@@ -3250,7 +3251,7 @@
 #+RESULTS:
 [[file:figs/h-infinity-4-blocs-general-conf-b.png]]
 ** 4 blocs criterion - constrains
-#+begin_src latex :file h-infinity-4-blocs-constrains.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file h-infinity-4-blocs-constrains.pdf
   \begin{tikzpicture}
     \begin{scope}[shift={(0, 0)}]
       \draw[] (2.5, 1.0) node[]{$S$};
@@ -3304,7 +3305,7 @@
 [[file:figs/h-infinity-4-blocs-constrains.png]]
 * MIMO Control
 ** Plant
-#+begin_src latex :file 3dof_plant.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file 3dof_plant.pdf
   \begin{tikzpicture}
     \node[block] (G) at (0, 0) {$G$};
 
@@ -3318,7 +3319,7 @@
 [[file:figs/3dof_plant.png]]
 
 ** Plant - Leg measurement
-#+begin_src latex :file 3dof_plant_leg_measurement.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file 3dof_plant_leg_measurement.pdf
   \begin{tikzpicture}
     \node[block] (G) at (0, 0) {$G$};
 
@@ -3332,7 +3333,7 @@
 [[file:figs/3dof_plant_leg_measurement.png]]
 
 ** Jacobian
-#+begin_src latex :file jacobian_transformation.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file jacobian_transformation.pdf
   \begin{tikzpicture}
     \node[block] (G) at (0, 0) {$G$};
     \node[block, left=1 of G] (Jf) {${J_f}^{-T}$};
@@ -3348,7 +3349,7 @@
 [[file:figs/jacobian_transformation.png]]
 
 ** Jacobian Control - Cartesian Frame
-#+begin_src latex :file cartesian_frame_control.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file cartesian_frame_control.pdf
   \begin{tikzpicture}
     \node[block] (G) at (0, 0) {$G$};
     \node[block, left=1 of G] (Jf) {${J_f}^{-T}$};
@@ -3369,7 +3370,7 @@
 [[file:figs/cartesian_frame_control.png]]
 
 ** Jacobian Control - Cartesian Frame
-#+begin_src latex :file leg_frame_control.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file leg_frame_control.pdf
   \begin{tikzpicture}
     \node[block] (G) at (0, 0) {$G$};
     \node[block, left=1 of G] (K) {$K$};
@@ -3390,7 +3391,7 @@
 [[file:figs/leg_frame_control.png]]
 
 ** Modal Transformation
-#+begin_src latex :file modal_transformation.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file modal_transformation.pdf
   \begin{tikzpicture}
     \node[block] (G) at (0, 0) {$G$};
     \node[block, left=1 of G] (Jf) {$J_f^{-1}$};
@@ -3410,7 +3411,7 @@
 #+RESULTS:
 [[file:figs/modal_transformation.png]]
 ** SVD Control - Static
-#+begin_src latex :file svd_control_static.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file svd_control_static.pdf
   \begin{tikzpicture}
     \node[block] (G) at (0, 0) {$G$};
     \node[block, left=1 of G] (V) {$V_0^{-T}$};
@@ -3428,7 +3429,7 @@
 #+RESULTS:
 [[file:figs/svd_control_static.png]]
 ** Inverse Based Control
-#+begin_src latex :file inverse_based_control.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file inverse_based_control.pdf
   \begin{tikzpicture}
     \node[block] (G) at (0, 0) {$G$};
     \node[block, left=1 of G] (W1) {$W_1$};
@@ -3444,7 +3445,7 @@
 #+RESULTS:
 [[file:figs/inverse_based_control.png]]
 ** MIMO Sensor Fusion
-#+begin_src latex :file mimo_sensor_fusion.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file mimo_sensor_fusion.pdf
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[block, right=0.75 of addfb] (K){$K$};
@@ -3479,7 +3480,7 @@
 [[file:figs/mimo_sensor_fusion.png]]
 
 ** MIMO Sensor Fusion - Equivalent Feedback Control
-#+begin_src latex :file mimo_sf_arch_class.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file mimo_sf_arch_class.pdf
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[block, right=0.75 of addfb] (K){$K_{\text{fb}}$};
@@ -3504,7 +3505,7 @@
 #+RESULTS:
 [[file:figs/mimo_sf_arch_class.png]]
 ** MIMO Sensor Fusion - Equivalent Feedback Control - bis
-#+begin_src latex :file mimo_sf_arch_class_bis.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file mimo_sf_arch_class_bis.pdf
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[block, right=0.75 of addfb] (Hh){${H_H}^{-1}$};
@@ -3532,7 +3533,7 @@
 [[file:figs/mimo_sf_arch_class_bis.png]]
 * Others
 ** Huddle test
-#+begin_src latex :file huddle-test.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file huddle-test.pdf
   \begin{tikzpicture}
     \coordinate[] (U) at (0, 0) {};
     \node[addb={+}{}{}{}{}, above right=1 and 2 of U] (add1) {};
@@ -3558,7 +3559,7 @@
 #+RESULTS:
 [[file:figs/huddle-test.png]]
 ** Coprime uncertainty
-#+begin_src latex :file coprime_uncertainty.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file coprime_uncertainty.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block] (K) {$-K$};
@@ -3585,7 +3586,7 @@
 #+RESULTS:
 [[file:figs/coprime_uncertainty.png]]
 ** Coprime uncertainty - Bis
-#+begin_src latex :file coprime_uncertainty_bis.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file coprime_uncertainty_bis.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block] (K) {$-K$};
@@ -3612,7 +3613,7 @@
 #+RESULTS:
 [[file:figs/coprime_uncertainty_bis.png]]
 ** Shaped Plant
-#+begin_src latex :file shaped_plant.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file shaped_plant.pdf
   \begin{tikzpicture}
     \node[block] (G) {$G$};
     \node[block, left =1 of G] (W1) {$W_1$};
@@ -3631,7 +3632,7 @@
 #+RESULTS:
 [[file:figs/shaped_plant.png]]
 ** Practical Implementation
-#+begin_src latex :file shapping_practical_implementation.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file shapping_practical_implementation.pdf
   \begin{tikzpicture}
     \node[block] (prefilter) {$K_s(0)W_2(0)$};
     \node[addb={+}{-}{}{}{+}, right=0.6 of prefilter] (addb) {};
@@ -3656,7 +3657,7 @@
 #+RESULTS:
 [[file:figs/shapping_practical_implementation.png]]
 ** Anti-Windup
-#+begin_src latex :file weight_anti_windup.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file weight_anti_windup.pdf
   \begin{tikzpicture}
     \node[block={1cm}{1.5cm}] (W1) {$W_1$};
     \node[block={1.5cm}{1.5cm}, right=1 of W1, label={[align=center]Actuator\\Saturation}] (sat) {};
@@ -3683,7 +3684,7 @@
 #+RESULTS:
 [[file:figs/weight_anti_windup.png]]
 ** Block Diagonal Scalings
-#+begin_src latex :file block_diagonal_scalings.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file block_diagonal_scalings.pdf
   \begin{tikzpicture}
     % Blocs
     \node[block={1.5cm}{1.5cm}] (delta) {$\begin{matrix}\Delta_1 & & \\ & \Delta_2 & \\ & & \ddots \end{matrix}$};

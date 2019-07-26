@@ -28,10 +28,11 @@
 #+PROPERTY: header-args:latex+ :exports both
 #+PROPERTY: header-args:latex+ :mkdirp yes
 #+PROPERTY: header-args:latex+ :output-dir figs
+#+PROPERTY: header-args:latex+ :post pdf2svg(file=*this*, ext="png")
 :END:
 
 * Schedule of the thesis
-#+begin_src latex :file thesis-schedule.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file thesis-schedule.pdf
   \begin{tikzpicture}
     \tikzstyle{table} = [
       label skeleton,

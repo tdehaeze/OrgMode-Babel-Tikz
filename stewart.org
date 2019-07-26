@@ -28,10 +28,11 @@
 #+PROPERTY: header-args:latex+ :exports both
 #+PROPERTY: header-args:latex+ :mkdirp yes
 #+PROPERTY: header-args:latex+ :output-dir figs
+#+PROPERTY: header-args:latex+ :post pdf2svg(file=*this*, ext="png")
 :END:
 
 * Bottom Plate
-#+begin_src latex :file stewart_bottom_plate.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file stewart_bottom_plate.pdf
   \begin{tikzpicture}
     % Internal and external limit
     \draw[fill=white!80!black] (0, 0) circle [radius=3];
@@ -67,7 +68,7 @@
 [[file:figs/stewart_bottom_plate.png]]
 
 * Legs
-#+begin_src latex :file stewart_legs.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file stewart_legs.pdf
   \begin{tikzpicture}
     \draw[fill=white!80!black] (-1, 0) -- (-1, 5) -- (-0.7, 5) -- (-0.7, 2.5) -- (0.7, 2.5)-- (0.7, 5) -- (1, 5) -- (1, 0) -- cycle;
     \draw[fill=white!80!black] (0, 0) circle[radius=1.5];
@@ -88,7 +89,7 @@
 #+RESULTS:
 [[file:figs/stewart_legs.png]]
 * Ball Joints
-#+begin_src latex :file stewart_ball_joints.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file stewart_ball_joints.pdf
   \begin{tikzpicture}
     \draw[fill=white!80!black] (-1, 0) -- (1, 0) -- (1, 3) arc (0:-180:1) -- cycle;
 

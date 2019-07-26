@@ -28,11 +28,12 @@
 #+PROPERTY: header-args:latex+ :exports both
 #+PROPERTY: header-args:latex+ :mkdirp yes
 #+PROPERTY: header-args:latex+ :output-dir figs
+#+PROPERTY: header-args:latex+ :post pdf2svg(file=*this*, ext="png")
 :END:
 
 * TODO First Order LPF
 
-#+begin_src latex :file lpf_first_order.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file lpf_first_order.pdf
   \definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
   \begin{tikzpicture}
     \begin{axis}[%
@@ -161,19 +162,19 @@
 [[file:figs/lpf_first_order.png]]
 
 * TODO First Order HPF
-#+begin_src latex :file hpf_first_order.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file hpf_first_order.pdf
   \begin{tikzpicture}
   \end{tikzpicture}
 #+end_src
 
 * TODO Second Order LPF
-#+begin_src latex :file lpf_second_order.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file lpf_second_order.pdf
   \begin{tikzpicture}
   \end{tikzpicture}
 #+end_src
 
 * TODO Second Order HPF
-#+begin_src latex :file hpf_second_order.pdf :post pdf2svg(file=*this*, ext="png") :exports both
+#+begin_src latex :file hpf_second_order.pdf
   \begin{tikzpicture}
   \end{tikzpicture}
 #+end_src
