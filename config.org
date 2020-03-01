@@ -174,23 +174,29 @@ Usefull for schematic plots
 ** DAC
 #+begin_src latex
   \tikzset{%
-    DAC/.style={%
+    DAC/.style n args={2}{%
       draw,
       fill=white,
       signal,
-    }
+      minimum width  = #1,
+      minimum height = #2,
+    },
+    DAC/.default={1.2cm}{1.0cm}
   }
 #+end_src
 
 ** ADC
 #+begin_src latex
   \tikzset{%
-    ADC/.style={%
+    ADC/.style n args={2}{%
       draw,
       fill=white,
       signal,
       signal to = west,
-    }
+      minimum width  = #1,
+      minimum height = #2,
+    },
+    ADC/.default={1.2cm}{1.0cm}
   }
 #+end_src
 
@@ -508,7 +514,7 @@ And we add the corresdonding
 ** Ground
 #+begin_src latex
   \tikzset{%
-    ground/.style n args={2}{%
+    mground/.style n args={2}{%
       fill,
       pattern = north east lines,
       draw = none,
@@ -519,7 +525,7 @@ And we add the corresdonding
         (\tikzlastnode.north west) edge (\tikzlastnode.north east)
       }
     },
-    ground/.default={2.5}{0.3}
+    mground/.default={2.5}{0.3}
   }
 #+end_src
 

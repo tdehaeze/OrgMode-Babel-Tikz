@@ -19,11 +19,12 @@
 
 #+HTML_MATHJAX: align: center tagside: right font: TeX
 
-#+PROPERTY: header-args:latex  :headers '("\\usepackage{tikz}" "\\usepackage{import}" "\\import{$HOME/MEGA/These/LaTeX/}{config.tex}")
+#+PROPERTY: header-args:latex  :headers '("\\usepackage{tikz}" "\\usepackage{import}" "\\import{$HOME/Cloud/thesis/latex/}{config.tex}")
 #+PROPERTY: header-args:latex+ :imagemagick t :fit yes
 #+PROPERTY: header-args:latex+ :iminoptions -scale 100% -density 150
 #+PROPERTY: header-args:latex+ :imoutoptions -quality 100
-#+PROPERTY: header-args:latex+ :results raw replace :buffer no
+#+PROPERTY: header-args:latex+ :results file raw replace
+#+PROPERTY: header-args:latex+ :buffer no
 #+PROPERTY: header-args:latex+ :eval no-export
 #+PROPERTY: header-args:latex+ :exports both
 #+PROPERTY: header-args:latex+ :mkdirp yes
@@ -173,7 +174,7 @@
 
 ** NASS - Solidworks
 #+begin_src latex :file nass_solidworks.pdf
-  \graphicspath{{~/MEGA/These/LaTeX/img/}}
+  \graphicspath{{~/Cloud/thesis/latex/img/}}
   \begin{tikzpicture}
     \tikzstyle{legend}=[draw, text width=4.2cm, align=center]
 
@@ -250,7 +251,7 @@
 
 ** NASS - Picture
 #+begin_src latex :file nass_picture.pdf
-  \graphicspath{{~/MEGA/These/LaTeX/img/}}
+  \graphicspath{{~/Cloud/thesis/latex/img/}}
   \begin{tikzpicture}
     \node[inner sep=0pt, anchor=south west] (photo) at (0,0)
     {\includegraphics[width=0.6\textwidth]{exp_setup_photo.png}};
@@ -1299,7 +1300,7 @@
     % Ground
     % ====================
     \draw (-0.5*\massw, 0) -- (0.5*\massw, 0);
-    % \node[ground={\massw}{0.1*\massw}] at (0, 0) {};
+    % \node[mground={\massw}{0.1*\massw}] at (0, 0) {};
     \draw[dashed] (0.5*\massw, 0) -- ++(\dispw, 0);
     \draw[->] (0.5*\massw+0.5*\dispw, 0) -- ++(0, \disph) node[right]{$x_{w}$};
     % ====================
@@ -1517,7 +1518,7 @@
     % Ground
     % ====================
     \draw (-0.5*\massw, 0) -- (0.5*\massw, 0);
-    % \node[ground={\massw}{0.1*\massw}] at (0, 0) {};
+    % \node[mground={\massw}{0.1*\massw}] at (0, 0) {};
     \draw[dashed] (0.5*\massw, 0) -- ++(\dispw, 0);
     \draw[->] (0.5*\massw+0.5*\dispw, 0) -- ++(0, \disph) node[right]{$x_{w}$};
     % ====================
@@ -1674,7 +1675,7 @@
     % Ground
     % ====================
     \draw (-0.5*\massw, 0) -- (0.5*\massw, 0);
-    % \node[ground={\massw}{0.1*\massw}] at (0, 0) {};
+    % \node[mground={\massw}{0.1*\massw}] at (0, 0) {};
     \draw[dashed] (0.5*\massw, 0) -- ++(\dispw, 0);
     \draw[->] (0.5*\massw+0.5*\dispw, 0) -- ++(0, \disph) node[right]{$x_{w}$};
     % ====================
@@ -1837,7 +1838,7 @@
     % Ground
     % ====================
     \draw (-0.5*\massw, 0) -- (0.5*\massw, 0);
-    % \node[ground={\massw}{0.1*\massw}] at (0, 0) {};
+    % \node[mground={\massw}{0.1*\massw}] at (0, 0) {};
     \draw[dashed] (0.5*\massw, 0) -- ++(\dispw, 0);
     \draw[->] (0.5*\massw+0.5*\dispw, 0) -- ++(0, \disph) node[right]{$x_{w}$};
     % ====================
@@ -1944,7 +1945,7 @@
       % Sky Hook Damping
       \draw (0.5*\massw, \spaceh+0.5*\massh) -- ++(0.5*\massw, 0) coordinate(shdtop);
       \draw[damper] (shdtop) -- node[midway, left=0.2]{$c$} ++(0, -\massh) coordinate(sky);
-      \node[ground={0.8}{0.05}] at (sky){};
+      \node[mground={0.8}{0.05}] at (sky){};
 
       % Legend
       % \draw[decorate, decoration={brace, amplitude=8pt}, xshift=\brach] %
@@ -2092,7 +2093,7 @@
     % Ground
     % ====================
     \draw (-0.5*\massw, 0) -- (0.5*\massw, 0);
-    % \node[ground={\massw}{0.1*\massw}] at (0, 0) {};
+    % \node[mground={\massw}{0.1*\massw}] at (0, 0) {};
     \draw[dashed] (0.5*\massw, 0) -- ++(\dispw, 0);
     \draw[->] (0.5*\massw+0.5*\dispw, 0) -- ++(0, \disph) node[right]{$x_{w}$};
     % ====================
@@ -2234,7 +2235,7 @@
     % Ground
     % ====================
     \draw (-0.5*\massw, 0) -- (0.5*\massw, 0);
-    % \node[ground={\massw}{0.1*\massw}] at (0, 0) {};
+    % \node[mground={\massw}{0.1*\massw}] at (0, 0) {};
     \draw[dashed] (0.5*\massw, 0) -- ++(\dispw, 0);
     \draw[->] (0.5*\massw+0.5*\dispw, 0) -- ++(0, \disph) node[right]{$x_{w}$};
     % ====================
@@ -2399,7 +2400,7 @@
       % Ground
       % ====================
       \draw (-0.5*\massw, 0) -- (0.5*\massw, 0);
-      % \node[ground={\massw}{0.1*\massw}] at (0, 0) {};
+      % \node[mground={\massw}{0.1*\massw}] at (0, 0) {};
       \draw[dashed] (0.5*\massw, 0) -- ++(\dispw, 0);
       \draw[->] (0.5*\massw+0.5*\dispw, 0) -- ++(0, \disph) node[right]{$x_{w}$};
       % ====================
@@ -2492,7 +2493,7 @@
       % Ground
       % ====================
       \draw (-0.5*\massw, 0) -- (0.5*\massw, 0);
-      % \node[ground={\massw}{0.1*\massw}] at (0, 0) {};
+      % \node[mground={\massw}{0.1*\massw}] at (0, 0) {};
       \draw[dashed] (0.5*\massw, 0) -- ++(\dispw, 0);
       \draw[->] (0.5*\massw+0.5*\dispw, 0) -- ++(0, \disph) node[right]{$x_{w}$};
       % ====================
@@ -2585,7 +2586,7 @@
       % Ground
       % ====================
       \draw (-0.5*\massw, 0) -- (0.5*\massw, 0);
-      % \node[ground={\massw}{0.1*\massw}] at (0, 0) {};
+      % \node[mground={\massw}{0.1*\massw}] at (0, 0) {};
       \draw[dashed] (0.5*\massw, 0) -- ++(\dispw, 0);
       \draw[->] (0.5*\massw+0.5*\dispw, 0) -- ++(0, \disph) node[right]{$x_{w}$};
       % ====================
@@ -2702,7 +2703,7 @@
     % Ground
     % ====================
     \draw (-0.5*\massw, 0) -- (0.5*\massw, 0);
-    % \node[ground={\massw}{0.1*\massw}] at (0, 0) {};
+    % \node[mground={\massw}{0.1*\massw}] at (0, 0) {};
     \draw[dashed] (0.5*\massw, 0) -- ++(\dispw, 0);
     \draw[->] (0.5*\massw+0.5*\dispw, 0) -- ++(0, \disph) node[right]{$x_{w}$};
     % ====================

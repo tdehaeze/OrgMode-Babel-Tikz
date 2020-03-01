@@ -19,11 +19,12 @@
 
 #+HTML_MATHJAX: align: center tagside: right font: TeX
 
-#+PROPERTY: header-args:latex  :headers '("\\usepackage{tikz}" "\\usepackage{import}" "\\import{$HOME/MEGA/These/LaTeX/}{config.tex}")
+#+PROPERTY: header-args:latex  :headers '("\\usepackage{tikz}" "\\usepackage{import}" "\\import{$HOME/Cloud/thesis/latex/}{config.tex}")
 #+PROPERTY: header-args:latex+ :imagemagick t :fit yes
 #+PROPERTY: header-args:latex+ :iminoptions -scale 100% -density 150
 #+PROPERTY: header-args:latex+ :imoutoptions -quality 100
-#+PROPERTY: header-args:latex+ :results raw replace :buffer no
+#+PROPERTY: header-args:latex+ :results file raw replace
+#+PROPERTY: header-args:latex+ :buffer no
 #+PROPERTY: header-args:latex+ :eval no-export
 #+PROPERTY: header-args:latex+ :exports both
 #+PROPERTY: header-args:latex+ :mkdirp yes
@@ -83,7 +84,7 @@
 
 * Classical Feedback
 ** One Degree of Freedom
-#+begin_src latex :file classical_feedback.pdf
+#+begin_src latex :file classical_feedback.pdf 
   \begin{tikzpicture}
     \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
     \node[block, right=1 of addfb] (K){$K$};
@@ -112,6 +113,31 @@
 
 #+RESULTS:
 [[file:figs/classical_feedback.png]]
+
+
+** One Degree of Freedom
+#+begin_src latex :file classical_feedback_arch.pdf
+  \begin{tikzpicture}
+    \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
+    \node[block, right=1 of addfb] (K){$K(s)$};
+    \node[addb={+}{}{}{}{}, right=1 of K] (adddu){};
+    \node[block, right=1 of adddu] (G){$G(s)$};
+    \node[addb={+}{}{}{}{}, below right=1 and 1 of G] (addn) {};
+
+    \draw[->] (addfb.east) -- (K.west) node[above left]{$\epsilon$};
+    \draw[->] (K.east) -- (adddu.west) node[above left]{$u$};
+    \draw[->] (adddu.east) -- (G.west) node[above left]{$u_r$};
+    \draw[<-] (addn.east) -- ++(0.8, 0) coordinate[](endpos) node[above left]{$n$};
+    \draw[->] (G.east) -- (G-|endpos) node[above left]{$y$};
+    \draw[<-] (addfb.west) -- ++(-1, 0) node[above right]{$r$};
+    \draw[->] (G-|addn) node[branch]{} -- (addn.north);
+    \draw[->] (addn.west) -| (addfb.south) node[below right]{$y_m$};
+    \draw[<-] (adddu.north) -- ++(0, 0.8) node[below right]{$d$};
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:figs/classical_feedback_arch.png]]
 
 ** One Degree of Freedom - Alternative
 #+begin_src latex :file classical_feedback_alt.pdf
@@ -1439,6 +1465,49 @@
 #+RESULTS:
 [[file:figs/sf_hinf_filters_b.png]]
 
+** H-Infinity - 3 Complementary filters
+#+begin_src latex :file comp_filter_three_hinf.pdf :tangle figs/comp_filter_three_hinf.tex
+  \def\cdist{0.7}
+  \begin{tikzpicture}
+     \node[block={7.0cm}{6.0cm}, dashed] (P) {};
+     \node[above] at (P.north) {$P$};
+
+     \coordinate[] (inputw)  at ($(P.south west)!0.8!(P.north west) + (-\cdist, 0)$);
+     \coordinate[] (inputu)  at ($(P.south west)!0.4!(P.north west) + (-\cdist, 0)$);
+
+     \coordinate[] (output3) at ($(P.south east)!0.8!(P.north east) + ( \cdist, 0)$);
+     \coordinate[] (output2) at ($(P.south east)!0.6!(P.north east) + ( \cdist, 0)$);
+     \coordinate[] (output1) at ($(P.south east)!0.4!(P.north east) + ( \cdist, 0)$);
+     \coordinate[] (outputv) at ($(P.south east)!0.1!(P.north east) + ( \cdist, 0)$);
+
+     \node[block, left=2*\cdist of output1] (W1){$w_1$};
+     \node[block, left=2*\cdist of output2] (W2){$w_2$};
+     \node[block, left=2*\cdist of output3] (W3){$w_3$};
+     \node[addb={+}{}{}{}{-}, left=of W3] (sub1) {};
+     \node[addb={+}{}{}{}{-}, left=of sub1] (sub2) {};
+
+     \node[block, below=\cdist of P] (H) {$\begin{bmatrix}H_1 \\ H_2\end{bmatrix}$};
+
+     \draw[->] (inputw) node[above right]{$w$} -- (sub2.west);
+     \draw[->] (W1-|sub1)node[branch]{} -- (sub1.south);
+     \draw[->] (W2-|sub2)node[branch]{} -- (sub2.south);
+     \draw[->] ($(sub2.west)+(-0.5, 0)$) node[branch]{} |- (outputv) |- (H.east);
+     \draw[->] ($(H.south west)!0.7!(H.north west)$) -| ($(inputu|-W1)+(0.4, 0)$) -- (W1.west);
+     \draw[->] ($(H.south west)!0.3!(H.north west)$) -| (inputu|-W2) -- (W2.west);
+
+     \draw[->] (sub2.east) -- (sub1.west);
+     \draw[->] (sub1.east) -- (W3.west);
+     \draw[->] (W1.east) -- (output1)node[above left]{$z_1$};
+     \draw[->] (W2.east) -- (output2)node[above left]{$z_2$};
+     \draw[->] (W3.east) -- (output3)node[above left]{$z_3$};
+  \end{tikzpicture}
+#+end_src
+
+#+name: fig:comp_filter_three_hinf
+#+caption: H-Infinity - Complementary filters ([[./figs/comp_filter_three_hinf.png][png]], [[./figs/comp_filter_three_hinf.pdf][pdf]], [[./figs/comp_filter_three_hinf.tex][tex]]).
+#+RESULTS:
+[[file:figs/comp_filter_three_hinf.png]]
+
 ** Generate Complementary Filters using Feedback Control Architecture
 #+begin_src latex :file complementary_filters_feedback_architecture.pdf :tangle figs/complementary_filters_feedback_architecture.tex :exports both
   \begin{tikzpicture}
@@ -1459,6 +1528,32 @@
 #+caption: Generation of Complementary Filters using the feedback architecture ([[./figs/complementary_filters_feedback_architecture.png][png]], [[./figs/complementary_filters_feedback_architecture.pdf][pdf]], [[./figs/complementary_filters_feedback_architecture.tex][tex]]).
 #+RESULTS:
 [[file:figs/complementary_filters_feedback_architecture.png]]
+
+** Equivalent configuration - classical Feedback
+#+begin_src latex :file feedback_architecture_Hh_Hl.pdf
+  \begin{tikzpicture}
+    \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
+    \node[block, right=0.75 of addfb] (K){$G^{-1}H_H^{-1}$};
+    \node[block, right=0.75 of K] (G){$G^\prime$};
+    \node[addb={+}{}{}{}{}, right=0.75 of G] (adddy){};
+    \node[addb={+}{}{}{}{}, below right=0.75 and 0.5 of adddy] (addn) {};
+    \node[block] (Hl) at (G|-addn) {$H_L$};
+
+    \draw[->] (addfb.east) -- (K.west) node[above left]{};
+    \draw[->] (K.east) -- (G.west) node[above left]{$u$};
+    \draw[->] (G.east) -- (adddy.west);
+    \draw[<-] (addn.east) -- ++(0.75, 0) coordinate[](endpos) node[above left]{$n$};
+    \draw[->] (G-|addn)node[branch]{} -- (addn.north);
+    \draw[->] (adddy.east) -- (G-|endpos) node[above left]{$y$};
+    \draw[<-] (addfb.west) -- ++(-0.75, 0) node[above right]{$r$};
+    \draw[->] (addn.west) -- (Hl.east);
+    \draw[->] (Hl.west) -| (addfb.south);
+    \draw[<-] (adddy.north) -- ++(0, 0.75) node[below right]{$d_y$};
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:figs/feedback_architecture_Hh_Hl.png]]
 
 * Rotating Frame
 ** Control Diagram for fixed measurement
@@ -2429,6 +2524,7 @@
 
 #+RESULTS:
 [[file:figs/interferometer_schematic.png]]
+
 * Loop Shaping
 ** Loop Shaping the Open Loop transfer function
 #+begin_src latex :file loop-shaping-L.pdf
@@ -2836,6 +2932,44 @@
 #+RESULTS:
 [[file:figs/h-infinity-norm-exp.png]]
 
+** Performance Specification - Sensitivity Function First
+#+begin_src latex :file h-infinity-spec-S-first.pdf
+  \begin{tikzpicture}
+    \begin{axis}[%
+      width=8cm,
+      height=4cm,
+      at={(0,0)},
+      xmode=log,
+      xmin=0.01,
+      xmax=10000,
+      ymin=-80,
+      ymax=40,
+      ylabel={Magnitude [dB]},
+      xlabel={Frequency [Hz]},
+      ytick={40, 20, 0, -20, -40, -60, -80},
+      xminorgrids,
+      yminorgrids
+      ]
+      \addplot [thick, color=black, forget plot]
+      table[row sep=crcr]{%
+        0.01 -60\\
+        0.1  -60\\
+        10000   40\\
+      };
+      \draw[<-] (0.05, -60) -- (0.1, -70);
+      \draw (0.1, -70) -- (2, -70) node[right, fill=white, draw]{$\SI{-60}{\decibel} \rightarrow$ \footnotesize{Static error}};
+      \draw[<-] (1, -40) -- (10, -40) node[right, fill=white, draw]{$\SI{20}{\decibel/dec} \rightarrow$ \footnotesize{Ref. track.}};
+      \draw[<-] (100, 0) -- (3, 0) node[left, fill=white, draw]{$\omega_c \rightarrow$ \footnotesize{Speed}};
+
+      % \draw[<-] (300, 6) -- (200, 20);
+      % \draw (200, 20) -- (10, 20) node[left, fill=white, draw]{$\SI{6}{\decibel} \rightarrow$ \footnotesize{Module margin}};
+    \end{axis}
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:figs/h-infinity-spec-S-first.png]]
+
 ** Performance Specification - Sensitivity Function
 #+begin_src latex :file h-infinity-spec-S.pdf
   \begin{tikzpicture}
@@ -3088,6 +3222,69 @@
 #+RESULTS:
 [[file:figs/hinf_signal_based.png]]
 
+** Signal Based H-Infinity with uncertainty
+#+begin_src latex :file hinf_signal_based_uncertainty.pdf
+  \begin{tikzpicture}
+    % Blocs
+    \node[block] (G) {$G$};
+    \node[block, above=0.6 of G] (Gd) {$G_d$};
+    \node[block, above=0.6 of Gd] (Wref) {$W_\text{ref}$};
+    \node[block={1.2cm}{1.5cm}, left=5 of G] (K) {$K$};
+
+    \node[addb, left=0.5 of G] (addu) {};
+    \node[block, above left=0.1 and 0.2 of addu] (delta){$\Delta$};
+    \node[block, left=0.4 of delta] (wu){$W$};
+
+    % Input and outputs coordinates
+    \coordinate[] (inputy)  at ($(K.south west)!0.25!(K.north west)$);
+    \coordinate[] (inputr)  at ($(K.south west)!0.75!(K.north west)$);
+
+    \node[addb, right=0.5 of G] (addy) {};
+    \node[addb={+}{-}{}{}{+}, right=0.1 of Wref-|addy.east] (sub) {};
+    \node[block, right=0.5 of sub] (We) {$W_e$};
+    \node[block] (Wu) at ($(G.south-|We) + (0, -0.6)$) {$W_u$};
+
+    \node[block, left=1.3 of inputr] (Wr) {$W_r$};
+    \node[block] (Wd) at (Wr|-Gd) {$W_d$};
+
+    \node[addb, below left=1 and 0.3 of K] (addn) {};
+    \node[block] (Wn) at (Wr|-addn) {$W_n$};
+
+    % Connections
+    \draw[->] (Wd.east) -- (Gd.west);
+    \draw[->] (Gd.east) -| (addy.north);
+    \draw[->] (Wr.east) -- (inputr.west);
+    \draw[->] (Wn.east) -- (addn.west);
+    \draw[->] (addn.north) |- (inputy.west) node[above left]{$y_m$};
+    \draw[->] ($0.5*(K.east)+0.5*(addu.west)$)node[branch](u){} |- (Wu.west);
+    \draw[->] ($(Wr.east)+(0.4, 0)$)node[branch](rs){} |- (Wref.west);
+    \draw[->] (Wref.east) -- (sub.west);
+    \draw[->] (sub.east) -- (We.west);
+    \draw[->] (K.east) -- (addu.west);
+    \draw[->] (addu.east) -- (G.west);
+    \draw[->] ($(K.east)+(0.4, 0)$)node[branch] |- (wu.west);
+    \draw[->] (wu.east) -- (delta.west);
+    \draw[->] (delta.east) -| (addu.north);
+    \draw[->] (G.east) -- (addy.west);
+    \draw[] (addy.east) -- (addy-|sub)node[branch]{}node[right]{$y$};
+    \draw[->] (addy-|sub) -- (sub.south);
+    \draw[->] (addy-|sub) |- (addn.east);
+
+    \draw[<-] (Wd.west) -- ++(-0.6, 0) node[above right]{$d$};
+    \draw[<-] (Wr.west) -- ++(-0.6, 0) node[above right]{$r$};
+    \draw[<-] (Wn.west) -- ++(-0.6, 0) node[above right]{$n$};
+
+    \draw[->] (We.east) -- ++( 0.6, 0) node[above left]{$z_1$};
+    \draw[->] (Wu.east) -- ++( 0.6, 0) node[above left]{$z_2$};
+
+    \node[above] at (u) {$u$};
+    \node[above right] at (rs) {$r_s$};
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:figs/hinf_signal_based_uncertainty.png]]
+
 ** Mixed sensitivity configuration
 #+begin_src latex :file h-infinity-mixed-sensitivity.pdf
   \begin{tikzpicture}
@@ -3324,6 +3521,35 @@
 
 #+RESULTS:
 [[file:figs/h-infinity-4-blocs-constrains.png]]
+** Two Degrees of Freedom - H-infinity
+#+begin_src latex :file hinf_synthesis_2dof.pdf
+  \begin{tikzpicture}
+    \node[block] (Wi) at (0, 0){$W_i$};
+    \node[block, right=1 of Wi] (K1){$K_1$};
+    \node[addb, right=1 of K1] (addfb){};
+    \node[block, right=1 of addfb] (W1){$W_1$};
+    \node[block, right=1 of W1] (G){$G$};
+    \node[block, below=0.7 of W1] (K2){$K_2$};
+
+    \draw[<-] (Wi.west) -- ++(-0.8, 0) node[above right]{$r$};
+    \draw[->] (Wi.east) -- (K1.west);
+    \draw[->] (K1.east) -- (addfb.west);
+    \draw[->] (addfb.east) -- (W1.west);
+    \draw[->] (W1.east) -- (G.west);
+    \draw[->] (G.east) -- ++(1, 0)node[above left]{$y$};
+    \draw[->] ($(G.east)+(0.5, 0)$) node[branch]{} |- (K2.east);
+    \draw[<-] (K2.west) -| (addfb.south);
+
+    \begin{scope}[on background layer]
+      \node[fit={(Wi.west|-K2.south) (W1.north east)}, fill=black!20!white, draw, dashed, inner sep=8pt] (K) {};
+      \node[above right] at (K.south west) {Controller};
+    \end{scope}
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:figs/hinf_synthesis_2dof.png]]
+
 * MIMO Control
 ** Plant
 #+begin_src latex :file 3dof_plant.pdf
@@ -3731,3 +3957,139 @@
 
 #+RESULTS:
 [[file:figs/block_diagonal_scalings.png]]
+** Disturbance Observer
+#+begin_src latex :file disturbance_observer_diagram.pdf
+  \begin{tikzpicture}
+    \node[addb] (addfb) at (0, 0){};
+    \node[addb, right=1.5 of addfb] (adddu){};
+    \node[block, right= of adddu] (P){$P$};
+    \node[block, below= of P] (Pm){${P_m}^{-1}$};
+    \coordinate[] (u) at ($0.5*(addfb.east)+0.5*(adddu.west)$);
+    \node[addb={+}{}{}{-}{}] at (adddu|-Pm) (addu){};
+    \node[addb={+}{}{}{}{}, right= 0.5 of Pm] (addn) {};
+    \node[block] (Q) at (addfb|-Pm) {$Q$};
+
+    \draw[<-] (addfb.west) -- ++(-0.8, 0) node[above right]{$v$};
+    \draw[->] (addfb.east) -- (adddu.west);
+    \draw[->] (adddu.east) -- (P.west);
+    \draw[<-] (adddu.north) -- ++(0, 0.8) node[below right]{$d_u$};
+    \draw[<-] (addn.east) -- ++(0.8, 0) coordinate[](endpos) node[above left]{$n$};
+    \draw[->] (u)node[branch]{}node[above]{$u$} |- (addu.west);
+    \draw[->] (P.east) -- (endpos|-P) node[above left]{$y$};
+    \draw[->] (P-|addn)node[branch]{} -- (addn.north);
+    \draw[->] (addn.west) -- (Pm.east);
+    \draw[->] (Pm.west) -- (addu.east);
+    \draw[->] (addu.south) -- ++(0, -0.8)coordinate(dob_bot) -| (Q.south);
+    \draw[->] (Q.north) -- (addfb.south);
+
+    \begin{scope}[on background layer]
+      \node[fit={(Q.west|-dob_bot) (Pm.north east)}, fill=black!10!white, draw, dashed, inner sep=5pt] (dob) {};
+      \node[above left] at (dob.south east) {DOB};
+    \end{scope}
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:figs/disturbance_observer_diagram.png]]
+
+** Disturbance Observer with controller
+#+begin_src latex :file disturbance_observer_diagram_full.pdf
+  \begin{tikzpicture}
+    \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
+    \node[block, right= of addfb] (C){$C$};
+    \node[addb, right= of C] (addobs) {};
+    \node[addb, right=1.5 of addobs] (adddu){};
+    \node[block, right= of adddu] (P){$P$};
+    \node[block, below= of P] (Pm){${P_m}^{-1}$};
+    \coordinate[] (u) at ($0.5*(addobs.east)+0.5*(adddu.west)$);
+    \node[addb={+}{}{}{-}{}] at (adddu|-Pm) (addu){};
+    \node[addb={+}{}{}{}{}, above right= 0.2 and 0.5 of Pm] (addn) {};
+    \node[block] (Q) at (addobs|-Pm) {$Q$};
+
+    \draw[<-] (addfb.west) -- ++(-0.8, 0) node[above right]{$r$};
+    \draw[->] (addfb.east) -- (C.west);
+    \draw[->] (C.east) -- (addobs.west);
+    \draw[->] (addobs.east) -- (adddu.west);
+    \draw[->] (adddu.east) -- (P.west);
+    \draw[<-] (adddu.north) -- ++(0, 0.8) node[below right]{$d_u$};
+    \draw[<-] (addn.east) -- ++(0.8, 0) coordinate[](endpos) node[above left]{$n$};
+    \draw[->] (u)node[branch]{}node[above]{$u$} |- (addu.west);
+    \draw[->] (P.east) -- (endpos|-P) node[above left]{$y$};
+    \draw[->] (P-|addn)node[branch]{} -- (addn.north);
+    \draw[->] (addn.south) |- (Pm.east);
+    \draw[->] (Pm.west) -- (addu.east);
+    \draw[->] (addu.south) -- ++(0, -0.8)coordinate(dob_bot) -| (Q.south);
+    \draw[->] (Pm-|addn)node[branch]{} -- ++(0, -1.7) -| (addfb.south);
+    \draw[->] (Q.north) -- (addobs.south);
+
+    \begin{scope}[on background layer]
+      \node[fit={(Q.west|-dob_bot) (Pm.north east)}, fill=black!10!white, draw, dashed, inner sep=5pt] (dob) {};
+      \node[above left] at (dob.south east) {DOB};
+    \end{scope}
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:figs/disturbance_observer_diagram_full.png]]
+
+** Internal Model Control
+#+begin_src latex :file internal_model_control_diagram.pdf
+  \begin{tikzpicture}
+    % Blocks
+    \node[block] (R) at (0, 0){$R$};
+    \node[addb={+}{}{}{}{-}, right= of R] (addfb){};
+    \node[block, right= of addfb] (Gc){$G_c$};
+    \node[block, right= of Gc] (G){$G$};
+    \node[block, below=0.5 of G] (Gtilde){$\tilde{G}$};
+    \node[block, below=1.5 of Gc] (F){$F$};
+    \node[addb={+}{}{}{}{}, right= of G] (adddy){};
+    \node[addb={+}{-}{}{}{}, right=1.8 of Gtilde] (add) {};
+
+    % Lines
+    \draw[<-] (R.west) -- ++(-0.8, 0) node[above right]{$r$};
+    \draw[->] (R.east) -- (addfb.west);
+    \draw[->] (addfb.east) -- (Gc.west);
+    \draw[->] (Gc.east) -- (G.west);
+    \draw[->] (G.east) -- (adddy.west);
+    \draw[<-] (adddy.north) -- ++(0, 0.8) node[below right]{$d_y$};
+    \draw[->] (adddy.east) -- ++(1, 0) node[above left]{$y$};
+    \draw[->] (adddy-|add)node[branch]{} -- (add.north);
+    \draw[->] ($0.5*(Gc.east)+0.5*(G.west)$)node[branch]{}node[above]{$u$} |- (Gtilde.west);
+    \draw[->] (Gtilde.east) -- (add.west);
+    \draw[->] (add.south) |- (F.east);
+    \draw[->] (F.west) -| (addfb.south);
+
+    % Names
+    \node[above, align=center] at (R.north) {Reference\\model};
+    \node[above, align=center] at (Gc.north) {Controller};
+    \node[above, align=center] at (G.north) {Process};
+    \node[above, align=center] at (Gtilde.north) {Model};
+    \node[above, align=center] at (F.north) {Filter};
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:figs/internal_model_control_diagram.png]]
+** Inverse Based Control
+#+begin_src latex :file inverse_control_siso.pdf
+  \begin{tikzpicture}
+    \node[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
+    \node[block, right=0.6 of addfb] (K){$G^{-1} L$};
+    \node[block, right=0.6 of K] (G){$G^\prime$};
+    \node[addb={+}{}{}{}{}, right=0.6 of G] (adddy){};
+    \node[addb={+}{}{}{}{}, below right=0.6 and 0.6 of adddy] (addn) {};
+
+    \draw[<-] (addfb.west) -- ++(-0.6, 0) node[above right]{$r$};
+    \draw[->] (addfb.east) -- (K.west);
+    \draw[->] (K.east) -- (G.west) node[above left]{$u$};
+    \draw[->] (G.east) -- (adddy.west);
+    \draw[<-] (addn.east) -- ++(0.6, 0) coordinate[](endpos) node[above left]{$n$};
+    \draw[->] (adddy.east) -- (G-|endpos) node[above left]{$y$};
+    \draw[->] (adddy-|addn) node[branch]{} -- (addn.north);
+    \draw[->] (addn.west) -| (addfb.south) node[below right]{$y_m$};
+    \draw[<-] (adddy.north) -- ++(0, 0.6) node[below right]{$d$};
+  \end{tikzpicture}
+#+end_src
+
+#+RESULTS:
+[[file:figs/inverse_control_siso.png]]
