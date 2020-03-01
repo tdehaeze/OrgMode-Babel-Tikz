@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml version="1.0" encoding="utf-8"?>
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-03-01 dim. 20:16 -->
+<!-- 2020-03-01 dim. 21:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Tikz - Stewart Platforms</title>
@@ -848,6 +847,19 @@
 <div id="outline-container-org283dc42" class="outline-2">
 <h2 id="org283dc42"><span class="section-number-2">10</span> Model of the Stewart platform Actuator</h2>
 <div class="outline-text-2" id="text-10">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+<span class="org-font-latex-sedate">\draw</span> (-1, 0) -- (1, 0);
+<span class="org-font-latex-sedate">\draw</span> (-1, 1.5) -- (1, 1.5);
+
+<span class="org-comment-delimiter">% </span><span class="org-comment">Spring, Damper, and Actuator</span>
+<span class="org-font-latex-sedate">\draw</span>[spring]   (-1, 0) -- (-1, 1.5) node[midway, left=0.1]{<span class="org-font-latex-math">$k</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{i}$</span>};
+<span class="org-font-latex-sedate">\draw</span>[damper]   ( 0, 0) -- ( 0, 1.5) node[midway, left=0.2]{<span class="org-font-latex-math">$c</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{i}$</span>};
+<span class="org-font-latex-sedate">\draw</span>[actuator] ( 1, 0) -- ( 1, 1.5) node[midway, left=0.1](F){<span class="org-font-latex-math">$F</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{i}$</span>};
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
 
 <div class="figure">
 <p><img src="figs/stewart_platform_actuator.png" alt="stewart_platform_actuator.png" />
@@ -858,7 +870,7 @@
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Dehaeze Thomas</p>
-<p class="date">Created: 2020-03-01 dim. 20:16</p>
+<p class="date">Created: 2020-03-01 dim. 21:29</p>
 </div>
 </body>
 </html>

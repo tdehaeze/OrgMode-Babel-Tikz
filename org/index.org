@@ -14,8 +14,7 @@
 First of all, [[file:config.org][here]] is the =Tikz= configuration that I use for all my figures.
 
 Then, I have multiple files containing various figures. They are sorted by subject:
-- [[file:control.org][Control]]: contains various block diagram
+- [[file:control-diagrams.org][Control Diagrams]]
+- [[file:optics.org][Optics]]
 - [[file:mechanical.org][Mechanical]]
 - [[file:matlab.org][Matlab]]
-- [[file:measurement.org][Modal Measurements]]
-- [[file:nass.org][NASS]]

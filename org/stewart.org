@@ -19,7 +19,7 @@
 
 #+HTML_MATHJAX: align: center tagside: right font: TeX
 
-#+PROPERTY: header-args:latex  :headers '("\\usepackage{tikz}" "\\usepackage{import}" "\\import{$HOME/Cloud/thesis/latex/}{config.tex}")
+#+PROPERTY: header-args:latex  :headers '("\\usepackage{tikz}" "\\usepackage{import}" "\\import{$HOME/Cloud/thesis/latex/org/}{config.tex}")
 #+PROPERTY: header-args:latex+ :imagemagick t :fit yes
 #+PROPERTY: header-args:latex+ :iminoptions -scale 100% -density 150
 #+PROPERTY: header-args:latex+ :imoutoptions -quality 100
@@ -554,7 +554,7 @@
 [[file:figs/cubic-configuration-definition.png]]
 
 * Model of the Stewart platform Actuator
-#+begin_src latex :file stewart_platform_actuator.pdf :post pdf2svg(file=*this*, ext="png") :exports results
+#+begin_src latex :file stewart_platform_actuator.pdf
   \begin{tikzpicture}
   \draw (-1, 0) -- (1, 0);
   \draw (-1, 1.5) -- (1, 1.5);
