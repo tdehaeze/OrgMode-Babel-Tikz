@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-03-01 dim. 20:16 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tikz - Filters</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Dehaeze Thomas" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="./css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="./css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="./css/zenburn.css"/>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="./js/readtheorg.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&dn=gpl-3.0.txt GPL-v3-or-Later
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.cacheClassElem = elem.className;
+         elem.cacheClassTarget = target.className;
+         target.className = "code-highlighted";
+         elem.className   = "code-highlighted";
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(elem.cacheClassElem)
+         elem.className = elem.cacheClassElem;
+       if(elem.cacheClassTarget)
+         target.className = elem.cacheClassTarget;
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="./index.html"> UP </a>
+ |
+ <a accesskey="H" href="./index.html"> HOME </a>
+</div><div id="content">
+<h1 class="title">Tikz - Filters</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org70f1ea7">1. First Order LPF</a></li>
+<li><a href="#org41929ff">2. First Order HPF</a></li>
+<li><a href="#org22c60c6">3. Second Order LPF</a></li>
+<li><a href="#org7ed0974">4. Second Order HPF</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org70f1ea7" class="outline-2">
+<h2 id="org70f1ea7"><span class="section-number-2">1</span> First Order LPF</h2>
+<div class="outline-text-2" id="text-1">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate">\definecolor</span>{mycolor1}{rgb}{0.00000,0.44700,0.74100}<span class="org-comment">%</span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">axis</span>}[<span class="org-comment">%</span>
+    width=<span class="org-font-latex-sedate">\fwidth</span>,
+    height=0.453<span class="org-font-latex-sedate">\fheight</span>,
+    at={(0<span class="org-font-latex-sedate">\fwidth</span>,0.514<span class="org-font-latex-sedate">\fheight</span>)},
+    xmode=log,
+    xmin=0.1,
+    xmax=10,
+    xtick={0.1,1,10},
+    xticklabels={{}},
+    xminorticks=true,
+    ymode=log,
+    ymin=0.1,
+    ymax=1,
+    yminorticks=true,
+    ylabel={Amplitude},
+    xminorgrids,
+    yminorgrids
+    ]
+    <span class="org-font-latex-sedate">\addplot</span> [color=mycolor1, line width=1.5pt, forget plot]
+    table[row sep=crcr]{<span class="org-comment">%</span>
+      0.1   0.0995037190209989<span class="org-font-latex-warning">\\</span>
+      0.162259528707809 0.160164804810826<span class="org-font-latex-warning">\\</span>
+      0.224052786930002 0.218632346269219<span class="org-font-latex-warning">\\</span>
+      0.286059553517574 0.275028013818558<span class="org-font-latex-warning">\\</span>
+      0.350384224529067 0.330673443303891<span class="org-font-latex-warning">\\</span>
+      0.415545533471887 0.38373305663567<span class="org-font-latex-warning">\\</span>
+      0.483820966492595 0.435524456768104<span class="org-font-latex-warning">\\</span>
+      0.55302242561929  0.483948100280684<span class="org-font-latex-warning">\\</span>
+      0.626320745219869 0.530803608956686<span class="org-font-latex-warning">\\</span>
+      0.702824426430835 0.575012182520845<span class="org-font-latex-warning">\\</span>
+      0.785045620020451 0.617496303004071<span class="org-font-latex-warning">\\</span>
+      0.872852662384837 0.657587868295071<span class="org-font-latex-warning">\\</span>
+      0.97048088773803  0.696435709256315<span class="org-font-latex-warning">\\</span>
+      1.07406615333343  0.731891468263351<span class="org-font-latex-warning">\\</span>
+      1.1887076977119   0.765233678195741<span class="org-font-latex-warning">\\</span>
+      1.3155856240457   0.796117027320002<span class="org-font-latex-warning">\\</span>
+      1.46273335620113  0.825522233892017<span class="org-font-latex-warning">\\</span>
+      1.62633950404819  0.851850976336224<span class="org-font-latex-warning">\\</span>
+      1.81659978837533  0.876038664710839<span class="org-font-latex-warning">\\</span>
+      2.04791209666509  0.898592277073029<span class="org-font-latex-warning">\\</span>
+      2.33006141069692  0.918944676480109<span class="org-font-latex-warning">\\</span>
+      2.67563844455205  0.936715846709769<span class="org-font-latex-warning">\\</span>
+      3.11525422355549  0.95214706836893<span class="org-font-latex-warning">\\</span>
+      3.71167181947576  0.965569785521705<span class="org-font-latex-warning">\\</span>
+      4.5462954695324   0.976652805808668<span class="org-font-latex-warning">\\</span>
+      5.83130511352622  0.985612466311578<span class="org-font-latex-warning">\\</span>
+      8.0150069615654   0.992306434253987<span class="org-font-latex-warning">\\</span>
+      10    0.995037190209989<span class="org-font-latex-warning">\\</span>
+    };
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">axis</span>}
+
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">axis</span>}[<span class="org-comment">%</span>
+    width=<span class="org-font-latex-sedate">\fwidth</span>,
+    height=0.453<span class="org-font-latex-sedate">\fheight</span>,
+    at={(0<span class="org-font-latex-sedate">\fwidth</span>,0<span class="org-font-latex-sedate">\fheight</span>)},
+    xmode=log,
+    xmin=0.1,
+    xmax=10,
+    xminorticks=true,
+    xlabel={Frequency [Hz]},
+    ymin=-180,
+    ymax=180,
+    ytick={-180,  -90,    0,   90,  180},
+    ylabel={Phase [deg]},
+    axis background/.style={fill=white},
+    xminorgrids
+    ]
+    <span class="org-font-latex-sedate">\addplot</span> [color=mycolor1, line width=1.5pt, forget plot]
+    table[row sep=crcr]{<span class="org-comment">%</span>
+      0.1   84.2894068625004<span class="org-font-latex-warning">\\</span>
+      0.108151870255229 83.8273464964254<span class="org-font-latex-warning">\\</span>
+      0.11696827039704  83.3285269754666<span class="org-font-latex-warning">\\</span>
+      0.126503372039592 82.7901877125998<span class="org-font-latex-warning">\\</span>
+      0.136815762796745 82.2094034956696<span class="org-font-latex-warning">\\</span>
+      0.148652484499784 81.5447572961833<span class="org-font-latex-warning">\\</span>
+      0.161513269350308 80.8252033639153<span class="org-font-latex-warning">\\</span>
+      0.175486714964814 80.046698671149<span class="org-font-latex-warning">\\</span>
+      0.190669084051225 79.2050374634246<span class="org-font-latex-warning">\\</span>
+      0.207164967560208 78.2958838125988<span class="org-font-latex-warning">\\</span>
+      0.225088005209548 77.3148172391363<span class="org-font-latex-warning">\\</span>
+      0.244561668345247 76.2573941302492<span class="org-font-latex-warning">\\</span>
+      0.265720110532454 75.1192278393924<span class="org-font-latex-warning">\\</span>
+      0.290043049386403 73.8255658068852<span class="org-font-latex-warning">\\</span>
+      0.316592411198357 72.4326080777986<span class="org-font-latex-warning">\\</span>
+      0.345571993676209 70.9362838665632<span class="org-font-latex-warning">\\</span>
+      0.378947091907461 69.2459425348624<span class="org-font-latex-warning">\\</span>
+      0.415545533471881 67.4348906337936<span class="org-font-latex-warning">\\</span>
+      0.457784053837669 65.4024485503398<span class="org-font-latex-warning">\\</span>
+      0.506646100892133 63.1311245519021<span class="org-font-latex-warning">\\</span>
+      0.56331426706014  60.6068183110632<span class="org-font-latex-warning">\\</span>
+      0.632121847581245 57.7021250432209<span class="org-font-latex-warning">\\</span>
+      0.719211887222109 54.2758627543063<span class="org-font-latex-warning">\\</span>
+      0.837380653526647 50.0578453434875<span class="org-font-latex-warning">\\</span>
+      1.10928986489522  42.0339527547858<span class="org-font-latex-warning">\\</span>
+      1.3462605792989   36.6049002879862<span class="org-font-latex-warning">\\</span>
+      1.54592773641949  32.897243348863<span class="org-font-latex-warning">\\</span>
+      1.74277467840892  29.8471022217197<span class="org-font-latex-warning">\\</span>
+      1.94665634334225  27.1896271080647<span class="org-font-latex-warning">\\</span>
+      2.16438908606399  24.7980767718183<span class="org-font-latex-warning">\\</span>
+      2.38439047009369  22.7529037932609<span class="org-font-latex-warning">\\</span>
+      2.6267541037238   20.8417284870977<span class="org-font-latex-warning">\\</span>
+      2.88044415339625  19.1453998295639<span class="org-font-latex-warning">\\</span>
+      3.15863540826777  17.5673919222014<span class="org-font-latex-warning">\\</span>
+      3.44776405473441  16.1744341931149<span class="org-font-latex-warning">\\</span>
+      3.76335836228649  14.8807721606076<span class="org-font-latex-warning">\\</span>
+      4.1078408899656   13.6817818674322<span class="org-font-latex-warning">\\</span>
+      4.48385594802115  12.5724857796515<span class="org-font-latex-warning">\\</span>
+      4.8717802187946   11.5996291640458<span class="org-font-latex-warning">\\</span>
+      5.29326605836054  10.6981918902769<span class="org-font-latex-warning">\\</span>
+      5.75121707184161  9.86376015391463<span class="org-font-latex-warning">\\</span>
+      6.24878807200691  9.09201049935923<span class="org-font-latex-warning">\\</span>
+      6.78940681269615  8.37875385951436<span class="org-font-latex-warning">\\</span>
+      7.37679760252781  7.71996681419471<span class="org-font-latex-warning">\\</span>
+      8.01500696156551  7.11181249739019<span class="org-font-latex-warning">\\</span>
+      8.70843149769087  6.55065327092214<span class="org-font-latex-warning">\\</span>
+      9.46184819472188  6.03305696454714<span class="org-font-latex-warning">\\</span>
+      10    5.71059313749964<span class="org-font-latex-warning">\\</span>
+    };
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">axis</span>}
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/lpf_first_order.png" alt="lpf_first_order.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org41929ff" class="outline-2">
+<h2 id="org41929ff"><span class="section-number-2">2</span> First Order HPF</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org22c60c6" class="outline-2">
+<h2 id="org22c60c6"><span class="section-number-2">3</span> Second Order LPF</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7ed0974" class="outline-2">
+<h2 id="org7ed0974"><span class="section-number-2">4</span> Second Order HPF</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Dehaeze Thomas</p>
+<p class="date">Created: 2020-03-01 dim. 20:16</p>
+</div>
+</body>
+</html>

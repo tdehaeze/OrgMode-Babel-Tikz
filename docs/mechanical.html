@@ -1,0 +1,1157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-03-01 dim. 20:16 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tikz - Mechanical Systems</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Dehaeze Thomas" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="./css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="./css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="./css/zenburn.css"/>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="./js/readtheorg.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&dn=gpl-3.0.txt GPL-v3-or-Later
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.cacheClassElem = elem.className;
+         elem.cacheClassTarget = target.className;
+         target.className = "code-highlighted";
+         elem.className   = "code-highlighted";
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(elem.cacheClassElem)
+         elem.className = elem.cacheClassElem;
+       if(elem.cacheClassTarget)
+         target.className = elem.cacheClassTarget;
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="./index.html"> UP </a>
+ |
+ <a accesskey="H" href="./index.html"> HOME </a>
+</div><div id="content">
+<h1 class="title">Tikz - Mechanical Systems</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org6dd09f2">1. Mass-Spring Systems</a>
+<ul>
+<li><a href="#org32118d8">1.1. One mass</a></li>
+<li><a href="#orge499cff">1.2. Two masses</a></li>
+<li><a href="#orge11bbb9">1.3. Three masses</a></li>
+<li><a href="#org3bb1233">1.4. Four masses</a></li>
+</ul>
+</li>
+<li><a href="#org829026f">2. Control Based on distance measurement</a></li>
+<li><a href="#orgf70d402">3. Inertial Control</a></li>
+<li><a href="#org8a8adfc">4. Force Feedback Control</a></li>
+<li><a href="#orgf209d33">5. Inertial Sensor</a>
+<ul>
+<li><a href="#org90f8bae">5.1. 1dof geophone or accelerometer</a></li>
+</ul>
+</li>
+<li><a href="#org31a5483">6. 3D</a>
+<ul>
+<li><a href="#org702e9a3">6.1. Coriolis Forces</a></li>
+<li><a href="#orgc289791">6.2. Cube</a></li>
+</ul>
+</li>
+<li><a href="#org4157f28">7. Gravity Compensation System</a>
+<ul>
+<li><a href="#org54e6702">7.1. Null angle</a></li>
+<li><a href="#org0df1cef">7.2. Maximum angle</a></li>
+</ul>
+</li>
+<li><a href="#orga225e76">8. 3Dof System</a></li>
+<li><a href="#orgee16de6">9. 3Dof System - bis</a></li>
+<li><a href="#org164d13f">10. Guiding Errors</a></li>
+<li><a href="#orgc808744">11. Vibration analysis procedure</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6dd09f2" class="outline-2">
+<h2 id="org6dd09f2"><span class="section-number-2">1</span> Mass-Spring Systems</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org32118d8" class="outline-3">
+<h3 id="org32118d8"><span class="section-number-3">1.1</span> One mass</h3>
+<div class="outline-text-3" id="text-1-1">
+<div class="org-src-container">
+<pre class="src src-latex" id="orgaf3a8b7"><span class="org-font-latex-sedate">\def\massw</span>{2.2}   <span class="org-comment">% Width of the masses</span>
+<span class="org-font-latex-sedate">\def\massh</span>{0.8}   <span class="org-comment">% Height of the masses</span>
+<span class="org-font-latex-sedate">\def\spaceh</span>{1.4}  <span class="org-comment">% Height of the springs/dampers</span>
+<span class="org-font-latex-sedate">\def\dispw</span>{0.3}   <span class="org-comment">% Width of the dashed line for the displacement</span>
+<span class="org-font-latex-sedate">\def\disph</span>{0.5}   <span class="org-comment">% Height of the arrow for the displacements</span>
+<span class="org-font-latex-sedate">\def\bracs</span>{0.05}  <span class="org-comment">% Brace spacing vertically</span>
+<span class="org-font-latex-sedate">\def\brach</span>{-10pt} <span class="org-comment">% Brace shift horizontaly</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-latex" id="orged0b354"><span class="org-font-latex-sedate">\draw</span> (-0.5*<span class="org-font-latex-sedate">\massw</span>, 0) -- (0.5*<span class="org-font-latex-sedate">\massw</span>, 0);
+<span class="org-font-latex-sedate">\draw</span>[dashed] (0.5*<span class="org-font-latex-sedate">\massw</span>, 0) -- ++(<span class="org-font-latex-sedate">\dispw</span>, 0);
+<span class="org-font-latex-sedate">\draw</span>[-&gt;] (0.5*<span class="org-font-latex-sedate">\massw</span>+0.5*<span class="org-font-latex-sedate">\dispw</span>, 0) -- ++(0, <span class="org-font-latex-sedate">\disph</span>) node[right]{<span class="org-font-latex-math">$x</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{w}$</span>};
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-latex" id="orgd29b952"><span class="org-comment-delimiter">% </span><span class="org-comment">Mass</span>
+<span class="org-font-latex-sedate">\draw</span>[fill=white] (-0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) rectangle (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>+<span class="org-font-latex-sedate">\massh</span>) node[pos=0.5]{<span class="org-font-latex-math">$m</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{g}$</span>};
+
+<span class="org-comment-delimiter">% </span><span class="org-comment">Spring, Damper, and Actuator</span>
+<span class="org-font-latex-sedate">\draw</span>[spring] (-0.4*<span class="org-font-latex-sedate">\massw</span>, 0) -- (-0.4*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) node[midway, left=0.1]{<span class="org-font-latex-math">$k</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{g}$</span>};
+<span class="org-font-latex-sedate">\draw</span>[damper] (0, 0)           -- ( 0, <span class="org-font-latex-sedate">\spaceh</span>)          node[midway, left=0.2]{<span class="org-font-latex-math">$c</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{g}$</span>};
+<span class="org-font-latex-sedate">\draw</span>[actuator] ( 0.4*<span class="org-font-latex-sedate">\massw</span>, 0) -- (   0.4*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) node[midway, left=0.1](F){<span class="org-font-latex-math">$F</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{g}$</span>};
+
+<span class="org-comment-delimiter">% </span><span class="org-comment">Displacements</span>
+<span class="org-font-latex-sedate">\draw</span>[dashed] (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) -- ++(<span class="org-font-latex-sedate">\dispw</span>, 0);
+<span class="org-font-latex-sedate">\draw</span>[-&gt;] (0.5*<span class="org-font-latex-sedate">\massw</span>+0.5*<span class="org-font-latex-sedate">\dispw</span>, <span class="org-font-latex-sedate">\spaceh</span>) -- ++(0, <span class="org-font-latex-sedate">\disph</span>) node[right]{<span class="org-font-latex-math">$x</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{g}$</span>};
+
+<span class="org-comment-delimiter">% </span><span class="org-comment">Legend</span>
+<span class="org-comment-delimiter">% </span><span class="org-font-latex-sedate"><span class="org-comment">\draw</span></span><span class="org-comment">[decorate, decoration={brace, amplitude=8pt}, xshift=</span><span class="org-font-latex-sedate"><span class="org-comment">\brach</span></span><span class="org-comment">] %</span>
+<span class="org-comment-delimiter">%   </span><span class="org-comment">(-0.5*</span><span class="org-font-latex-sedate"><span class="org-comment">\massw</span></span><span class="org-comment">, </span><span class="org-font-latex-sedate"><span class="org-comment">\bracs</span></span><span class="org-comment">) -- (-0.5*</span><span class="org-font-latex-sedate"><span class="org-comment">\massw</span></span><span class="org-comment">, </span><span class="org-font-latex-sedate"><span class="org-comment">\spaceh</span></span><span class="org-comment">+</span><span class="org-font-latex-sedate"><span class="org-comment">\massh</span></span><span class="org-comment">-</span><span class="org-font-latex-sedate"><span class="org-comment">\bracs</span></span><span class="org-comment">) %</span>
+<span class="org-comment-delimiter">%   </span><span class="org-comment">node[midway,rotate=90,anchor=south,yshift=10pt]{};</span>
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/mech_sys_1dof.png" alt="mech_sys_1dof.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge499cff" class="outline-3">
+<h3 id="orge499cff"><span class="section-number-3">1.2</span> Two masses</h3>
+<div class="outline-text-3" id="text-1-2">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-comment">% ====================</span>
+  <span class="org-comment">% Parameters</span>
+  <span class="org-comment">% ====================</span>
+  <span class="org-font-latex-sedate">\def\massw</span>{2.2}  <span class="org-comment">% Width of the masses</span>
+  <span class="org-font-latex-sedate">\def\massh</span>{0.8}  <span class="org-comment">% Height of the masses</span>
+  <span class="org-font-latex-sedate">\def\spaceh</span>{1.2} <span class="org-comment">% Height of the springs/dampers</span>
+  <span class="org-font-latex-sedate">\def\dispw</span>{0.3}  <span class="org-comment">% Width of the dashed line for the displacement</span>
+  <span class="org-font-latex-sedate">\def\disph</span>{0.5}  <span class="org-comment">% Height of the arrow for the displacements</span>
+  <span class="org-font-latex-sedate">\def\bracs</span>{0.05} <span class="org-comment">% Brace spacing vertically</span>
+  <span class="org-font-latex-sedate">\def\brach</span>{-10pt} <span class="org-comment">% Brace shift horizontaly</span>
+  <span class="org-comment">% ====================</span>
+
+
+  <span class="org-comment">% ====================</span>
+  <span class="org-comment">% Ground</span>
+  <span class="org-comment">% ====================</span>
+  <span class="org-font-latex-sedate">\draw</span> (-0.5*<span class="org-font-latex-sedate">\massw</span>, 0) -- (0.5*<span class="org-font-latex-sedate">\massw</span>, 0);
+  <span class="org-font-latex-sedate">\draw</span>[dashed] (0.5*<span class="org-font-latex-sedate">\massw</span>, 0) -- ++(<span class="org-font-latex-sedate">\dispw</span>, 0);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0.5*<span class="org-font-latex-sedate">\massw</span>+0.5*<span class="org-font-latex-sedate">\dispw</span>, 0) -- ++(0, <span class="org-font-latex-sedate">\disph</span>) node[right]{<span class="org-font-latex-math">$x</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{w}$</span>};
+  <span class="org-comment">% ====================</span>
+
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(0, 0)}]
+    <span class="org-comment">% Mass</span>
+    <span class="org-font-latex-sedate">\draw</span>[fill=white] (-0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) rectangle (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>+<span class="org-font-latex-sedate">\massh</span>) node[pos=0.5]{<span class="org-font-latex-math">$m</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{g}$</span>};
+
+    <span class="org-comment">% Spring, Damper, and Actuator</span>
+    <span class="org-font-latex-sedate">\draw</span>[spring] (-0.4*<span class="org-font-latex-sedate">\massw</span>, 0) -- (-0.4*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) node[midway, left=0.1]{<span class="org-font-latex-math">$k</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{g}$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[damper] (0, 0)           -- ( 0, <span class="org-font-latex-sedate">\spaceh</span>)          node[midway, left=0.2]{<span class="org-font-latex-math">$c</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{g}$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[actuator] ( 0.4*<span class="org-font-latex-sedate">\massw</span>, 0) -- (   0.4*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) node[midway, left=0.1](F){<span class="org-font-latex-math">$F</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{g}$</span>};
+
+    <span class="org-comment">% Displacements</span>
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) -- ++(<span class="org-font-latex-sedate">\dispw</span>, 0);
+    <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0.5*<span class="org-font-latex-sedate">\massw</span>+0.5*<span class="org-font-latex-sedate">\dispw</span>, <span class="org-font-latex-sedate">\spaceh</span>) -- ++(0, <span class="org-font-latex-sedate">\disph</span>) node[right]{<span class="org-font-latex-math">$x</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{g}$</span>};
+
+    <span class="org-comment">% Legend</span>
+    <span class="org-comment">% </span><span class="org-font-latex-sedate"><span class="org-comment">\draw</span></span><span class="org-comment">[decorate, decoration={brace, amplitude=8pt}, xshift=</span><span class="org-font-latex-sedate"><span class="org-comment">\brach</span></span><span class="org-comment">] %</span>
+    <span class="org-comment">%   (-0.5*</span><span class="org-font-latex-sedate"><span class="org-comment">\massw</span></span><span class="org-comment">, </span><span class="org-font-latex-sedate"><span class="org-comment">\bracs</span></span><span class="org-comment">) -- (-0.5*</span><span class="org-font-latex-sedate"><span class="org-comment">\massw</span></span><span class="org-comment">, </span><span class="org-font-latex-sedate"><span class="org-comment">\spaceh</span></span><span class="org-comment">+</span><span class="org-font-latex-sedate"><span class="org-comment">\massh</span></span><span class="org-comment">-</span><span class="org-font-latex-sedate"><span class="org-comment">\bracs</span></span><span class="org-comment">) %</span>
+    <span class="org-comment">%   node[midway,rotate=90,anchor=south,yshift=10pt]{};</span>
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(0, <span class="org-font-latex-sedate">\spaceh</span>+<span class="org-font-latex-sedate">\massh</span>)}]
+    <span class="org-comment">% Mass</span>
+    <span class="org-font-latex-sedate">\draw</span>[fill=white] (-0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) rectangle (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>+<span class="org-font-latex-sedate">\massh</span>) node[pos=0.5]{<span class="org-font-latex-math">$m</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{s}$</span>};
+
+    <span class="org-comment">% Spring, Damper, and Actuator</span>
+    <span class="org-font-latex-sedate">\draw</span>[spring] (-0.4*<span class="org-font-latex-sedate">\massw</span>, 0) -- (-0.4*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) node[midway, left=0.1]{<span class="org-font-latex-math">$k</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{s}$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[damper] (0, 0)           -- ( 0, <span class="org-font-latex-sedate">\spaceh</span>)          node[midway, left=0.2]{<span class="org-font-latex-math">$c</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{s}$</span>};
+
+    <span class="org-comment">% Displacements</span>
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) -- ++(<span class="org-font-latex-sedate">\dispw</span>, 0);
+    <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0.5*<span class="org-font-latex-sedate">\massw</span>+0.5*<span class="org-font-latex-sedate">\dispw</span>, <span class="org-font-latex-sedate">\spaceh</span>) -- ++(0, <span class="org-font-latex-sedate">\disph</span>) node[right]{<span class="org-font-latex-math">$x</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{s}$</span>};
+
+    <span class="org-comment">% Legend</span>
+    <span class="org-comment">% </span><span class="org-font-latex-sedate"><span class="org-comment">\draw</span></span><span class="org-comment">[decorate, decoration={brace, amplitude=8pt}, xshift=</span><span class="org-font-latex-sedate"><span class="org-comment">\brach</span></span><span class="org-comment">] %</span>
+    <span class="org-comment">%   (-0.5*</span><span class="org-font-latex-sedate"><span class="org-comment">\massw</span></span><span class="org-comment">, </span><span class="org-font-latex-sedate"><span class="org-comment">\bracs</span></span><span class="org-comment">) -- (-0.5*</span><span class="org-font-latex-sedate"><span class="org-comment">\massw</span></span><span class="org-comment">, </span><span class="org-font-latex-sedate"><span class="org-comment">\spaceh</span></span><span class="org-comment">+</span><span class="org-font-latex-sedate"><span class="org-comment">\massh</span></span><span class="org-comment">-</span><span class="org-font-latex-sedate"><span class="org-comment">\bracs</span></span><span class="org-comment">) %</span>
+    <span class="org-comment">%   node[midway,rotate=90,anchor=south,yshift=10pt]{};</span>
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/mech_sys_2dof.png" alt="mech_sys_2dof.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge11bbb9" class="outline-3">
+<h3 id="orge11bbb9"><span class="section-number-3">1.3</span> Three masses</h3>
+<div class="outline-text-3" id="text-1-3">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-comment">% ====================</span>
+  <span class="org-comment">% Parameters</span>
+  <span class="org-comment">% ====================</span>
+  <span class="org-font-latex-sedate">\def\massw</span>{2.2}  <span class="org-comment">% Width of the masses</span>
+  <span class="org-font-latex-sedate">\def\massh</span>{0.8}  <span class="org-comment">% Height of the masses</span>
+  <span class="org-font-latex-sedate">\def\spaceh</span>{1.2} <span class="org-comment">% Height of the springs/dampers</span>
+  <span class="org-font-latex-sedate">\def\dispw</span>{0.3}  <span class="org-comment">% Width of the dashed line for the displacement</span>
+  <span class="org-font-latex-sedate">\def\disph</span>{0.5}  <span class="org-comment">% Height of the arrow for the displacements</span>
+  <span class="org-font-latex-sedate">\def\bracs</span>{0.05} <span class="org-comment">% Brace spacing vertically</span>
+  <span class="org-font-latex-sedate">\def\brach</span>{-10pt} <span class="org-comment">% Brace shift horizontaly</span>
+  <span class="org-comment">% ====================</span>
+
+
+  <span class="org-comment">% ====================</span>
+  <span class="org-comment">% Ground</span>
+  <span class="org-comment">% ====================</span>
+  <span class="org-font-latex-sedate">\draw</span> (-0.5*<span class="org-font-latex-sedate">\massw</span>, 0) -- (0.5*<span class="org-font-latex-sedate">\massw</span>, 0);
+  <span class="org-font-latex-sedate">\draw</span>[dashed] (0.5*<span class="org-font-latex-sedate">\massw</span>, 0) -- ++(<span class="org-font-latex-sedate">\dispw</span>, 0);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0.5*<span class="org-font-latex-sedate">\massw</span>+0.5*<span class="org-font-latex-sedate">\dispw</span>, 0) -- ++(0, <span class="org-font-latex-sedate">\disph</span>) node[right]{<span class="org-font-latex-math">$x</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{w}$</span>};
+  <span class="org-comment">% ====================</span>
+
+  <span class="org-comment">% Granite</span>
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(0, 0)}]
+    <span class="org-comment">% Mass</span>
+    <span class="org-font-latex-sedate">\draw</span>[fill=white] (-0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) rectangle (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>+<span class="org-font-latex-sedate">\massh</span>) node[pos=0.5]{<span class="org-font-latex-math">$m</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{g}$</span>};
+
+    <span class="org-comment">% Spring, Damper, and Actuator</span>
+    <span class="org-font-latex-sedate">\draw</span>[spring] (-0.4*<span class="org-font-latex-sedate">\massw</span>, 0) -- (-0.4*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) node[midway, left=0.1]{<span class="org-font-latex-math">$k</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{g}$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[damper] (0, 0)           -- ( 0, <span class="org-font-latex-sedate">\spaceh</span>)          node[midway, left=0.2]{<span class="org-font-latex-math">$c</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{g}$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[actuator] ( 0.4*<span class="org-font-latex-sedate">\massw</span>, 0) -- (   0.4*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) node[midway, left=0.1](F){<span class="org-font-latex-math">$F</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{g}$</span>};
+
+    <span class="org-comment">% Displacements</span>
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) -- ++(<span class="org-font-latex-sedate">\dispw</span>, 0);
+    <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0.5*<span class="org-font-latex-sedate">\massw</span>+0.5*<span class="org-font-latex-sedate">\dispw</span>, <span class="org-font-latex-sedate">\spaceh</span>) -- ++(0, <span class="org-font-latex-sedate">\disph</span>) node[right]{<span class="org-font-latex-math">$x</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{g}$</span>};
+
+    <span class="org-comment">% Legend</span>
+    <span class="org-comment">% </span><span class="org-font-latex-sedate"><span class="org-comment">\draw</span></span><span class="org-comment">[decorate, decoration={brace, amplitude=8pt}, xshift=</span><span class="org-font-latex-sedate"><span class="org-comment">\brach</span></span><span class="org-comment">] %</span>
+    <span class="org-comment">%   (-0.5*</span><span class="org-font-latex-sedate"><span class="org-comment">\massw</span></span><span class="org-comment">, </span><span class="org-font-latex-sedate"><span class="org-comment">\bracs</span></span><span class="org-comment">) -- (-0.5*</span><span class="org-font-latex-sedate"><span class="org-comment">\massw</span></span><span class="org-comment">, </span><span class="org-font-latex-sedate"><span class="org-comment">\spaceh</span></span><span class="org-comment">+</span><span class="org-font-latex-sedate"><span class="org-comment">\massh</span></span><span class="org-comment">-</span><span class="org-font-latex-sedate"><span class="org-comment">\bracs</span></span><span class="org-comment">) %</span>
+    <span class="org-comment">%   node[midway,rotate=90,anchor=south,yshift=10pt]{Support};</span>
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+
+  <span class="org-comment">% Stages</span>
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(0, <span class="org-font-latex-sedate">\spaceh</span>+<span class="org-font-latex-sedate">\massh</span>)}]
+    <span class="org-comment">% Mass</span>
+    <span class="org-font-latex-sedate">\draw</span>[fill=white] (-0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) rectangle (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>+<span class="org-font-latex-sedate">\massh</span>) node[pos=0.5]{<span class="org-font-latex-math">$m</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{s}$</span>};
+
+    <span class="org-comment">% Spring, Damper, and Actuator</span>
+    <span class="org-font-latex-sedate">\draw</span>[spring] (-0.4*<span class="org-font-latex-sedate">\massw</span>, 0) -- (-0.4*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) node[midway, left=0.1]{<span class="org-font-latex-math">$k</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{s}$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[damper] (0, 0)           -- ( 0, <span class="org-font-latex-sedate">\spaceh</span>)          node[midway, left=0.2]{<span class="org-font-latex-math">$c</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{s}$</span>};
+
+    <span class="org-comment">% Displacements</span>
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) -- ++(<span class="org-font-latex-sedate">\dispw</span>, 0);
+    <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0.5*<span class="org-font-latex-sedate">\massw</span>+0.5*<span class="org-font-latex-sedate">\dispw</span>, <span class="org-font-latex-sedate">\spaceh</span>) -- ++(0, <span class="org-font-latex-sedate">\disph</span>) node[right]{<span class="org-font-latex-math">$x</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{s}$</span>};
+
+    <span class="org-comment">% Legend</span>
+    <span class="org-comment">% </span><span class="org-font-latex-sedate"><span class="org-comment">\draw</span></span><span class="org-comment">[decorate, decoration={brace, amplitude=8pt}, xshift=</span><span class="org-font-latex-sedate"><span class="org-comment">\brach</span></span><span class="org-comment">] %</span>
+    <span class="org-comment">%   (-0.5*</span><span class="org-font-latex-sedate"><span class="org-comment">\massw</span></span><span class="org-comment">, </span><span class="org-font-latex-sedate"><span class="org-comment">\bracs</span></span><span class="org-comment">) -- (-0.5*</span><span class="org-font-latex-sedate"><span class="org-comment">\massw</span></span><span class="org-comment">, </span><span class="org-font-latex-sedate"><span class="org-comment">\spaceh</span></span><span class="org-comment">+</span><span class="org-font-latex-sedate"><span class="org-comment">\massh</span></span><span class="org-comment">-</span><span class="org-font-latex-sedate"><span class="org-comment">\bracs</span></span><span class="org-comment">) %</span>
+    <span class="org-comment">%   node[midway,rotate=90,anchor=south,yshift=10pt]{Actuator};</span>
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+
+  <span class="org-comment">% Hexapod</span>
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(0, 2*(<span class="org-font-latex-sedate">\spaceh</span>+<span class="org-font-latex-sedate">\massh</span>))}]
+    <span class="org-comment">% Mass</span>
+    <span class="org-font-latex-sedate">\draw</span>[fill=white] (-0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) rectangle (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>+<span class="org-font-latex-sedate">\massh</span>) node[pos=0.5]{<span class="org-font-latex-math">$m</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{v}$</span>};
+
+    <span class="org-comment">% Spring, Damper, and Actuator</span>
+    <span class="org-font-latex-sedate">\draw</span>[spring] (-0.4*<span class="org-font-latex-sedate">\massw</span>, 0) -- (-0.4*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) node[midway, left=0.1]{<span class="org-font-latex-math">$k</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{v}$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[damper] (0, 0)           -- ( 0, <span class="org-font-latex-sedate">\spaceh</span>)          node[midway, left=0.2]{<span class="org-font-latex-math">$c</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{v}$</span>};
+
+    <span class="org-comment">% Displacements</span>
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) -- ++(<span class="org-font-latex-sedate">\dispw</span>, 0);
+    <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0.5*<span class="org-font-latex-sedate">\massw</span>+0.5*<span class="org-font-latex-sedate">\dispw</span>, <span class="org-font-latex-sedate">\spaceh</span>) -- ++(0, <span class="org-font-latex-sedate">\disph</span>) node[right]{<span class="org-font-latex-math">$x</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{v}$</span>};
+
+    <span class="org-comment">% Legend</span>
+    <span class="org-comment">% </span><span class="org-font-latex-sedate"><span class="org-comment">\draw</span></span><span class="org-comment">[decorate, decoration={brace, amplitude=8pt}, xshift=</span><span class="org-font-latex-sedate"><span class="org-comment">\brach</span></span><span class="org-comment">] %</span>
+    <span class="org-comment">%   (-0.5*</span><span class="org-font-latex-sedate"><span class="org-comment">\massw</span></span><span class="org-comment">, </span><span class="org-font-latex-sedate"><span class="org-comment">\bracs</span></span><span class="org-comment">) -- (-0.5*</span><span class="org-font-latex-sedate"><span class="org-comment">\massw</span></span><span class="org-comment">, </span><span class="org-font-latex-sedate"><span class="org-comment">\spaceh</span></span><span class="org-comment">+</span><span class="org-font-latex-sedate"><span class="org-comment">\massh</span></span><span class="org-comment">-</span><span class="org-font-latex-sedate"><span class="org-comment">\bracs</span></span><span class="org-comment">) %</span>
+    <span class="org-comment">%   node[midway,rotate=90,anchor=south,yshift=10pt]{Flexibility};</span>
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/mech_sys_3dof.png" alt="mech_sys_3dof.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3bb1233" class="outline-3">
+<h3 id="org3bb1233"><span class="section-number-3">1.4</span> Four masses</h3>
+<div class="outline-text-3" id="text-1-4">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-comment">% ====================</span>
+  <span class="org-comment">% Parameters</span>
+  <span class="org-font-latex-sedate">\def\massw</span>{2.2}  <span class="org-comment">% Width of the masses</span>
+  <span class="org-font-latex-sedate">\def\massh</span>{0.8}  <span class="org-comment">% Height of the masses</span>
+  <span class="org-font-latex-sedate">\def\spaceh</span>{1.2} <span class="org-comment">% Height of the springs/dampers</span>
+  <span class="org-font-latex-sedate">\def\dispw</span>{0.3}  <span class="org-comment">% Width of the dashed line for the displacement</span>
+  <span class="org-font-latex-sedate">\def\disph</span>{0.5}  <span class="org-comment">% Height of the arrow for the displacements</span>
+  <span class="org-font-latex-sedate">\def\bracs</span>{0.05} <span class="org-comment">% Brace spacing vertically</span>
+  <span class="org-font-latex-sedate">\def\brach</span>{-10pt} <span class="org-comment">% Brace shift horizontaly</span>
+
+  <span class="org-comment">% ====================</span>
+  <span class="org-comment">% Ground</span>
+  <span class="org-font-latex-sedate">\draw</span> (-0.5*<span class="org-font-latex-sedate">\massw</span>, 0) -- (0.5*<span class="org-font-latex-sedate">\massw</span>, 0);
+  <span class="org-font-latex-sedate">\draw</span>[dashed] (0.5*<span class="org-font-latex-sedate">\massw</span>, 0) -- ++(<span class="org-font-latex-sedate">\dispw</span>, 0);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0.5*<span class="org-font-latex-sedate">\massw</span>+0.5*<span class="org-font-latex-sedate">\dispw</span>, 0) -- ++(0, <span class="org-font-latex-sedate">\disph</span>) node[right]{<span class="org-font-latex-math">$x</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{w}$</span>};
+
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(0, 0*(<span class="org-font-latex-sedate">\spaceh</span>+<span class="org-font-latex-sedate">\massh</span>))}]
+    <span class="org-comment">% Mass</span>
+    <span class="org-font-latex-sedate">\draw</span>[fill=white] (-0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) rectangle (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>+<span class="org-font-latex-sedate">\massh</span>) node[pos=0.5]{<span class="org-font-latex-math">$m</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">4$</span>};
+
+    <span class="org-comment">% Spring, Damper, and Actuator</span>
+    <span class="org-font-latex-sedate">\draw</span>[spring] (-0.4*<span class="org-font-latex-sedate">\massw</span>, 0) -- (-0.4*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) node[midway, left=0.1]{<span class="org-font-latex-math">$k</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">4$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[damper] (0, 0)           -- ( 0, <span class="org-font-latex-sedate">\spaceh</span>)          node[midway, left=0.2]{<span class="org-font-latex-math">$c</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">4$</span>};
+
+    <span class="org-comment">% Displacements</span>
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) -- ++(<span class="org-font-latex-sedate">\dispw</span>, 0);
+    <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0.5*<span class="org-font-latex-sedate">\massw</span>+0.5*<span class="org-font-latex-sedate">\dispw</span>, <span class="org-font-latex-sedate">\spaceh</span>) -- ++(0, <span class="org-font-latex-sedate">\disph</span>) node[right]{<span class="org-font-latex-math">$x</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">4$</span>};
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(0, 1*(<span class="org-font-latex-sedate">\spaceh</span>+<span class="org-font-latex-sedate">\massh</span>))}]
+    <span class="org-comment">% Mass</span>
+    <span class="org-font-latex-sedate">\draw</span>[fill=white] (-0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) rectangle (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>+<span class="org-font-latex-sedate">\massh</span>) node[pos=0.5]{<span class="org-font-latex-math">$m</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">3$</span>};
+
+    <span class="org-comment">% Spring, Damper, and Actuator</span>
+    <span class="org-font-latex-sedate">\draw</span>[spring] (-0.4*<span class="org-font-latex-sedate">\massw</span>, 0) -- (-0.4*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) node[midway, left=0.1]{<span class="org-font-latex-math">$k</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">3$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[damper] (0, 0)           -- ( 0, <span class="org-font-latex-sedate">\spaceh</span>)          node[midway, left=0.2]{<span class="org-font-latex-math">$c</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">3$</span>};
+
+    <span class="org-comment">% Displacements</span>
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) -- ++(<span class="org-font-latex-sedate">\dispw</span>, 0);
+    <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0.5*<span class="org-font-latex-sedate">\massw</span>+0.5*<span class="org-font-latex-sedate">\dispw</span>, <span class="org-font-latex-sedate">\spaceh</span>) -- ++(0, <span class="org-font-latex-sedate">\disph</span>) node[right]{<span class="org-font-latex-math">$x</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">3$</span>};
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(0, 2*(<span class="org-font-latex-sedate">\spaceh</span>+<span class="org-font-latex-sedate">\massh</span>))}]
+    <span class="org-comment">% Mass</span>
+    <span class="org-font-latex-sedate">\draw</span>[fill=white] (-0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) rectangle (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>+<span class="org-font-latex-sedate">\massh</span>) node[pos=0.5]{<span class="org-font-latex-math">$m</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">2$</span>};
+
+    <span class="org-comment">% Spring, Damper, and Actuator</span>
+    <span class="org-font-latex-sedate">\draw</span>[spring] (-0.4*<span class="org-font-latex-sedate">\massw</span>, 0) -- (-0.4*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) node[midway, left=0.1]{<span class="org-font-latex-math">$k</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">2$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[damper] (0, 0)           -- ( 0, <span class="org-font-latex-sedate">\spaceh</span>)          node[midway, left=0.2]{<span class="org-font-latex-math">$c</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">2$</span>};
+
+    <span class="org-comment">% Displacements</span>
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) -- ++(<span class="org-font-latex-sedate">\dispw</span>, 0);
+    <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0.5*<span class="org-font-latex-sedate">\massw</span>+0.5*<span class="org-font-latex-sedate">\dispw</span>, <span class="org-font-latex-sedate">\spaceh</span>) -- ++(0, <span class="org-font-latex-sedate">\disph</span>) node[right]{<span class="org-font-latex-math">$x</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">2$</span>};
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(0, 3*(<span class="org-font-latex-sedate">\spaceh</span>+<span class="org-font-latex-sedate">\massh</span>))}]
+    <span class="org-comment">% Mass</span>
+    <span class="org-font-latex-sedate">\draw</span>[fill=white] (-0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) rectangle (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>+<span class="org-font-latex-sedate">\massh</span>) node[pos=0.5]{<span class="org-font-latex-math">$m</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">1$</span>};
+
+    <span class="org-comment">% Spring, Damper, and Actuator</span>
+    <span class="org-font-latex-sedate">\draw</span>[spring] (-0.4*<span class="org-font-latex-sedate">\massw</span>, 0) -- (-0.4*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) node[midway, left=0.1]{<span class="org-font-latex-math">$k</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">1$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[damper] (0, 0)           -- ( 0, <span class="org-font-latex-sedate">\spaceh</span>)          node[midway, left=0.2]{<span class="org-font-latex-math">$c</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">1$</span>};
+
+    <span class="org-comment">% Displacements</span>
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) -- ++(<span class="org-font-latex-sedate">\dispw</span>, 0);
+    <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0.5*<span class="org-font-latex-sedate">\massw</span>+0.5*<span class="org-font-latex-sedate">\dispw</span>, <span class="org-font-latex-sedate">\spaceh</span>) -- ++(0, <span class="org-font-latex-sedate">\disph</span>) node[right]{<span class="org-font-latex-math">$x</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">1$</span>};
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/mech_sys_4dof.png" alt="mech_sys_4dof.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org829026f" class="outline-2">
+<h2 id="org829026f"><span class="section-number-2">2</span> Control Based on distance measurement</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-comment">% Parameters</span>
+  <span class="org-font-latex-sedate">\def\massw</span>{3}
+  <span class="org-font-latex-sedate">\def\massh</span>{1}
+  <span class="org-font-latex-sedate">\def\spaceh</span>{2}
+
+  <span class="org-comment">% Ground</span>
+  <span class="org-font-latex-sedate">\draw</span>[] (-0.5*<span class="org-font-latex-sedate">\massw</span>, 0) -- (0.5*<span class="org-font-latex-sedate">\massw</span>, 0);
+  <span class="org-comment">% Mass</span>
+  <span class="org-font-latex-sedate">\draw</span>[] (-0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) rectangle (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>+<span class="org-font-latex-sedate">\massh</span>) node[pos=0.5](m){<span class="org-font-latex-math">$m$</span>};
+
+  <span class="org-comment">% Spring, Damper, and Actuator</span>
+  <span class="org-font-latex-sedate">\draw</span>[spring]   (-0.3*<span class="org-font-latex-sedate">\massw</span>, 0) -- (-0.3*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) node[midway, left=0.1]{<span class="org-font-latex-math">$k$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[damper]   ( 0, 0) -- ( 0, <span class="org-font-latex-sedate">\spaceh</span>) node[midway, left=0.3]{<span class="org-font-latex-math">$c$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[actuator] ( 0.3*<span class="org-font-latex-sedate">\massw</span>, 0) -- ( 0.3*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) node[midway](F){};
+
+  <span class="org-comment">% Displacements</span>
+  <span class="org-font-latex-sedate">\draw</span>[dashed] (0.5*<span class="org-font-latex-sedate">\massw</span>, 0) -- ++(0.2*<span class="org-font-latex-sedate">\massw</span>, 0);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0.6*<span class="org-font-latex-sedate">\massw</span>, 0) -- ++(0, 0.2*<span class="org-font-latex-sedate">\spaceh</span>) node[right]{<span class="org-font-latex-math">$w$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[dashed] (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) -- ++(0.2*<span class="org-font-latex-sedate">\massw</span>, 0);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0.6*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) -- ++(0, 0.2*<span class="org-font-latex-sedate">\spaceh</span>) node[right]{<span class="org-font-latex-math">$x$</span>};
+
+  <span class="org-comment">% Measurement</span>
+  <span class="org-font-latex-sedate">\draw</span>[dashed] (-0.5*<span class="org-font-latex-sedate">\massw</span>, 0) -- ++(-0.2*<span class="org-font-latex-sedate">\massw</span>, 0);
+  <span class="org-font-latex-sedate">\draw</span>[dashed] (-0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) -- ++(-0.2*<span class="org-font-latex-sedate">\massw</span>, 0);
+  <span class="org-font-latex-sedate">\draw</span>[dashed, &lt;-&gt;] (-0.6*<span class="org-font-latex-sedate">\massw</span>, 0) -- ++(0, <span class="org-font-latex-sedate">\spaceh</span>) node[midway](meas){};
+
+  <span class="org-comment">% Noise</span>
+  <span class="org-font-latex-sedate">\node</span>[addb, left=1 of meas] (addn) {};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (meas.center) node[above left]{<span class="org-font-latex-math">$d$</span>} -- (addn.east);
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-] (addn.west) -- ++(-0.8, 0) node[above right]{<span class="org-font-latex-math">$n$</span>};
+
+  <span class="org-comment">% Controller</span>
+  <span class="org-font-latex-sedate">\node</span>[block, above=1 of m] (K) {<span class="org-font-latex-math">$K$</span>};
+
+  <span class="org-comment">% Reference signal</span>
+  <span class="org-font-latex-sedate">\node</span>[addb] (addr) at (addn|-K){};
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-] (addr.west) -- ++(-0.8, 0) node[above right]{<span class="org-font-latex-math">$r$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (addn.north) -- (addr.south) node[below left]{<span class="org-font-latex-math">$d</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">m$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (addr.east) -- (K.west) node[above left]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\epsilon</span></span><span class="org-font-latex-math">$</span>};
+
+  <span class="org-comment">% Force injected and input noise</span>
+  <span class="org-font-latex-sedate">\node</span>[addb, right=1 of F] (addF) {};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (K.east) -| (addF.north);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (addF.west) -- (F.east) node[above right]{<span class="org-font-latex-math">$F$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-] (addF.east) -- ++(0.8, 0) node[above left]{<span class="org-font-latex-math">$n</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">i$</span>};
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/mech_sys_1dof_contr.png" alt="mech_sys_1dof_contr.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf70d402" class="outline-2">
+<h2 id="orgf70d402"><span class="section-number-2">3</span> Inertial Control</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-comment">% Parameters</span>
+  <span class="org-font-latex-sedate">\def\massw</span>{3}
+  <span class="org-font-latex-sedate">\def\massh</span>{1}
+  <span class="org-font-latex-sedate">\def\spaceh</span>{2}
+
+  <span class="org-comment">% Ground</span>
+  <span class="org-font-latex-sedate">\draw</span>[] (-0.5*<span class="org-font-latex-sedate">\massw</span>, 0) -- (0.5*<span class="org-font-latex-sedate">\massw</span>, 0);
+  <span class="org-comment">% Mass</span>
+  <span class="org-font-latex-sedate">\draw</span>[fill=white] (-0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) rectangle (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>+<span class="org-font-latex-sedate">\massh</span>) node[pos=0.5](m){<span class="org-font-latex-math">$m$</span>};
+
+  <span class="org-comment">% Spring, Damper, and Actuator</span>
+  <span class="org-font-latex-sedate">\draw</span>[spring]   (-0.3*<span class="org-font-latex-sedate">\massw</span>, 0) -- (-0.3*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) node[midway, left=0.1]{<span class="org-font-latex-math">$k$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[damper]   ( 0, 0) -- ( 0, <span class="org-font-latex-sedate">\spaceh</span>) node[midway, left=0.3]{<span class="org-font-latex-math">$c$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[actuator] ( 0.3*<span class="org-font-latex-sedate">\massw</span>, 0) -- ( 0.3*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) node[midway](F){};
+
+  <span class="org-comment">% Displacements</span>
+  <span class="org-font-latex-sedate">\draw</span>[dashed] (0.5*<span class="org-font-latex-sedate">\massw</span>, 0) -- ++(0.2*<span class="org-font-latex-sedate">\massw</span>, 0);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0.6*<span class="org-font-latex-sedate">\massw</span>, 0) -- ++(0, 0.2*<span class="org-font-latex-sedate">\spaceh</span>) node[below right]{<span class="org-font-latex-math">$w$</span>};
+
+  <span class="org-comment">% Inertial Sensor</span>
+  <span class="org-font-latex-sedate">\node</span>[inertialsensor] (inertials) at (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>+<span class="org-font-latex-sedate">\massh</span>){};
+
+  <span class="org-font-latex-sedate">\node</span>[block, above right=0.5*<span class="org-font-latex-sedate">\massh</span> and 1 of F.east] (K){<span class="org-font-latex-math">$K$</span>};
+
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (inertials.east) node[above right]{<span class="org-font-latex-math">$x$</span>} -| (K.north);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (K.south) |- (F.east) node[above right]{<span class="org-font-latex-math">$F$</span>};
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/mech_sys_1dof_inertial_contr.png" alt="mech_sys_1dof_inertial_contr.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8a8adfc" class="outline-2">
+<h2 id="org8a8adfc"><span class="section-number-2">4</span> Force Feedback Control</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-comment">% Parameters</span>
+  <span class="org-font-latex-sedate">\def\massw</span>{3}
+  <span class="org-font-latex-sedate">\def\massh</span>{1}
+  <span class="org-font-latex-sedate">\def\spaceh</span>{2}
+
+  <span class="org-comment">% Ground</span>
+  <span class="org-font-latex-sedate">\draw</span>[] (-0.5*<span class="org-font-latex-sedate">\massw</span>, 0) -- (0.5*<span class="org-font-latex-sedate">\massw</span>, 0);
+  <span class="org-comment">% Mass</span>
+  <span class="org-font-latex-sedate">\draw</span>[fill=white] (-0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) rectangle (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>+<span class="org-font-latex-sedate">\massh</span>) node[pos=0.5](m){<span class="org-font-latex-math">$m$</span>};
+
+  <span class="org-comment">% Spring, Damper, and Actuator</span>
+  <span class="org-font-latex-sedate">\draw</span>[spring]   (-0.3*<span class="org-font-latex-sedate">\massw</span>, 0) -- (-0.3*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) node[midway, left=0.1]{<span class="org-font-latex-math">$k$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[damper]   ( 0, 0) -- ( 0, <span class="org-font-latex-sedate">\spaceh</span>) node[midway, left=0.3]{<span class="org-font-latex-math">$c$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[actuator] ( 0.3*<span class="org-font-latex-sedate">\massw</span>, 0) -- ( 0.3*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) node[midway](F){};
+
+  <span class="org-comment">% Force Sensor</span>
+  <span class="org-font-latex-sedate">\node</span>[forcesensor={<span class="org-font-latex-sedate">\massw</span>}{0.2}] (fsens) at (0, <span class="org-font-latex-sedate">\spaceh</span>){};
+
+  <span class="org-comment">% Displacements</span>
+  <span class="org-font-latex-sedate">\draw</span>[dashed] (0.5*<span class="org-font-latex-sedate">\massw</span>, 0) -- ++(0.2*<span class="org-font-latex-sedate">\massw</span>, 0);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0.6*<span class="org-font-latex-sedate">\massw</span>, 0) -- ++(0, 0.2*<span class="org-font-latex-sedate">\spaceh</span>) node[below right]{<span class="org-font-latex-math">$w$</span>};
+
+  <span class="org-font-latex-sedate">\node</span>[block={0.7cm}{0.6cm}, above right=0.1*<span class="org-font-latex-sedate">\massh</span> and 1 of F.east] (K){<span class="org-font-latex-math">$K$</span>};
+
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (fsens.east) node[above right]{<span class="org-font-latex-math">$F</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">m$</span>} -| (K.north);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (K.south) |- (F.east) node[above right]{<span class="org-font-latex-math">$F$</span>};
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/mech_sys_1dof_force_contr.png" alt="mech_sys_1dof_force_contr.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf209d33" class="outline-2">
+<h2 id="orgf209d33"><span class="section-number-2">5</span> Inertial Sensor</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-org90f8bae" class="outline-3">
+<h3 id="org90f8bae"><span class="section-number-3">5.1</span> 1dof geophone or accelerometer</h3>
+<div class="outline-text-3" id="text-5-1">
+
+<div class="figure">
+<p><img src="figs/inertial_sensor.png" alt="inertial_sensor.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org31a5483" class="outline-2">
+<h2 id="org31a5483"><span class="section-number-2">6</span> 3D</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org702e9a3" class="outline-3">
+<h3 id="org702e9a3"><span class="section-number-3">6.1</span> Coriolis Forces</h3>
+<div class="outline-text-3" id="text-6-1">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0, 0, 0) -- (4, 0, 0) node[above] {<span class="org-font-latex-math">$x$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0, 0, 0) -- (0, 4, 0) node[left] {<span class="org-font-latex-math">$z$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0, 0, 0) -- (0, 0, -4) node[right] {<span class="org-font-latex-math">$y$</span>};
+
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;, style={canvas is zx plane at y=2}] (1, 0) arc (0:270:1) node[left]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\vv</span></span><span class="org-font-latex-math">{</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\Omega</span></span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">z}$</span>};
+
+
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(4, 3.2, 0)}]
+    <span class="org-font-latex-sedate">\draw</span> (1,0,0)--(1,1,0)--(0,1,0);
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (0,1,0)--(0,0,0)--(1,0,0);
+    <span class="org-font-latex-sedate">\draw</span> (0,0,1)--(1,0,1)--(1,1,1)--(0,1,1)--(0,0,1);
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (0,0,0) -- (0,0,1);
+    <span class="org-font-latex-sedate">\draw</span> (1,0,0) -- (1,0,1);
+    <span class="org-font-latex-sedate">\draw</span> (1,1,0) -- (1,1,1);
+    <span class="org-font-latex-sedate">\draw</span> (0,1,0) -- (0,1,1);
+
+    <span class="org-font-latex-sedate">\fill</span>[fill=black!10, opacity=0.7] (0,0,1)--(1,0,1)--(1,1,1)--(0,1,1)--cycle;
+    <span class="org-font-latex-sedate">\fill</span>[fill=black!20, opacity=0.7] (1,0,1)--(1,0,0)--(1,1,0)--(1,1,1)--cycle;
+
+    <span class="org-font-latex-sedate">\draw</span> (0.5, 1, 0) node [above] {Masse <span class="org-font-latex-math">$m$</span>};
+
+    <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0.5, 0.5, 0.5) -- ++(3, 0, 0) node[above]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\displaystyle\vec</span></span><span class="org-font-latex-math">{v</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">x}$</span>};
+
+    <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0.5, 0.5, 0.5) -- ++(0, 0, 3) node[below right]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\displaystyle\vv</span></span><span class="org-font-latex-math">{F</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{cor}} = 2 m </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\vv</span></span><span class="org-font-latex-math">{v</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">x} </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\wedge</span></span><span class="org-font-latex-math"> </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\vv</span></span><span class="org-font-latex-math">{</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\Omega</span></span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">z}$</span>};
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/3d-mass.png" alt="3d-mass.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc289791" class="outline-3">
+<h3 id="orgc289791"><span class="section-number-3">6.2</span> Cube</h3>
+<div class="outline-text-3" id="text-6-2">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}
+    <span class="org-font-latex-sedate">\fill</span>[fill=black!40, opacity=0.7] (0,0,4) -- (4,0,4) -- (4,4,4) -- (0,4,4) -- cycle;
+    <span class="org-font-latex-sedate">\fill</span>[fill=black!20, opacity=0.7] (4,0,4) -- (4,0,0) -- (4,4,0) -- (4,4,4) -- cycle;
+
+    <span class="org-font-latex-sedate">\draw</span> (4,0,0)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (4,4,0)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (0,4,0)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (0,4,0) -- (0,0,0) -- (4,0,0);
+    <span class="org-font-latex-sedate">\draw</span> (0,0,4)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (4,0,4)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (4,4,4)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (0,4,4)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (0,0,4);
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (0,0,0)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (0,0,4);
+    <span class="org-font-latex-sedate">\draw</span> (4,0,0) -- (4,0,4);
+    <span class="org-font-latex-sedate">\draw</span> (4,4,0) -- (4,4,4);
+    <span class="org-font-latex-sedate">\draw</span> (0,4,0) -- (0,4,4);
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0, 0, 0) -- (0, 0, 2) node[above] {<span class="org-font-latex-math">$x$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0, 0, 0) -- (2, 0, 0) node[right] {<span class="org-font-latex-math">$y$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0, 0, 0) -- (0, 2, 0) node[left]  {<span class="org-font-latex-math">$z$</span>};
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/3d-cube.png" alt="3d-cube.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4157f28" class="outline-2">
+<h2 id="org4157f28"><span class="section-number-2">7</span> Gravity Compensation System</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-org54e6702" class="outline-3">
+<h3 id="org54e6702"><span class="section-number-3">7.1</span> Null angle</h3>
+<div class="outline-text-3" id="text-7-1">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-comment">% Parameters definitions</span>
+  <span class="org-font-latex-sedate">\def\baseh</span>{0.2} <span class="org-comment">% Height of the base</span>
+  <span class="org-font-latex-sedate">\def\naceh</span>{0.2} <span class="org-comment">% Height of the nacelle</span>
+  <span class="org-font-latex-sedate">\def\baser</span>{3.8} <span class="org-comment">% Radius of the base</span>
+  <span class="org-font-latex-sedate">\def\nacer</span>{3.0} <span class="org-comment">% Radius of the nacelle</span>
+
+  <span class="org-font-latex-sedate">\def\armr</span>{0.2} <span class="org-comment">% Radius of the arms</span>
+  <span class="org-font-latex-sedate">\def\basearmborder</span>{0.2}
+  <span class="org-font-latex-sedate">\def\nacearmborder</span>{0.2}
+
+  <span class="org-font-latex-sedate">\def\xnace</span>{0.0} <span class="org-comment">% X position of the nacelle</span>
+  <span class="org-font-latex-sedate">\def\ynace</span>{2.0} <span class="org-comment">% Y position of the nacelle</span>
+  <span class="org-font-latex-sedate">\def\anace</span>{0.0} <span class="org-comment">% Angle of the nacelle</span>
+
+  <span class="org-font-latex-sedate">\def\xbase</span>{0.0} <span class="org-comment">% X position of the base</span>
+  <span class="org-font-latex-sedate">\def\ybase</span>{0.0} <span class="org-comment">% Y position of the base</span>
+  <span class="org-font-latex-sedate">\def\abase</span>{0.0} <span class="org-comment">% Angle of the base</span>
+
+  <span class="org-comment">% Hexapod1</span>
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(<span class="org-font-latex-sedate">\xbase</span>, <span class="org-font-latex-sedate">\ybase</span>)}, rotate=<span class="org-font-latex-sedate">\abase</span>]
+    <span class="org-comment">% Base</span>
+    <span class="org-font-latex-sedate">\draw</span>[fill=white] (-<span class="org-font-latex-sedate">\baser</span>, 0) rectangle (<span class="org-font-latex-sedate">\baser</span>, <span class="org-font-latex-sedate">\baseh</span>);
+    <span class="org-font-latex-sedate">\coordinate</span> (armbasel) at (-<span class="org-font-latex-sedate">\baser</span>+<span class="org-font-latex-sedate">\basearmborder</span>+<span class="org-font-latex-sedate">\armr</span>, <span class="org-font-latex-sedate">\baseh</span>);
+    <span class="org-font-latex-sedate">\coordinate</span> (armbasec) at (0, <span class="org-font-latex-sedate">\baseh</span>);
+    <span class="org-font-latex-sedate">\coordinate</span> (armbaser) at (<span class="org-font-latex-sedate">\baser</span>-<span class="org-font-latex-sedate">\basearmborder</span>-<span class="org-font-latex-sedate">\armr</span>, <span class="org-font-latex-sedate">\baseh</span>);
+
+    <span class="org-comment">% Nacelle1</span>
+    <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(<span class="org-font-latex-sedate">\xnace</span>, <span class="org-font-latex-sedate">\ynace</span>)}, rotate=<span class="org-font-latex-sedate">\anace</span>]
+      <span class="org-font-latex-sedate">\draw</span>[fill=white] (-<span class="org-font-latex-sedate">\nacer</span>, 0) rectangle (<span class="org-font-latex-sedate">\nacer</span>, <span class="org-font-latex-sedate">\naceh</span>);
+      <span class="org-font-latex-sedate">\coordinate</span> (armnacel) at (-<span class="org-font-latex-sedate">\nacer</span>+<span class="org-font-latex-sedate">\nacearmborder</span>+<span class="org-font-latex-sedate">\armr</span>, 0);
+      <span class="org-font-latex-sedate">\coordinate</span> (armnacec) at (0, 0);
+      <span class="org-font-latex-sedate">\coordinate</span> (armnacer) at (<span class="org-font-latex-sedate">\nacer</span>-<span class="org-font-latex-sedate">\nacearmborder</span>-<span class="org-font-latex-sedate">\armr</span>, 0);
+    <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+
+    <span class="org-font-latex-sedate">\draw</span> (armbasec) -- (armnacer);
+    <span class="org-font-latex-sedate">\draw</span> (armbasec) -- (armnacel);
+    <span class="org-font-latex-sedate">\draw</span> (armbasel) -- (armnacel);
+    <span class="org-font-latex-sedate">\draw</span> (armbasel) -- (armnacec);
+    <span class="org-font-latex-sedate">\draw</span> (armbaser) -- (armnacec);
+    <span class="org-font-latex-sedate">\draw</span> (armbaser) -- (armnacer);
+
+    <span class="org-font-latex-sedate">\draw</span>[fill=white] (-0.5*<span class="org-font-latex-sedate">\nacer</span>, <span class="org-font-latex-sedate">\ynace</span>+<span class="org-font-latex-sedate">\naceh</span>) rectangle coordinate[pos=0.5](massc) (0.5*<span class="org-font-latex-sedate">\nacer</span>, <span class="org-font-latex-sedate">\ynace</span>+<span class="org-font-latex-sedate">\naceh</span>+2);
+    <span class="org-font-latex-sedate">\draw</span>[spring] (0, <span class="org-font-latex-sedate">\baseh</span>) -- node[midway, left=0.1]{<span class="org-font-latex-math">$k$</span>} (0, <span class="org-font-latex-sedate">\baseh</span>+<span class="org-font-latex-sedate">\ynace</span>-<span class="org-font-latex-sedate">\naceh</span>) coordinate(stiffnessF);
+    <span class="org-font-latex-sedate">\draw</span>[-&gt;, color=colorred] (stiffnessF)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- ++(0, 1) node[below left]{<span class="org-font-latex-math">$F$</span>};
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;, color=colorblue] (massc)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- ++(0, -1) node[above right]{<span class="org-font-latex-math">$m</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\vec</span></span><span class="org-font-latex-math">{g}$</span>};
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/gravity_compensation.png" alt="gravity_compensation.png" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org0df1cef" class="outline-3">
+<h3 id="org0df1cef"><span class="section-number-3">7.2</span> Maximum angle</h3>
+<div class="outline-text-3" id="text-7-2">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-comment">% Parameters definitions</span>
+  <span class="org-font-latex-sedate">\def\baseh</span>{0.2} <span class="org-comment">% Height of the base</span>
+  <span class="org-font-latex-sedate">\def\naceh</span>{0.2} <span class="org-comment">% Height of the nacelle</span>
+  <span class="org-font-latex-sedate">\def\baser</span>{3.8} <span class="org-comment">% Radius of the base</span>
+  <span class="org-font-latex-sedate">\def\nacer</span>{3.0} <span class="org-comment">% Radius of the nacelle</span>
+
+  <span class="org-font-latex-sedate">\def\armr</span>{0.2} <span class="org-comment">% Radius of the arms</span>
+  <span class="org-font-latex-sedate">\def\basearmborder</span>{0.2}
+  <span class="org-font-latex-sedate">\def\nacearmborder</span>{0.2}
+
+  <span class="org-font-latex-sedate">\def\xnace</span>{0.0} <span class="org-comment">% X position of the nacelle</span>
+  <span class="org-font-latex-sedate">\def\ynace</span>{2.0} <span class="org-comment">% Y position of the nacelle</span>
+  <span class="org-font-latex-sedate">\def\anace</span>{0.0} <span class="org-comment">% Angle of the nacelle</span>
+
+  <span class="org-font-latex-sedate">\def\xbase</span>{0.0} <span class="org-comment">% X position of the base</span>
+  <span class="org-font-latex-sedate">\def\ybase</span>{0.0} <span class="org-comment">% Y position of the base</span>
+  <span class="org-font-latex-sedate">\def\abase</span>{-3.0} <span class="org-comment">% Angle of the base</span>
+
+  <span class="org-comment">% Hexapod1</span>
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(<span class="org-font-latex-sedate">\xbase</span>, <span class="org-font-latex-sedate">\ybase</span>)}, rotate=<span class="org-font-latex-sedate">\abase</span>]
+    <span class="org-comment">% Base</span>
+    <span class="org-font-latex-sedate">\draw</span>[fill=white] (-<span class="org-font-latex-sedate">\baser</span>, 0) rectangle (<span class="org-font-latex-sedate">\baser</span>, <span class="org-font-latex-sedate">\baseh</span>);
+    <span class="org-font-latex-sedate">\coordinate</span> (armbasel) at (-<span class="org-font-latex-sedate">\baser</span>+<span class="org-font-latex-sedate">\basearmborder</span>+<span class="org-font-latex-sedate">\armr</span>, <span class="org-font-latex-sedate">\baseh</span>);
+    <span class="org-font-latex-sedate">\coordinate</span> (armbasec) at (0, <span class="org-font-latex-sedate">\baseh</span>);
+    <span class="org-font-latex-sedate">\coordinate</span> (armbaser) at (<span class="org-font-latex-sedate">\baser</span>-<span class="org-font-latex-sedate">\basearmborder</span>-<span class="org-font-latex-sedate">\armr</span>, <span class="org-font-latex-sedate">\baseh</span>);
+
+    <span class="org-comment">% Nacelle1</span>
+    <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(<span class="org-font-latex-sedate">\xnace</span>, <span class="org-font-latex-sedate">\ynace</span>)}, rotate=<span class="org-font-latex-sedate">\anace</span>]
+      <span class="org-font-latex-sedate">\draw</span>[fill=white] (-<span class="org-font-latex-sedate">\nacer</span>, 0) rectangle (<span class="org-font-latex-sedate">\nacer</span>, <span class="org-font-latex-sedate">\naceh</span>);
+      <span class="org-font-latex-sedate">\coordinate</span> (armnacel) at (-<span class="org-font-latex-sedate">\nacer</span>+<span class="org-font-latex-sedate">\nacearmborder</span>+<span class="org-font-latex-sedate">\armr</span>, 0);
+      <span class="org-font-latex-sedate">\coordinate</span> (armnacec) at (0, 0);
+      <span class="org-font-latex-sedate">\coordinate</span> (armnacer) at (<span class="org-font-latex-sedate">\nacer</span>-<span class="org-font-latex-sedate">\nacearmborder</span>-<span class="org-font-latex-sedate">\armr</span>, 0);
+    <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+
+    <span class="org-font-latex-sedate">\draw</span> (armbasec) -- (armnacer);
+    <span class="org-font-latex-sedate">\draw</span> (armbasec) -- (armnacel);
+    <span class="org-font-latex-sedate">\draw</span> (armbasel) -- (armnacel);
+    <span class="org-font-latex-sedate">\draw</span> (armbasel) -- (armnacec);
+    <span class="org-font-latex-sedate">\draw</span> (armbaser) -- (armnacec);
+    <span class="org-font-latex-sedate">\draw</span> (armbaser) -- (armnacer);
+
+    <span class="org-font-latex-sedate">\draw</span>[fill=white] (-0.5*<span class="org-font-latex-sedate">\nacer</span>, <span class="org-font-latex-sedate">\ynace</span>+<span class="org-font-latex-sedate">\naceh</span>) rectangle coordinate[pos=0.5](massc) (0.5*<span class="org-font-latex-sedate">\nacer</span>, <span class="org-font-latex-sedate">\ynace</span>+<span class="org-font-latex-sedate">\naceh</span>+2);
+    <span class="org-font-latex-sedate">\draw</span>[spring] (0, <span class="org-font-latex-sedate">\baseh</span>) -- node[midway, left=0.1]{<span class="org-font-latex-math">$k$</span>} (0, <span class="org-font-latex-sedate">\baseh</span>+<span class="org-font-latex-sedate">\ynace</span>-<span class="org-font-latex-sedate">\naceh</span>) coordinate(stiffnessF);
+    <span class="org-font-latex-sedate">\draw</span>[-&gt;, color=colorred] (stiffnessF)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- ++(0, 1) node[below left]{<span class="org-font-latex-math">$F$</span>};
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;, color=colorblue] (massc)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- ++(0, -1) node[above right]{<span class="org-font-latex-math">$m</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\vec</span></span><span class="org-font-latex-math">{g}$</span>};
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/gravity_compensation_angle.png" alt="gravity_compensation_angle.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orga225e76" class="outline-2">
+<h2 id="orga225e76"><span class="section-number-2">8</span> 3Dof System</h2>
+<div class="outline-text-2" id="text-8">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-font-latex-sedate">\draw</span>[fill=white] (-3, 0) -- (-3, 1) -- (3, 1) -- (3, 0) -- cycle;
+  <span class="org-font-latex-sedate">\draw</span>[fill=white] (-3, 4) -- (-3, 5) -- (3, 5) -- (3, 4) -- cycle;
+
+  <span class="org-font-latex-sedate">\coordinate</span>[] (a1) at (-3, 1);
+  <span class="org-font-latex-sedate">\coordinate</span>[] (a2) at ( 1, 1);
+  <span class="org-font-latex-sedate">\coordinate</span>[] (a3) at ( 3, 1);
+  <span class="org-font-latex-sedate">\coordinate</span>[] (b1) at (-3, 4);
+  <span class="org-font-latex-sedate">\coordinate</span>[] (b2) at ( 2, 4);
+  <span class="org-font-latex-sedate">\coordinate</span>[] (b3) at ( 2, 4);
+
+  <span class="org-font-latex-sedate">\draw</span>[spring] (a1) -- (b1);
+  <span class="org-font-latex-sedate">\draw</span>[spring] (a2) -- (b2);
+  <span class="org-font-latex-sedate">\draw</span>[spring] (a3) -- (b3);
+
+  <span class="org-font-latex-sedate">\node</span>[] at (a1){<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>}; <span class="org-font-latex-sedate">\node</span>[left]        at (a1) {<span class="org-font-latex-math">$A</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">1$</span>};
+  <span class="org-font-latex-sedate">\node</span>[] at (a2){<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>}; <span class="org-font-latex-sedate">\node</span>[above left]  at (a2) {<span class="org-font-latex-math">$A</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">2$</span>};
+  <span class="org-font-latex-sedate">\node</span>[] at (a3){<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>}; <span class="org-font-latex-sedate">\node</span>[above right] at (a3) {<span class="org-font-latex-math">$A</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">3$</span>};
+  <span class="org-font-latex-sedate">\node</span>[] at (b1){<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>}; <span class="org-font-latex-sedate">\node</span>[left]        at (b1) {<span class="org-font-latex-math">$B</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">1$</span>};
+  <span class="org-font-latex-sedate">\node</span>[] at (b2){<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>}; <span class="org-font-latex-sedate">\node</span>[above left]  at (b2) {<span class="org-font-latex-math">$B</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">2$</span>};
+  <span class="org-font-latex-sedate">\node</span>[] at (b3){<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>}; <span class="org-font-latex-sedate">\node</span>[above right] at (b3) {<span class="org-font-latex-math">$B</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">3$</span>};
+
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;, dashed] (<span class="org-font-latex-math">$(a1)+(0.2,0)$</span>) -- node[midway, right]{<span class="org-font-latex-math">$l</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">1$</span>} (<span class="org-font-latex-math">$(b1)+(0.2,0)$</span>);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (a1) -- (<span class="org-font-latex-math">$0.8*(a1)+0.2*(b1)$</span>) node[left]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{s}</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">1$</span>};
+
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(0,0)}]
+    <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0, 0) -- ++(1, 0) node[above]{<span class="org-font-latex-math">$x$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0, 0) -- ++(0, 1) node[right]{<span class="org-font-latex-math">$y$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[] (0, 0)node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} circle [radius=0.2] node[above left]{<span class="org-font-latex-math">$\{A\}$</span>};
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(0,5)}]
+    <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0, 0) -- ++(1, 0) node[above]{<span class="org-font-latex-math">$x$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0, 0) -- ++(0, 1) node[right]{<span class="org-font-latex-math">$y$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[] (0, 0)node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} circle [radius=0.2] node[above left]{<span class="org-font-latex-math">$\{B\}$</span>};
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/3dof_system.png" alt="3dof_system.png" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgee16de6" class="outline-2">
+<h2 id="orgee16de6"><span class="section-number-2">9</span> 3Dof System - bis</h2>
+<div class="outline-text-2" id="text-9">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-font-latex-sedate">\draw</span>[fill=white] (-1, -1) -- (-1, 7) -- (0, 7) -- (0, 0) -- (6, 0) -- (6, -1) -- cycle;
+
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0, 0) -- ++(1, 0) node[above]{<span class="org-font-latex-math">$x$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0, 0) -- ++(0, 1) node[right]{<span class="org-font-latex-math">$y$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[] (0, 0)node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} circle [radius=0.2] node[above left]{<span class="org-font-latex-math">$\{A\}$</span>};
+
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(4,5)}]
+    <span class="org-font-latex-sedate">\draw</span>[fill=white] (-2, -3) rectangle (2, 3);
+
+    <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0, 0) -- ++(1, 0) node[above]{<span class="org-font-latex-math">$x$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0, 0) -- ++(0, 1) node[right]{<span class="org-font-latex-math">$y$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[] (0, 0)node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} circle [radius=0.2] node[above left]{<span class="org-font-latex-math">$\{B\}$</span>};
+
+    <span class="org-font-latex-sedate">\coordinate</span>[] (b1) at (-2, -1);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (b2) at (-1.5, -3);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (b3) at ( 1.5, -3);
+
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (0, 0) -- ++(-2, 0);
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (0, 0) -- ++(0, -3);
+    <span class="org-font-latex-sedate">\draw</span>[dashed, &lt;-&gt;] (-1.9, 0) -- node[midway,right]{<span class="org-font-latex-math">$h</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">1$</span>} ++(0, -1);
+    <span class="org-font-latex-sedate">\draw</span>[dashed, &lt;-&gt;] (0, -2.9) -- node[midway,above]{<span class="org-font-latex-math">$l</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">2$</span>} ++(-1.5, 0);
+    <span class="org-font-latex-sedate">\draw</span>[dashed, &lt;-&gt;] (0, -2.9) -- node[midway,above]{<span class="org-font-latex-math">$l</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">3$</span>} ++( 1.5, 0);
+
+    <span class="org-font-latex-sedate">\draw</span>[dashed, &lt;-&gt;] (-2, 2.9) -- node[midway,below]{<span class="org-font-latex-math">$l$</span>} (2, 2.9);
+    <span class="org-font-latex-sedate">\draw</span>[dashed, &lt;-&gt;] ( 1.9, -3) -- node[midway,left]{<span class="org-font-latex-math">$h$</span>} (1.9, 3);
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+
+  <span class="org-font-latex-sedate">\coordinate</span>[] (a1) at (0, 4);
+  <span class="org-font-latex-sedate">\coordinate</span>[] (a2) at (2.5, 0);
+  <span class="org-font-latex-sedate">\coordinate</span>[] (a3) at (5.5, 0);
+
+  <span class="org-font-latex-sedate">\draw</span>[spring] (a1) -- node[midway, above]{<span class="org-font-latex-math">$k</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">1$</span>} (b1);
+  <span class="org-font-latex-sedate">\draw</span>[spring] (a2) -- node[midway, right]{<span class="org-font-latex-math">$k</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">2$</span>} (b2);
+  <span class="org-font-latex-sedate">\draw</span>[spring] (a3) -- node[midway, right]{<span class="org-font-latex-math">$k</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">3$</span>} (b3);
+
+  <span class="org-font-latex-sedate">\node</span>[] at (a1){<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>}; <span class="org-font-latex-sedate">\node</span>[left]  at (a1) {<span class="org-font-latex-math">$A</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">1$</span>};
+  <span class="org-font-latex-sedate">\node</span>[] at (a2){<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>}; <span class="org-font-latex-sedate">\node</span>[below] at (a2) {<span class="org-font-latex-math">$A</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">2$</span>};
+  <span class="org-font-latex-sedate">\node</span>[] at (a3){<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>}; <span class="org-font-latex-sedate">\node</span>[below] at (a3) {<span class="org-font-latex-math">$A</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">3$</span>};
+  <span class="org-font-latex-sedate">\node</span>[] at (b1){<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>}; <span class="org-font-latex-sedate">\node</span>[below right] at (b1) {<span class="org-font-latex-math">$B</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">1$</span>};
+  <span class="org-font-latex-sedate">\node</span>[] at (b2){<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>}; <span class="org-font-latex-sedate">\node</span>[above] at (b2) {<span class="org-font-latex-math">$B</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">2$</span>};
+  <span class="org-font-latex-sedate">\node</span>[] at (b3){<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>}; <span class="org-font-latex-sedate">\node</span>[above] at (b3) {<span class="org-font-latex-math">$B</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">3$</span>};
+
+
+
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;, dashed] (0, 7) -- node[midway, above]{<span class="org-font-latex-math">$l</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">a$</span>} ++(2, 0);
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;, dashed] (6, 0) -- node[midway, right]{<span class="org-font-latex-math">$h</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">a$</span>} ++(0, 2);
+  <span class="org-comment">% </span><span class="org-font-latex-sedate"><span class="org-comment">\draw</span></span><span class="org-comment">[-&gt;] (a1) -- ($0.8*(a1)+0.2*(b1)$) node[left]{$</span><span class="org-font-latex-sedate"><span class="org-comment">\hat</span></span><span class="org-comment">{s}_1$};</span>
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/3dof_system_bis.png" alt="3dof_system_bis.png" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org164d13f" class="outline-2">
+<h2 id="org164d13f"><span class="section-number-2">10</span> Guiding Errors</h2>
+<div class="outline-text-2" id="text-10">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-font-latex-sedate">\tikzset</span>{<span class="org-comment">%</span>
+    guidingpath/.style={<span class="org-comment">%</span>
+      decorate,
+      decoration={random steps,segment length=2.8pt,amplitude=0.8pt}
+    }
+  }
+  <span class="org-font-latex-sedate">\def\massw</span>{1.6}   <span class="org-comment">% Width of the masses</span>
+  <span class="org-font-latex-sedate">\def\massh</span>{0.6}   <span class="org-comment">% Height of the masses</span>
+  <span class="org-font-latex-sedate">\def\spaceh</span>{1.2}  <span class="org-comment">% Height of the springs/dampers</span>
+
+  <span class="org-font-latex-sedate">\draw</span>[guidingpath] (-2,0) -- (2,0);
+  <span class="org-font-latex-sedate">\draw</span>[dashed] (-2, 3) -- (2, 3);
+
+  <span class="org-font-latex-sedate">\draw</span>[fill=black] (0, 0.1) circle [radius=0.1];
+  <span class="org-font-latex-sedate">\draw</span>[] (0, 0.2) -- ++(0, 0.1);
+
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(0, 0.3)}]
+    <span class="org-font-latex-sedate">\draw</span>[] (-0.5*<span class="org-font-latex-sedate">\massw</span>, 0) -- (0.5*<span class="org-font-latex-sedate">\massw</span>, 0);
+
+    <span class="org-comment">% Mass</span>
+    <span class="org-font-latex-sedate">\draw</span>[fill=white] (-0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) rectangle (0.5*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>+<span class="org-font-latex-sedate">\massh</span>) node[pos=0.5]{<span class="org-font-latex-math">$m$</span>};
+    <span class="org-font-latex-sedate">\coordinate</span>[] (masstop) at (0, <span class="org-font-latex-sedate">\spaceh</span>+<span class="org-font-latex-sedate">\massh</span>);
+
+    <span class="org-comment">% Spring, Damper, and Actuator</span>
+    <span class="org-font-latex-sedate">\draw</span>[spring] (-0.3*<span class="org-font-latex-sedate">\massw</span>, 0) -- (-0.3*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) node[midway, left=0.1]{<span class="org-font-latex-math">$k$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[damper] ( 0.3*<span class="org-font-latex-sedate">\massw</span>, 0) -- ( 0.3*<span class="org-font-latex-sedate">\massw</span>, <span class="org-font-latex-sedate">\spaceh</span>) node[midway, left=0.2]{<span class="org-font-latex-math">$c$</span>};
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+
+  <span class="org-font-latex-sedate">\draw</span>[dashed, &lt;-&gt;] (masstop) -- node[midway, right]{<span class="org-font-latex-math">$d$</span>} (0, 3);
+
+  <span class="org-font-latex-sedate">\draw</span>[dashed, &lt;-&gt;] (-2, -0.2) -- node[midway, below]{<span class="org-font-latex-math">$x$</span>} (0, -0.2);
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/guiding_error.png" alt="guiding_error.png" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc808744" class="outline-2">
+<h2 id="orgc808744"><span class="section-number-2">11</span> Vibration analysis procedure</h2>
+<div class="outline-text-2" id="text-11">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-font-latex-sedate">\node</span>[block, inner sep = 8pt, align=center] (1) {Description<span class="org-font-latex-warning">\\</span>of structure};
+  <span class="org-font-latex-sedate">\node</span>[block, inner sep = 8pt, align=center, right=0.6 of 1] (2) {Vibration<span class="org-font-latex-warning">\\</span>Modes};
+  <span class="org-font-latex-sedate">\node</span>[block, inner sep = 8pt, align=center, right=0.6 of 2] (3) {Response<span class="org-font-latex-warning">\\</span>Levels};
+
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;] (1) -- (2);
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;] (2) -- (3);
+
+  <span class="org-font-latex-sedate">\node</span>[above] (labelt) at (1.north) {Spatial Model};
+  <span class="org-font-latex-sedate">\node</span>[] at (2|-labelt) {Modal Model};
+  <span class="org-font-latex-sedate">\node</span>[] at (3|-labelt) {Response Model};
+
+  <span class="org-font-latex-sedate">\node</span>[align = center, font=<span class="org-font-latex-sedate"><span class="org-type">\tiny</span></span>, below] (labelb) at (1.south) {Mass, Damping<span class="org-font-latex-warning">\\</span>Stiffness};
+  <span class="org-font-latex-sedate">\node</span>[align = center, font=<span class="org-font-latex-sedate"><span class="org-type">\tiny</span></span>] at (2|-labelb) {Natural Frequencies<span class="org-font-latex-warning">\\</span>Mode Shapes};
+  <span class="org-font-latex-sedate">\node</span>[align = center, font=<span class="org-font-latex-sedate"><span class="org-type">\tiny</span></span>] at (3|-labelb) {Frequency Responses<span class="org-font-latex-warning">\\</span>Impulse Responses};
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/vibration_analysis_procedure.png" alt="vibration_analysis_procedure.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Dehaeze Thomas</p>
+<p class="date">Created: 2020-03-01 dim. 20:16</p>
+</div>
+</body>
+</html>

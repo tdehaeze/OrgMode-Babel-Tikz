@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-03-01 dim. 20:17 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tikz - Measurements</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Dehaeze Thomas" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="./css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="./css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="./css/zenburn.css"/>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="./js/readtheorg.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&dn=gpl-3.0.txt GPL-v3-or-Later
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.cacheClassElem = elem.className;
+         elem.cacheClassTarget = target.className;
+         target.className = "code-highlighted";
+         elem.className   = "code-highlighted";
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(elem.cacheClassElem)
+         elem.className = elem.cacheClassElem;
+       if(elem.cacheClassTarget)
+         target.className = elem.cacheClassTarget;
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="./index.html"> UP </a>
+ |
+ <a accesskey="H" href="./index.html"> HOME </a>
+</div><div id="content">
+<h1 class="title">Tikz - Measurements</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org7f68a3f">1. Modal Test</a>
+<ul>
+<li><a href="#org04e7439">1.1. Diagram for modal test</a></li>
+<li><a href="#org6f8b016">1.2. Diagram for modal test</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7f68a3f" class="outline-2">
+<h2 id="org7f68a3f"><span class="section-number-2">1</span> Modal Test</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org04e7439" class="outline-3">
+<h3 id="org04e7439"><span class="section-number-3">1.1</span> Diagram for modal test</h3>
+<div class="outline-text-3" id="text-1-1">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-font-latex-sedate">\tikzset</span>{mylabel/.style={anchor=north, above, font=<span class="org-font-latex-sedate"><span class="org-font-latex-bold">\bfseries</span></span><span class="org-font-latex-sedate"><span class="org-type">\small</span></span>, color=black, text width=3cm, align=center}};
+  <span class="org-font-latex-sedate">\tikzset</span>{mystep/.style={block, align=center, text width=3cm, minimum height=2cm}};
+  <span class="org-font-latex-sedate">\tikzset</span>{myaction/.style={midway, align=center, text width=3cm, font=<span class="org-font-latex-sedate"><span class="org-type">\small</span></span>}};
+  <span class="org-font-latex-sedate">\tikzset</span>{myverif/.style={draw, fill=white, align=center, text width=3cm, font=<span class="org-font-latex-sedate"><span class="org-type">\small</span></span>, minimum height=2cm}};
+
+  <span class="org-font-latex-sedate">\node</span>[mystep, label={[mylabel] FRF Matrix}] (frf) at (0, 0){<span class="org-font-latex-math">$3</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\times</span></span><span class="org-font-latex-math">69</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\times</span></span><span class="org-font-latex-math">801$</span><span class="org-font-latex-warning">\\</span>exc <span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\times</span></span><span class="org-font-latex-math">$</span> meas <span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\times</span></span><span class="org-font-latex-math">$</span> freq};
+  <span class="org-font-latex-sedate">\node</span>[mystep, label={[mylabel] Modal Model}, right=3 of frf] (modalmodel){<span class="org-font-latex-math">$[</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\Omega</span></span><span class="org-font-latex-math">]</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{N</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\times</span></span><span class="org-font-latex-math"> N} </span><span class="org-font-latex-sedate"><span class="org-keyword"><span class="org-font-latex-math">\quad</span></span></span><span class="org-font-latex-math"> [</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\Psi</span></span><span class="org-font-latex-math">]</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{M</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\times</span></span><span class="org-font-latex-math"> N}$</span><span class="org-font-latex-warning">\\</span><span class="org-font-latex-math">$N = 21 </span><span class="org-font-latex-sedate"><span class="org-keyword"><span class="org-font-latex-math">\quad</span></span></span><span class="org-font-latex-math"> M = 69$</span><span class="org-font-latex-warning">\\</span>modes, DOFs};
+  <span class="org-font-latex-sedate">\node</span>[mystep, label={[mylabel] Solid Body Modal Model}, right=3 of modalmodel] (sbmodalmodel){<span class="org-font-latex-math">$[</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\Omega</span></span><span class="org-font-latex-math">]</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{N</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\times</span></span><span class="org-font-latex-math"> N} </span><span class="org-font-latex-sedate"><span class="org-keyword"><span class="org-font-latex-math">\quad</span></span></span><span class="org-font-latex-math"> [</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\Psi</span></span><span class="org-font-latex-math">]</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{M</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">^</span></span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\prime\times</span></span><span class="org-font-latex-math"> N}$</span><span class="org-font-latex-warning">\\</span><span class="org-font-latex-math">$N = 21 </span><span class="org-font-latex-sedate"><span class="org-keyword"><span class="org-font-latex-math">\quad</span></span></span><span class="org-font-latex-math"> M</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">^</span></span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\prime</span></span><span class="org-font-latex-math"> = 36$</span><span class="org-font-latex-warning">\\</span>modes, DOFs};
+  <span class="org-font-latex-sedate">\node</span>[mystep, label={[mylabel] Reduced Modal Model}, right=3 of sbmodalmodel] (rmodalmodel){<span class="org-font-latex-math">$[</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\Omega</span></span><span class="org-font-latex-math">]</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{N</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\times</span></span><span class="org-font-latex-math"> N} </span><span class="org-font-latex-sedate"><span class="org-keyword"><span class="org-font-latex-math">\quad</span></span></span><span class="org-font-latex-math"> [</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\Psi</span></span><span class="org-font-latex-math">]</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{N </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\times</span></span><span class="org-font-latex-math"> N}$</span><span class="org-font-latex-warning">\\</span><span class="org-font-latex-math">$N = 21$</span>};
+  <span class="org-font-latex-sedate">\node</span>[mystep, label={[mylabel] Spatial Model}, right=3 of rmodalmodel] (spatialmodel){<span class="org-font-latex-math">$[M] </span><span class="org-font-latex-sedate"><span class="org-keyword"><span class="org-font-latex-math">\quad</span></span></span><span class="org-font-latex-math"> [C] </span><span class="org-font-latex-sedate"><span class="org-keyword"><span class="org-font-latex-math">\quad</span></span></span><span class="org-font-latex-math"> [K]$</span><span class="org-font-latex-warning">\\</span><span class="org-font-latex-math">$N </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\times</span></span><span class="org-font-latex-math"> N$</span> matrices};
+  <span class="org-font-latex-sedate">\node</span>[mystep, label={[mylabel] Multi Body Model}, right=3 of spatialmodel] (multibodymodel){};
+
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (<span class="org-font-latex-math">$(frf.west)+(-3, 0)$</span>) --node[midway, above]{measurements} (frf.west);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (frf.east) --node[midway, above]{modal analysis} (modalmodel.west);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (modalmodel.east) --node[myaction, above]{solid body assumption}node[myaction, below]{change of coordinates} (sbmodalmodel.west);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (sbmodalmodel.east) --node[myaction, above]{reduction of DOFs}node[myaction, below]{to match number of modes} (rmodalmodel.west);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (rmodalmodel.east) -- (spatialmodel.west);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (spatialmodel.east) -- (multibodymodel.west);
+
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;, dashed] (modalmodel.north west)  to[out=135, in=45]coordinate[midway, above=0.2](frfsynthesis) (frf.north east);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;, dashed] (sbmodalmodel.north west) to[out=135, in=45]coordinate[midway, above=0.2](frfsynacc)   (modalmodel.north east);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;, dashed] (rmodalmodel.north west)  to[out=135, in=45]coordinate[midway, above=0.2](comac)       (sbmodalmodel.north east);
+
+  <span class="org-font-latex-sedate">\node</span>[myverif, anchor=south] at (frfsynthesis){FRF Synthesis};
+  <span class="org-font-latex-sedate">\node</span>[myverif, anchor=south] at (frfsynacc){FRF synthesis at the location of the accelerometers};
+  <span class="org-font-latex-sedate">\node</span>[myverif, anchor=south] at (comac){COMAC};
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/modal_test_procedure.png" alt="modal_test_procedure.png" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org6f8b016" class="outline-3">
+<h3 id="org6f8b016"><span class="section-number-3">1.2</span> Diagram for modal test</h3>
+<div class="outline-text-3" id="text-1-2">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-comment">% Styles</span>
+  <span class="org-font-latex-sedate">\tikzset</span>{mystep/.style=  {draw, fill=white,          text width=3cm, align=center, minimum height=2cm}};
+  <span class="org-font-latex-sedate">\tikzset</span>{myaction/.style={draw, fill=blue!30!white,  text width=4cm, align=center,  font=<span class="org-font-latex-sedate"><span class="org-type">\small</span></span>, anchor=east, right=0.5, minimum height=2cm}};
+  <span class="org-font-latex-sedate">\tikzset</span>{myverif/.style= {draw, fill=green!30!white, text width=4cm, aligncenterht, font=<span class="org-font-latex-sedate"><span class="org-type">\small</span></span>, anchor=west, left=0.5,  minimum height=2cm}};
+  <span class="org-font-latex-sedate">\tikzset</span>{mylabel/.style= {anchor=north, below, font=<span class="org-font-latex-sedate"><span class="org-font-latex-bold">\bfseries</span></span><span class="org-font-latex-sedate"><span class="org-type">\small</span></span>, color=black, text width=3cm, align=center}};
+  <span class="org-font-latex-sedate">\tikzset</span>{mymodel/.style= {anchor=south, above, font=<span class="org-font-latex-sedate"><span class="org-type">\small</span></span>, color=black, text width=3cm, align=center}};
+
+  <span class="org-comment">% Models</span>
+  <span class="org-font-latex-sedate">\node</span>[mystep, label={[mylabel] Physical System}] (physicalsys) at (0, 0){};
+  <span class="org-font-latex-sedate">\node</span>[mystep, label={[mylabel] FRF Matrix},             below=1 of physicalsys]  (frf)           {};
+  <span class="org-font-latex-sedate">\node</span>[mystep, label={[mylabel] Modal Model},            below=1 of frf]          (modalmodel)    {};
+  <span class="org-font-latex-sedate">\node</span>[mystep, label={[mylabel] Solid Body Modal Model}, below=1 of modalmodel]   (sbmodalmodel)  {};
+  <span class="org-font-latex-sedate">\node</span>[mystep, label={[mylabel] Reduced Modal Model},    below=1 of sbmodalmodel] (rmodalmodel)   {};
+  <span class="org-font-latex-sedate">\node</span>[mystep, label={[mylabel] Spatial Model},          below=1 of rmodalmodel]  (spatialmodel)  {};
+  <span class="org-font-latex-sedate">\node</span>[mystep, label={[mylabel] Multi Body Model},       below=1 of spatialmodel] (multibodymodel){};
+
+  <span class="org-comment">% Model Description</span>
+  <span class="org-font-latex-sedate">\node</span>[mymodel] at (frf.south)            {<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-keyword"><span class="org-font-latex-math">\begin</span></span></span><span class="org-font-latex-math">{</span><span class="org-function-name"><span class="org-font-latex-math">aligned</span></span><span class="org-font-latex-math">} &amp;[H(</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\omega</span></span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">i)]</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{s </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\times</span></span><span class="org-font-latex-math"> (3 </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\times</span></span><span class="org-font-latex-math"> m)} \\ &amp;</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\omega</span></span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">i,\ i=1\ </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\dots</span></span><span class="org-font-latex-math">\ q </span><span class="org-font-latex-sedate"><span class="org-keyword"><span class="org-font-latex-math">\end</span></span></span><span class="org-font-latex-math">{</span><span class="org-function-name"><span class="org-font-latex-math">aligned</span></span><span class="org-font-latex-math">}$</span>};
+  <span class="org-font-latex-sedate">\node</span>[mymodel] at (modalmodel.south)     {<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-keyword"><span class="org-font-latex-math">\begin</span></span></span><span class="org-font-latex-math">{</span><span class="org-function-name"><span class="org-font-latex-math">aligned</span></span><span class="org-font-latex-math">} &amp;[</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\Lambda</span></span><span class="org-font-latex-math">]</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{n </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\times</span></span><span class="org-font-latex-math"> n} \\ &amp;[</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\Psi</span></span><span class="org-font-latex-math">]</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{(3 </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\times</span></span><span class="org-font-latex-math"> m) </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\times</span></span><span class="org-font-latex-math"> n} </span><span class="org-font-latex-sedate"><span class="org-keyword"><span class="org-font-latex-math">\end</span></span></span><span class="org-font-latex-math">{</span><span class="org-function-name"><span class="org-font-latex-math">aligned</span></span><span class="org-font-latex-math">}$</span>};
+  <span class="org-font-latex-sedate">\node</span>[mymodel] at (sbmodalmodel.south)   {<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-keyword"><span class="org-font-latex-math">\begin</span></span></span><span class="org-font-latex-math">{</span><span class="org-function-name"><span class="org-font-latex-math">aligned</span></span><span class="org-font-latex-math">} &amp;[</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\Lambda</span></span><span class="org-font-latex-math">]</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{n </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\times</span></span><span class="org-font-latex-math"> n} \\ &amp;[</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\Psi</span></span><span class="org-font-latex-math"><span class="org-font-latex-script-char">^</span></span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\prime</span></span><span class="org-font-latex-math">]</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{(6 </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\times</span></span><span class="org-font-latex-math"> p) </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\times</span></span><span class="org-font-latex-math"> n} </span><span class="org-font-latex-sedate"><span class="org-keyword"><span class="org-font-latex-math">\end</span></span></span><span class="org-font-latex-math">{</span><span class="org-function-name"><span class="org-font-latex-math">aligned</span></span><span class="org-font-latex-math">}$</span>};
+  <span class="org-font-latex-sedate">\node</span>[mymodel] at (rmodalmodel.south)    {<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-keyword"><span class="org-font-latex-math">\begin</span></span></span><span class="org-font-latex-math">{</span><span class="org-function-name"><span class="org-font-latex-math">aligned</span></span><span class="org-font-latex-math">} &amp;[</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\Lambda</span></span><span class="org-font-latex-math">]</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{n </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\times</span></span><span class="org-font-latex-math"> n} \\ &amp;[</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\Psi</span></span><span class="org-font-latex-math"><span class="org-font-latex-script-char">^</span></span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\prime</span></span><span class="org-font-latex-math">]</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{n </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\times</span></span><span class="org-font-latex-math"> n} </span><span class="org-font-latex-sedate"><span class="org-keyword"><span class="org-font-latex-math">\end</span></span></span><span class="org-font-latex-math">{</span><span class="org-function-name"><span class="org-font-latex-math">aligned</span></span><span class="org-font-latex-math">}$</span>};
+  <span class="org-font-latex-sedate">\node</span>[mymodel] at (spatialmodel.south)   {<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-keyword"><span class="org-font-latex-math">\begin</span></span></span><span class="org-font-latex-math">{</span><span class="org-function-name"><span class="org-font-latex-math">aligned</span></span><span class="org-font-latex-math">} &amp;[M]</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{n </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\times</span></span><span class="org-font-latex-math"> n} </span><span class="org-font-latex-sedate"><span class="org-keyword"><span class="org-font-latex-math">\quad</span></span></span><span class="org-font-latex-math"> [C]</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{n </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\times</span></span><span class="org-font-latex-math"> n} \\ &amp;[K]</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{n </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\times</span></span><span class="org-font-latex-math"> n} </span><span class="org-font-latex-sedate"><span class="org-keyword"><span class="org-font-latex-math">\end</span></span></span><span class="org-font-latex-math">{</span><span class="org-function-name"><span class="org-font-latex-math">aligned</span></span><span class="org-font-latex-math">}$</span>};
+  <span class="org-font-latex-sedate">\node</span>[mymodel] at (multibodymodel.south) {};
+
+  <span class="org-comment">% Steps: From one model to the other: Arrows</span>
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;, dashed] (physicalsys.-10)   to[out=-10, in=10 ] (frf.10);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;, dashed] (frf.-10)           to[out=-10, in=10 ] (modalmodel.10);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;, dashed] (modalmodel.-10)    to[out=-10, in=10 ] (sbmodalmodel.10);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;, dashed] (sbmodalmodel.-10)  to[out=-10, in=10 ] (rmodalmodel.10);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;, dashed] (rmodalmodel.-10)   to[out=-10, in=10 ] (spatialmodel.10);
+
+  <span class="org-comment">% Verification Steps Arrows</span>
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;, dashed] (modalmodel.170)    to[out=170, in=190] (frf.190);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;, dashed] (sbmodalmodel.170)  to[out=170, in=190] (modalmodel.190);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;, dashed] (rmodalmodel.170)   to[out=170, in=190] (sbmodalmodel.190);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;, dashed] (spatialmodel.170)  to[out=170, in=190] (rmodalmodel.190);
+
+  <span class="org-comment">% Steps - Details</span>
+  <span class="org-font-latex-sedate">\node</span>[myaction, label={[mylabel] Measurements}] (measurement)                      at (<span class="org-font-latex-math">$(physicalsys.south east)!0.5!(frf.north east)$</span>) {};
+  <span class="org-font-latex-sedate">\node</span>[myaction, label={[mylabel] Modal Analysis}] (modalanalysis)                  at (<span class="org-font-latex-math">$(frf.south east)!0.5!(modalmodel.north east)$</span>) {};
+  <span class="org-font-latex-sedate">\node</span>[myaction, label={[mylabel] Solid Body Assumption}] (sbassumption)            at (<span class="org-font-latex-math">$(modalmodel.south east)!0.5!(sbmodalmodel.north east)$</span>) {};
+  <span class="org-font-latex-sedate">\node</span>[myaction, label={[mylabel] Model Order Reduction}] (orderreduction)          at (<span class="org-font-latex-math">$(sbmodalmodel.south east)!0.5!(rmodalmodel.north east)$</span>) {};
+  <span class="org-font-latex-sedate">\node</span>[myaction, label={[mylabel] Spatial Matrices Extraction}] (spatialextraction) at (<span class="org-font-latex-math">$(rmodalmodel.south east)!0.5!(spatialmodel.north east)$</span>) {};
+
+  <span class="org-comment">% Verification steps - Details</span>
+  <span class="org-font-latex-sedate">\node</span>[myverif, label={[mylabel] FRF Synthesis}] (frfsynthesis) at (<span class="org-font-latex-math">$(frf.south west)!0.5!(modalmodel.north west)$</span>) {};
+  <span class="org-font-latex-sedate">\node</span>[myverif, label={[mylabel] Acc. FRF Synthesis}] (synthesisacc) at (<span class="org-font-latex-math">$(modalmodel.south west)!0.5!(sbmodalmodel.north west)$</span>) {};
+  <span class="org-font-latex-sedate">\node</span>[myverif, label={[mylabel] COMAC}] (comac)        at (<span class="org-font-latex-math">$(sbmodalmodel.south west)!0.5!(rmodalmodel.north west)$</span>) {};
+  <span class="org-font-latex-sedate">\node</span>[myverif, label={[mylabel] Modal Decomposition}] (modaldecomp)  at (<span class="org-font-latex-math">$(rmodalmodel.south west)!0.5!(spatialmodel.north west)$</span>) {};
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/modal_test_procedure_vertical.png" alt="modal_test_procedure_vertical.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Dehaeze Thomas</p>
+<p class="date">Created: 2020-03-01 dim. 20:17</p>
+</div>
+</body>
+</html>

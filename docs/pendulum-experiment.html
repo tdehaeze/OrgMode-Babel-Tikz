@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-03-01 dim. 20:16 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tikz - Pendulum Experiment</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Dehaeze Thomas" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="./css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="./css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="./css/zenburn.css"/>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="./js/readtheorg.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&dn=gpl-3.0.txt GPL-v3-or-Later
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.cacheClassElem = elem.className;
+         elem.cacheClassTarget = target.className;
+         target.className = "code-highlighted";
+         elem.className   = "code-highlighted";
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(elem.cacheClassElem)
+         elem.className = elem.cacheClassElem;
+       if(elem.cacheClassTarget)
+         target.className = elem.cacheClassTarget;
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="./index.html"> UP </a>
+ |
+ <a accesskey="H" href="./index.html"> HOME </a>
+</div><div id="content">
+<h1 class="title">Tikz - Pendulum Experiment</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgafb1958">1. 1DoF Feedback control</a></li>
+<li><a href="#orgff58598">2. General Control Configuration</a></li>
+<li><a href="#orgb574ca6">3. System blocs</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgafb1958" class="outline-2">
+<h2 id="orgafb1958"><span class="section-number-2">1</span> 1DoF Feedback control</h2>
+<div class="outline-text-2" id="text-1">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-comment">% Blocs</span>
+  <span class="org-font-latex-sedate">\coordinate</span>[] (start) at (0, 0);
+  <span class="org-font-latex-sedate">\node</span>[block, right=0.8 of start] (K) {<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{K}$</span>};
+  <span class="org-font-latex-sedate">\node</span>[addb,  right=0.8 of K] (addi) {};
+  <span class="org-font-latex-sedate">\node</span>[block, right=0.8 of addi] (G) {<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{G}$</span>};
+  <span class="org-font-latex-sedate">\node</span>[addb,  right=of G] (addy) {};
+  <span class="org-font-latex-sedate">\node</span>[block, above=0.5 of addy] (Gd) {<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{G}</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">d$</span>};
+  <span class="org-font-latex-sedate">\node</span>[addb,  below right=1 of addy] (addn) {};
+
+  <span class="org-comment">% Connections and labels</span>
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (K.east) -- (addi.west);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (addi.east) -- (G.west) node[above left]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{F}$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (G.east) -- (addy.west);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (addy.east) -| (addn.north);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (Gd.south) -- (addy.north);
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-] (Gd.north) -- ++(0, 0.8) node[right]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{x}</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">g$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-] (addn.east) -- ++(0.8, 0) node[above](n){<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{n}$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-] (addi.north) -- ++(0, 0.8) node[right]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{n}</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">i$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (addn.west) -| (start) -- (K.west) node[above left]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{d}</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">m$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (addn.north|-addy.east)node[branch]{} -- (n|-addy.east) node[above]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{d}$</span>};
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/pend-exp-1dof-fb.png" alt="pend-exp-1dof-fb.png" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgff58598" class="outline-2">
+<h2 id="orgff58598"><span class="section-number-2">2</span> General Control Configuration</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-comment">% Blocs</span>
+  <span class="org-font-latex-sedate">\node</span>[block] (CI) {<span class="org-font-latex-math">$H</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\text</span></span><span class="org-font-latex-math">{CI}}$</span>};
+  <span class="org-font-latex-sedate">\node</span>[addb, right=0.5 of CI] (addu) {};
+  <span class="org-font-latex-sedate">\node</span>[block, right=0.5 of addu] (VC) {<span class="org-font-latex-math">$H</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\text</span></span><span class="org-font-latex-math">{VC}}$</span>};
+
+  <span class="org-font-latex-sedate">\node</span>[block, right=0.5 of VC] (G) {<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{G}$</span>};
+
+  <span class="org-font-latex-sedate">\node</span>[addb, right=0.8 of G] (addy) {};
+  <span class="org-font-latex-sedate">\node</span>[block, above=0.5 of addy] (Gd) {<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{G}</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">d$</span>};
+
+  <span class="org-comment">% Input weight</span>
+  <span class="org-font-latex-sedate">\node</span>[block, above=0.5 of CI] (Wni) {<span class="org-font-latex-math">$W</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{n</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">i}$</span>};
+  <span class="org-font-latex-sedate">\node</span>[block, above=0.5 of Wni] (Wxg) {<span class="org-font-latex-math">$W</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{x</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">g}$</span>};
+  <span class="org-font-latex-sedate">\node</span>[block, above=0.5 of Wxg] (Wn) {<span class="org-font-latex-math">$W</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">n$</span>};
+
+  <span class="org-font-latex-sedate">\node</span>[addb, right=1 of addy] (addn) {};
+
+  <span class="org-comment">% Output weight</span>
+  <span class="org-font-latex-sedate">\node</span>[block, above right=1.5 and 0.2 of addn] (We) {<span class="org-font-latex-math">${W</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">e}</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">^</span></span><span class="org-font-latex-math">{-1}$</span>};
+  <span class="org-font-latex-sedate">\node</span>[block, above=0.5 of We] (Wf) {<span class="org-font-latex-math">${W</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">f}</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">^</span></span><span class="org-font-latex-math">{-1}$</span>};
+
+  <span class="org-comment">% Inputs</span>
+  <span class="org-font-latex-sedate">\coordinate</span>[left=1.2 of Wni] (ni);
+  <span class="org-font-latex-sedate">\coordinate</span>[left=1.2 of Wxg] (xg);
+  <span class="org-font-latex-sedate">\coordinate</span>[left=1.2 of Wn] (n);
+
+  <span class="org-comment">% Outputs</span>
+  <span class="org-font-latex-sedate">\coordinate</span>[right=1.2 of We] (y);
+  <span class="org-font-latex-sedate">\coordinate</span>[right=1.2 of Wf] (F);
+
+  <span class="org-font-latex-sedate">\coordinate</span> (u) at (n|-G);
+  <span class="org-font-latex-sedate">\coordinate</span> (v) at (F|-G);
+
+  <span class="org-font-latex-sedate">\node</span>[fit={(<span class="org-font-latex-math">$(n) + (0, 0.5) + (0.5, 0.2)$</span>) (<span class="org-font-latex-math">$(v|-CI.south) - (0.5, 0.2)$</span>)}, inner sep=0pt, draw, dashed, color=gray, label={Generalized Weighted Plant <span class="org-font-latex-math">$P$</span>}] (P) {};
+
+  <span class="org-font-latex-sedate">\node</span>[draw, block, below=1 of P] (K) {<span class="org-font-latex-math">$K$</span>};
+
+
+  <span class="org-comment">% Connections</span>
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (CI.east) -- (addu.west);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (addu.east) -- (VC.west);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (VC.east) -- (G.west);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (G.east) -- (addy.west);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (addy.east) -- (addn.west);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (Gd.south) -- (addy.north);
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-] (addn.north) -- ++(0, 0.5);
+
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (ni) -- (Wni.west);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (Wni.east) node[above right]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{n}</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">i$</span>} -| (addu.north);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (xg) -- (Wxg.west);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (Wxg.east) node[above right]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{x}</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">g$</span>} -| (Gd.north);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (n) -- (Wn.west);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (Wn.east) node[above right]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{n}$</span>} -| (addn.north);
+
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (<span class="org-font-latex-math">$(addn.west) + (-0.4, 0)$</span>)node[branch]{} |- (We.west) node[above left]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{d}$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (<span class="org-font-latex-math">$(G.west)    + (-0.4, 0)$</span>)node[branch]{} |- (Wf.west) node[above left]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{F}$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (We.east) -- (y);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (Wf) -- (F);
+
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (addn.east) -- (v) |- (K.east);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (K.west) -| (u) -- (CI.west);
+
+  <span class="org-comment">% Labels</span>
+  <span class="org-font-latex-sedate">\node</span>[above right] (un)  at (u)  {<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{u}$</span>};
+  <span class="org-font-latex-sedate">\node</span>[above]  (vn)  at (v)  {<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{d}</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">m$</span>};
+  <span class="org-font-latex-sedate">\node</span>[above right] (xgn) at (xg) {<span class="org-font-latex-math">$x</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">g$</span>};
+  <span class="org-font-latex-sedate">\node</span>[above right] (nin) at (ni) {<span class="org-font-latex-math">$n</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">i$</span>};
+  <span class="org-font-latex-sedate">\node</span>[above right] (nn)  at (n)  {<span class="org-font-latex-math">$n$</span>};
+  <span class="org-font-latex-sedate">\node</span>[above left]  (yn)  at (y)  {<span class="org-font-latex-math">$d$</span>};
+  <span class="org-font-latex-sedate">\node</span>[above left]  (Fn)  at (F)  {<span class="org-font-latex-math">$F$</span>};
+
+  <span class="org-comment">% W and Z brackets</span>
+  <span class="org-font-latex-sedate">\draw</span> [decoration={brace, raise=7pt}, decorate] (nin.south west) -- node[left=8pt]{<span class="org-font-latex-math">$w$</span>} (nn.north west);
+  <span class="org-font-latex-sedate">\draw</span> [decoration={brace, raise=5pt}, decorate] (Fn.north east) -- node[right=6pt]{<span class="org-font-latex-math">$z$</span>} (yn.south east);
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/pend-exp-general-conf.png" alt="pend-exp-general-conf.png" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb574ca6" class="outline-2">
+<h2 id="orgb574ca6"><span class="section-number-2">3</span> System blocs</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-comment">% Blocks</span>
+  <span class="org-font-latex-sedate">\node</span>[DAC] (dac) {DAC};
+  <span class="org-font-latex-sedate">\node</span>[block, minimum width=2.4cm, right=1 of dac, label={[align=center]below:Current<span class="org-font-latex-warning">\\</span>Injector}] (ci) {};
+  <span class="org-font-latex-sedate">\node</span>[gain right, minimum width=0.8cm] (ci_gain) at (<span class="org-font-latex-math">$(ci)+(-0.6, 0)$</span>) {};
+  <span class="org-font-latex-sedate">\node</span>[addb, scale=0.6] (addi) at (<span class="org-font-latex-math">$(ci)+(0.6, 0)$</span>) {};
+  <span class="org-font-latex-sedate">\node</span>[block, right=1 of ci, label={[align=center]below:Voice<span class="org-font-latex-warning">\\</span>Coil}] (vc) {<span class="org-font-latex-math">$H_{</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\text</span></span><span class="org-font-latex-math">{VC}}$</span>};
+  <span class="org-font-latex-sedate">\node</span>[block, right=1 of vc] (G) {<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{G}$</span>};
+  <span class="org-font-latex-sedate">\node</span>[addb, scale=0.6, right=0.5 of G] (addy) {};
+  <span class="org-font-latex-sedate">\node</span>[block, above=0.5 of addy] (Gd) {<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{G}_d$</span>};
+  <span class="org-font-latex-sedate">\node</span>[block, right=1 of addy, label={[align=center]below:Interferometer}] (int) {};
+  <span class="org-font-latex-sedate">\node</span>[addb, scale=0.6] (addn) at (int) {};
+  <span class="org-font-latex-sedate">\node</span>[ADC, right=1.2 of int] (adc) {ADC};
+  <span class="org-font-latex-sedate">\node</span>[addb, scale=0.6, right=0.8 of adc] (addr) {};
+  <span class="org-font-latex-sedate">\coordinate</span>[] (adc_output) at (<span class="org-font-latex-math">$(adc.east) + (0.8, 0)$</span>);
+  <span class="org-font-latex-sedate">\coordinate</span>[] (dac_input) at (<span class="org-font-latex-math">$(dac.west) + (-0.8, 0)$</span>);
+  <span class="org-font-latex-sedate">\node</span>[block, below=1 of G, label={[align=center]below:Controller}] (K) {<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{K}$</span>};
+
+  <span class="org-comment">% Connections and labels</span>
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (adc.east) -- (addr.west);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (addr.south) |- (K.east);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (K.west) -| (dac_input) -- (dac.west);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (dac.east) -- (ci_gain.west);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (ci_gain.east) -- (addi.west);
+  <span class="org-font-latex-sedate">\node</span>[above left] at (ci.west){<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{u}[V]$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (addi.east) -- (vc.west) node[above left]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{I}[A]$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (vc.east) -- (G.west) node[above left]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{F}[N]$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (G.east) -- (addy.west);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (addy.east) -- (addn.west);
+  <span class="org-font-latex-sedate">\node</span>[above left] at (int.west) {<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{d}[m]$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (addn.east) -- (adc.west) node[above left]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{d}_m[m]$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-] (addr.north) -- ++(0, 0.8) node[right]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{r}[m]$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (Gd.south) -- (addy.north);
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-] (Gd.north) -- ++(0, 0.8) node[right]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{x}_g[m]$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-] (addi.north) -- ++(0, 0.8) node[right]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{n}_i[A]$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-] (addn.north) -- ++(0, 0.8) node[right]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\hat</span></span><span class="org-font-latex-math">{n}[m]$</span>};
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/pend-exp-blocs.png" alt="pend-exp-blocs.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Dehaeze Thomas</p>
+<p class="date">Created: 2020-03-01 dim. 20:16</p>
+</div>
+</body>
+</html>

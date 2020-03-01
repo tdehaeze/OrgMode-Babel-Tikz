@@ -1,0 +1,864 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-03-01 dim. 20:16 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tikz - Stewart Platforms</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Dehaeze Thomas" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="./css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="./css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="./css/zenburn.css"/>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="./js/readtheorg.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&dn=gpl-3.0.txt GPL-v3-or-Later
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.cacheClassElem = elem.className;
+         elem.cacheClassTarget = target.className;
+         target.className = "code-highlighted";
+         elem.className   = "code-highlighted";
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(elem.cacheClassElem)
+         elem.className = elem.cacheClassElem;
+       if(elem.cacheClassTarget)
+         target.className = elem.cacheClassTarget;
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="./index.html"> UP </a>
+ |
+ <a accesskey="H" href="./index.html"> HOME </a>
+</div><div id="content">
+<h1 class="title">Tikz - Stewart Platforms</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org6bef701">1. Bottom Plate</a></li>
+<li><a href="#org78b2304">2. Legs</a></li>
+<li><a href="#org1c5e064">3. Ball Joints</a></li>
+<li><a href="#orgd19f5f2">4. Single Stewart platform</a></li>
+<li><a href="#orgba32a3a">5. Stacked Stewart platform</a></li>
+<li><a href="#org0df86a5">6. Stewart Platform - 3D - Jacobian</a></li>
+<li><a href="#orgcffd575">7. Cubic Stewart Platform - Not aligned</a></li>
+<li><a href="#org26db58e">8. Cubic Stewart Platform - Centered</a></li>
+<li><a href="#org7ae87ca">9. Cubic Stewart Platform - Definition</a></li>
+<li><a href="#org283dc42">10. Model of the Stewart platform Actuator</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6bef701" class="outline-2">
+<h2 id="org6bef701"><span class="section-number-2">1</span> Bottom Plate</h2>
+<div class="outline-text-2" id="text-1">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-comment">% Internal and external limit</span>
+  <span class="org-font-latex-sedate">\draw</span>[fill=white!80!black] (0, 0) circle [radius=3];
+  <span class="org-font-latex-sedate">\draw</span>[fill=white] (0, 0) circle [radius=1.5];
+  <span class="org-comment">% Circle where the joints are located</span>
+  <span class="org-font-latex-sedate">\draw</span>[dashed] (0, 0) circle [radius=2.5];
+  <span class="org-comment">% Division of 360 degrees by 3</span>
+  <span class="org-font-latex-sedate">\draw</span>[dashed] (0, 0) -- (90:3.2);
+  <span class="org-font-latex-sedate">\draw</span>[dashed] (0, 0) -- (210:3.2);
+  <span class="org-font-latex-sedate">\draw</span>[dashed] (0, 0) -- (330:3.2);
+  <span class="org-comment">% 120 degree label</span>
+  <span class="org-font-latex-sedate">\draw</span>[dashed] (210:1) arc [start angle=210, end angle=330, radius=1] node[midway, below]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\SI</span></span><span class="org-font-latex-math">{120}{</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\degree</span></span><span class="org-font-latex-math">}$</span>};
+  <span class="org-comment">% Angle offset of the position of the joints</span>
+  <span class="org-font-latex-sedate">\draw</span>[dashed] (0, 0) -- (100:3.2);
+  <span class="org-font-latex-sedate">\draw</span>[dashed] (0, 0) -- (80:3.2);
+  <span class="org-comment">%</span>
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;] (80:3.2) node[right]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\alpha</span></span><span class="org-font-latex-math">$</span>} arc [start angle=80, end angle=90, radius=3.2];
+  <span class="org-comment">% Bullets for the positions of the joints</span>
+  <span class="org-font-latex-sedate">\node</span>[] at ( 80:2.5){<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+  <span class="org-font-latex-sedate">\node</span>[] at (100:2.5){<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+  <span class="org-font-latex-sedate">\node</span>[] at (200:2.5){<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+  <span class="org-font-latex-sedate">\node</span>[] at (220:2.5){<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+  <span class="org-font-latex-sedate">\node</span>[] at (320:2.5){<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+  <span class="org-font-latex-sedate">\node</span>[] at (340:2.5){<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;] (0, 0) --node[near end, above]{<span class="org-font-latex-math">$R</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\text</span></span><span class="org-font-latex-math">{ext}}$</span>} (0:3);
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;] (0, 0) --node[midway, right]{<span class="org-font-latex-math">$R</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\text</span></span><span class="org-font-latex-math">{int}}$</span>} (60:1.5);
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;] (0, 0) --node[near end, above]{<span class="org-font-latex-math">$R</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\text</span></span><span class="org-font-latex-math">{leg}}$</span>} (180:2.5);
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/stewart_bottom_plate.png" alt="stewart_bottom_plate.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org78b2304" class="outline-2">
+<h2 id="org78b2304"><span class="section-number-2">2</span> Legs</h2>
+<div class="outline-text-2" id="text-2">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-font-latex-sedate">\draw</span>[fill=white!80!black] (-1, 0) -- (-1, 5) -- (-0.7, 5) -- (-0.7, 2.5) -- (0.7, 2.5)-- (0.7, 5) -- (1, 5) -- (1, 0) -- cycle;
+  <span class="org-font-latex-sedate">\draw</span>[fill=white!80!black] (0, 0) circle[radius=1.5];
+  <span class="org-font-latex-sedate">\draw</span>[dashed] (0, -2) -- (0, 5.5);
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;] (0, 0)node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- node[midway, above]{<span class="org-font-latex-math">$R$</span>} (0:1.5);
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;] (0, 4) -- node[midway, above]{<span class="org-font-latex-math">$R</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\text</span></span><span class="org-font-latex-math">{bot}}$</span>} (1,4);
+
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(4, 0)}]
+    <span class="org-font-latex-sedate">\draw</span>[fill=white!80!black] (-0.7, 0) -- (-0.7, 5) -- (0.7, 5) -- (0.7, 0) -- cycle;
+    <span class="org-font-latex-sedate">\draw</span>[fill=white!80!black] (0, 0) circle[radius=1.5];
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (0, -2) -- (0, 5.5);
+    <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;] (0, 0)node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- node[midway, above]{<span class="org-font-latex-math">$R$</span>} (0:1.5);
+    <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;] (0, 4) -- node[midway, above]{<span class="org-font-latex-math">$R</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">{</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\text</span></span><span class="org-font-latex-math">{top}}$</span>} (0.7,4);
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/stewart_legs.png" alt="stewart_legs.png" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org1c5e064" class="outline-2">
+<h2 id="org1c5e064"><span class="section-number-2">3</span> Ball Joints</h2>
+<div class="outline-text-2" id="text-3">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-font-latex-sedate">\draw</span>[fill=white!80!black] (-1, 0) -- (1, 0) -- (1, 3) arc (0:-180:1) -- cycle;
+
+  <span class="org-font-latex-sedate">\draw</span>[dashed] (0, -0.5) -- (0, 3.5);
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;] (0, -0.2) -- node[midway, below]{R} ++(1, 0);
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;] (1.2, 0) -- node[midway, right]{H} ++(0, 3);
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;] (0, 3)node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- node[midway, above right]{R} ++(-45:1);
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/stewart_ball_joints.png" alt="stewart_ball_joints.png" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd19f5f2" class="outline-2">
+<h2 id="orgd19f5f2"><span class="section-number-2">4</span> Single Stewart platform</h2>
+<div class="outline-text-2" id="text-4">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-comment">% Parameters definitions</span>
+  <span class="org-font-latex-sedate">\def\baseh</span>{0.2} <span class="org-comment">% Height of the base</span>
+  <span class="org-font-latex-sedate">\def\naceh</span>{0.2} <span class="org-comment">% Height of the nacelle</span>
+  <span class="org-font-latex-sedate">\def\baser</span>{3.8} <span class="org-comment">% Radius of the base</span>
+  <span class="org-font-latex-sedate">\def\nacer</span>{3.0} <span class="org-comment">% Radius of the nacelle</span>
+
+  <span class="org-font-latex-sedate">\def\armr</span>{0.2} <span class="org-comment">% Radius of the arms</span>
+  <span class="org-font-latex-sedate">\def\basearmborder</span>{0.2}
+  <span class="org-font-latex-sedate">\def\nacearmborder</span>{0.2}
+
+  <span class="org-font-latex-sedate">\def\xnace</span>{0.5} <span class="org-comment">% X position of the nacelle</span>
+  <span class="org-font-latex-sedate">\def\ynace</span>{2.0} <span class="org-comment">% Y position of the nacelle</span>
+  <span class="org-font-latex-sedate">\def\anace</span>{3.0} <span class="org-comment">% Angle of the nacelle</span>
+
+  <span class="org-font-latex-sedate">\def\xbase</span>{0.0} <span class="org-comment">% X position of the base</span>
+  <span class="org-font-latex-sedate">\def\ybase</span>{0.0} <span class="org-comment">% Y position of the base</span>
+  <span class="org-font-latex-sedate">\def\abase</span>{0.0} <span class="org-comment">% Angle of the base</span>
+
+  <span class="org-comment">% Hexapod1</span>
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(<span class="org-font-latex-sedate">\xbase</span>, <span class="org-font-latex-sedate">\ybase</span>)}, rotate=<span class="org-font-latex-sedate">\abase</span>]
+    <span class="org-comment">% Base</span>
+    <span class="org-font-latex-sedate">\draw</span>[fill=white] (-<span class="org-font-latex-sedate">\baser</span>, 0) rectangle (<span class="org-font-latex-sedate">\baser</span>, <span class="org-font-latex-sedate">\baseh</span>);
+
+    <span class="org-font-latex-sedate">\coordinate</span>[] (armbasel) at (-<span class="org-font-latex-sedate">\baser</span>+<span class="org-font-latex-sedate">\basearmborder</span>+<span class="org-font-latex-sedate">\armr</span>, <span class="org-font-latex-sedate">\baseh</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (armbasec) at (0, <span class="org-font-latex-sedate">\baseh</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (armbaser) at (<span class="org-font-latex-sedate">\baser</span>-<span class="org-font-latex-sedate">\basearmborder</span>-<span class="org-font-latex-sedate">\armr</span>, <span class="org-font-latex-sedate">\baseh</span>);
+
+    <span class="org-comment">% Nacelle1</span>
+    <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(<span class="org-font-latex-sedate">\xnace</span>, <span class="org-font-latex-sedate">\ynace</span>)}, rotate=<span class="org-font-latex-sedate">\anace</span>]
+      <span class="org-font-latex-sedate">\draw</span>[fill=white] (-<span class="org-font-latex-sedate">\nacer</span>, 0) rectangle (<span class="org-font-latex-sedate">\nacer</span>, <span class="org-font-latex-sedate">\naceh</span>);
+      <span class="org-font-latex-sedate">\coordinate</span>[] (armnacel) at (-<span class="org-font-latex-sedate">\nacer</span>+<span class="org-font-latex-sedate">\nacearmborder</span>+<span class="org-font-latex-sedate">\armr</span>, 0);
+      <span class="org-font-latex-sedate">\coordinate</span>[] (armnacec) at (0, 0);
+      <span class="org-font-latex-sedate">\coordinate</span>[] (armnacer) at (<span class="org-font-latex-sedate">\nacer</span>-<span class="org-font-latex-sedate">\nacearmborder</span>-<span class="org-font-latex-sedate">\armr</span>, 0);
+    <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+    <span class="org-comment">% Nacelle1 END</span>
+
+    <span class="org-font-latex-sedate">\draw</span>[] (armbasec) -- (armnacer);
+    <span class="org-font-latex-sedate">\draw</span>[] (armbasec) -- (armnacel);
+    <span class="org-font-latex-sedate">\draw</span>[] (armbasel) -- (armnacel);
+    <span class="org-font-latex-sedate">\draw</span>[] (armbasel) -- (armnacec);
+    <span class="org-font-latex-sedate">\draw</span>[] (armbaser) -- (armnacec);
+    <span class="org-font-latex-sedate">\draw</span>[] (armbaser) -- (armnacer);
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/tikz_stewart.png" alt="tikz_stewart.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgba32a3a" class="outline-2">
+<h2 id="orgba32a3a"><span class="section-number-2">5</span> Stacked Stewart platform</h2>
+<div class="outline-text-2" id="text-5">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-comment">% Parameters definitions</span>
+  <span class="org-font-latex-sedate">\def\baseh</span>{0.2} <span class="org-comment">% Height of the base</span>
+  <span class="org-font-latex-sedate">\def\naceh</span>{0.2} <span class="org-comment">% Height of the nacelle</span>
+  <span class="org-font-latex-sedate">\def\baser</span>{3.8} <span class="org-comment">% Radius of the base</span>
+  <span class="org-font-latex-sedate">\def\nacer</span>{3.0} <span class="org-comment">% Radius of the nacelle</span>
+
+  <span class="org-font-latex-sedate">\def\armr</span>{0.2} <span class="org-comment">% Radius of the arms</span>
+  <span class="org-font-latex-sedate">\def\basearmborder</span>{0.2}
+  <span class="org-font-latex-sedate">\def\nacearmborder</span>{0.2}
+
+  <span class="org-font-latex-sedate">\def\xnace</span>{0.5} <span class="org-comment">% X position of the nacelle</span>
+  <span class="org-font-latex-sedate">\def\ynace</span>{2.0} <span class="org-comment">% Y position of the nacelle</span>
+  <span class="org-font-latex-sedate">\def\anace</span>{3.0} <span class="org-comment">% Angle of the nacelle</span>
+
+  <span class="org-font-latex-sedate">\def\xbase</span>{0.0} <span class="org-comment">% X position of the base</span>
+  <span class="org-font-latex-sedate">\def\ybase</span>{0.0} <span class="org-comment">% Y position of the base</span>
+  <span class="org-font-latex-sedate">\def\abase</span>{0.0} <span class="org-comment">% Angle of the base</span>
+
+  <span class="org-comment">% Hexapod1</span>
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(<span class="org-font-latex-sedate">\xbase</span>, <span class="org-font-latex-sedate">\ybase</span>)}, rotate=<span class="org-font-latex-sedate">\abase</span>]
+    <span class="org-comment">% Base</span>
+    <span class="org-font-latex-sedate">\draw</span>[fill=white] (-<span class="org-font-latex-sedate">\baser</span>, 0) rectangle (<span class="org-font-latex-sedate">\baser</span>, <span class="org-font-latex-sedate">\baseh</span>);
+
+    <span class="org-font-latex-sedate">\coordinate</span>[] (armbasel) at (-<span class="org-font-latex-sedate">\baser</span>+<span class="org-font-latex-sedate">\basearmborder</span>+<span class="org-font-latex-sedate">\armr</span>, <span class="org-font-latex-sedate">\baseh</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (armbasec) at (0, <span class="org-font-latex-sedate">\baseh</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (armbaser) at (<span class="org-font-latex-sedate">\baser</span>-<span class="org-font-latex-sedate">\basearmborder</span>-<span class="org-font-latex-sedate">\armr</span>, <span class="org-font-latex-sedate">\baseh</span>);
+
+    <span class="org-comment">% Nacelle1</span>
+    <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(<span class="org-font-latex-sedate">\xnace</span>, <span class="org-font-latex-sedate">\ynace</span>)}, rotate=<span class="org-font-latex-sedate">\anace</span>]
+      <span class="org-font-latex-sedate">\draw</span>[fill=white] (-<span class="org-font-latex-sedate">\nacer</span>, 0) rectangle (<span class="org-font-latex-sedate">\nacer</span>, <span class="org-font-latex-sedate">\naceh</span>);
+      <span class="org-font-latex-sedate">\coordinate</span>[] (armnacel) at (-<span class="org-font-latex-sedate">\nacer</span>+<span class="org-font-latex-sedate">\nacearmborder</span>+<span class="org-font-latex-sedate">\armr</span>, 0);
+      <span class="org-font-latex-sedate">\coordinate</span>[] (armnacec) at (0, 0);
+      <span class="org-font-latex-sedate">\coordinate</span>[] (armnacer) at (<span class="org-font-latex-sedate">\nacer</span>-<span class="org-font-latex-sedate">\nacearmborder</span>-<span class="org-font-latex-sedate">\armr</span>, 0);
+    <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+    <span class="org-comment">% Nacelle1 END</span>
+
+    <span class="org-font-latex-sedate">\draw</span>[] (armbasec) -- (armnacer);
+    <span class="org-font-latex-sedate">\draw</span>[] (armbasec) -- (armnacel);
+    <span class="org-font-latex-sedate">\draw</span>[] (armbasel) -- (armnacel);
+    <span class="org-font-latex-sedate">\draw</span>[] (armbasel) -- (armnacec);
+    <span class="org-font-latex-sedate">\draw</span>[] (armbaser) -- (armnacec);
+    <span class="org-font-latex-sedate">\draw</span>[] (armbaser) -- (armnacer);
+
+    <span class="org-comment">% Hexapod2</span>
+    <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(<span class="org-font-latex-sedate">\xnace</span>, <span class="org-font-latex-sedate">\ynace</span>+<span class="org-font-latex-sedate">\baseh</span>)}, rotate=<span class="org-font-latex-sedate">\anace</span>]
+      <span class="org-font-latex-sedate">\def\baser</span>{3.0} <span class="org-comment">% Radius of the nacelle</span>
+      <span class="org-font-latex-sedate">\def\nacer</span>{2.5} <span class="org-comment">% Radius of the nacelle</span>
+      <span class="org-font-latex-sedate">\def\xnace</span>{0.0} <span class="org-comment">% X position of the nacelle</span>
+      <span class="org-font-latex-sedate">\def\ynace</span>{1.5} <span class="org-comment">% Y position of the nacelle</span>
+
+      <span class="org-font-latex-sedate">\def\anace</span>{-3.0} <span class="org-comment">% Angle of the nacelle</span>
+
+      <span class="org-comment">% Base</span>
+      <span class="org-font-latex-sedate">\draw</span>[fill=white] (-<span class="org-font-latex-sedate">\baser</span>, 0) rectangle (<span class="org-font-latex-sedate">\baser</span>, <span class="org-font-latex-sedate">\baseh</span>);
+
+      <span class="org-font-latex-sedate">\coordinate</span>[] (armbasel) at (-<span class="org-font-latex-sedate">\baser</span>+<span class="org-font-latex-sedate">\basearmborder</span>+<span class="org-font-latex-sedate">\armr</span>, <span class="org-font-latex-sedate">\baseh</span>);
+      <span class="org-font-latex-sedate">\coordinate</span>[] (armbasec) at (0, <span class="org-font-latex-sedate">\baseh</span>);
+      <span class="org-font-latex-sedate">\coordinate</span>[] (armbaser) at (<span class="org-font-latex-sedate">\baser</span>-<span class="org-font-latex-sedate">\basearmborder</span>-<span class="org-font-latex-sedate">\armr</span>, <span class="org-font-latex-sedate">\baseh</span>);
+
+      <span class="org-comment">% Nacelle2</span>
+      <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(<span class="org-font-latex-sedate">\xnace</span>, <span class="org-font-latex-sedate">\ynace</span>)}, rotate=<span class="org-font-latex-sedate">\anace</span>]
+        <span class="org-font-latex-sedate">\draw</span>[fill=white] (-<span class="org-font-latex-sedate">\nacer</span>, 0) rectangle (<span class="org-font-latex-sedate">\nacer</span>, <span class="org-font-latex-sedate">\naceh</span>);
+        <span class="org-font-latex-sedate">\coordinate</span>[] (armnacel) at (-<span class="org-font-latex-sedate">\nacer</span>+<span class="org-font-latex-sedate">\nacearmborder</span>+<span class="org-font-latex-sedate">\armr</span>, 0);
+        <span class="org-font-latex-sedate">\coordinate</span>[] (armnacec) at (0, 0);
+        <span class="org-font-latex-sedate">\coordinate</span>[] (armnacer) at (<span class="org-font-latex-sedate">\nacer</span>-<span class="org-font-latex-sedate">\nacearmborder</span>-<span class="org-font-latex-sedate">\armr</span>, 0);
+
+        <span class="org-font-latex-sedate">\draw</span>[] (armbasec) -- (armnacer);
+        <span class="org-font-latex-sedate">\draw</span>[] (armbasec) -- (armnacel);
+        <span class="org-font-latex-sedate">\draw</span>[] (armbasel) -- (armnacel);
+        <span class="org-font-latex-sedate">\draw</span>[] (armbasel) -- (armnacec);
+        <span class="org-font-latex-sedate">\draw</span>[] (armbaser) -- (armnacec);
+        <span class="org-font-latex-sedate">\draw</span>[] (armbaser) -- (armnacer);
+
+        <span class="org-comment">% Sample</span>
+        <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[shift={(0, <span class="org-font-latex-sedate">\naceh</span>)}]
+          <span class="org-font-latex-sedate">\def\samph</span>{2.6} <span class="org-comment">% Height of the sample</span>
+          <span class="org-font-latex-sedate">\def\sampr</span>{2.4} <span class="org-comment">% Radius of the sample</span>
+          <span class="org-font-latex-sedate">\draw</span>[fill=white] (-<span class="org-font-latex-sedate">\sampr</span>, 0) rectangle (<span class="org-font-latex-sedate">\sampr</span>, <span class="org-font-latex-sedate">\samph</span>);
+
+          <span class="org-font-latex-sedate">\coordinate</span>[] (massc) at (0, 0.5*<span class="org-font-latex-sedate">\samph</span>);
+          <span class="org-font-latex-sedate">\draw</span>[-&gt;] (massc) node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- ++(0,-1) node[right]{<span class="org-font-latex-math">$F</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">g$</span>};
+        <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+        <span class="org-comment">% Sample END</span>
+      <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+      <span class="org-comment">% Nacelle2 END</span>
+    <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+    <span class="org-comment">% Hexapod2 END</span>
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+  <span class="org-comment">% Hexapod1 END</span>
+
+  <span class="org-font-latex-sedate">\draw</span>[dashed] (0, -0.4) -- (0, 7);
+  <span class="org-font-latex-sedate">\node</span>[] at (0, 6) {<span class="org-font-latex-sedate">\AxisRotator</span>[rotate=-90]};
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/tikz_stewart_stacked.png" alt="tikz_stewart_stacked.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0df86a5" class="outline-2">
+<h2 id="org0df86a5"><span class="section-number-2">6</span> Stewart Platform - 3D - Jacobian</h2>
+<div class="outline-text-2" id="text-6">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-font-latex-sedate">\coordinate</span>[] (O) at (0, 0);
+  <span class="org-font-latex-sedate">\coordinate</span>[] (P) at (1, 2);
+
+  <span class="org-font-latex-sedate">\draw</span>[thin] (O) circle (3.0 and 0.5);
+  <span class="org-font-latex-sedate">\draw</span>[thin] (P) circle (1.5 and 0.25);
+
+  <span class="org-font-latex-sedate">\coordinate</span>[] (A) at (<span class="org-font-latex-math">$(O) + (-3.0, 0)$</span>);
+  <span class="org-font-latex-sedate">\coordinate</span>[] (B) at (<span class="org-font-latex-math">$(P) + (-1.5, 0)$</span>);
+
+  <span class="org-font-latex-sedate">\node</span>[branch] at (O){};
+  <span class="org-font-latex-sedate">\node</span>[branch] at (P){};
+  <span class="org-font-latex-sedate">\node</span>[branch] at (A){};
+  <span class="org-font-latex-sedate">\node</span>[branch] at (B){};
+
+  <span class="org-font-latex-sedate">\draw</span>[thin] (A) node[above left]{<span class="org-font-latex-math">$A</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">i$</span>} -- node[midway, above left]{<span class="org-font-latex-math">$d</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">i$</span>} (B) node[above left]{<span class="org-font-latex-math">$B</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">i$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (O) -- node[midway, right]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\vec</span></span><span class="org-font-latex-math">{p}$</span>} (P);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (O) -- node[midway, above]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\vec</span></span><span class="org-font-latex-math">{a</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">i}$</span>} (A);
+
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (A) -- node[midway, above]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\vec</span></span><span class="org-font-latex-math">{s</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">i}$</span>} (<span class="org-font-latex-math">$(A)!1cm!(B)$</span>);
+
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (O) node[above left]{<span class="org-font-latex-math">$O$</span>} -- ++(1,0,0) node[anchor=north east]{<span class="org-font-latex-math">$x$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (O) -- ++(0,1,0) node[anchor=north west]{<span class="org-font-latex-math">$y$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (O) -- ++(0,0,1) node[anchor=south]{<span class="org-font-latex-math">$z$</span>};
+
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (P) node[above left]{<span class="org-font-latex-math">$P$</span>} -- ++(1,0,0) node[anchor=north east]{<span class="org-font-latex-math">$u$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (P) -- ++(0,1,0) node[anchor=north west]{<span class="org-font-latex-math">$v$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (P) -- ++(0,0,1) node[anchor=south]{<span class="org-font-latex-math">$w$</span>};
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/jacobian.png" alt="jacobian.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcffd575" class="outline-2">
+<h2 id="orgcffd575"><span class="section-number-2">7</span> Cubic Stewart Platform - Not aligned</h2>
+<div class="outline-text-2" id="text-7">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[rotate={45}, shift={(0, 0, -4)}]
+    <span class="org-comment">% We first define the coordinate of the points of the Cube</span>
+    <span class="org-font-latex-sedate">\coordinate</span>[] (bot) at (0,0,4);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (top) at (4,4,0);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (A1) at (0,0,0);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (A2) at (4,0,4);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (A3) at (0,4,4);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (B1) at (4,0,0);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (B2) at (4,4,4);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (B3) at (0,4,0);
+
+    <span class="org-comment">% Center of the Cube</span>
+    <span class="org-font-latex-sedate">\node</span>[] at (<span class="org-font-latex-math">$0.5*(bot) + 0.5*(top)$</span>){<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+
+    <span class="org-comment">% Size of the cube</span>
+    <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;, dashed] (<span class="org-font-latex-math">$(B1)+(0.2, 0, 0)$</span>) -- node[midway, above right]{<span class="org-font-latex-math">$L$</span>} (<span class="org-font-latex-math">$(top)+(0.2, 0, 0)$</span>);
+
+    <span class="org-comment">% We then draw parts of the cube that is not part of the Stewart platform</span>
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (A1) -- (bot);
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (A2) -- (bot);
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (A3) -- (bot);
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (B1) -- (top);
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (B2) -- (top);
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (B3) -- (top);
+
+    <span class="org-comment">% We draw parts of the cube that corresponds to the Stewart platform</span>
+    <span class="org-font-latex-sedate">\draw</span>[] (A1)node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (B1)node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (A2)node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (B2)node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (A3)node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (B3)node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (A1);
+
+    <span class="org-comment">% ai and bi are computed</span>
+    <span class="org-font-latex-sedate">\def\lfrom</span>{0.1}
+    <span class="org-font-latex-sedate">\def\lto</span>{0.6}
+
+    <span class="org-font-latex-sedate">\coordinate</span>(a1) at (<span class="org-font-latex-math">$(A1) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(A1) + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(B1)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(b1) at (<span class="org-font-latex-math">$(A1) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(A1)   + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(B1)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(a2) at (<span class="org-font-latex-math">$(A2) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(A2) + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(B1)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(b2) at (<span class="org-font-latex-math">$(A2) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(A2)   + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(B1)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(a3) at (<span class="org-font-latex-math">$(A2) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(A2) + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(B2)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(b3) at (<span class="org-font-latex-math">$(A2) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(A2)   + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(B2)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(a4) at (<span class="org-font-latex-math">$(A3) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(A3) + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(B2)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(b4) at (<span class="org-font-latex-math">$(A3) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(A3)   + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(B2)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(a5) at (<span class="org-font-latex-math">$(A3) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(A3) + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(B3)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(b5) at (<span class="org-font-latex-math">$(A3) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(A3)   + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(B3)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(a6) at (<span class="org-font-latex-math">$(A1) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(A1) + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(B3)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(b6) at (<span class="org-font-latex-math">$(A1) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(A1)   + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(B3)$</span>);
+
+    <span class="org-comment">% Center of the Stewart Platform</span>
+    <span class="org-font-latex-sedate">\node</span>[color=colorblue] at (<span class="org-font-latex-math">$0.25*(a1) + 0.25*(a6) + 0.25*(b3) + 0.25*(b4)$</span>){<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+
+    <span class="org-comment">% We draw the fixed and mobiles platforms</span>
+    <span class="org-font-latex-sedate">\path</span>[fill=colorblue, opacity=0.2] (a1) -- (a2) -- (a3) -- (a4) -- (a5) -- (a6) -- cycle;
+    <span class="org-font-latex-sedate">\path</span>[fill=colorblue, opacity=0.2] (b1) -- (b2) -- (b3) -- (b4) -- (b5) -- (b6) -- cycle;
+    <span class="org-font-latex-sedate">\draw</span>[color=colorblue, dashed] (a1) -- (a2) -- (a3) -- (a4) -- (a5) -- (a6) -- cycle;
+    <span class="org-font-latex-sedate">\draw</span>[color=colorblue, dashed] (b1) -- (b2) -- (b3) -- (b4) -- (b5) -- (b6) -- cycle;
+
+    <span class="org-comment">% The legs of the hexapod are drawn</span>
+    <span class="org-font-latex-sedate">\draw</span>[color=colorblue] (a1)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (b1)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[color=colorblue] (a2)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (b2)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[color=colorblue] (a3)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (b3)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[color=colorblue] (a4)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (b4)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[color=colorblue] (a5)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (b5)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[color=colorblue] (a6)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (b6)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+
+    <span class="org-comment">% Labels</span>
+    <span class="org-font-latex-sedate">\node</span>[left=0.1 of a5] {<span class="org-font-latex-math">$a</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">i$</span>};
+    <span class="org-font-latex-sedate">\node</span>[left=0.1 of b5] {<span class="org-font-latex-math">$b</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">i$</span>};
+
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+
+  <span class="org-comment">% Height of the Hexapod</span>
+  <span class="org-font-latex-sedate">\coordinate</span>[] (sizepos) at (<span class="org-font-latex-math">$(a2)+(0.2, 0)$</span>);
+  <span class="org-font-latex-sedate">\coordinate</span>[] (origin) at (0,0,0);
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;, dashed] (a2-|sizepos) -- node[midway, right]{<span class="org-font-latex-math">$H$</span>} (b2-|sizepos);
+  <span class="org-comment">% Height offset</span>
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;, dashed] (a2-|sizepos) -- node[midway, right]{<span class="org-font-latex-math">$H</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">0$</span>} (origin-|sizepos);
+
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0,0,0) -- (0,0,1)node[left]{<span class="org-font-latex-math">$x$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0,0,0) -- (1,0,0)node[above]{<span class="org-font-latex-math">$y$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0,0,0) -- (0,1,0)node[right]{<span class="org-font-latex-math">$z$</span>};
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/3d-cubic-stewart-misaligned.png" alt="3d-cubic-stewart-misaligned.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org26db58e" class="outline-2">
+<h2 id="org26db58e"><span class="section-number-2">8</span> Cubic Stewart Platform - Centered</h2>
+<div class="outline-text-2" id="text-8">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[rotate={45}, shift={(0, 0, -4)}]
+    <span class="org-comment">% We first define the coordinate of the points of the Cube</span>
+    <span class="org-font-latex-sedate">\coordinate</span>[] (bot) at (0,0,4);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (top) at (4,4,0);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (A1) at (0,0,0);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (A2) at (4,0,4);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (A3) at (0,4,4);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (B1) at (4,0,0);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (B2) at (4,4,4);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (B3) at (0,4,0);
+
+    <span class="org-comment">% Center of the Cube</span>
+    <span class="org-font-latex-sedate">\node</span>[] at (<span class="org-font-latex-math">$0.5*(bot) + 0.5*(top)$</span>){<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+
+    <span class="org-comment">% Size of the cube</span>
+    <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;, dashed] (<span class="org-font-latex-math">$(B1)+(0.2, 0, 0)$</span>) -- node[midway, above right]{<span class="org-font-latex-math">$L$</span>} (<span class="org-font-latex-math">$(top)+(0.2, 0, 0)$</span>);
+
+    <span class="org-comment">% We then draw parts of the cube that is not part of the Stewart platform</span>
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (A1) -- (bot);
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (A2) -- (bot);
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (A3) -- (bot);
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (B1) -- (top);
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (B2) -- (top);
+    <span class="org-font-latex-sedate">\draw</span>[dashed] (B3) -- (top);
+
+    <span class="org-comment">% We draw parts of the cube that corresponds to the Stewart platform</span>
+    <span class="org-font-latex-sedate">\draw</span>[] (A1)node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (B1)node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (A2)node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (B2)node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (A3)node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (B3)node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (A1);
+
+    <span class="org-comment">% ai and bi are computed</span>
+    <span class="org-font-latex-sedate">\def\lfrom</span>{0.2}
+    <span class="org-font-latex-sedate">\def\lto</span>{0.8}
+
+    <span class="org-font-latex-sedate">\coordinate</span>(a1) at (<span class="org-font-latex-math">$(A1) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(A1) + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(B1)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(b1) at (<span class="org-font-latex-math">$(A1) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(A1)   + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(B1)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(a2) at (<span class="org-font-latex-math">$(A2) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(A2) + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(B1)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(b2) at (<span class="org-font-latex-math">$(A2) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(A2)   + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(B1)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(a3) at (<span class="org-font-latex-math">$(A2) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(A2) + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(B2)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(b3) at (<span class="org-font-latex-math">$(A2) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(A2)   + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(B2)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(a4) at (<span class="org-font-latex-math">$(A3) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(A3) + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(B2)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(b4) at (<span class="org-font-latex-math">$(A3) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(A3)   + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(B2)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(a5) at (<span class="org-font-latex-math">$(A3) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(A3) + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(B3)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(b5) at (<span class="org-font-latex-math">$(A3) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(A3)   + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(B3)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(a6) at (<span class="org-font-latex-math">$(A1) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(A1) + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(B3)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(b6) at (<span class="org-font-latex-math">$(A1) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(A1)   + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(B3)$</span>);
+
+    <span class="org-comment">% Center of the Stewart Platform</span>
+    <span class="org-font-latex-sedate">\node</span>[color=colorblue] at (<span class="org-font-latex-math">$0.25*(a1) + 0.25*(a6) + 0.25*(b3) + 0.25*(b4)$</span>){<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+
+    <span class="org-comment">% We draw the fixed and mobiles platforms</span>
+    <span class="org-font-latex-sedate">\path</span>[fill=colorblue, opacity=0.2] (a1) -- (a2) -- (a3) -- (a4) -- (a5) -- (a6) -- cycle;
+    <span class="org-font-latex-sedate">\path</span>[fill=colorblue, opacity=0.2] (b1) -- (b2) -- (b3) -- (b4) -- (b5) -- (b6) -- cycle;
+    <span class="org-font-latex-sedate">\draw</span>[color=colorblue, dashed] (a1) -- (a2) -- (a3) -- (a4) -- (a5) -- (a6) -- cycle;
+    <span class="org-font-latex-sedate">\draw</span>[color=colorblue, dashed] (b1) -- (b2) -- (b3) -- (b4) -- (b5) -- (b6) -- cycle;
+
+    <span class="org-comment">% The legs of the hexapod are drawn</span>
+    <span class="org-font-latex-sedate">\draw</span>[color=colorblue] (a1)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (b1)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[color=colorblue] (a2)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (b2)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[color=colorblue] (a3)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (b3)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[color=colorblue] (a4)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (b4)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[color=colorblue] (a5)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (b5)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[color=colorblue] (a6)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (b6)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+
+    <span class="org-comment">% Labels</span>
+    <span class="org-font-latex-sedate">\node</span>[left=0.1 of a5] {<span class="org-font-latex-math">$a</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">i$</span>};
+    <span class="org-font-latex-sedate">\node</span>[left=0.1 of b5] {<span class="org-font-latex-math">$b</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">i$</span>};
+
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+
+  <span class="org-comment">% Height of the Hexapod</span>
+  <span class="org-font-latex-sedate">\coordinate</span>[] (sizepos) at (<span class="org-font-latex-math">$(a2)+(0.2, 0)$</span>);
+  <span class="org-font-latex-sedate">\coordinate</span>[] (origin) at (0,0,0);
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;, dashed] (a2-|sizepos) -- node[midway, right]{<span class="org-font-latex-math">$H$</span>} (b2-|sizepos);
+  <span class="org-comment">% Height offset</span>
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;, dashed] (a2-|sizepos) -- node[midway, right]{<span class="org-font-latex-math">$H</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">0$</span>} (origin-|sizepos);
+
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0,0,0) -- (0,0,1)node[left]{<span class="org-font-latex-math">$x$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0,0,0) -- (1,0,0)node[above]{<span class="org-font-latex-math">$y$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0,0,0) -- (0,1,0)node[right]{<span class="org-font-latex-math">$z$</span>};
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/3d-cubic-stewart-aligned.png" alt="3d-cubic-stewart-aligned.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7ae87ca" class="outline-2">
+<h2 id="org7ae87ca"><span class="section-number-2">9</span> Cubic Stewart Platform - Definition</h2>
+<div class="outline-text-2" id="text-9">
+<div class="org-src-container">
+<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
+  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[rotate={45}, shift={(0, 0, -4)}]
+    <span class="org-comment">% We first define the coordinate of the points of the Cube</span>
+    <span class="org-font-latex-sedate">\coordinate</span>[] (bot) at (0,0,4);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (top) at (4,4,0);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (A1) at (0,0,0);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (A2) at (4,0,4);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (A3) at (0,4,4);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (B1) at (4,0,0);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (B2) at (4,4,4);
+    <span class="org-font-latex-sedate">\coordinate</span>[] (B3) at (0,4,0);
+
+    <span class="org-comment">% Center of the Cube</span>
+    <span class="org-font-latex-sedate">\node</span>[] (cubecenter) at (<span class="org-font-latex-math">$0.5*(bot) + 0.5*(top)$</span>){<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+    <span class="org-font-latex-sedate">\node</span>[above right] at (cubecenter){<span class="org-font-latex-math">$C$</span>};
+
+    <span class="org-comment">% We draw parts of the cube that corresponds to the Stewart platform</span>
+    <span class="org-font-latex-sedate">\draw</span>[] (A1)node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (B1)node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (A2)node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (B2)node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (A3)node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (B3)node[]{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- (A1);
+
+    <span class="org-comment">% ai and bi are computed</span>
+    <span class="org-font-latex-sedate">\def\lfrom</span>{0.1}
+    <span class="org-font-latex-sedate">\def\lto</span>{0.8}
+
+    <span class="org-font-latex-sedate">\coordinate</span>(a1) at (<span class="org-font-latex-math">$(A1) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(A1) + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(B1)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(b1) at (<span class="org-font-latex-math">$(A1) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(A1)   + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(B1)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(a2) at (<span class="org-font-latex-math">$(A2) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(A2) + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(B1)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(b2) at (<span class="org-font-latex-math">$(A2) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(A2)   + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(B1)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(a3) at (<span class="org-font-latex-math">$(A2) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(A2) + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(B2)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(b3) at (<span class="org-font-latex-math">$(A2) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(A2)   + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(B2)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(a4) at (<span class="org-font-latex-math">$(A3) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(A3) + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(B2)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(b4) at (<span class="org-font-latex-math">$(A3) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(A3)   + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(B2)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(a5) at (<span class="org-font-latex-math">$(A3) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(A3) + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(B3)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(b5) at (<span class="org-font-latex-math">$(A3) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(A3)   + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(B3)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(a6) at (<span class="org-font-latex-math">$(A1) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(A1) + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lfrom</span></span><span class="org-font-latex-math">*(B3)$</span>);
+    <span class="org-font-latex-sedate">\coordinate</span>(b6) at (<span class="org-font-latex-math">$(A1) - </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(A1)   + </span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\lto</span></span><span class="org-font-latex-math">*(B3)$</span>);
+
+    <span class="org-comment">% Center of the Stewart Platform</span>
+    <span class="org-comment">% </span><span class="org-font-latex-sedate"><span class="org-comment">\node</span></span><span class="org-comment">[color=colorblue] at ($0.25*(a1) + 0.25*(a6) + 0.25*(b3) + 0.25*(b4)$){$</span><span class="org-font-latex-sedate"><span class="org-comment">\bullet</span></span><span class="org-comment">$};</span>
+
+    <span class="org-comment">% We draw the fixed and mobiles platforms</span>
+    <span class="org-font-latex-sedate">\path</span>[fill=colorblue, opacity=0.2] (a1) -- (a2) -- (a3) -- (a4) -- (a5) -- (a6) -- cycle;
+    <span class="org-font-latex-sedate">\path</span>[fill=colorblue, opacity=0.2] (b1) -- (b2) -- (b3) -- (b4) -- (b5) -- (b6) -- cycle;
+    <span class="org-font-latex-sedate">\draw</span>[color=colorblue, dashed] (a1) -- (a2) -- (a3) -- (a4) -- (a5) -- (a6) -- cycle;
+    <span class="org-font-latex-sedate">\draw</span>[color=colorblue, dashed] (b1) -- (b2) -- (b3) -- (b4) -- (b5) -- (b6) -- cycle;
+
+    <span class="org-comment">% The legs of the hexapod are drawn</span>
+    <span class="org-font-latex-sedate">\draw</span>[color=colorblue] (a1)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- node[midway, right]{<span class="org-font-latex-math">$3$</span>} (b1)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[color=colorblue] (a2)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- node[midway, right]{<span class="org-font-latex-math">$4$</span>} (b2)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[color=colorblue] (a3)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- node[midway, right]{<span class="org-font-latex-math">$5$</span>} (b3)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[color=colorblue] (a4)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- node[midway, right]{<span class="org-font-latex-math">$6$</span>} (b4)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[color=colorblue] (a5)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- node[midway, right]{<span class="org-font-latex-math">$1$</span>} (b5)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+    <span class="org-font-latex-sedate">\draw</span>[color=colorblue] (a6)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>} -- node[midway, right]{<span class="org-font-latex-math">$2$</span>} (b6)node{<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\bullet</span></span><span class="org-font-latex-math">$</span>};
+
+    <span class="org-comment">% Labels</span>
+    <span class="org-font-latex-sedate">\node</span>[left=0.1 of a5] {<span class="org-font-latex-math">$a</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">i$</span>};
+    <span class="org-font-latex-sedate">\node</span>[left=0.1 of b5] {<span class="org-font-latex-math">$b</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">i$</span>};
+  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
+
+  <span class="org-comment">% Height of the Hexapod</span>
+  <span class="org-font-latex-sedate">\coordinate</span>[] (sizepos) at (<span class="org-font-latex-math">$(a2)+(0.2, 0)$</span>);
+  <span class="org-font-latex-sedate">\coordinate</span>[] (origin) at (0,0,0);
+  <span class="org-comment">% </span><span class="org-font-latex-sedate"><span class="org-comment">\draw</span></span><span class="org-comment">[&lt;-&gt;, dashed] (a2-|sizepos) -- node[midway, right]{$H$} (b2-|sizepos);</span>
+  <span class="org-comment">% Height offset</span>
+  <span class="org-comment">% </span><span class="org-font-latex-sedate"><span class="org-comment">\draw</span></span><span class="org-comment">[&lt;-&gt;, dashed] (a2-|sizepos) -- node[midway, right]{$H_0$} (origin-|sizepos);</span>
+
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0,6,0) node[above right]{<span class="org-font-latex-math">$\{M\}$</span>} -- ++(0,0,1);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0,6,0) -- ++(1,0,0);
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0,6,0) -- ++(0,1,0);
+
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0,2,0) node[below right]{<span class="org-font-latex-math">$\{F\}$</span>}-- ++(0,0,1)node[left]{<span class="org-font-latex-math">$x$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0,2,0) -- ++(1,0,0)node[above]{<span class="org-font-latex-math">$y$</span>};
+  <span class="org-font-latex-sedate">\draw</span>[-&gt;] (0,2,0) -- ++(0,1,0)node[right]{<span class="org-font-latex-math">$z$</span>};
+
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;, dashed] (0.5,2,0) --node[near end, right]{<span class="org-font-latex-math">${}^{F}O_{C}$</span>} ++(0,2,0);
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;, dashed] (-2,2,0) --node[midway, right]{<span class="org-font-latex-math">${}^{F}H_{A}$</span>} ++(0,1,0);
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;, dashed] (-2,6,0) --node[midway, right]{<span class="org-font-latex-math">${}^{M}H_{B}$</span>} ++(0,-1.5,0);
+
+  <span class="org-comment">% Useful part of the cube</span>
+  <span class="org-font-latex-sedate">\draw</span>[&lt;-&gt;, dashed] (<span class="org-font-latex-math">$(A2)+(0.5,0)$</span>) -- node[midway, right]{<span class="org-font-latex-math">$H_{C}$</span>} (<span class="org-font-latex-math">$(B1)+(0.5,0)$</span>);
+<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="figs/cubic-configuration-definition.png" alt="cubic-configuration-definition.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org283dc42" class="outline-2">
+<h2 id="org283dc42"><span class="section-number-2">10</span> Model of the Stewart platform Actuator</h2>
+<div class="outline-text-2" id="text-10">
+
+<div class="figure">
+<p><img src="figs/stewart_platform_actuator.png" alt="stewart_platform_actuator.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Dehaeze Thomas</p>
+<p class="date">Created: 2020-03-01 dim. 20:16</p>
+</div>
+</body>
+</html>

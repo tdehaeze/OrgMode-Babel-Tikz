@@ -1,23 +1,25 @@
 #+TITLE: Tikz Pictures Maker
 
-* Generate the PDF File from Tikz file
 
-|--------------+--------------+-----------------------------------------------------------------------------|
-| command      | filename     | commentary                                                                  |
-|--------------+--------------+-----------------------------------------------------------------------------|
-| ~make~       |              | Build all ~.tex~ files into the ~ressources/tikz/~ folder into ~.pdf~ files |
-| ~make~       | ~f=filename~ | Build ~ressources/tikz/filename.tex~ into ~ressources/tikz/filename.pdf~    |
-| ~make watch~ | ~f=filename~ | Continuously compile a tikz file into a pdf                                 |
-| ~make open~  | ~f=filename~ | Open the pdf file corresponding to the Tikz figure                          |
-|--------------+--------------+-----------------------------------------------------------------------------|
-
-* Create a Tikz File
-
-|-------------+--------------+------------------------------------------------------------------------------------------|
-| command     | filename     | commentary                                                                               |
-|-------------+--------------+------------------------------------------------------------------------------------------|
-| ~make tikz~ | ~f=filename~ | Create a standalone ~.tex~ containing a tikz picture here ~ressources/tikz/filename.tex~ |
-|-------------+--------------+------------------------------------------------------------------------------------------|
+* Org Publish Configuration                                         :noexport:
+#+begin_src emacs-lisp :results none
+  (setq org-publish-project-alist
+        '(("tikz-maker"
+           :base-directory "~/Cloud/thesis/latex/org/"
+           :base-extension "org"
+           :publishing-directory "~/Cloud/thesis/latex/docs/"
+           :author "Dehaeze Thomas"
+           :email "dehaeze.thomas@gmail.com/"
+           :recursive nil
+           :publishing-function org-html-publish-to-html
+           :auto-preamble t
+           :auto-sitemap nil
+           :html-link-up "index.html"
+           :html-link-home "index.html"
+           :with-todo-keywords nil
+           :html-wrap-src-lines nil
+           :table-of-contents nil)))
+#+end_src
 
 * Import the Tikz/PDF file into your document
 
