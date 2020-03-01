@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml version="1.0" encoding="utf-8"?>
-<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-03-01 dim. 21:29 -->
+<!-- 2020-03-01 dim. 21:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Tikz - Control Diagram</title>
@@ -246,8 +245,8 @@
 </li>
 <li><a href="#orga8ee5a4">2. Classical Feedback</a>
 <ul>
-<li><a href="#org7703d8b">2.1. One Degree of Freedom</a></li>
-<li><a href="#org2577426">2.2. One Degree of Freedom</a></li>
+<li><a href="#org2577426">2.1. One Degree of Freedom</a></li>
+<li><a href="#org2f3fd66">2.2. One Degree of Freedom</a></li>
 <li><a href="#orge0b480e">2.3. One Degree of Freedom - Alternative</a></li>
 <li><a href="#orga87a74a">2.4. One Degree of Freedom - Small</a></li>
 <li><a href="#orgc3ab49c">2.5. One Degree of Freedom - Alternative bis</a></li>
@@ -309,7 +308,7 @@
 <li><a href="#orge577417">7.2. Sensor Fusion with complementary filters</a></li>
 <li><a href="#org61e97e3">7.3. General Sensor Fusion with real sensors</a></li>
 <li><a href="#org4d20553">7.4. Equivalent configuration</a></li>
-<li><a href="#orgf938feb">7.5. Equivalent configuration - classical Feedback</a></li>
+<li><a href="#orgf100283">7.5. Equivalent configuration - classical Feedback</a></li>
 <li><a href="#org69854ff">7.6. Equivalent configuration - classical Feedback with pre-filter</a></li>
 <li><a href="#org3f48e61">7.7. H-Infinity - Complementary filters - Generalized plant</a></li>
 <li><a href="#org1d9aac2">7.8. H-Infinity - Complementary filters - Generalized plant - bis</a></li>
@@ -317,7 +316,7 @@
 <li><a href="#org7ed46d9">7.10. H-Infinity - Complementary filters - bis</a></li>
 <li><a href="#org30d6991">7.11. H-Infinity - 3 Complementary filters</a></li>
 <li><a href="#orgd5762ba">7.12. Generate Complementary Filters using Feedback Control Architecture</a></li>
-<li><a href="#orgf100283">7.13. Equivalent configuration - classical Feedback</a></li>
+<li><a href="#org7e215fb">7.13. Equivalent configuration - classical Feedback</a></li>
 </ul>
 </li>
 <li><a href="#org0e0475f">8. Rotating Frame</a>
@@ -330,62 +329,56 @@
 <li><a href="#org6c17132">8.6. Diagonal Controller</a></li>
 </ul>
 </li>
-<li><a href="#orgf35250a">9. Control Tradeoffs</a>
+<li><a href="#orgec92908">9. Modern Control</a>
 <ul>
-<li><a href="#org12442e1">9.1. Performance / Robustness</a></li>
-<li><a href="#orgb1815d8">9.2. Performance / Knowledge</a></li>
+<li><a href="#org7160cb5">9.1. LQG</a></li>
+<li><a href="#org93a5b1f">9.2. LQG with Kalman filter</a></li>
+<li><a href="#orgbb9d542">9.3. LQG with Integral Action</a></li>
 </ul>
 </li>
-<li><a href="#orgec92908">10. Modern Control</a>
+<li><a href="#org1bf3414">10. H-Infinity Control</a>
 <ul>
-<li><a href="#org7160cb5">10.1. LQG</a></li>
-<li><a href="#org93a5b1f">10.2. LQG with Kalman filter</a></li>
-<li><a href="#orgbb9d542">10.3. LQG with Integral Action</a></li>
+<li><a href="#org5d39abd">10.1. S/KS Mixed sensitivity - Disturbance Rejection</a></li>
+<li><a href="#org537e762">10.2. S/KS Mixed sensitivity - Reference Tracking</a></li>
+<li><a href="#org52e2b43">10.3. S/T Mixed sensitivity</a></li>
+<li><a href="#org70d359a">10.4. Signal Based H-Infinity</a></li>
+<li><a href="#orgc053293">10.5. Signal Based H-Infinity with uncertainty</a></li>
+<li><a href="#org587c51c">10.6. Mixed sensitivity configuration</a></li>
+<li><a href="#org80eab90">10.7. 4 blocs criterion</a></li>
+<li><a href="#orgdfce4ec">10.8. 4 blocs criterion - bis</a></li>
+<li><a href="#orga5a48ae">10.9. 4 blocs criterion - General conf</a></li>
+<li><a href="#orge2952aa">10.10. 4 blocs criterion - General conf with noise</a></li>
+<li><a href="#org62aa9fa">10.11. Two Degrees of Freedom - H-infinity</a></li>
 </ul>
 </li>
-<li><a href="#org1bf3414">11. H-Infinity Control</a>
+<li><a href="#org2bf7d12">11. MIMO Control</a>
 <ul>
-<li><a href="#org5d39abd">11.1. S/KS Mixed sensitivity - Disturbance Rejection</a></li>
-<li><a href="#org537e762">11.2. S/KS Mixed sensitivity - Reference Tracking</a></li>
-<li><a href="#org52e2b43">11.3. S/T Mixed sensitivity</a></li>
-<li><a href="#org70d359a">11.4. Signal Based H-Infinity</a></li>
-<li><a href="#orgc053293">11.5. Signal Based H-Infinity with uncertainty</a></li>
-<li><a href="#org587c51c">11.6. Mixed sensitivity configuration</a></li>
-<li><a href="#org80eab90">11.7. 4 blocs criterion</a></li>
-<li><a href="#orgdfce4ec">11.8. 4 blocs criterion - bis</a></li>
-<li><a href="#orga5a48ae">11.9. 4 blocs criterion - General conf</a></li>
-<li><a href="#orge2952aa">11.10. 4 blocs criterion - General conf with noise</a></li>
-<li><a href="#org62aa9fa">11.11. Two Degrees of Freedom - H-infinity</a></li>
+<li><a href="#orgec6abc0">11.1. Plant</a></li>
+<li><a href="#orgac46b65">11.2. Plant - Leg measurement</a></li>
+<li><a href="#orgc853111">11.3. Jacobian</a></li>
+<li><a href="#org25ac85f">11.4. Jacobian Control - Cartesian Frame</a></li>
+<li><a href="#org7387d82">11.5. Jacobian Control - Cartesian Frame</a></li>
+<li><a href="#orgdaa11ee">11.6. Modal Transformation</a></li>
+<li><a href="#orgcb80f0a">11.7. SVD Control - Static</a></li>
+<li><a href="#orgb91e8db">11.8. Inverse Based Control</a></li>
+<li><a href="#orgd16b299">11.9. MIMO Sensor Fusion</a></li>
+<li><a href="#orgf3558b1">11.10. MIMO Sensor Fusion - Equivalent Feedback Control</a></li>
+<li><a href="#orgdb2309b">11.11. MIMO Sensor Fusion - Equivalent Feedback Control - bis</a></li>
 </ul>
 </li>
-<li><a href="#org2bf7d12">12. MIMO Control</a>
+<li><a href="#org9b5adae">12. Others</a>
 <ul>
-<li><a href="#orgec6abc0">12.1. Plant</a></li>
-<li><a href="#orgac46b65">12.2. Plant - Leg measurement</a></li>
-<li><a href="#orgc853111">12.3. Jacobian</a></li>
-<li><a href="#orgc71ec1a">12.4. Jacobian Control - Cartesian Frame</a></li>
-<li><a href="#org25ac85f">12.5. Jacobian Control - Cartesian Frame</a></li>
-<li><a href="#orgdaa11ee">12.6. Modal Transformation</a></li>
-<li><a href="#orgcb80f0a">12.7. SVD Control - Static</a></li>
-<li><a href="#org719d949">12.8. Inverse Based Control</a></li>
-<li><a href="#orgd16b299">12.9. MIMO Sensor Fusion</a></li>
-<li><a href="#orgf3558b1">12.10. MIMO Sensor Fusion - Equivalent Feedback Control</a></li>
-<li><a href="#orgdb2309b">12.11. MIMO Sensor Fusion - Equivalent Feedback Control - bis</a></li>
-</ul>
-</li>
-<li><a href="#org9b5adae">13. Others</a>
-<ul>
-<li><a href="#orga17dc11">13.1. Huddle test</a></li>
-<li><a href="#orgfd6d9a2">13.2. Coprime uncertainty</a></li>
-<li><a href="#orgcc86b8d">13.3. Coprime uncertainty - Bis</a></li>
-<li><a href="#org7aaf260">13.4. Shaped Plant</a></li>
-<li><a href="#org4267549">13.5. Practical Implementation</a></li>
-<li><a href="#org391f2aa">13.6. Anti-Windup</a></li>
-<li><a href="#org5ec796a">13.7. Block Diagonal Scalings</a></li>
-<li><a href="#org11d8211">13.8. Disturbance Observer</a></li>
-<li><a href="#org86f8a99">13.9. Disturbance Observer with controller</a></li>
-<li><a href="#org7ddb991">13.10. Internal Model Control</a></li>
-<li><a href="#orgb91e8db">13.11. Inverse Based Control</a></li>
+<li><a href="#orga17dc11">12.1. Huddle test</a></li>
+<li><a href="#orgfd6d9a2">12.2. Coprime uncertainty</a></li>
+<li><a href="#orgcc86b8d">12.3. Coprime uncertainty - Bis</a></li>
+<li><a href="#org7aaf260">12.4. Shaped Plant</a></li>
+<li><a href="#org4267549">12.5. Practical Implementation</a></li>
+<li><a href="#org391f2aa">12.6. Anti-Windup</a></li>
+<li><a href="#org5ec796a">12.7. Block Diagonal Scalings</a></li>
+<li><a href="#org11d8211">12.8. Disturbance Observer</a></li>
+<li><a href="#org86f8a99">12.9. Disturbance Observer with controller</a></li>
+<li><a href="#org7ddb991">12.10. Internal Model Control</a></li>
+<li><a href="#orge632582">12.11. Inverse Based Control</a></li>
 </ul>
 </li>
 </ul>
@@ -466,8 +459,8 @@
 <h2 id="orga8ee5a4"><span class="section-number-2">2</span> Classical Feedback</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org7703d8b" class="outline-3">
-<h3 id="org7703d8b"><span class="section-number-3">2.1</span> One Degree of Freedom</h3>
+<div id="outline-container-org2577426" class="outline-3">
+<h3 id="org2577426"><span class="section-number-3">2.1</span> One Degree of Freedom</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -506,8 +499,8 @@
 </div>
 
 
-<div id="outline-container-org2577426" class="outline-3">
-<h3 id="org2577426"><span class="section-number-3">2.2</span> One Degree of Freedom</h3>
+<div id="outline-container-org2f3fd66" class="outline-3">
+<h3 id="org2f3fd66"><span class="section-number-3">2.2</span> One Degree of Freedom</h3>
 <div class="outline-text-3" id="text-2-2">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -2011,8 +2004,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgf938feb" class="outline-3">
-<h3 id="orgf938feb"><span class="section-number-3">7.5</span> Equivalent configuration - classical Feedback</h3>
+<div id="outline-container-orgf100283" class="outline-3">
+<h3 id="orgf100283"><span class="section-number-3">7.5</span> Equivalent configuration - classical Feedback</h3>
 <div class="outline-text-3" id="text-7-5">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -2308,8 +2301,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgf100283" class="outline-3">
-<h3 id="orgf100283"><span class="section-number-3">7.13</span> Equivalent configuration - classical Feedback</h3>
+<div id="outline-container-org7e215fb" class="outline-3">
+<h3 id="org7e215fb"><span class="section-number-3">7.13</span> Equivalent configuration - classical Feedback</h3>
 <div class="outline-text-3" id="text-7-13">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
@@ -2518,158 +2511,13 @@
 </div>
 </div>
 
-<div id="outline-container-orgf35250a" class="outline-2">
-<h2 id="orgf35250a"><span class="section-number-2">9</span> Control Tradeoffs</h2>
+<div id="outline-container-orgec92908" class="outline-2">
+<h2 id="orgec92908"><span class="section-number-2">9</span> Modern Control</h2>
 <div class="outline-text-2" id="text-9">
 </div>
-<div id="outline-container-org12442e1" class="outline-3">
-<h3 id="org12442e1"><span class="section-number-3">9.1</span> Performance / Robustness</h3>
-<div class="outline-text-3" id="text-9-1">
-<div class="org-src-container">
-<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
-  <span class="org-comment">% Scale</span>
-  <span class="org-font-latex-sedate">\def\yscale</span>{0.8}
-  <span class="org-font-latex-sedate">\def\xscale</span>{1.0}
-
-  <span class="org-comment">% Colors</span>
-  <span class="org-font-latex-sedate">\def\colorstart</span>{blue}
-  <span class="org-font-latex-sedate">\def\colorend</span>{red}
-
-  <span class="org-comment">% Axis</span>
-  <span class="org-font-latex-sedate">\draw</span> [-&gt;] (-0.5,0) -- (10*<span class="org-font-latex-sedate">\xscale</span>,0) node[below left]{Robustness};
-  <span class="org-font-latex-sedate">\draw</span> [-&gt;] (0,-0.5) -- (0,10*<span class="org-font-latex-sedate">\yscale</span>) node[below left, rotate=90, anchor=south east]{Performance};
-
-  <span class="org-comment">% Color Bar</span>
-  <span class="org-font-latex-sedate">\shade</span>[draw, bottom color=<span class="org-font-latex-sedate">\colorstart</span>, top color=<span class="org-font-latex-sedate">\colorend</span>, fill opacity=0.5] (10*<span class="org-font-latex-sedate">\xscale</span>, 1*<span class="org-font-latex-sedate">\yscale</span>) rectangle (11*<span class="org-font-latex-sedate">\xscale</span>, 9*<span class="org-font-latex-sedate">\yscale</span>);
-  <span class="org-font-latex-sedate">\node</span>[rotate=90, above] at (10*<span class="org-font-latex-sedate">\xscale</span>, 5*<span class="org-font-latex-sedate">\yscale</span>) {Required information on plant};
-  <span class="org-font-latex-sedate">\node</span>[above] at (10.5*<span class="org-font-latex-sedate">\xscale</span>, 1*<span class="org-font-latex-sedate">\yscale</span>) {little};
-  <span class="org-font-latex-sedate">\node</span>[below] at (10.5*<span class="org-font-latex-sedate">\xscale</span>, 9*<span class="org-font-latex-sedate">\yscale</span>) {large};
-
-  <span class="org-comment">% ===================================</span>
-  <span class="org-comment">% Classical Control</span>
-  <span class="org-comment">% ===================================</span>
-  <span class="org-comment">% Control Types</span>
-  <span class="org-font-latex-sedate">\node</span>[align=center] (pid)  at (7.0*<span class="org-font-latex-sedate">\xscale</span>, 1.2*<span class="org-font-latex-sedate">\yscale</span>) {PID<span class="org-font-latex-warning">\\</span>Lead-Lag};
-
-  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[on background layer]
-    <span class="org-comment">% Control Families</span>
-    <span class="org-font-latex-sedate">\node</span>[ellipse, draw, dashed, minimum width=3.0*<span class="org-font-latex-sedate">\xscale</span> cm, minimum height=2.0*<span class="org-font-latex-sedate">\yscale</span> cm,
-        fill=<span class="org-font-latex-sedate">\colorstart</span>!90!<span class="org-font-latex-sedate">\colorend</span>, fill opacity=0.5, text opacity=1]
-        (classicalcontrol) at (pid) {};
-  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
-  <span class="org-font-latex-sedate">\node</span>[above, align=center] at (classicalcontrol.north) {<span class="org-font-latex-sedate"><span class="org-keyword">\textbf</span></span>{<span class="org-font-latex-bold">Classical control</span>} (1930)<span class="org-font-latex-warning">\\</span>{<span class="org-font-latex-sedate"><span class="org-keyword">\small</span></span><span class="org-type"> SISO, Manual Method</span>}};
-  <span class="org-comment">% ===================================</span>
-
-
-  <span class="org-comment">% ===================================</span>
-  <span class="org-comment">% Modern Control</span>
-  <span class="org-comment">% ===================================</span>
-  <span class="org-comment">% Control Types</span>
-  <span class="org-font-latex-sedate">\node</span>[align=center] (lqg)  at (2.0*<span class="org-font-latex-sedate">\xscale</span>, 7.5*<span class="org-font-latex-sedate">\yscale</span>) {LQR<span class="org-font-latex-warning">\\</span>LQG};
-
-  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[on background layer]
-    <span class="org-font-latex-sedate">\node</span>[ellipse, draw, dashed, minimum width=2.0*<span class="org-font-latex-sedate">\xscale</span> cm, minimum height=2.0*<span class="org-font-latex-sedate">\yscale</span> cm,
-        fill=<span class="org-font-latex-sedate">\colorstart</span>!20!<span class="org-font-latex-sedate">\colorend</span>, fill opacity=0.5, text opacity=1]
-        (moderncontrol) at (lqg) {};
-  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
-  <span class="org-font-latex-sedate">\node</span>[above, align=center] at (moderncontrol.north) {<span class="org-font-latex-sedate"><span class="org-keyword">\textbf</span></span>{<span class="org-font-latex-bold">Modern control</span>} (1960)<span class="org-font-latex-warning">\\</span>{<span class="org-font-latex-sedate"><span class="org-keyword">\small</span></span><span class="org-type"> MIMO, Optimal</span>}};
-  <span class="org-comment">% ===================================</span>
-
-
-  <span class="org-comment">% ===================================</span>
-  <span class="org-comment">% Robust Control</span>
-  <span class="org-comment">% ===================================</span>
-  <span class="org-comment">% Control Types</span>
-  <span class="org-font-latex-sedate">\node</span>[align=center] (hinf) at (4.5*<span class="org-font-latex-sedate">\xscale</span>, 4.8*<span class="org-font-latex-sedate">\yscale</span>) {<span class="org-font-latex-math">$H</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\infty</span></span><span class="org-font-latex-math">$</span><span class="org-font-latex-warning">\\</span><span class="org-font-latex-math">$H</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">2$</span>};
-  <span class="org-font-latex-sedate">\node</span>[] (mu) at (5.5*<span class="org-font-latex-sedate">\xscale</span>, 4.8*<span class="org-font-latex-sedate">\yscale</span>) {<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\mu</span></span><span class="org-font-latex-math">$</span>};
-
-
-  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[on background layer]
-    <span class="org-font-latex-sedate">\node</span>[ellipse, draw, dashed, minimum width=3.0*<span class="org-font-latex-sedate">\xscale</span> cm, minimum height=2.5*<span class="org-font-latex-sedate">\yscale</span> cm,
-        shade, left color=<span class="org-font-latex-sedate">\colorstart</span>!50!<span class="org-font-latex-sedate">\colorend</span>, right color=<span class="org-font-latex-sedate">\colorstart</span>!10!<span class="org-font-latex-sedate">\colorend</span>, fill opacity=0.5, text opacity=1]
-        (robustcontrol) at (<span class="org-font-latex-math">$0.5*(hinf)+0.5*(mu)$</span>) {};
-  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
-  <span class="org-font-latex-sedate">\node</span>[above, align=center] at (robustcontrol.north) {<span class="org-font-latex-sedate"><span class="org-keyword">\textbf</span></span>{<span class="org-font-latex-bold">Robust control</span>} (1990)<span class="org-font-latex-warning">\\</span>{<span class="org-font-latex-sedate"><span class="org-keyword">\small</span></span><span class="org-type"> MIMO, Robust</span>}};
-  <span class="org-comment">% ===================================</span>
-
-
-  <span class="org-comment">% ===================================</span>
-  <span class="org-comment">% Sensor Fusion With Robust Control</span>
-  <span class="org-comment">% ===================================</span>
-  <span class="org-font-latex-sedate">\coordinate</span> (sf) at (6.8*<span class="org-font-latex-sedate">\xscale</span>, 8.0*<span class="org-font-latex-sedate">\yscale</span>);
-  <span class="org-font-latex-sedate">\node</span>[ellipse, draw, dashed, minimum width=1.0 cm, minimum height=1.0 cm, fill=<span class="org-font-latex-sedate">\colorstart</span>!75!<span class="org-font-latex-sedate">\colorend</span>, fill opacity=0.5, text opacity=1]
-        (sfcontrol) at (sf) {<span class="org-font-latex-math">$SF$</span> - <span class="org-font-latex-math">$H</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\infty</span></span><span class="org-font-latex-math">$</span>};
-  <span class="org-font-latex-sedate">\node</span>[above, align=center] at (sfcontrol.north) {<span class="org-font-latex-sedate"><span class="org-keyword">\textbf</span></span>{<span class="org-font-latex-bold">Optimal Sensor-Fusion</span>}<span class="org-font-latex-warning">\\</span>{<span class="org-font-latex-sedate"><span class="org-keyword">\small</span></span><span class="org-type"> MIMO, High performance, Robust</span>}};
-  <span class="org-comment">% ===================================</span>
-<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
-</pre>
-</div>
-
-
-<div class="figure">
-<p><img src="figs/robustness_performance.png" alt="robustness_performance.png" />
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgb1815d8" class="outline-3">
-<h3 id="orgb1815d8"><span class="section-number-3">9.2</span> Performance / Knowledge</h3>
-<div class="outline-text-3" id="text-9-2">
-<div class="org-src-container">
-<pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
-  <span class="org-comment">% Scale</span>
-  <span class="org-font-latex-sedate">\def\yscale</span>{0.5}
-  <span class="org-font-latex-sedate">\def\xscale</span>{0.8}
-
-  <span class="org-comment">% Axis</span>
-  <span class="org-font-latex-sedate">\draw</span> [-&gt;] (-0.5,0) -- (10*<span class="org-font-latex-sedate">\xscale</span>,0) node[below left]{Required Plant Knowledge};
-  <span class="org-font-latex-sedate">\draw</span> [-&gt;] (0,-0.5) -- (0,10*<span class="org-font-latex-sedate">\yscale</span>) node[below left, rotate=90, anchor=south east]{Robust Performance};
-
-  <span class="org-comment">% Control Types</span>
-  <span class="org-font-latex-sedate">\node</span>[] (pid)  at (2.0*<span class="org-font-latex-sedate">\xscale</span>, 1.5*<span class="org-font-latex-sedate">\yscale</span>) {PID};
-  <span class="org-font-latex-sedate">\node</span>[] (lqg)  at (7.5*<span class="org-font-latex-sedate">\xscale</span>, 3.5*<span class="org-font-latex-sedate">\yscale</span>) {LQG};
-  <span class="org-font-latex-sedate">\node</span>[] (hinf) at (6.0*<span class="org-font-latex-sedate">\xscale</span>, 7.0*<span class="org-font-latex-sedate">\yscale</span>) {<span class="org-font-latex-math">$H</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\infty</span></span><span class="org-font-latex-math">$</span>};
-  <span class="org-font-latex-sedate">\node</span>[] (mu)   at (8.0*<span class="org-font-latex-sedate">\xscale</span>, 7.0*<span class="org-font-latex-sedate">\yscale</span>) {<span class="org-font-latex-math">$</span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\mu</span></span><span class="org-font-latex-math">$</span>};
-
-  <span class="org-font-latex-sedate">\node</span>[] (hinsf) at (3.0*<span class="org-font-latex-sedate">\xscale</span>, 6.5*<span class="org-font-latex-sedate">\yscale</span>) {<span class="org-font-latex-math">$H</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-sedate"><span class="org-font-latex-math">\infty</span></span><span class="org-font-latex-math">$</span>-Sensor fusion};
-
-  <span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">scope</span>}[on background layer]
-    <span class="org-comment">% Control Families</span>
-    <span class="org-font-latex-sedate">\node</span>[ellipse, draw, fill=white, dashed, minimum width=3.0*<span class="org-font-latex-sedate">\xscale</span> cm, minimum height=1.5*<span class="org-font-latex-sedate">\yscale</span> cm]
-    (classicalcontrol) at (pid) {};
-
-    <span class="org-font-latex-sedate">\node</span>[ellipse, draw, fill=white, dashed, minimum width=2.0*<span class="org-font-latex-sedate">\xscale</span> cm, minimum height=2.0*<span class="org-font-latex-sedate">\yscale</span> cm]
-    (moderncontrol) at (lqg) {};
-
-    <span class="org-font-latex-sedate">\node</span>[ellipse, draw, fill=white, dashed, minimum width=3.5*<span class="org-font-latex-sedate">\xscale</span> cm, minimum height=3.0*<span class="org-font-latex-sedate">\yscale</span> cm]
-    (robustcontrol) at (<span class="org-font-latex-math">$0.5*(hinf)+0.5*(mu)$</span>) {};
-  <span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">scope</span>}
-
-  <span class="org-comment">% Control Families Names</span>
-  <span class="org-font-latex-sedate">\node</span>[above] at (classicalcontrol.north) {Classical control};
-  <span class="org-font-latex-sedate">\node</span>[above] at (moderncontrol.north) {Modern control};
-  <span class="org-font-latex-sedate">\node</span>[above] at (robustcontrol.north) {Robust control};
-<span class="org-font-latex-sedate"><span class="org-keyword">\end</span></span>{<span class="org-function-name">tikzpicture</span>}
-</pre>
-</div>
-
-
-<div class="figure">
-<p><img src="figs/robust_perf_knowledge.png" alt="robust_perf_knowledge.png" />
-</p>
-</div>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgec92908" class="outline-2">
-<h2 id="orgec92908"><span class="section-number-2">10</span> Modern Control</h2>
-<div class="outline-text-2" id="text-10">
-</div>
 <div id="outline-container-org7160cb5" class="outline-3">
-<h3 id="org7160cb5"><span class="section-number-3">10.1</span> LQG</h3>
-<div class="outline-text-3" id="text-10-1">
+<h3 id="org7160cb5"><span class="section-number-3">9.1</span> LQG</h3>
+<div class="outline-text-3" id="text-9-1">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-comment">% Blocs</span>
@@ -2702,8 +2550,8 @@
 </div>
 
 <div id="outline-container-org93a5b1f" class="outline-3">
-<h3 id="org93a5b1f"><span class="section-number-3">10.2</span> LQG with Kalman filter</h3>
-<div class="outline-text-3" id="text-10-2">
+<h3 id="org93a5b1f"><span class="section-number-3">9.2</span> LQG with Kalman filter</h3>
+<div class="outline-text-3" id="text-9-2">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-comment">% Blocs</span>
@@ -2755,8 +2603,8 @@
 </div>
 
 <div id="outline-container-orgbb9d542" class="outline-3">
-<h3 id="orgbb9d542"><span class="section-number-3">10.3</span> LQG with Integral Action</h3>
-<div class="outline-text-3" id="text-10-3">
+<h3 id="orgbb9d542"><span class="section-number-3">9.3</span> LQG with Integral Action</h3>
+<div class="outline-text-3" id="text-9-3">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-comment">% Blocs</span>
@@ -2805,12 +2653,12 @@
 </div>
 
 <div id="outline-container-org1bf3414" class="outline-2">
-<h2 id="org1bf3414"><span class="section-number-2">11</span> H-Infinity Control</h2>
-<div class="outline-text-2" id="text-11">
+<h2 id="org1bf3414"><span class="section-number-2">10</span> H-Infinity Control</h2>
+<div class="outline-text-2" id="text-10">
 </div>
 <div id="outline-container-org5d39abd" class="outline-3">
-<h3 id="org5d39abd"><span class="section-number-3">11.1</span> S/KS Mixed sensitivity - Disturbance Rejection</h3>
-<div class="outline-text-3" id="text-11-1">
+<h3 id="org5d39abd"><span class="section-number-3">10.1</span> S/KS Mixed sensitivity - Disturbance Rejection</h3>
+<div class="outline-text-3" id="text-10-1">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-comment">% Blocs</span>
@@ -2861,8 +2709,8 @@
 </div>
 
 <div id="outline-container-org537e762" class="outline-3">
-<h3 id="org537e762"><span class="section-number-3">11.2</span> S/KS Mixed sensitivity - Reference Tracking</h3>
-<div class="outline-text-3" id="text-11-2">
+<h3 id="org537e762"><span class="section-number-3">10.2</span> S/KS Mixed sensitivity - Reference Tracking</h3>
+<div class="outline-text-3" id="text-10-2">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-comment">% Blocs</span>
@@ -2910,8 +2758,8 @@
 </div>
 
 <div id="outline-container-org52e2b43" class="outline-3">
-<h3 id="org52e2b43"><span class="section-number-3">11.3</span> S/T Mixed sensitivity</h3>
-<div class="outline-text-3" id="text-11-3">
+<h3 id="org52e2b43"><span class="section-number-3">10.3</span> S/T Mixed sensitivity</h3>
+<div class="outline-text-3" id="text-10-3">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-comment">% Blocs</span>
@@ -2959,8 +2807,8 @@
 </div>
 
 <div id="outline-container-org70d359a" class="outline-3">
-<h3 id="org70d359a"><span class="section-number-3">11.4</span> Signal Based H-Infinity</h3>
-<div class="outline-text-3" id="text-11-4">
+<h3 id="org70d359a"><span class="section-number-3">10.4</span> Signal Based H-Infinity</h3>
+<div class="outline-text-3" id="text-10-4">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-comment">% Blocs</span>
@@ -3022,8 +2870,8 @@
 </div>
 
 <div id="outline-container-orgc053293" class="outline-3">
-<h3 id="orgc053293"><span class="section-number-3">11.5</span> Signal Based H-Infinity with uncertainty</h3>
-<div class="outline-text-3" id="text-11-5">
+<h3 id="orgc053293"><span class="section-number-3">10.5</span> Signal Based H-Infinity with uncertainty</h3>
+<div class="outline-text-3" id="text-10-5">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-comment">% Blocs</span>
@@ -3093,8 +2941,8 @@
 </div>
 
 <div id="outline-container-org587c51c" class="outline-3">
-<h3 id="org587c51c"><span class="section-number-3">11.6</span> Mixed sensitivity configuration</h3>
-<div class="outline-text-3" id="text-11-6">
+<h3 id="org587c51c"><span class="section-number-3">10.6</span> Mixed sensitivity configuration</h3>
+<div class="outline-text-3" id="text-10-6">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-font-latex-sedate">\node</span>[addb={+}{}{}{}{-}] (addsub) {};
@@ -3132,8 +2980,8 @@
 </div>
 
 <div id="outline-container-org80eab90" class="outline-3">
-<h3 id="org80eab90"><span class="section-number-3">11.7</span> 4 blocs criterion</h3>
-<div class="outline-text-3" id="text-11-7">
+<h3 id="org80eab90"><span class="section-number-3">10.7</span> 4 blocs criterion</h3>
+<div class="outline-text-3" id="text-10-7">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-font-latex-sedate">\node</span>[addb={+}{}{}{}{-}] (addsub) {};
@@ -3172,8 +3020,8 @@
 </div>
 </div>
 <div id="outline-container-orgdfce4ec" class="outline-3">
-<h3 id="orgdfce4ec"><span class="section-number-3">11.8</span> 4 blocs criterion - bis</h3>
-<div class="outline-text-3" id="text-11-8">
+<h3 id="orgdfce4ec"><span class="section-number-3">10.8</span> 4 blocs criterion - bis</h3>
+<div class="outline-text-3" id="text-10-8">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-font-latex-sedate">\node</span>[addb] (addsub) {};
@@ -3218,8 +3066,8 @@
 </div>
 </div>
 <div id="outline-container-orga5a48ae" class="outline-3">
-<h3 id="orga5a48ae"><span class="section-number-3">11.9</span> 4 blocs criterion - General conf</h3>
-<div class="outline-text-3" id="text-11-9">
+<h3 id="orga5a48ae"><span class="section-number-3">10.9</span> 4 blocs criterion - General conf</h3>
+<div class="outline-text-3" id="text-10-9">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-comment">% Blocs</span>
@@ -3265,8 +3113,8 @@
 </div>
 </div>
 <div id="outline-container-orge2952aa" class="outline-3">
-<h3 id="orge2952aa"><span class="section-number-3">11.10</span> 4 blocs criterion - General conf with noise</h3>
-<div class="outline-text-3" id="text-11-10">
+<h3 id="orge2952aa"><span class="section-number-3">10.10</span> 4 blocs criterion - General conf with noise</h3>
+<div class="outline-text-3" id="text-10-10">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-comment">% Blocs</span>
@@ -3316,8 +3164,8 @@
 </div>
 </div>
 <div id="outline-container-org62aa9fa" class="outline-3">
-<h3 id="org62aa9fa"><span class="section-number-3">11.11</span> Two Degrees of Freedom - H-infinity</h3>
-<div class="outline-text-3" id="text-11-11">
+<h3 id="org62aa9fa"><span class="section-number-3">10.11</span> Two Degrees of Freedom - H-infinity</h3>
+<div class="outline-text-3" id="text-10-11">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-font-latex-sedate">\node</span>[block] (Wi) at (0, 0){<span class="org-font-latex-math">$W</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">i$</span>};
@@ -3354,12 +3202,12 @@
 </div>
 
 <div id="outline-container-org2bf7d12" class="outline-2">
-<h2 id="org2bf7d12"><span class="section-number-2">12</span> MIMO Control</h2>
-<div class="outline-text-2" id="text-12">
+<h2 id="org2bf7d12"><span class="section-number-2">11</span> MIMO Control</h2>
+<div class="outline-text-2" id="text-11">
 </div>
 <div id="outline-container-orgec6abc0" class="outline-3">
-<h3 id="orgec6abc0"><span class="section-number-3">12.1</span> Plant</h3>
-<div class="outline-text-3" id="text-12-1">
+<h3 id="orgec6abc0"><span class="section-number-3">11.1</span> Plant</h3>
+<div class="outline-text-3" id="text-11-1">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-font-latex-sedate">\node</span>[block] (G) at (0, 0) {<span class="org-font-latex-math">$G$</span>};
@@ -3380,8 +3228,8 @@
 </div>
 
 <div id="outline-container-orgac46b65" class="outline-3">
-<h3 id="orgac46b65"><span class="section-number-3">12.2</span> Plant - Leg measurement</h3>
-<div class="outline-text-3" id="text-12-2">
+<h3 id="orgac46b65"><span class="section-number-3">11.2</span> Plant - Leg measurement</h3>
+<div class="outline-text-3" id="text-11-2">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-font-latex-sedate">\node</span>[block] (G) at (0, 0) {<span class="org-font-latex-math">$G$</span>};
@@ -3402,8 +3250,8 @@
 </div>
 
 <div id="outline-container-orgc853111" class="outline-3">
-<h3 id="orgc853111"><span class="section-number-3">12.3</span> Jacobian</h3>
-<div class="outline-text-3" id="text-12-3">
+<h3 id="orgc853111"><span class="section-number-3">11.3</span> Jacobian</h3>
+<div class="outline-text-3" id="text-11-3">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-font-latex-sedate">\node</span>[block] (G) at (0, 0) {<span class="org-font-latex-math">$G$</span>};
@@ -3425,9 +3273,9 @@
 </div>
 </div>
 
-<div id="outline-container-orgc71ec1a" class="outline-3">
-<h3 id="orgc71ec1a"><span class="section-number-3">12.4</span> Jacobian Control - Cartesian Frame</h3>
-<div class="outline-text-3" id="text-12-4">
+<div id="outline-container-org25ac85f" class="outline-3">
+<h3 id="org25ac85f"><span class="section-number-3">11.4</span> Jacobian Control - Cartesian Frame</h3>
+<div class="outline-text-3" id="text-11-4">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-font-latex-sedate">\node</span>[block] (G) at (0, 0) {<span class="org-font-latex-math">$G$</span>};
@@ -3454,9 +3302,9 @@
 </div>
 </div>
 
-<div id="outline-container-org25ac85f" class="outline-3">
-<h3 id="org25ac85f"><span class="section-number-3">12.5</span> Jacobian Control - Cartesian Frame</h3>
-<div class="outline-text-3" id="text-12-5">
+<div id="outline-container-org7387d82" class="outline-3">
+<h3 id="org7387d82"><span class="section-number-3">11.5</span> Jacobian Control - Cartesian Frame</h3>
+<div class="outline-text-3" id="text-11-5">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-font-latex-sedate">\node</span>[block] (G) at (0, 0) {<span class="org-font-latex-math">$G$</span>};
@@ -3484,8 +3332,8 @@
 </div>
 
 <div id="outline-container-orgdaa11ee" class="outline-3">
-<h3 id="orgdaa11ee"><span class="section-number-3">12.6</span> Modal Transformation</h3>
-<div class="outline-text-3" id="text-12-6">
+<h3 id="orgdaa11ee"><span class="section-number-3">11.6</span> Modal Transformation</h3>
+<div class="outline-text-3" id="text-11-6">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-font-latex-sedate">\node</span>[block] (G) at (0, 0) {<span class="org-font-latex-math">$G$</span>};
@@ -3512,8 +3360,8 @@
 </div>
 </div>
 <div id="outline-container-orgcb80f0a" class="outline-3">
-<h3 id="orgcb80f0a"><span class="section-number-3">12.7</span> SVD Control - Static</h3>
-<div class="outline-text-3" id="text-12-7">
+<h3 id="orgcb80f0a"><span class="section-number-3">11.7</span> SVD Control - Static</h3>
+<div class="outline-text-3" id="text-11-7">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-font-latex-sedate">\node</span>[block] (G) at (0, 0) {<span class="org-font-latex-math">$G$</span>};
@@ -3537,9 +3385,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org719d949" class="outline-3">
-<h3 id="org719d949"><span class="section-number-3">12.8</span> Inverse Based Control</h3>
-<div class="outline-text-3" id="text-12-8">
+<div id="outline-container-orgb91e8db" class="outline-3">
+<h3 id="orgb91e8db"><span class="section-number-3">11.8</span> Inverse Based Control</h3>
+<div class="outline-text-3" id="text-11-8">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-font-latex-sedate">\node</span>[block] (G) at (0, 0) {<span class="org-font-latex-math">$G$</span>};
@@ -3562,8 +3410,8 @@
 </div>
 </div>
 <div id="outline-container-orgd16b299" class="outline-3">
-<h3 id="orgd16b299"><span class="section-number-3">12.9</span> MIMO Sensor Fusion</h3>
-<div class="outline-text-3" id="text-12-9">
+<h3 id="orgd16b299"><span class="section-number-3">11.9</span> MIMO Sensor Fusion</h3>
+<div class="outline-text-3" id="text-11-9">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-font-latex-sedate">\node</span>[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
@@ -3605,8 +3453,8 @@
 </div>
 
 <div id="outline-container-orgf3558b1" class="outline-3">
-<h3 id="orgf3558b1"><span class="section-number-3">12.10</span> MIMO Sensor Fusion - Equivalent Feedback Control</h3>
-<div class="outline-text-3" id="text-12-10">
+<h3 id="orgf3558b1"><span class="section-number-3">11.10</span> MIMO Sensor Fusion - Equivalent Feedback Control</h3>
+<div class="outline-text-3" id="text-11-10">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-font-latex-sedate">\node</span>[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
@@ -3638,8 +3486,8 @@
 </div>
 </div>
 <div id="outline-container-orgdb2309b" class="outline-3">
-<h3 id="orgdb2309b"><span class="section-number-3">12.11</span> MIMO Sensor Fusion - Equivalent Feedback Control - bis</h3>
-<div class="outline-text-3" id="text-12-11">
+<h3 id="orgdb2309b"><span class="section-number-3">11.11</span> MIMO Sensor Fusion - Equivalent Feedback Control - bis</h3>
+<div class="outline-text-3" id="text-11-11">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-font-latex-sedate">\node</span>[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
@@ -3674,12 +3522,12 @@
 </div>
 </div>
 <div id="outline-container-org9b5adae" class="outline-2">
-<h2 id="org9b5adae"><span class="section-number-2">13</span> Others</h2>
-<div class="outline-text-2" id="text-13">
+<h2 id="org9b5adae"><span class="section-number-2">12</span> Others</h2>
+<div class="outline-text-2" id="text-12">
 </div>
 <div id="outline-container-orga17dc11" class="outline-3">
-<h3 id="orga17dc11"><span class="section-number-3">13.1</span> Huddle test</h3>
-<div class="outline-text-3" id="text-13-1">
+<h3 id="orga17dc11"><span class="section-number-3">12.1</span> Huddle test</h3>
+<div class="outline-text-3" id="text-12-1">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-font-latex-sedate">\coordinate</span>[] (U) at (0, 0) {};
@@ -3712,8 +3560,8 @@
 </div>
 </div>
 <div id="outline-container-orgfd6d9a2" class="outline-3">
-<h3 id="orgfd6d9a2"><span class="section-number-3">13.2</span> Coprime uncertainty</h3>
-<div class="outline-text-3" id="text-13-2">
+<h3 id="orgfd6d9a2"><span class="section-number-3">12.2</span> Coprime uncertainty</h3>
+<div class="outline-text-3" id="text-12-2">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-comment">% Blocs</span>
@@ -3747,8 +3595,8 @@
 </div>
 </div>
 <div id="outline-container-orgcc86b8d" class="outline-3">
-<h3 id="orgcc86b8d"><span class="section-number-3">13.3</span> Coprime uncertainty - Bis</h3>
-<div class="outline-text-3" id="text-13-3">
+<h3 id="orgcc86b8d"><span class="section-number-3">12.3</span> Coprime uncertainty - Bis</h3>
+<div class="outline-text-3" id="text-12-3">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-comment">% Blocs</span>
@@ -3782,8 +3630,8 @@
 </div>
 </div>
 <div id="outline-container-org7aaf260" class="outline-3">
-<h3 id="org7aaf260"><span class="section-number-3">13.4</span> Shaped Plant</h3>
-<div class="outline-text-3" id="text-13-4">
+<h3 id="org7aaf260"><span class="section-number-3">12.4</span> Shaped Plant</h3>
+<div class="outline-text-3" id="text-12-4">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-font-latex-sedate">\node</span>[block] (G) {<span class="org-font-latex-math">$G$</span>};
@@ -3809,8 +3657,8 @@
 </div>
 </div>
 <div id="outline-container-org4267549" class="outline-3">
-<h3 id="org4267549"><span class="section-number-3">13.5</span> Practical Implementation</h3>
-<div class="outline-text-3" id="text-13-5">
+<h3 id="org4267549"><span class="section-number-3">12.5</span> Practical Implementation</h3>
+<div class="outline-text-3" id="text-12-5">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-font-latex-sedate">\node</span>[block] (prefilter) {<span class="org-font-latex-math">$K</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">s(0)W</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">2(0)$</span>};
@@ -3842,8 +3690,8 @@
 </div>
 </div>
 <div id="outline-container-org391f2aa" class="outline-3">
-<h3 id="org391f2aa"><span class="section-number-3">13.6</span> Anti-Windup</h3>
-<div class="outline-text-3" id="text-13-6">
+<h3 id="org391f2aa"><span class="section-number-3">12.6</span> Anti-Windup</h3>
+<div class="outline-text-3" id="text-12-6">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-font-latex-sedate">\node</span>[block={1cm}{1.5cm}] (W1) {<span class="org-font-latex-math">$W</span><span class="org-font-latex-math"><span class="org-font-latex-script-char">_</span></span><span class="org-font-latex-math">1$</span>};
@@ -3877,8 +3725,8 @@
 </div>
 </div>
 <div id="outline-container-org5ec796a" class="outline-3">
-<h3 id="org5ec796a"><span class="section-number-3">13.7</span> Block Diagonal Scalings</h3>
-<div class="outline-text-3" id="text-13-7">
+<h3 id="org5ec796a"><span class="section-number-3">12.7</span> Block Diagonal Scalings</h3>
+<div class="outline-text-3" id="text-12-7">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-comment">% Blocs</span>
@@ -3912,8 +3760,8 @@
 </div>
 </div>
 <div id="outline-container-org11d8211" class="outline-3">
-<h3 id="org11d8211"><span class="section-number-3">13.8</span> Disturbance Observer</h3>
-<div class="outline-text-3" id="text-13-8">
+<h3 id="org11d8211"><span class="section-number-3">12.8</span> Disturbance Observer</h3>
+<div class="outline-text-3" id="text-12-8">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-font-latex-sedate">\node</span>[addb] (addfb) at (0, 0){};
@@ -3955,8 +3803,8 @@
 </div>
 
 <div id="outline-container-org86f8a99" class="outline-3">
-<h3 id="org86f8a99"><span class="section-number-3">13.9</span> Disturbance Observer with controller</h3>
-<div class="outline-text-3" id="text-13-9">
+<h3 id="org86f8a99"><span class="section-number-3">12.9</span> Disturbance Observer with controller</h3>
+<div class="outline-text-3" id="text-12-9">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-font-latex-sedate">\node</span>[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
@@ -4003,8 +3851,8 @@
 </div>
 
 <div id="outline-container-org7ddb991" class="outline-3">
-<h3 id="org7ddb991"><span class="section-number-3">13.10</span> Internal Model Control</h3>
-<div class="outline-text-3" id="text-13-10">
+<h3 id="org7ddb991"><span class="section-number-3">12.10</span> Internal Model Control</h3>
+<div class="outline-text-3" id="text-12-10">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-comment">% Blocks</span>
@@ -4042,9 +3890,9 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orgb91e8db" class="outline-3">
-<h3 id="orgb91e8db"><span class="section-number-3">13.11</span> Inverse Based Control</h3>
-<div class="outline-text-3" id="text-13-11">
+<div id="outline-container-orge632582" class="outline-3">
+<h3 id="orge632582"><span class="section-number-3">12.11</span> Inverse Based Control</h3>
+<div class="outline-text-3" id="text-12-11">
 <div class="org-src-container">
 <pre class="src src-latex"><span class="org-font-latex-sedate"><span class="org-keyword">\begin</span></span>{<span class="org-function-name">tikzpicture</span>}
   <span class="org-font-latex-sedate">\node</span>[addb={+}{}{}{}{-}] (addfb) at (0, 0){};
@@ -4077,7 +3925,7 @@
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Dehaeze Thomas</p>
-<p class="date">Created: 2020-03-01 dim. 21:29</p>
+<p class="date">Created: 2020-03-01 dim. 21:33</p>
 </div>
 </body>
 </html>
